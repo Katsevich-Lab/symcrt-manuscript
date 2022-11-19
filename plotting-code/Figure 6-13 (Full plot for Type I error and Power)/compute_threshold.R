@@ -1,8 +1,3 @@
-library(dplyr)
-library(tibble)
-library(reshape)
-library(MASS)
-
 # choose a way to find the quantile: fit a Gaussian or use the empirical quantile
 method <- "fit"
 

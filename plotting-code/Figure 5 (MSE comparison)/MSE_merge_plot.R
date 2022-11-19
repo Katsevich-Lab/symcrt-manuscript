@@ -3,16 +3,6 @@
 # Plot Figure 5.
 #
 ######################################################################
-library(ggplot2)
-library(dplyr)
-library(tibble)
-library(MASS)
-library(cowplot)
-library(grid)
-library(gridExtra)
-
-TEXTWIDTH = 6.3
-TEXTHEIGHT = 8.64
 
 # specify which setting we consider
 sim_version <- "diagnostic"
@@ -33,8 +23,8 @@ MSE_null <- result_null |>
     MSE_se = sd(value, na.rm = TRUE) / sqrt(n())
   ) |>
   ungroup() |>
-  dplyr::group_by_at(name) |>
-  dplyr::mutate(nu_scale = nu/max(nu))
+  group_by_at(name) |>
+  mutate(nu_scale = nu/max(nu))
 
 MSE_alternative <- result_alternative |>
   filter(parameter %in% c("MSE_total_X_Z", "MSE_total_Y_Z")) |>
@@ -44,8 +34,8 @@ MSE_alternative <- result_alternative |>
     MSE_se = sd(value, na.rm = TRUE) / sqrt(n())
   ) |>
   ungroup() |>
-  dplyr::group_by_at(name) |>
-  dplyr::mutate(theta_scale = theta/max(theta))
+  group_by_at(name) |>
+  mutate(theta_scale = theta/max(theta))
 
 
 MSE_null <- MSE_null |> as.data.frame()

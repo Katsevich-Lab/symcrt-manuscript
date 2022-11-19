@@ -33,7 +33,7 @@ methods_df <- methods_df |>
     infer_method = test_type,
     way_to_learn = test_hyperparams$way_to_learn
   ) |>
-  dplyr::select(reg_method, method, infer_method)
+  select(reg_method, method, infer_method)
 
 
 
@@ -52,10 +52,10 @@ results <- readRDS(simresults_dir)
 # rename grid_row_id as grid_id
 if("grid_row_id" %in% names(results)){
   results <- results |>
-    dplyr::rename(grid_id = grid_row_id) |>
+    rename(grid_id = grid_row_id) |>
     # NOTE: grid_id is a factor of integers, but potentially in the wrong order.
     # To get the right order, convert to character before converting to integer.
-    dplyr::mutate(grid_id = as.integer(as.character(grid_id)))
+    mutate(grid_id = as.integer(as.character(grid_id)))
 }
 
 
@@ -76,4 +76,4 @@ colnames(grid_ind) <- c("grid_id", name, "nu")
 result_null <- results[which(results$grid_id %in% grid_ind$grid_id),] |>
   left_join(grid_ind, by = "grid_id") |>
   left_join(methods_df, by = "method") |>
-  dplyr::mutate(test_type = sprintf("%s setting (shared MSE)", setting))
+  mutate(test_type = sprintf("%s setting (shared MSE)", setting))

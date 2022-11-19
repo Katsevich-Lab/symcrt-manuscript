@@ -1,26 +1,8 @@
-######################################################################
-#
-# Plot Figure 2
-#
-######################################################################
-
-library(ggplot2)
-library(gridExtra)
-library(readr)
-library(dplyr)
-library(cowplot)
-
-TEXTWIDTH = 6.3
-TEXTHEIGHT = 8.64
-
 # define type-I error computation function
 typeI_err <- function(a, alpha){
   1 - pnorm(qnorm(1-alpha/2) - a) + 
     pnorm(-qnorm(1-alpha/2) - a)
 }
-
-
-########## reproduce the data using following code ##########
 
 # Li and Liu (2022) setting
 MC <- 100
@@ -37,8 +19,8 @@ for (r in 1:MC) {
   rho <- 0.5
   sig_Z <- katlabutils::generate_cov_ar1(rho = rho, d = p)
   Z <- katlabutils::fast_generate_mvn(mean = numeric(p),
-                                 covariance = sig_Z,
-                                 num_samples = n)
+                                      covariance = sig_Z,
+                                      num_samples = n)
   res_X_Z <- rnorm(n)
   res_Y_Z <- rnorm(n)
   X <- Z %*% gamma + res_X_Z
@@ -52,7 +34,7 @@ print(mean(confouding_level_Li))
 print(sd(confouding_level_Li))
 # 1.508544
 
-write.csv(mean(confouding_level_Li), "Li.csv")
+write.csv(mean(confouding_level_Li), "simulation-results/Li.csv")
 
 
 # Liu et al (2021) adjacent setting
@@ -126,8 +108,8 @@ beta_rd[nonzero_seq_C] <- magnitude*(2*rbinom(s, 1, 0.5) - 1)
 rho <- 0.3
 sig_Z <- katlabutils::generate_cov_ar1(rho = rho, d = p)
 covariate <- katlabutils::fast_generate_mvn(mean = numeric(p),
-                                       covariance = sig_Z,
-                                       num_samples = MC)
+                                            covariance = sig_Z,
+                                            num_samples = MC)
 
 # scale the matrix as performed in the orginal paper
 covariate_scale <- covariate
@@ -160,7 +142,7 @@ rd_Candès$setting <- "Candès et al.: Randomly Distributed Signals"
 rd_Candès$type_I_err <- typeI_err(rd_Candès$confounding, 0.05)
 
 # save the csv file
-write.csv(rd_Candès, "Candès.csv")
+write.csv(rd_Candès, "simulation-results/Candès.csv")
 
 # Liu et al setting
 eqsp_Liu$setting <- "Liu et al.: Equally Spaced Signals"
@@ -175,67 +157,4 @@ Liu$class[which((Liu$index %in% c(1:s)) & (Liu$setting == "Liu et al.: Concentra
 # compute type-I error for Liu et al.
 Liu$type_I_err <- typeI_err(Liu$confounding, 0.05)
 
-write.csv(Liu, "Liu.csv")
-
-########## reproduce the plot using saved data (or data generated above) ##########
-
-Li <- read_csv("Li.csv")
-Liu <- read_csv("Liu.csv")
-rd_Candès <- read_csv("Candès.csv")
-
-# combine data
-simulation_data <- rbind(Liu, rd_Candès) %>%
-  mutate(setting = factor(setting, 
-                          levels = c("Candès et al.: Randomly Distributed Signals",
-                                     "Liu et al.: Equally Spaced Signals",
-                                     "Liu et al.: Concentrated Signals"),
-                          labels = c("Candès et al. (2018)\nRandomly Distributed Signals",
-                                     "Liu et al. (2022)\nEqually Spaced Signals",
-                                     "Liu et al. (2022)\nConcentrated Signals")))
-
-# dot + line plot
-
-dotplot <- simulation_data %>%
-  filter(class == "Null") %>%
-  ggplot(aes(x = index, y = type_I_err)) +
-  scale_y_continuous(limits = c(0, 1)) +
-  geom_point(size = 1) + 
-  geom_hline(yintercept = 0.05, linetype = "dashed", color = "red") +
-  geom_hline(yintercept = typeI_err(Li$x, 0.05), color = "dodgerblue") +
-  ggh4x::facet_grid2(. ~ setting, scales = "free", independent = "x") +
-  ylab("Type I error\n(marginal GCM test)") +
-  xlab("Position of variable being tested") +
-  geom_rug(data = simulation_data[which(simulation_data$class == "Alternative"), ],
-           aes(x = index),
-           inherit.aes = FALSE,
-           colour = "darkgreen") +
-  theme_bw()
-  
-# histogram plot
-histplot <- simulation_data %>%
-  filter(class == "Null") %>%
-  ggplot(aes(x = type_I_err)) +
-  geom_histogram(bins = 50, colour = "black") + 
-  geom_vline(xintercept = 0.05, linetype = "dashed", colour = "red") +
-  geom_vline(xintercept = typeI_err(Li$x, 0.05), colour = "dodgerblue") +
-  facet_wrap(~setting, scales = "free_y") + 
-  scale_x_continuous(limits = c(0,1)) +
-  xlab("Type I error (marginal GCM test)") +
-  ylab("Frequency") +
-  theme_bw() + 
-  theme(strip.background = element_blank(),
-        strip.text.x = element_blank(),
-        axis.text.y = element_blank(),
-        axis.ticks.y = element_blank())
-
-# combine plots
-plot <- plot_grid(dotplot, histplot, 
-                  nrow = 2, 
-                  align = "v")
-
-# save the result
-ggsave(plot = plot,
-       filename = "type_I_Err_inflation_comparison.pdf", 
-       device = "pdf",
-       width = TEXTWIDTH, 
-       height = 0.5*TEXTHEIGHT)
+write.csv(Liu, "simulation-results/Liu.csv")

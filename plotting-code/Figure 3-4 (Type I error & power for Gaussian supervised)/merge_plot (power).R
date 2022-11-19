@@ -3,24 +3,15 @@
 # Plot Figure 4.
 #
 ######################################################################
-library(ggplot2) 
-library(dplyr)
-library(tibble)
-library(grid)
-library(RColorBrewer)
-library(gridExtra)
-library(reshape)
-library(cowplot)
 
-TEXTWIDTH = 6.3
-TEXTHEIGHT = 8.64
+
+source("plotting-code/plotting_setup.R")
 
 # specify which setting we consider
-sim_version <- "v1"
 distribution <- "gaussian"
 way_to_learn <- "supervised"
 setting <- "alternative"
-source("help.R")
+source("plotting-code/Figure 3-4 (Type I error & power for Gaussian supervised)/help.R")
 
 # create the method_list 
 methods_df <- generate_method_list(method_strings = method_strings,
@@ -29,12 +20,12 @@ methods_df <- generate_method_list(method_strings = method_strings,
 
 
 # extract the parameter_grid from the specifier object
-simspec_dir <- sprintf("%s/private/spec_objects/%s/sim_spec_%s_%s_%s.rds",
-                       .get_config_path("LOCAL_SYMCRT_DATA_DIR"),
-                       sim_version,
-                       distribution,
-                       way_to_learn,
-                       setting)
+simspec_dir <- sprintf(
+  "simulation-code/sim_spec_objects/sim_spec_%s_%s_%s.rds",
+  distribution,
+  way_to_learn,
+  setting
+)
 
 simspec_file <- readRDS(simspec_dir)
 p_grid <- simspec_file@parameter_grid
@@ -48,12 +39,13 @@ methods_df$infer_method[which(methods_df$infer_method == "MaxwayCRT")] <- "Maxwa
 threshold$infer_method[which(threshold$infer_method == "MaxwayCRT")] <- "Maxway CRT"
 
 # read the results from disk
-simresults_dir <- sprintf("%s/private/results/%s/%s_%s_%s_results.rds",
-                          .get_config_path("LOCAL_SYMCRT_DATA_DIR"),
-                          sim_version,
-                          distribution,
-                          way_to_learn,
-                          setting)
+simresults_dir <- sprintf(
+  "simulation-results/%s_%s_%s_results.rds",
+  distribution,
+  way_to_learn,
+  setting
+)
+
 
 results <- readRDS(simresults_dir)
 
@@ -302,7 +294,7 @@ g <- grid.arrange(arrangeGrob(plot, left = y.grob, bottom = x.grob, nrow=1),
 
 # save the plot
 ggsave(plot = g,
-       filename = sprintf("%s_%s_setting_partial_power.pdf", distribution, way_to_learn), 
+       filename = sprintf("figures/%s_%s_setting_partial_power.pdf", distribution, way_to_learn), 
        device = "pdf",
        width = TEXTWIDTH, 
        height = 0.6*TEXTHEIGHT)
