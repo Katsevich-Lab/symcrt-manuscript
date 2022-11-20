@@ -185,7 +185,7 @@ for (q in 1:length(distribution_list)) {
       scale_linetype_manual(values = c("solid","dashed", "solid", "dotted", "dashed", "solid")) +
       scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2"))+
       geom_hline(yintercept = level, linetype = "dashed") +
-      theme_bw() + 
+      plotting_theme + 
       theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),
             axis.title.x = element_blank(),
             axis.ticks.x = element_blank(),
@@ -208,7 +208,7 @@ for (q in 1:length(distribution_list)) {
       scale_linetype_manual(values = c("solid","dashed", "solid", "dotted", "dashed", "solid")) +
       scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2"))+
       geom_hline(yintercept = level, linetype = "dashed") +
-      theme_bw() + 
+      plotting_theme + 
       theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),
             axis.title.x = element_blank(),
             axis.ticks.x = element_blank(),
@@ -232,7 +232,7 @@ for (q in 1:length(distribution_list)) {
       scale_linetype_manual(values = c("solid","dashed", "solid", "dotted", "dashed", "solid")) +
       scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2"))+
       geom_hline(yintercept = level, linetype = "dashed") +
-      theme_bw() + 
+      plotting_theme + 
       theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),
             axis.title.x = element_blank(),
             axis.ticks.x = element_blank(),
@@ -256,7 +256,7 @@ for (q in 1:length(distribution_list)) {
       scale_linetype_manual(values = c("solid","dashed", "solid", "dotted", "dashed", "solid")) +
       scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2"))+
       geom_hline(yintercept = level, linetype = "dashed") +
-      theme_bw() + 
+      plotting_theme + 
       theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),
             axis.title.x = element_blank(),
             axis.ticks.x = element_blank(),
@@ -281,7 +281,7 @@ for (q in 1:length(distribution_list)) {
       scale_linetype_manual(values = c("solid","dashed", "solid", "dashed", "solid")) +
       scale_color_manual(values = c(rep("red", 2), "#90ee90", "#90ee90", "#129cf2"))+
       geom_hline(yintercept = level, linetype = "dashed") +
-      theme_bw() +  
+      plotting_theme +  
       theme(axis.title.y = element_blank(),
             legend.position = "bottom",
             legend.key.size = unit(0.4, 'cm')) + 
@@ -301,7 +301,7 @@ for (q in 1:length(distribution_list)) {
       scale_linetype_manual(values = c("dotted")) +
       scale_color_manual(values = c("grey"))+
       geom_hline(yintercept = level, linetype = "dashed") +
-      theme_bw() +  
+      plotting_theme +  
       theme(axis.title.y = element_blank(),
             legend.position = "bottom",
             legend.key.size = unit(0.4, 'cm')) + 

@@ -161,7 +161,7 @@ p1 =  MSE_null |>
   geom_point(size = 0.5) +
   geom_line() +
   scale_color_manual(values = c("red", "#90ee90"))+
-  theme_bw() + 
+  plotting_theme + 
   theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm"), size = 10),
         strip.text.y = element_text(margin = margin(0,0.08,0,0.08, "cm"), size = 10),
         axis.title.y = element_blank(),
@@ -184,7 +184,7 @@ p2 =  MSE_alternative |>
   geom_point(size = 0.5) +
   geom_line() +
   scale_color_manual(values = c("red", "#90ee90"))+
-  theme_bw() + 
+  plotting_theme + 
   theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm"), size = 10),
         strip.text.y = element_text(margin = margin(0,0.08,0,0.08, "cm"), size = 10),
         axis.title.y = element_blank(),
@@ -207,7 +207,7 @@ auxiliary =  MSE_null |>
   geom_point(size = 0.5) +
   geom_line() +
   scale_color_manual(values = c("red", "#90ee90"))+
-  theme_bw() + 
+  plotting_theme + 
   theme(axis.ticks.x = element_blank(),
         axis.text.x = element_blank(),
         axis.title.y = element_blank(),
@@ -216,8 +216,8 @@ auxiliary =  MSE_null |>
         legend.position="none")+
   xlab("Confounding strength")+
   theme(axis.title.y = element_blank(),
-       legend.position = "bottom") + 
-  theme(legend.title=element_blank())
+       legend.position = "bottom",
+       legend.title=element_blank())
 
 legend <- get_legend(auxiliary)
 

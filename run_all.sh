@@ -2,14 +2,23 @@
 # REPRODUCE THE SIMULATIONS
 #############################################################
 
+max_gb=7.5
+profile="standard"
+
 ### REPRODUCE THE V1 SIMULATION ###
-# TBD: Gene
+sim_version_fp="simulation-code/sim_versions/sim_v1.R"
+sim_spec_dir="simulation-code/sim_spec_objects/v1"
+output_dir="simulation_results/v1"
+bash simulation-code/run_simulation.sh $sim_version_fp $sim_spec_dir $output_dir $max_gb $profile
 
 ### REPRODUCE THE DIAGNOSTIC SIMULATION ###
-# TBD: Gene
+sim_version_fp="simulation-code/sim_versions/sim_diagnostic.R"
+sim_spec_dir="simulation-code/sim_spec_objects/diagnostic"
+output_dir="simulation_results/diagnostic"
+bash simulation-code/run_simulation.sh $sim_version_fp $sim_spec_dir $output_dir $max_gb $profile
 
 ### REPRODUCE THE CONFOUNDING SIMULATION ###
-# TBD: Gene
+Rscript simulation-code/assess-confounding-level.R
 
 #############################################################
 # PRODUCE THE PLOTS

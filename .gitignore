@@ -19,3 +19,4 @@ trace.txt
 work/
 *.fdb_latexmk
 *.fls
+packrat/lib*/
