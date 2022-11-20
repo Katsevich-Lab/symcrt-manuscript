@@ -14,7 +14,7 @@ The code to reproduce the numerical simulations is in `simulation-code`. Some of
 
 - Identify a computing environment (e.g. a laptop, high performance computing cluster, or cloud computing platform) you would like to use. If you would like to reproduce a subset of Figures 3-13, a distributed computing environment (i.e. cluster or cloud) is strongly recommended.
 - Check that you have R version 4.1.3 or higher installed. Copies of all necessary R packages will be installed for you via [`renv`](https://rstudio.github.io/renv/articles/renv.html). 
-- [Install Nextflow](https://www.nextflow.io/docs/latest/getstarted.html) or upgrade to the latest version.
+- [Install Nextflow](https://www.nextflow.io/docs/latest/getstarted.html) or upgrade to the latest version, and [configure](https://www.nextflow.io/docs/latest/config.html#) it for use in your computing environment.
 - Clone this repository into your computing environment.
 - Optional: Determine how much RAM is available to each core (code defaults to 8GB).
 - Optional/advanced: Determine which [Nextflow profile](https://www.nextflow.io/docs/latest/config.html#config-profiles) you would like to use (code defaults to `standard`). 
