@@ -1,6 +1,6 @@
 # Reconciling model-X and doubly robust approaches to conditional independence testing
 
-This repository reproduces the results reported in the following paper:
+This repository reproduces the results reported in arXiv version 1 the following paper:
 
 Z. Niu, A. Chakraborty, O. Dukes, E. Katsevich.
 "Reconciling model-X and doubly robust approaches to conditional independence testing." 
