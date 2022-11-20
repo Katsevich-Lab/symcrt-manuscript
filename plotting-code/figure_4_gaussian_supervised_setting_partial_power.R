@@ -8,20 +8,24 @@
 source("plotting-code/plotting_setup.R")
 
 # specify which setting we consider
+sim_version <- "v1"
 distribution <- "gaussian"
 way_to_learn <- "supervised"
 setting <- "alternative"
-source("plotting-code/Figure 3-4 (Type I error & power for Gaussian supervised)/help.R")
+source("simulation-code/sim_versions/sim_v1.R")
 
 # create the method_list 
-methods_df <- generate_method_list(method_strings = method_strings,
-                                   distribution = distribution,
-                                   way_to_learn = way_to_learn)
+methods_df <- symcrt::generate_method_df_from_strings(
+  method_strings = method_strings[[setting]],
+  distribution = distribution,
+  way_to_learn = way_to_learn
+)
 
 
 # extract the parameter_grid from the specifier object
 simspec_dir <- sprintf(
-  "simulation-code/sim_spec_objects/sim_spec_%s_%s_%s.rds",
+  "simulation-code/sim_spec_objects/%s/sim_spec_%s_%s_%s.rds",
+  sim_version,
   distribution,
   way_to_learn,
   setting
@@ -32,7 +36,7 @@ p_grid <- simspec_file@parameter_grid
 
 
 # compute adaptive threshold
-source("compute_threshold.R")
+source("plotting-code/compute_threshold.R")
 
 # change MaxwayCRT to Maxway CRT
 methods_df$infer_method[which(methods_df$infer_method == "MaxwayCRT")] <- "Maxway CRT"
@@ -40,7 +44,8 @@ threshold$infer_method[which(threshold$infer_method == "MaxwayCRT")] <- "Maxway 
 
 # read the results from disk
 simresults_dir <- sprintf(
-  "simulation-results/%s_%s_%s_results.rds",
+  "simulation-results/%s/%s_%s_%s_results.rds",
+  sim_version,
   distribution,
   way_to_learn,
   setting

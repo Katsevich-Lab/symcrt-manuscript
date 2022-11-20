@@ -1,26 +1,17 @@
 ######################################################################
 #
-# Plot Figures 7, 9, 11, 13.
+# Plot Figures 6, 8, 10, 12.
 #
 ######################################################################
-library(ggplot2) 
-library(dplyr)
-library(tibble)
-library(grid)
-library(RColorBrewer)
-library(gridExtra)
-library(reshape)
-library(cowplot)
 
-TEXTWIDTH = 6.3
-TEXTHEIGHT = 8.64
+source("plotting-code/plotting_setup.R")
 
 # specify which setting we consider
 sim_version <- "v1"
 distribution_list <- c("gaussian", "binomial")
 way_to_learn_list <- c("supervised", "semi_supervised")
-setting <- "alternative"
-source("help.R")
+setting <- "null"
+source("simulation-code/sim_versions/sim_v1.R")
 
 for (q in 1:length(distribution_list)) {
   for (p in 1:length(way_to_learn_list)) {
@@ -28,37 +19,71 @@ for (q in 1:length(distribution_list)) {
     distribution <- distribution_list[q]
     way_to_learn <- way_to_learn_list[p]
     # create the method_list 
-    methods_df <- generate_method_list(method_strings = method_strings,
-                                       distribution = distribution,
-                                       way_to_learn = way_to_learn)
+    methods_df <- symcrt::generate_method_df_from_strings(
+      method_strings = method_strings[[setting]],
+      distribution = distribution,
+      way_to_learn = way_to_learn
+    )
     
+    for (i in 1:nrow(methods_df)) {
+      test_hyperparams <- methods_df$test_hyperparams[[i]]
+      if(methods_df$test_type[i] == "GCM"){
+        test_hyperparams$normalize <- "self_normalized"
+      }else if(methods_df$test_type[i] == "MaxwayCRT"){
+        test_hyperparams$normalize <- "unnormalized"
+      }else if(test_hyperparams$normalize){
+        test_hyperparams$normalize <- "normalized"
+      }else if(!test_hyperparams$normalize){
+        test_hyperparams$normalize <- "unnormalized"
+      }
+      methods_df$test_hyperparams[[i]] <- test_hyperparams
+    }
+    
+    # augment methods_df with reg_method, lambda (for now ignore lambda) , and method
+    methods_df <- methods_df |>
+      dplyr::mutate(method_idx = row_number()) |>
+      dplyr::rowwise() |>
+      dplyr::mutate(
+        method = sprintf(
+          "%s_%s_%s_%s_%d",
+          test_type,
+          test_hyperparams$way_to_learn,
+          X_on_Z_reg$mean_method_type,
+          Y_on_Z_reg$mean_method_type,
+          method_idx),
+        infer_method = test_type,
+        reg_method = X_on_Z_reg$mean_method_type,
+        X_on_Z_reg = X_on_Z_reg$mean_method_type,
+        Y_on_Z_reg = Y_on_Z_reg$mean_method_type,
+        normalization = test_hyperparams$normalize
+      ) |>
+      dplyr::select(method, infer_method, reg_method, X_on_Z_reg, Y_on_Z_reg, normalization)
     
     # extract the parameter_grid from the specifier object
-    simspec_dir <- sprintf("%s/private/spec_objects/%s/sim_spec_%s_%s_%s.rds",
-                           .get_config_path("LOCAL_SYMCRT_DATA_DIR"),
-                           sim_version,
-                           distribution,
-                           way_to_learn,
-                           setting)
+    simspec_dir <- sprintf(
+      "simulation-code/sim_spec_objects/%s/sim_spec_%s_%s_%s.rds",
+      sim_version,
+      distribution,
+      way_to_learn,
+      setting
+    )
     
     simspec_file <- readRDS(simspec_dir)
     p_grid <- simspec_file@parameter_grid
     
-    
-    # compute adaptive threshold
-    source("compute_threshold.R")
-    
     # change MaxwayCRT to Maxway CRT
     methods_df$infer_method[which(methods_df$infer_method == "MaxwayCRT")] <- "Maxway CRT"
-    threshold$infer_method[which(threshold$infer_method == "MaxwayCRT")] <- "Maxway CRT"
+    
+    
     
     # read the results from disk
-    simresults_dir <- sprintf("%s/private/results/%s/%s_%s_%s_results.rds",
-                              .get_config_path("LOCAL_SYMCRT_DATA_DIR"),
-                              sim_version,
-                              distribution,
-                              way_to_learn,
-                              setting)
+    simresults_dir <- sprintf(
+      "simulation-results/%s/%s_%s_%s_results.rds",
+      sim_version,
+      distribution,
+      way_to_learn,
+      setting
+    )
     
     results <- readRDS(simresults_dir)
     
@@ -95,7 +120,7 @@ for (q in 1:length(distribution_list)) {
     # plot purely the result for dCRT
     result <- list()
     varying_values <- colnames(p_grid)[1:4]
-    rejection <- list()
+    type_I_err <- list()
     for (k in 1:length(varying_values)) {
       # find the varying index
       name <- varying_values[k]
@@ -105,57 +130,61 @@ for (q in 1:length(distribution_list)) {
       index_name <- which(colnames(p_grid)==name)
       grid_ind <- data.frame(grid_id = p_grid$grid_id[which(p_grid[,col_index]==TRUE)],
                              name_1 = p_grid[which(p_grid[,col_index]==TRUE),index_name],
-                             name_2 = p_grid[which(p_grid[,col_index]==TRUE),]$theta)
+                             name_2 = p_grid[which(p_grid[,col_index]==TRUE),]$nu)
       
       
       # rename grid_ind
-      colnames(grid_ind) <- c("grid_id", name, "theta")
+      colnames(grid_ind) <- c("grid_id", name, "nu")
       # join results with p_grid and methods_df
       result[[k]] <- results[which(results$grid_id %in% grid_ind$grid_id),] |>
         dplyr::left_join(grid_ind, by = "grid_id") |>
         dplyr::left_join(methods_df, by = "method")
       
-      # join results with methods_df and threshold
-      result[[k]] <- result[[k]] |>
-        left_join(threshold[which(threshold$grid_id %in% grid_ind$grid_id), ], 
-                  by = c("infer_method", "reg_method", "grid_id"))
+      # choose the result that is normalized
+      result[[k]] <- result[[k]] |> 
+        dplyr::filter(X_on_Z_reg == Y_on_Z_reg) |>
+        dplyr::filter(normalization != "normalized")
       
-      ### compute rejection rate
-      rejection_rate <- result[[k]] |>
-        filter(parameter == "test_statistic") |>
-        group_by_at(c(name, "theta", "infer_method", "reg_method")) |>
-        summarise(
-          rejection_rate = mean(value < cutoff_lower, na.rm = TRUE) + 
-            mean(value > cutoff_upper, na.rm = TRUE)
+      ### create Type-I error plot
+      
+      # compute Type-I errors and standard errors
+      level <- 0.05
+      type_I_error <- result[[k]] |>
+        dplyr::filter(parameter == "p_value") |>
+        dplyr::group_by_at(c(name, "nu", "normalization", "reg_method", "X_on_Z_reg", "Y_on_Z_reg", "infer_method")) |>
+        dplyr::summarise(
+          type_I_err = mean(value <= level, na.rm = TRUE),
+          type_I_err_se = sd(value <= level, na.rm = TRUE) / sqrt(n())
         ) |>
         dplyr::left_join(variable_parameters[(5*(k-1)+1):(5*k),], by = name) |>
         dplyr::mutate(infer_reg = sprintf("%s (%s)", infer_method, reg_method)) |>
         ungroup() |>
         dplyr::group_by_at(name) |>
-        dplyr::mutate(theta_scale = theta/max(theta))
+        dplyr::mutate(nu_scale = nu/max(nu))
       
       # change Maxway CRT(LASSO) to Maxway CRT
-      rejection_rate$infer_reg[which(rejection_rate$infer_reg == "Maxway CRT (LASSO)")] <- "Maxway CRT"
+      type_I_error$infer_reg[which(type_I_error$infer_reg == "Maxway CRT (LASSO)")] <- "Maxway CRT"
       
-      
-      # store the rejection rate
-      rejection[[k]] <- rejection_rate
+      # store the type_I_error
+      type_I_err[[k]] <- type_I_error
     }
     
-    # creat ggplot object
-    p1 =  rejection[[1]] |>
+    
+    # create ggplot object
+    p1 =  type_I_err[[1]] |>
       dplyr::mutate(variable_setting = factor(variable_setting, levels=c("n = 100","n = 200","n = 400","n = 800","n = 1600"))) |>
-      ggplot(aes_string(x = "theta_scale", 
-                        y = "rejection_rate",
+      ggplot(aes_string(x = "nu_scale", 
+                        y = "type_I_err",
                         colour = "infer_reg",
                         linetype = "infer_reg")) + 
       scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
-      scale_y_continuous(breaks = c(0, 1), minor_breaks = seq(0, 1, 0.25), limits = c(0.02, NA)) +
+      scale_y_continuous(breaks = c(0, 1), minor_breaks = seq(0, 1, 0.25)) +
       facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
       geom_point(size = 0.5) +
       geom_line() +
       scale_linetype_manual(values = c("solid","dashed", "solid", "dotted", "dashed", "solid")) +
       scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2"))+
+      geom_hline(yintercept = level, linetype = "dashed") +
       theme_bw() + 
       theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),
             axis.title.x = element_blank(),
@@ -165,145 +194,142 @@ for (q in 1:length(distribution_list)) {
             legend.position="none")
     
     
-    p2 =  rejection[[2]] |>
+    p2 =  type_I_err[[2]] |>
       dplyr::mutate(variable_setting = factor(variable_setting, levels=c("d = 100","d = 200","d = 400","d = 800","d = 1600"))) |>
-      ggplot(aes_string(x = "theta_scale", 
-                        y = "rejection_rate",
-                        colour = "infer_reg",
-                        linetype = "infer_reg")) + 
-      scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
-      scale_y_continuous(minor_breaks = seq(0, 1, 0.25), limits = c(0.02, NA)) +
-      facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
-      geom_point(size = 0.5) +
-      geom_line() +
-      scale_linetype_manual(values = c("solid","dashed", "solid", "dotted", "dashed", "solid")) +
-      scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2"))+
-      theme_bw() + 
-      theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),
-            axis.title.x = element_blank(),
-            axis.ticks.x = element_blank(),
-            axis.text.x = element_blank(),
-            axis.title.y = element_blank(),
-            axis.ticks.y = element_blank(),
-            axis.text.y = element_blank(),
-            legend.position="none")
-    
-    p3 =  rejection[[3]] |>
-      dplyr::mutate(variable_setting = factor(variable_setting, levels=c("s = 5","s = 10","s = 20","s = 40","s = 80"))) |>
-      ggplot(aes_string(x = "theta_scale", 
-                        y = "rejection_rate",
-                        colour = "infer_reg",
-                        linetype = "infer_reg")) + 
-      scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
-      scale_y_continuous(minor_breaks = seq(0, 1, 0.25), limits = c(0.02, NA)) +
-      facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
-      geom_point(size = 0.5) +
-      geom_line() +
-      scale_linetype_manual(values = c("solid","dashed", "solid", "dotted", "dashed", "solid")) +
-      scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2"))+
-      theme_bw() + 
-      theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),
-            axis.title.x = element_blank(),
-            axis.ticks.x = element_blank(),
-            axis.text.x = element_blank(),
-            axis.title.y = element_blank(),
-            axis.ticks.y = element_blank(),
-            axis.text.y = element_blank(),
-            legend.position="none")
-    
-    p4 =  rejection[[4]] |>
-      dplyr::mutate(variable_setting = factor(variable_setting, levels=c("rho = 0","rho = 0.2","rho = 0.4","rho = 0.6","rho = 0.8"))) |>
-      ggplot(aes_string(x = "theta_scale", 
-                        y = "rejection_rate",
-                        colour = "infer_reg",
-                        linetype = "infer_reg")) + 
-      scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
-      scale_y_continuous(minor_breaks = seq(0, 1, 0.25), limits = c(0.02, NA)) +
-      facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
-      geom_point(size = 0.5) +
-      geom_line() +
-      scale_linetype_manual(values = c("solid","dashed", "solid", "dotted", "dashed", "solid")) +
-      scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2"))+
-      theme_bw() + 
-      theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),
-            axis.title.x = element_blank(),
-            axis.ticks.x = element_blank(),
-            axis.text.x = element_blank(),
-            axis.title.y = element_blank(),
-            axis.ticks.y = element_blank(),
-            axis.text.y = element_blank(),
-            legend.position="none")
-    
-    
-    
-    # get legend
-    auxiliary_1 <- rejection[[4]] |>
-      dplyr::mutate(variable_setting = factor(variable_setting, levels=c("rho = 0","rho = 0.2","rho = 0.4","rho = 0.6","rho = 0.8"))) |>
-      dplyr::filter(reg_method != "oracle") |>
-      ggplot(aes_string(x = "theta_scale", 
-                        y = "rejection_rate",
+      ggplot(aes_string(x = "nu_scale", 
+                        y = "type_I_err",
                         colour = "infer_reg",
                         linetype = "infer_reg")) + 
       scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
       scale_y_continuous(minor_breaks = seq(0, 1, 0.25)) +
+      facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
+      geom_point(size = 0.5) +
+      geom_line() +
+      scale_linetype_manual(values = c("solid","dashed", "solid", "dotted", "dashed", "solid")) +
+      scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2"))+
+      geom_hline(yintercept = level, linetype = "dashed") +
+      theme_bw() + 
+      theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),
+            axis.title.x = element_blank(),
+            axis.ticks.x = element_blank(),
+            axis.text.x = element_blank(),
+            axis.title.y = element_blank(),
+            axis.ticks.y = element_blank(),
+            axis.text.y = element_blank(),
+            legend.position="none")
+    
+    p3 =  type_I_err[[3]] |>
+      dplyr::mutate(variable_setting = factor(variable_setting, levels=c("s = 5","s = 10","s = 20","s = 40","s = 80"))) |>
+      ggplot(aes_string(x = "nu_scale", 
+                        y = "type_I_err",
+                        colour = "infer_reg",
+                        linetype = "infer_reg")) + 
+      scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
+      scale_y_continuous(minor_breaks = seq(0, 1, 0.25)) +
+      facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
+      geom_point(size = 0.5) +
+      geom_line() +
+      scale_linetype_manual(values = c("solid","dashed", "solid", "dotted", "dashed", "solid")) +
+      scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2"))+
+      geom_hline(yintercept = level, linetype = "dashed") +
+      theme_bw() + 
+      theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),
+            axis.title.x = element_blank(),
+            axis.ticks.x = element_blank(),
+            axis.text.x = element_blank(),
+            axis.title.y = element_blank(),
+            axis.ticks.y = element_blank(),
+            axis.text.y = element_blank(),
+            legend.position="none")
+    
+    p4 =  type_I_err[[4]] |>
+      dplyr::mutate(variable_setting = factor(variable_setting, levels=c("rho = 0","rho = 0.2","rho = 0.4","rho = 0.6","rho = 0.8"))) |>
+      ggplot(aes_string(x = "nu_scale", 
+                        y = "type_I_err",
+                        colour = "infer_reg",
+                        linetype = "infer_reg")) + 
+      scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
+      scale_y_continuous(minor_breaks = seq(0, 1, 0.25)) +
+      facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
+      geom_point(size = 0.5) +
+      geom_line() +
+      scale_linetype_manual(values = c("solid","dashed", "solid", "dotted", "dashed", "solid")) +
+      scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2"))+
+      geom_hline(yintercept = level, linetype = "dashed") +
+      theme_bw() + 
+      theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),
+            axis.title.x = element_blank(),
+            axis.ticks.x = element_blank(),
+            axis.text.x = element_blank(),
+            axis.title.y = element_blank(),
+            axis.ticks.y = element_blank(),
+            axis.text.y = element_blank(),
+            legend.position="none")
+    
+    # get legend
+    auxiliary_1 <- type_I_err[[4]] |>
+      dplyr::mutate(variable_setting = factor(variable_setting, levels=c("rho = 0","rho = 0.2","rho = 0.4","rho = 0.6","rho = 0.8"))) |>
+      dplyr::filter(reg_method != "naive") |>
+      ggplot(aes_string(x = "nu_scale", 
+                        y = "type_I_err",
+                        colour = "infer_reg",
+                        linetype = "infer_reg")) + 
+      scale_x_continuous(expand = c(0.01,0.01)) +
       ggh4x::facet_grid2(variable_setting ~ fixed_setting, scales = "free", independent = "x") +
       geom_point(size = 0.5) +
       geom_line() +
       scale_linetype_manual(values = c("solid","dashed", "solid", "dashed", "solid")) +
       scale_color_manual(values = c(rep("red", 2), "#90ee90", "#90ee90", "#129cf2"))+
-      theme_bw() + 
+      geom_hline(yintercept = level, linetype = "dashed") +
+      theme_bw() +  
       theme(axis.title.y = element_blank(),
             legend.position = "bottom",
             legend.key.size = unit(0.4, 'cm')) + 
-      theme(legend.title=element_blank()) 
+      theme(legend.title=element_blank())
     
-    auxiliary_2 <- rejection[[4]] |>
+    auxiliary_2 <- type_I_err[[4]] |>
       dplyr::mutate(variable_setting = factor(variable_setting, levels=c("rho = 0","rho = 0.2","rho = 0.4","rho = 0.6","rho = 0.8"))) |>
-      dplyr::filter(reg_method == "oracle") |>
-      ggplot(aes_string(x = "theta_scale", 
-                        y = "rejection_rate",
+      dplyr::filter(reg_method == "naive") |>
+      ggplot(aes_string(x = "nu_scale", 
+                        y = "type_I_err",
                         colour = "infer_reg",
                         linetype = "infer_reg")) + 
-      scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
-      scale_y_continuous(minor_breaks = seq(0, 1, 0.25)) +
+      scale_x_continuous(expand = c(0.01,0.01)) +
       ggh4x::facet_grid2(variable_setting ~ fixed_setting, scales = "free", independent = "x") +
       geom_point(size = 0.5) +
       geom_line() +
-      scale_linetype_manual(values = c( "dotted")) +
+      scale_linetype_manual(values = c("dotted")) +
       scale_color_manual(values = c("grey"))+
-      theme_bw() + 
+      geom_hline(yintercept = level, linetype = "dashed") +
+      theme_bw() +  
       theme(axis.title.y = element_blank(),
             legend.position = "bottom",
             legend.key.size = unit(0.4, 'cm')) + 
-      theme(legend.title=element_blank()) 
-    
+      theme(legend.title=element_blank())
     
     legend_1 <- get_legend(auxiliary_1)
     legend_2 <- get_legend(auxiliary_2)
     
-    
-    # combine the result
+    # combine plots
     plot <- plot_grid(p1, p2, p3, p4, ncol = 4, align = "v")
     
     
     # create common x and y labels
-    y.grob <- textGrob("Power", 
+    y.grob <- textGrob("Type I error", 
                        gp=gpar(col="black"), rot=90)
     
-    x.grob <- textGrob("Effect size", 
+    x.grob <- textGrob("Confounding strength", 
                        gp=gpar(col="black"))
     
     # add to plot
     g <- grid.arrange(arrangeGrob(plot, left = y.grob, bottom = x.grob, nrow=1), 
-                      plot_grid(legend_1, legend_2, nrow = 2), nrow=2,heights=c(7, 1))
+                      plot_grid(legend_1, legend_2, nrow = 2), nrow=2, heights=c(7, 1))
     
-    
-    # save the plot
+    # save the result
     ggsave(plot = g,
-           filename = sprintf("%s_%s_setting_power.pdf", distribution, way_to_learn), 
+           filename = sprintf("figures/%s_%s_setting_type_I_error.pdf", distribution, way_to_learn), 
            device = "pdf",
            width = TEXTWIDTH, 
            height = 0.9*TEXTHEIGHT)
   }
 }
-

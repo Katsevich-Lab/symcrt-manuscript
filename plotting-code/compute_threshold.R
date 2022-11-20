@@ -2,16 +2,15 @@
 method <- "fit"
 
 # read the results from disk
-simsresults_dir <- sprintf("%s/private/results/%s/%s_%s_%s_results.rds",
-                           .get_config_path("LOCAL_SYMCRT_DATA_DIR"),
-                           sim_version,
-                           distribution,
-                           way_to_learn,
-                           "calibration")
+simresults_dir <- sprintf(
+  "simulation-results/%s/%s_%s_%s_results.rds",
+  sim_version,
+  distribution,
+  way_to_learn,
+  "calibration"
+)
 
-results <- readRDS(simsresults_dir)
-
-
+results <- readRDS(simresults_dir)
 
 
 # augment methods_df with reg_method, lambda (for now ignore lambda) , and method
@@ -30,15 +29,15 @@ methods_df <- methods_df |>
     infer_method = test_type,
     way_to_learn = test_hyperparams$way_to_learn
   ) |>
-  dplyr::select(reg_method, method, infer_method)
+  select(reg_method, method, infer_method)
 
 # rename grid_row_id as grid_id
 if("grid_row_id" %in% names(results)){
   results <- results |>
-    dplyr::rename(grid_id = grid_row_id) |>
+    rename(grid_id = grid_row_id) |>
     # NOTE: grid_id is a factor of integers, but potentially in the wrong order.
     # To get the right order, convert to character before converting to integer.
-    dplyr::mutate(grid_id = as.integer(as.character(grid_id)))
+    mutate(grid_id = as.integer(as.character(grid_id)))
 }
 
 # find the results that do not use naive fitting; 
@@ -64,7 +63,7 @@ for (k in 1:nrow(p_grid)) {
       ) |>
       ungroup()
   }else{
-    adaptive_threshold[[k]] <- result[[k]] |> 
+    adaptive_threshold[[k]] <- result[[k]][complete.cases(result[[k]]), ] |> 
       group_by_at(c("infer_method", "reg_method")) |>
       summarise(
         cutoff_lower = quantile(value, 0.025, na.rm = TRUE),
@@ -84,4 +83,3 @@ for (k in 1:nrow(p_grid)) {
 }
 
 threshold <- merge_all(adaptive_threshold)
-
