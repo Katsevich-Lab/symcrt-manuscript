@@ -59,17 +59,17 @@ for (k in 1:nrow(p_grid)) {
       group_by_at(c("infer_method", "reg_method")) |>
       summarise(
         cutoff_lower = qnorm(0.025, mean = fitdistr(value, "normal")$estimate[1], sd = fitdistr(value, "normal")$estimate[2]),
-        cutoff_upper = qnorm(0.975, mean = fitdistr(value, "normal")$estimate[1], sd = fitdistr(value, "normal")$estimate[2])
-      ) |>
-      ungroup()
+        cutoff_upper = qnorm(0.975, mean = fitdistr(value, "normal")$estimate[1], sd = fitdistr(value, "normal")$estimate[2]),
+        .groups = "drop"
+      )
   }else{
     adaptive_threshold[[k]] <- result[[k]][complete.cases(result[[k]]), ] |> 
       group_by_at(c("infer_method", "reg_method")) |>
       summarise(
         cutoff_lower = quantile(value, 0.025, na.rm = TRUE),
-        cutoff_upper = quantile(value, 0.975, na.rm = TRUE)
-      ) |>
-      ungroup()
+        cutoff_upper = quantile(value, 0.975, na.rm = TRUE),
+        .groups = "drop"
+      )
   }
   
   # add an extra line to adaptive_threshold[[k]]

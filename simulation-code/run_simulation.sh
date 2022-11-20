@@ -12,14 +12,12 @@ if [ -z "$max_gb" ]; then
   max_gb=8
 fi
 
-echo "Launching the simulation..."
-
 # 1. Create output directory if it does not exist
 mkdir -p $output_dir
 
 # 2. Create simulatr specifier objects
-echo "Creating simulatr specifier objects"
 if [ ! -d "$sim_spec_dir" ]; then
+  echo "Creating simulatr specifier objects"
   mkdir $sim_spec_dir
   nextflow run simulation-code/create_simspec_objects.nf \
       --sim_version_fp $sim_version_fp \
@@ -32,7 +30,6 @@ fi
 # 3. Run all of the simulations
 for simspec_filename in $sim_spec_dir/*
 do
-  echo $simspec_filename
   simspec_basename=$(basename $simspec_filename)
   # obtain simulation string from simspec_filename
   sim_string=$(Rscript -e '
@@ -62,5 +59,3 @@ do
     echo $output_filename" already exists"
   fi
 done
-
-echo "Done."

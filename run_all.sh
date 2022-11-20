@@ -1,18 +1,19 @@
 #############################################################
-# REPRODUCE THE SIMULATIONS
+# REPRODUCE ALL SIMULATIONS
 #############################################################
 
-max_gb=7.5
-profile="standard"
+# READ COMMAND LINE ARGUMENTS
+max_gb=$1    # GB available per core (default 8)
+profile=$2   # Nextflow profile (default "standard")
 
-### INSTALL ALL R PACKAGES NECESSARY ###
-Rscript -e 'install.packages("packrat")'
-Rscript -e 'packrat::restore()'
+### INSTALL ALL R PACKAGES NECESSARY VIA RENV ###
+Rscript -e 'install.packages("renv")'
+Rscript -e 'renv::activate(); renv::restore()'
 
-### REPRODUCE THE V1 SIMULATION ###
-sim_version_fp=$(pwd)"/simulation-code/sim_versions/sim_v1.R"
-sim_spec_dir=$(pwd)"/simulation-code/sim_spec_objects/v1"
-output_dir=$(pwd)"/simulation-results/v1"
+### REPRODUCE THE BENCHMARKING SIMULATION ###
+sim_version_fp=$(pwd)"/simulation-code/sim_versions/sim_benchmarking.R"
+sim_spec_dir=$(pwd)"/simulation-code/sim_spec_objects/benchmarking"
+output_dir=$(pwd)"/simulation-results/benchmarking"
 bash simulation-code/run_simulation.sh $sim_version_fp $sim_spec_dir $output_dir $max_gb $profile
 
 ### REPRODUCE THE DIAGNOSTIC SIMULATION ###
