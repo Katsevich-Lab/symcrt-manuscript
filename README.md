@@ -4,7 +4,7 @@ This repository reproduces the results reported in the following paper:
 
 Z. Niu, A. Chakraborty, O. Dukes, E. Katsevich.
 "Reconciling model-X and doubly robust approaches to conditional independence testing." 
-([arXiv](https://doi.org/10.48550/arXiv.2201.01879))
+([arXiv]())
 
 ## Repository structure
 
