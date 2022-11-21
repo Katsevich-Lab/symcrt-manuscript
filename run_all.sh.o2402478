@@ -1,0 +1,30 @@
+Agent pid 10379
+Identity added: /home/stat/ekatsevi/.ssh/id_ed25519 (katsevich.gene@gmail.com)
+Installing renv [0.16.0] ...
+	OK [linked cache]
+* The library is already synchronized with the lockfile.
+Simulatr specifier objects already created
+Running the NA simulation...
+NOTE: Nextflow is not tested with Java 1.8.0_332 -- It's recommended the use of version 11 up to 18
+
+N E X T F L O W  ~  version 22.04.5
+NOTE: Your local project version looks outdated - a different revision is available in the remote repository [bd169c6f85]
+Launching `https://github.com/katsevich-lab/simulatr-pipeline` [gloomy_yonath] DSL1 - revision: 12f90f235e [symcrt-v1]
+[-        ] process > obtain_basic_info -
+
+[-        ] process > obtain_basic_info       [  0%] 0 of 1
+[-        ] process > generate_data_benchmark -
+[-        ] process > run_method_benchmark    -
+[-        ] process > add_n_processors        -
+[-        ] process > generate_data           -
+[-        ] process > run_method              -
+[-        ] process > combine_results         -
+
+executor >  sge (1)
+[27/7eac8c] process > obtain_basic_info       [  0%] 0 of 1
+[-        ] process > generate_data_benchmark -
+[-        ] process > run_method_benchmark    -
+[-        ] process > add_n_processors        -
+[-        ] process > generate_data           -
+[-        ] process > run_method              -
+[-        ] process > combine_results         -

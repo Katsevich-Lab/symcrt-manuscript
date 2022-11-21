@@ -3,8 +3,10 @@
 #############################################################
 
 # READ COMMAND LINE ARGUMENTS
-max_gb=$1    # GB available per core (default 8)
-profile=$2   # Nextflow profile (default "standard")
+max_gb=7.5
+profile="aws"
+# max_gb=$1    # GB available per core (default 8)
+# profile=$2   # Nextflow profile (default "standard")
 
 ### INSTALL ALL R PACKAGES NECESSARY VIA RENV ###
 Rscript -e 'install.packages("renv")'
