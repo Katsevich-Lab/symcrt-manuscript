@@ -39,6 +39,7 @@ do
   output_filename=$sim_string"_results.rds"
   if [ ! -f "$output_dir/$output_filename" ]; then
     echo "Running the "$sim_string" simulation..."
+    nextflow pull katsevich-lab/simulatr-pipeline -r symcrt-v1
     nextflow run katsevich-lab/simulatr-pipeline -r symcrt-v1 \
       --simulatr_specifier_fp $simspec_filename \
       --result_dir $output_dir \

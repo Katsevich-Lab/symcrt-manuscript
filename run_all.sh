@@ -10,7 +10,7 @@ profile="aws"
 
 ### INSTALL ALL R PACKAGES NECESSARY VIA RENV ###
 Rscript -e 'install.packages("renv")'
-Rscript -e 'renv::activate(); renv::restore()'
+Rscript -e 'renv::activate(); renv::restore()'  # This step may take up to 15 minutes
 
 ### REPRODUCE THE BENCHMARKING SIMULATION ###
 sim_version_fp=$(pwd)"/simulation-code/sim_versions/sim_benchmarking.R"
