@@ -56,7 +56,7 @@ if(file.exists(figure_path)){
   histplot <- simulation_data %>%
     filter(class == "Null") %>%
     ggplot(aes(x = type_I_err)) +
-    geom_histogram(binwidth = 0.05, center = 0.025, colour = "black") + 
+    geom_histogram(binwidth = 0.02, center = 0.01, colour = "black") + 
     geom_vline(xintercept = 0.05, linetype = "dashed", colour = "red") +
     geom_vline(xintercept = typeI_err(Li, 0.05), colour = "dodgerblue") +
     facet_wrap(~setting, scales = "free_y") + 
