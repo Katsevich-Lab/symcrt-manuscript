@@ -397,7 +397,11 @@ maxbibnames = 5]{biblatex} 							% for citations and bibliography
 		If the assumptions of Theorem~\ref{thm:equivalence} other than variance consistency~\eqref{eq:variance-consistency} hold, then the latter property holds in the following two cases:
 		\begin{enumerate}
 			\item $\V_{\lawhat_n}[\srx_i|\srz_i] \equiv (\srx_i - \widehat \mu_{n,x}(\srz_i))^2$;
-			\item $\V_{\lawhat_n}[\prx|\prz] \equiv f(\widehat \mu_{n,x}(\prz))$, if $\V_{\law_n}[\prx|\prz] = f(\mu_{n,x}(\prz))$ for Lipschitz $f$ and \linebreak $\sup_n \E_{\law_n}[|\pry-\mu_{n,y}(\prz)|^{2+\delta}] < \infty$.
+			\item $\V_{\lawhat_n}[\prx|\prz] \equiv f(\widehat \mu_{n,x}(\prz))$, if 
+			\begin{itemize}
+				\item $\V_{\law_n}[\prx|\prz] = f(\mu_{n,x}(\prz))$ for $f$ being Lipschitz on domain $\cup_{n=1}^{\infty}\mathrm{Conv}(\law_{n}(\prx))$ and $\mathrm{supp}(\widehat \mu_{n,x}(\prz))\subseteq\mathrm{Conv}(\law_{n}(\prx))$ almost surely for every $n$;
+				\item $\sup_n \E_{\law_n}[|\pry-\mu_{n,y}(\prz)|^{2+\delta}] < \infty$.
+			\end{itemize}
 		\end{enumerate} 
 	\end{proposition}
 	
@@ -1124,7 +1128,7 @@ so
 \begin{equation*}
 	\frac{1}{n} \sum_{i=1}^n \V_{\law_n}[\sry_i\mid \srz_i] = O_p(1).
 \end{equation*}
-On the other hand, the fact that $f$ is Lipschitz (say with Lipschitz constant $L$) gives
+On the other hand, we know $\mathrm{supp}(\mu_{n,x}(Z_i))\subseteq \mathrm{Conv}(\law_n(\prx))$ for every $i$ and $n$ and by assumption $\widehat{\mu}_{n,x}(\prz)\subseteq\mathrm{Conv}(\law_n(\prx))$ almost surely. Together with the fact that $f$ is Lipschitz (say with Lipschitz constant $L$) on $\cup_{n=1}^{\infty}\mathrm{Conv}(\law_n(\prx))$, it follows that
 \begin{align*}
 &\frac{1}{n} \sum_{i=1}^n (f(\widehat \mu_{n,x}(Z_i))-f( \mu_{n,x}(Z_i)))^2\V_{\law_n}[\sry_i\mid \srz_i] \\
 &\quad\leq 
@@ -1947,7 +1951,7 @@ Finally, we state a conditional version of the truncated weak law of large numbe
 		\item $\sum_{i=1}^{n}\P[|W_{in}|>b_n|\mathcal{F}_n]\convp0$ and
 		\item $b_n^{-2}\sum_{i=1}^n\E[\Bar W_{in}^2|\mathcal{F}_n]\convp0$.
 	\end{enumerate}
-	If we set $S_n\equiv\sum_{i = 1}^n W_{in}$ and $a_n \equiv \sum_{k=1}^n\E[\Bar W_{in}]$ then
+	If we set $S_n\equiv\sum_{i = 1}^n W_{in}$ and $a_n \equiv \sum_{i=1}^n\E[\Bar W_{in}]$ then
 	\begin{align*}
 		\frac{S_n - a_n}{b_n} \mid \mathcal{F}_n \convpp 0.
 	\end{align*}
@@ -1959,7 +1963,7 @@ Finally, we state a conditional version of the truncated weak law of large numbe
 	\end{align*}
 	To estimate the first term, we note that
 	\begin{align*}
-		\P[S_n\neq\Bar{S}_n|\mathcal{F}_n]\leq \P[\cup_{k=1}^n\{\Bar W_{in}\neq W_{in}\}|\mathcal{F}_n] \leq \sum_{k=1}^n\P(|W_{in}|>b_n|\mathcal{F}_n)\convp0
+		\P[S_n\neq\Bar{S}_n|\mathcal{F}_n]\leq \P[\cup_{i=1}^n\{\Bar W_{in}\neq W_{in}\}|\mathcal{F}_n] \leq \sum_{i=1}^n\P(|W_{in}|>b_n|\mathcal{F}_n)\convp0
 	\end{align*}
 	by the first assumption. For the second term, we note that conditional Markov's inequality (Lemma \ref{lem:cond_markov}), $a_n=\E[\Bar{S}_n|\mathcal{F}_n]$ implies that
 	\begin{align*}
@@ -1969,9 +1973,9 @@ Finally, we state a conditional version of the truncated weak law of large numbe
 		&
 		=\epsilon^{-2}b_n^{-2}\mathrm{Var}[\Bar{S}_n|\mathcal{F}_n]\\
 		&
-		=(b_n\epsilon)^{-2}\sum_{k=1}^n\mathrm{Var}[\Bar W_{in}|\mathcal{F}_n]\\
+		=(b_n\epsilon)^{-2}\sum_{i=1}^n\mathrm{Var}[\Bar W_{in}|\mathcal{F}_n]\\
 		&
-		\leq (b_n\epsilon)^{-2}\sum_{k=1}^{n}\E\left[\Bar{X}^2_{kn}|\mathcal{F}_n\right]\convp0,
+		\leq (b_n\epsilon)^{-2}\sum_{i=1}^{n}\E\left[\Bar{X}^2_{in}|\mathcal{F}_n\right]\convp0,
 	\end{align*}
 	where the convergence in the last line is given by the second assumption. This completes the proof.
 \end{proof}
