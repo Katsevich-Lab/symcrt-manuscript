@@ -1,0 +1,2850 @@
+Agent pid 46402
+Identity added: /home/stat/ekatsevi/.ssh/id_ed25519 (katsevich.gene@gmail.com)
+Installing package into ‘/home/stat/ekatsevi/software/personal/R/4.1’
+(as ‘lib’ is unspecified)
+Error in contrib.url(repos, type) : 
+  trying to use CRAN without setting a mirror
+Calls: install.packages -> startsWith -> contrib.url
+Execution halted
+* The library is already synchronized with the lockfile.
+Simulatr specifier objects already created
+binomial_semi_supervised_alternative_results.rds already exists
+binomial_semi_supervised_calibration_results.rds already exists
+binomial_semi_supervised_null_results.rds already exists
+binomial_supervised_alternative_results.rds already exists
+binomial_supervised_calibration_results.rds already exists
+binomial_supervised_null_results.rds already exists
+gaussian_semi_supervised_alternative_results.rds already exists
+gaussian_semi_supervised_calibration_results.rds already exists
+gaussian_semi_supervised_null_results.rds already exists
+gaussian_supervised_alternative_results.rds already exists
+gaussian_supervised_calibration_results.rds already exists
+gaussian_supervised_null_results.rds already exists
+Simulatr specifier objects already created
+Running the gaussian_supervised_alternative simulation...
+NOTE: Nextflow is not tested with Java 1.8.0_332 -- It's recommended the use of version 11 up to 18
+
+Checking katsevich-lab/simulatr-pipeline ...
+ done - revision: 12f90f235e [symcrt-v1]
+NOTE: Nextflow is not tested with Java 1.8.0_332 -- It's recommended the use of version 11 up to 18
+
+N E X T F L O W  ~  version 22.04.5
+NOTE: Your local project version looks outdated - a different revision is available in the remote repository [bd169c6f85]
+Launching `https://github.com/katsevich-lab/simulatr-pipeline` [ecstatic_mahavira] DSL1 - revision: 12f90f235e [symcrt-v1]
+[-        ] process > obtain_basic_info -
+
+[-        ] process > obtain_basic_info       [  0%] 0 of 1
+[-        ] process > generate_data_benchmark -
+[-        ] process > run_method_benchmark    -
+[-        ] process > add_n_processors        -
+[-        ] process > generate_data           -
+[-        ] process > run_method              -
+[-        ] process > combine_results         -
+
+executor >  sge (1)
+[10/36b2a9] process > obtain_basic_info       [  0%] 0 of 1
+[-        ] process > generate_data_benchmark -
+[-        ] process > run_method_benchmark    -
+[-        ] process > add_n_processors        -
+[-        ] process > generate_data           -
+[-        ] process > run_method              -
+[-        ] process > combine_results         -
+
+executor >  sge (1)
+[10/36b2a9] process > obtain_basic_info       [  0%] 0 of 1
+[-        ] process > generate_data_benchmark -
+[-        ] process > run_method_benchmark    -
+[-        ] process > add_n_processors        -
+[-        ] process > generate_data           -
+[-        ] process > run_method              -
+[-        ] process > combine_results         -
+
+executor >  sge (1)
+[10/36b2a9] process > obtain_basic_info       [100%] 1 of 1 ✔
+[-        ] process > generate_data_benchmark [  0%] 0 of 31
+[-        ] process > run_method_benchmark    -
+[-        ] process > add_n_processors        -
+[-        ] process > generate_data           -
+[-        ] process > run_method              -
+[-        ] process > combine_results         -
+
+executor >  sge (1)
+[10/36b2a9] process > obtain_basic_info       [100%] 1 of 1 ✔
+[-        ] process > generate_data_benchmark [  0%] 0 of 65
+[-        ] process > run_method_benchmark    -
+[-        ] process > add_n_processors        -
+[-        ] process > generate_data           -
+[-        ] process > run_method              -
+[-        ] process > combine_results         -
+
+executor >  sge (1)
+[10/36b2a9] process > obtain_basic_info       [100%] 1 of 1 ✔
+[-        ] process > generate_data_benchmark [  0%] 0 of 85
+[-        ] process > run_method_benchmark    -
+[-        ] process > add_n_processors        -
+[-        ] process > generate_data           -
+[-        ] process > run_method              -
+[-        ] process > combine_results         -
+
+executor >  sge (2)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[e9/78abc1] process > generate_data_benchmark (gr... [  0%] 0 of 85
+[-        ] process > run_method_benchmark           -
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (3)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[8b/ec65e1] process > generate_data_benchmark (gr... [  0%] 0 of 85
+[-        ] process > run_method_benchmark           -
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (4)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[33/306236] process > generate_data_benchmark (gr... [  0%] 0 of 85
+[-        ] process > run_method_benchmark           -
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (5)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[e8/56fc3b] process > generate_data_benchmark (gr... [  0%] 0 of 85
+[-        ] process > run_method_benchmark           -
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (6)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[71/a29929] process > generate_data_benchmark (gr... [  0%] 0 of 85
+[-        ] process > run_method_benchmark           -
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (7)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[41/880b6a] process > generate_data_benchmark (gr... [  0%] 0 of 85
+[-        ] process > run_method_benchmark           -
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (8)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[64/70b4ad] process > generate_data_benchmark (gr... [  1%] 1 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 2
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (9)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[19/eb9d85] process > generate_data_benchmark (gr... [  1%] 1 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 2
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (10)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[40/769f42] process > generate_data_benchmark (gr... [  1%] 1 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 2
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (11)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[fe/e020ce] process > generate_data_benchmark (gr... [  1%] 1 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 2
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (12)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[90/6dc620] process > generate_data_benchmark (gr... [  1%] 1 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 2
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (13)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[6b/29fe5b] process > generate_data_benchmark (gr... [  1%] 1 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 2
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (14)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[50/bb925d] process > generate_data_benchmark (gr... [  1%] 1 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 2
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (15)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[1f/2a1611] process > generate_data_benchmark (gr... [  1%] 1 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 2
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (16)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[33/306236] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (16)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[33/306236] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (17)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[1f/2b58ba] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (18)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[22/82fd3c] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (19)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[28/a8bc71] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (20)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[c8/2c9d84] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (21)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[20/cb47a2] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (22)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[e3/a450c1] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (23)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[52/f2d11a] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (24)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[e2/03fb5c] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (24)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[e2/03fb5c] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (25)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[a6/4e0cd0] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (26)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[c6/0b270b] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (27)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[b5/0f945d] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (28)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[a5/f6152f] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (29)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[36/579dfa] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (30)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[36/579dfa] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (30)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[53/0d4a5d] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (31)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[92/09f089] process > generate_data_benchmark (gr... [  3%] 3 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 6
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (32)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[90/6dc620] process > generate_data_benchmark (gr... [  5%] 5 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 10
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (32)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[90/6dc620] process > generate_data_benchmark (gr... [  5%] 5 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 10
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (33)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[0d/89915d] process > generate_data_benchmark (gr... [  5%] 5 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 10
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (34)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[b8/8f8b5b] process > generate_data_benchmark (gr... [  5%] 5 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 10
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (35)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[5a/eb79b0] process > generate_data_benchmark (gr... [  5%] 5 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 10
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (36)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[fa/044bd1] process > generate_data_benchmark (gr... [  5%] 5 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 10
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (37)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[20/e6df82] process > generate_data_benchmark (gr... [  5%] 5 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 10
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (38)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[3a/322a8d] process > generate_data_benchmark (gr... [  5%] 5 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 10
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (39)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[8d/b2cae0] process > generate_data_benchmark (gr... [  5%] 5 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 10
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (40)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[21/f57249] process > generate_data_benchmark (gr... [  5%] 5 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 10
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (40)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[20/cb47a2] process > generate_data_benchmark (gr... [  8%] 7 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 14
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (41)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[5c/5d110d] process > generate_data_benchmark (gr... [  8%] 7 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 14
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (42)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[02/e2ccb1] process > generate_data_benchmark (gr... [  8%] 7 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 14
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (43)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[20/a3cb69] process > generate_data_benchmark (gr... [  8%] 7 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 14
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (44)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[dc/7f8a62] process > generate_data_benchmark (gr... [  8%] 7 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 14
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (45)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[f4/93e989] process > generate_data_benchmark (gr... [  8%] 7 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 14
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (46)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[7b/dc8d37] process > generate_data_benchmark (gr... [  8%] 7 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 14
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (47)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[3a/f16905] process > generate_data_benchmark (gr... [  8%] 7 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 14
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (48)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[51/1e9706] process > generate_data_benchmark (gr... [  8%] 7 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 14
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (49)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[6b/4f51e7] process > generate_data_benchmark (gr... [  8%] 7 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 14
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (49)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[fa/044bd1] process > generate_data_benchmark (gr... [  9%] 8 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 16
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (50)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[fb/87d18d] process > generate_data_benchmark (gr... [  9%] 8 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 16
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (51)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[95/d2082d] process > generate_data_benchmark (gr... [  9%] 8 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 16
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (52)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[23/3853f9] process > generate_data_benchmark (gr... [  9%] 8 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 16
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (53)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[52/88ca42] process > generate_data_benchmark (gr... [  9%] 8 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 16
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (54)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[49/316ba7] process > generate_data_benchmark (gr... [  9%] 8 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 16
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (55)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[eb/8ecdd0] process > generate_data_benchmark (gr... [  9%] 8 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 16
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (56)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[3e/be6996] process > generate_data_benchmark (gr... [  9%] 8 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 16
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (57)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[3e/be6996] process > generate_data_benchmark (gr... [  9%] 8 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 16
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (57)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[c9/a370a1] process > generate_data_benchmark (gr... [  9%] 8 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 16
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (58)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[a3/fd5167] process > generate_data_benchmark (gr... [  9%] 8 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 16
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (58)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[71/a29929] process > generate_data_benchmark (gr... [ 11%] 10 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 20
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (58)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[20/e6df82] process > generate_data_benchmark (gr... [ 14%] 12 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 24
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (59)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[79/f02cde] process > generate_data_benchmark (gr... [ 14%] 12 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 24
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (60)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[1f/a9774e] process > generate_data_benchmark (gr... [ 14%] 12 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 24
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (61)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[2f/b29c16] process > generate_data_benchmark (gr... [ 14%] 12 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 24
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (62)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[fb/59f7fc] process > generate_data_benchmark (gr... [ 14%] 12 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 24
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (63)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[20/bfd4a5] process > generate_data_benchmark (gr... [ 14%] 12 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 24
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (64)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[df/398926] process > generate_data_benchmark (gr... [ 14%] 12 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 24
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (65)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[9e/55c508] process > generate_data_benchmark (gr... [ 14%] 12 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 24
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (66)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[e2/d950c8] process > generate_data_benchmark (gr... [ 14%] 12 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 24
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (67)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[47/88eea5] process > generate_data_benchmark (gr... [ 14%] 12 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 24
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (67)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[dc/7f8a62] process > generate_data_benchmark (gr... [ 20%] 17 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 34
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (67)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[f4/93e989] process > generate_data_benchmark (gr... [ 21%] 18 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 36
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (68)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[8a/6cb174] process > generate_data_benchmark (gr... [ 21%] 18 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 36
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (69)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[d0/510725] process > generate_data_benchmark (gr... [ 21%] 18 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 36
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (70)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[1c/785783] process > generate_data_benchmark (gr... [ 21%] 18 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 36
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (71)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[8e/5695d4] process > generate_data_benchmark (gr... [ 21%] 18 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 36
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (72)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[c3/afd234] process > generate_data_benchmark (gr... [ 21%] 18 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 36
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (73)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[c4/a99741] process > generate_data_benchmark (gr... [ 21%] 18 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 36
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (74)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[6c/acbb70] process > generate_data_benchmark (gr... [ 21%] 18 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 36
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (75)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[76/30b08a] process > generate_data_benchmark (gr... [ 21%] 18 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 36
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (76)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[62/870495] process > generate_data_benchmark (gr... [ 21%] 18 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 36
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (76)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[9e/55c508] process > generate_data_benchmark (gr... [ 34%] 29 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 58
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (76)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[1c/785783] process > generate_data_benchmark (gr... [ 35%] 30 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 60
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (77)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[86/fabe07] process > generate_data_benchmark (gr... [ 35%] 30 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 60
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (78)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[e2/b8511d] process > generate_data_benchmark (gr... [ 35%] 30 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 60
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (79)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[02/f2403b] process > generate_data_benchmark (gr... [ 35%] 30 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 60
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (80)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[52/23d7cd] process > generate_data_benchmark (gr... [ 35%] 30 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 60
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (81)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[ab/9cbbb2] process > generate_data_benchmark (gr... [ 35%] 30 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 60
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (82)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[7f/40ca64] process > generate_data_benchmark (gr... [ 35%] 30 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 60
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (83)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[26/d7e881] process > generate_data_benchmark (gr... [ 35%] 30 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 60
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (84)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[3f/554c57] process > generate_data_benchmark (gr... [ 35%] 30 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 60
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (84)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[b5/0f945d] process > generate_data_benchmark (gr... [ 36%] 31 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 62
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (84)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[8e/5695d4] process > generate_data_benchmark (gr... [ 42%] 36 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 72
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (85)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[a9/304030] process > generate_data_benchmark (gr... [ 42%] 36 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 72
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (86)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [ 42%] 36 of 85
+[-        ] process > run_method_benchmark           [  0%] 0 of 72
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (87)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [ 42%] 36 of 85
+[6b/1e2b7a] process > run_method_benchmark (metho... [  0%] 0 of 72
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (88)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [ 42%] 36 of 85
+[65/984f85] process > run_method_benchmark (metho... [  0%] 0 of 72
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (89)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [ 42%] 36 of 85
+[2a/cd6ae6] process > run_method_benchmark (metho... [  0%] 0 of 72
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (90)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [ 42%] 36 of 85
+[69/f6458f] process > run_method_benchmark (metho... [  0%] 0 of 72
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (91)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [ 42%] 36 of 85
+[1e/f89f0c] process > run_method_benchmark (metho... [  0%] 0 of 72
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (92)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [ 42%] 36 of 85
+[14/31af4a] process > run_method_benchmark (metho... [  0%] 0 of 72
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (93)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [ 42%] 36 of 85
+[51/98b96d] process > run_method_benchmark (metho... [  0%] 0 of 72
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (93)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[3a/322a8d] process > generate_data_benchmark (gr... [ 45%] 39 of 85
+[51/98b96d] process > run_method_benchmark (metho... [  0%] 0 of 78
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (93)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[02/f2403b] process > generate_data_benchmark (gr... [ 51%] 44 of 85
+[51/98b96d] process > run_method_benchmark (metho... [  0%] 0 of 88
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (94)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[02/f2403b] process > generate_data_benchmark (gr... [ 51%] 44 of 85
+[50/d05ca3] process > run_method_benchmark (metho... [  0%] 0 of 88
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (95)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[02/f2403b] process > generate_data_benchmark (gr... [ 51%] 44 of 85
+[40/f6a416] process > run_method_benchmark (metho... [  0%] 0 of 88
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (96)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[02/f2403b] process > generate_data_benchmark (gr... [ 51%] 44 of 85
+[04/bb18fe] process > run_method_benchmark (metho... [  0%] 0 of 88
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (97)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[02/f2403b] process > generate_data_benchmark (gr... [ 51%] 44 of 85
+[1f/f643dc] process > run_method_benchmark (metho... [  0%] 0 of 88
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (98)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[02/f2403b] process > generate_data_benchmark (gr... [ 51%] 44 of 85
+[3b/bdcabd] process > run_method_benchmark (metho... [  0%] 0 of 88
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (99)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[02/f2403b] process > generate_data_benchmark (gr... [ 51%] 44 of 85
+[04/6e04c9] process > run_method_benchmark (metho... [  0%] 0 of 88
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (100)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[02/f2403b] process > generate_data_benchmark (gr... [ 51%] 44 of 85
+[94/cb52b6] process > run_method_benchmark (metho... [  0%] 0 of 88
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (101)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[02/f2403b] process > generate_data_benchmark (gr... [ 51%] 44 of 85
+[3f/06fbd6] process > run_method_benchmark (metho... [  0%] 0 of 88
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (102)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[51/1e9706] process > generate_data_benchmark (gr... [ 63%] 54 of 85
+[63/ceb311] process > run_method_benchmark (metho... [  0%] 0 of 106
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (102)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[26/d7e881] process > generate_data_benchmark (gr... [ 67%] 57 of 85
+[63/ceb311] process > run_method_benchmark (metho... [  0%] 0 of 114
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (103)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[26/d7e881] process > generate_data_benchmark (gr... [ 67%] 57 of 85
+[51/9acdaa] process > run_method_benchmark (metho... [  0%] 0 of 114
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (104)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[26/d7e881] process > generate_data_benchmark (gr... [ 67%] 57 of 85
+[28/0103a2] process > run_method_benchmark (metho... [  0%] 0 of 114
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (105)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[26/d7e881] process > generate_data_benchmark (gr... [ 67%] 57 of 85
+[e1/b1c7b1] process > run_method_benchmark (metho... [  0%] 0 of 114
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (106)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[26/d7e881] process > generate_data_benchmark (gr... [ 67%] 57 of 85
+[ad/5604f8] process > run_method_benchmark (metho... [  0%] 0 of 114
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (107)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[26/d7e881] process > generate_data_benchmark (gr... [ 67%] 57 of 85
+[7f/f0aba2] process > run_method_benchmark (metho... [  0%] 0 of 114
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (108)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[26/d7e881] process > generate_data_benchmark (gr... [ 67%] 57 of 85
+[13/bc655e] process > run_method_benchmark (metho... [  0%] 0 of 114
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (109)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[26/d7e881] process > generate_data_benchmark (gr... [ 67%] 57 of 85
+[a5/a734df] process > run_method_benchmark (metho... [  0%] 0 of 114
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (110)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[eb/8ecdd0] process > generate_data_benchmark (gr... [ 70%] 60 of 85
+[3f/9e7915] process > run_method_benchmark (metho... [  0%] 0 of 120
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (110)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[a3/fd5167] process > generate_data_benchmark (gr... [ 74%] 63 of 85
+[2a/cd6ae6] process > run_method_benchmark (metho... [  1%] 2 of 126
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (111)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[a3/fd5167] process > generate_data_benchmark (gr... [ 74%] 63 of 85
+[89/2d8b37] process > run_method_benchmark (metho... [  1%] 2 of 126
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (112)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[a3/fd5167] process > generate_data_benchmark (gr... [ 74%] 63 of 85
+[db/980836] process > run_method_benchmark (metho... [  1%] 2 of 126
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (113)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[a3/fd5167] process > generate_data_benchmark (gr... [ 74%] 63 of 85
+[83/4a7307] process > run_method_benchmark (metho... [  1%] 2 of 126
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (114)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[a3/fd5167] process > generate_data_benchmark (gr... [ 74%] 63 of 85
+[6f/435379] process > run_method_benchmark (metho... [  1%] 2 of 126
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (115)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[a3/fd5167] process > generate_data_benchmark (gr... [ 74%] 63 of 85
+[4a/29e0b7] process > run_method_benchmark (metho... [  1%] 2 of 126
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (116)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[a3/fd5167] process > generate_data_benchmark (gr... [ 74%] 63 of 85
+[a1/953230] process > run_method_benchmark (metho... [  1%] 2 of 126
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (117)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[a3/fd5167] process > generate_data_benchmark (gr... [ 74%] 63 of 85
+[1a/b42e32] process > run_method_benchmark (metho... [  1%] 2 of 126
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (118)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[fb/87d18d] process > generate_data_benchmark (gr... [ 75%] 64 of 85
+[af/c3f734] process > run_method_benchmark (metho... [  1%] 2 of 128
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (118)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[20/bfd4a5] process > generate_data_benchmark (gr... [ 81%] 69 of 85
+[af/c3f734] process > run_method_benchmark (metho... [  1%] 2 of 138
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (118)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[47/88eea5] process > generate_data_benchmark (gr... [ 84%] 72 of 85
+[50/d05ca3] process > run_method_benchmark (metho... [  2%] 3 of 144
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (119)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[47/88eea5] process > generate_data_benchmark (gr... [ 84%] 72 of 85
+[d5/125298] process > run_method_benchmark (metho... [  2%] 3 of 144
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (120)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[47/88eea5] process > generate_data_benchmark (gr... [ 84%] 72 of 85
+[48/d862e4] process > run_method_benchmark (metho... [  2%] 3 of 144
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (121)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[47/88eea5] process > generate_data_benchmark (gr... [ 84%] 72 of 85
+[88/1177df] process > run_method_benchmark (metho... [  2%] 3 of 144
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (122)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[47/88eea5] process > generate_data_benchmark (gr... [ 84%] 72 of 85
+[ac/eaad1b] process > run_method_benchmark (metho... [  2%] 3 of 144
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (123)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[47/88eea5] process > generate_data_benchmark (gr... [ 84%] 72 of 85
+[80/707f49] process > run_method_benchmark (metho... [  2%] 3 of 144
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (124)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[47/88eea5] process > generate_data_benchmark (gr... [ 84%] 72 of 85
+[80/68669b] process > run_method_benchmark (metho... [  2%] 3 of 144
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (125)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[47/88eea5] process > generate_data_benchmark (gr... [ 84%] 72 of 85
+[b7/97c9fb] process > run_method_benchmark (metho... [  2%] 3 of 144
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (125)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[62/870495] process > generate_data_benchmark (gr... [ 89%] 76 of 85
+[b7/97c9fb] process > run_method_benchmark (metho... [  1%] 3 of 152
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (125)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[62/870495] process > generate_data_benchmark (gr... [ 89%] 76 of 85
+[a5/a734df] process > run_method_benchmark (metho... [  5%] 8 of 152
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (125)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[3f/554c57] process > generate_data_benchmark (gr... [ 95%] 81 of 85
+[13/bc655e] process > run_method_benchmark (metho... [  6%] 10 of 162
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (126)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[3f/554c57] process > generate_data_benchmark (gr... [ 95%] 81 of 85
+[99/62bd13] process > run_method_benchmark (metho... [  6%] 10 of 162
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (127)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[3f/554c57] process > generate_data_benchmark (gr... [ 95%] 81 of 85
+[99/62bd13] process > run_method_benchmark (metho... [  6%] 10 of 162
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (127)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[3f/554c57] process > generate_data_benchmark (gr... [ 95%] 81 of 85
+[e6/e87330] process > run_method_benchmark (metho... [  6%] 10 of 162
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (128)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[3f/554c57] process > generate_data_benchmark (gr... [ 95%] 81 of 85
+[9d/d52c9f] process > run_method_benchmark (metho... [  6%] 10 of 162
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (129)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[3f/554c57] process > generate_data_benchmark (gr... [ 95%] 81 of 85
+[7b/c0c9e2] process > run_method_benchmark (metho... [  6%] 10 of 162
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (130)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[3f/554c57] process > generate_data_benchmark (gr... [ 95%] 81 of 85
+[ad/c1d4d0] process > run_method_benchmark (metho... [  6%] 10 of 162
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (131)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[3f/554c57] process > generate_data_benchmark (gr... [ 95%] 81 of 85
+[cb/e275b9] process > run_method_benchmark (metho... [  6%] 10 of 162
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (132)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[3f/554c57] process > generate_data_benchmark (gr... [ 95%] 81 of 85
+[85/20bd30] process > run_method_benchmark (metho... [  6%] 10 of 162
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (133)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[3f/554c57] process > generate_data_benchmark (gr... [ 95%] 81 of 85
+[f3/c9bb5c] process > run_method_benchmark (metho... [  6%] 10 of 162
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (133)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[e2/b8511d] process > generate_data_benchmark (gr... [ 97%] 83 of 85
+[51/98b96d] process > run_method_benchmark (metho... [  8%] 14 of 166
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (134)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[e2/b8511d] process > generate_data_benchmark (gr... [ 97%] 83 of 85
+[88/9732a8] process > run_method_benchmark (metho... [  8%] 14 of 166
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (135)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[e2/b8511d] process > generate_data_benchmark (gr... [ 97%] 83 of 85
+[dc/9c52d9] process > run_method_benchmark (metho... [  8%] 14 of 166
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (136)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[e2/b8511d] process > generate_data_benchmark (gr... [ 97%] 83 of 85
+[c1/5de376] process > run_method_benchmark (metho... [  8%] 14 of 166
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (137)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[e2/b8511d] process > generate_data_benchmark (gr... [ 97%] 83 of 85
+[42/5c4d6a] process > run_method_benchmark (metho... [  8%] 14 of 166
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (138)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[e2/b8511d] process > generate_data_benchmark (gr... [ 97%] 83 of 85
+[4c/d9dbfb] process > run_method_benchmark (metho... [  8%] 14 of 166
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (139)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[e2/b8511d] process > generate_data_benchmark (gr... [ 97%] 83 of 85
+[de/3e02f0] process > run_method_benchmark (metho... [  8%] 14 of 166
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (140)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[e2/b8511d] process > generate_data_benchmark (gr... [ 97%] 83 of 85
+[dd/8100bd] process > run_method_benchmark (metho... [  8%] 14 of 166
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (141)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[e2/b8511d] process > generate_data_benchmark (gr... [ 97%] 83 of 85
+[3c/f7b9c6] process > run_method_benchmark (metho... [  8%] 14 of 166
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (141)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[3c/f7b9c6] process > run_method_benchmark (metho... [  8%] 14 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (142)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[97/f76ea2] process > run_method_benchmark (metho... [  9%] 16 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (143)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[db/e50f61] process > run_method_benchmark (metho... [  9%] 16 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (144)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[a2/5bf7e1] process > run_method_benchmark (metho... [  9%] 16 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (145)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[5c/40ee26] process > run_method_benchmark (metho... [  9%] 16 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (146)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[c0/18995d] process > run_method_benchmark (metho... [  9%] 16 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (147)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[f0/c71fdd] process > run_method_benchmark (metho... [  9%] 16 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (148)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[da/d59644] process > run_method_benchmark (metho... [  9%] 16 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (149)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[42/326779] process > run_method_benchmark (metho... [  9%] 16 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (150)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[3e/afe23e] process > run_method_benchmark (metho... [ 11%] 20 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (151)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[72/8d434b] process > run_method_benchmark (metho... [ 11%] 20 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (152)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[d3/86cbf5] process > run_method_benchmark (metho... [ 11%] 20 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (153)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[b7/6746d7] process > run_method_benchmark (metho... [ 11%] 20 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (154)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[5c/782a8e] process > run_method_benchmark (metho... [ 11%] 20 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (155)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[7b/aa7c7d] process > run_method_benchmark (metho... [ 11%] 20 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (156)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[4e/347a8d] process > run_method_benchmark (metho... [ 11%] 20 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (157)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[7b/dbf00f] process > run_method_benchmark (metho... [ 11%] 20 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (157)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[af/c3f734] process > run_method_benchmark (metho... [ 15%] 27 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (158)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[69/30ebf5] process > run_method_benchmark (metho... [ 15%] 27 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (159)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[65/0541bd] process > run_method_benchmark (metho... [ 15%] 27 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (160)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[7e/d3a27b] process > run_method_benchmark (metho... [ 15%] 27 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (161)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[95/53197a] process > run_method_benchmark (metho... [ 15%] 27 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (162)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[f8/da40b5] process > run_method_benchmark (metho... [ 15%] 27 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (163)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[fe/e6df09] process > run_method_benchmark (metho... [ 15%] 27 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (164)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[be/e3a823] process > run_method_benchmark (metho... [ 15%] 27 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (165)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[60/fc6f8f] process > run_method_benchmark (metho... [ 15%] 27 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (166)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[ac/eaad1b] process > run_method_benchmark (metho... [ 18%] 31 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (166)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[72/8d434b] process > run_method_benchmark (metho... [ 21%] 36 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (167)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[8f/1396c4] process > run_method_benchmark (metho... [ 21%] 36 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (168)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[78/19fbaa] process > run_method_benchmark (metho... [ 21%] 36 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (169)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[f8/a69a87] process > run_method_benchmark (metho... [ 21%] 36 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (170)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[82/4abb8f] process > run_method_benchmark (metho... [ 21%] 36 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (171)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[26/efc57c] process > run_method_benchmark (metho... [ 21%] 36 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (172)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[f6/651866] process > run_method_benchmark (metho... [ 21%] 36 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (173)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[49/6e1958] process > run_method_benchmark (metho... [ 21%] 36 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (174)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[eb/b4b7a3] process > run_method_benchmark (metho... [ 21%] 36 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (175)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[c0/18995d] process > run_method_benchmark (metho... [ 26%] 45 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (176)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[f1/84263e] process > run_method_benchmark (metho... [ 26%] 45 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (177)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[c3/f2a2d5] process > run_method_benchmark (metho... [ 26%] 45 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (178)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[ce/6654f5] process > run_method_benchmark (metho... [ 26%] 45 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (179)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[78/5f02aa] process > run_method_benchmark (metho... [ 26%] 45 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (180)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[d9/ce3149] process > run_method_benchmark (metho... [ 26%] 45 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (181)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[b5/2cd115] process > run_method_benchmark (metho... [ 26%] 45 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (182)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[b9/6da094] process > run_method_benchmark (metho... [ 26%] 45 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (182)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[fe/e6df09] process > run_method_benchmark (metho... [ 30%] 52 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (183)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[92/126026] process > run_method_benchmark (metho... [ 30%] 52 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (184)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[74/32c586] process > run_method_benchmark (metho... [ 30%] 52 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (185)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[01/30c290] process > run_method_benchmark (metho... [ 30%] 52 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (186)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[17/2bcf12] process > run_method_benchmark (metho... [ 30%] 52 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (187)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[59/4b3bce] process > run_method_benchmark (metho... [ 30%] 52 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (188)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[2c/d52af8] process > run_method_benchmark (metho... [ 30%] 52 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (189)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[e6/64cf37] process > run_method_benchmark (metho... [ 30%] 52 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (190)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[27/9187f5] process > run_method_benchmark (metho... [ 30%] 52 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (190)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[3c/f7b9c6] process > run_method_benchmark (metho... [ 33%] 57 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (191)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[04/31e37e] process > run_method_benchmark (metho... [ 33%] 57 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (192)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[93/7bcc31] process > run_method_benchmark (metho... [ 33%] 57 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (193)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[8f/ef39e6] process > run_method_benchmark (metho... [ 33%] 57 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (194)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[66/c909cb] process > run_method_benchmark (metho... [ 33%] 57 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (195)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[b4/720bda] process > run_method_benchmark (metho... [ 33%] 57 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (196)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[2d/349b1e] process > run_method_benchmark (metho... [ 33%] 57 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (197)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[2d/349b1e] process > run_method_benchmark (metho... [ 33%] 57 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (197)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[21/4aba4e] process > run_method_benchmark (metho... [ 33%] 57 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (198)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[0d/be3da4] process > run_method_benchmark (metho... [ 33%] 57 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (199)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[60/8dbc64] process > run_method_benchmark (metho... [ 33%] 57 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (199)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[eb/b4b7a3] process > run_method_benchmark (metho... [ 38%] 65 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (199)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[92/126026] process > run_method_benchmark (metho... [ 38%] 66 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (200)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[10/047cf5] process > run_method_benchmark (metho... [ 38%] 66 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (201)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[6d/67b1aa] process > run_method_benchmark (metho... [ 38%] 66 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (202)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[4f/641f31] process > run_method_benchmark (metho... [ 38%] 66 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (203)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[e3/683f9a] process > run_method_benchmark (metho... [ 38%] 66 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (204)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[95/55917c] process > run_method_benchmark (metho... [ 38%] 66 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (205)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[c9/6e6d01] process > run_method_benchmark (metho... [ 38%] 66 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (206)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[de/f3bf0d] process > run_method_benchmark (metho... [ 38%] 66 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (207)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[f6/113027] process > run_method_benchmark (metho... [ 38%] 66 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (208)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[8d/b63134] process > run_method_benchmark (metho... [ 38%] 66 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (208)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[7b/dbf00f] process > run_method_benchmark (metho... [ 42%] 73 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (209)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[82/b8f451] process > run_method_benchmark (metho... [ 42%] 73 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (210)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[75/4651c5] process > run_method_benchmark (metho... [ 42%] 73 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (211)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[32/ef7084] process > run_method_benchmark (metho... [ 42%] 73 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (212)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[31/e9e429] process > run_method_benchmark (metho... [ 42%] 73 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (213)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[4f/6671ed] process > run_method_benchmark (metho... [ 42%] 73 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (214)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[f2/546b6b] process > run_method_benchmark (metho... [ 42%] 73 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (215)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[49/8f5ce4] process > run_method_benchmark (metho... [ 42%] 73 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (216)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[61/002c0d] process > run_method_benchmark (metho... [ 42%] 73 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (217)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[c2/a1ac81] process > run_method_benchmark (metho... [ 42%] 73 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (217)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[06/830baf] process > run_method_benchmark (metho... [ 47%] 81 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (218)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[a8/c66220] process > run_method_benchmark (metho... [ 47%] 81 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (219)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[c6/c64549] process > run_method_benchmark (metho... [ 47%] 81 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (220)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[7d/cf72f5] process > run_method_benchmark (metho... [ 47%] 81 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (221)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[fa/b7ef48] process > run_method_benchmark (metho... [ 47%] 81 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (222)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[7c/05cb04] process > run_method_benchmark (metho... [ 47%] 81 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (223)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[7c/95c8de] process > run_method_benchmark (metho... [ 47%] 81 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (224)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[e9/b53961] process > run_method_benchmark (metho... [ 47%] 81 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (224)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[82/4abb8f] process > run_method_benchmark (metho... [ 48%] 83 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (224)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[60/8dbc64] process > run_method_benchmark (metho... [ 54%] 93 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (225)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[eb/61c469] process > run_method_benchmark (metho... [ 54%] 93 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (226)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[18/84c33d] process > run_method_benchmark (metho... [ 54%] 93 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (227)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[d5/a00434] process > run_method_benchmark (metho... [ 54%] 93 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (228)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[0e/544066] process > run_method_benchmark (metho... [ 54%] 93 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (229)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[86/70db52] process > run_method_benchmark (metho... [ 54%] 93 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (230)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[83/e6c48a] process > run_method_benchmark (metho... [ 54%] 93 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (231)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[4e/4e4c26] process > run_method_benchmark (metho... [ 54%] 93 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (232)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[29/8df9ae] process > run_method_benchmark (metho... [ 54%] 93 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (233)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[b9/6da094] process > run_method_benchmark (metho... [ 58%] 100 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (234)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[68/b4cfa4] process > run_method_benchmark (metho... [ 58%] 100 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (235)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[e6/e31b07] process > run_method_benchmark (metho... [ 58%] 100 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (236)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[32/10f1a5] process > run_method_benchmark (metho... [ 58%] 100 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (237)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[78/2ad170] process > run_method_benchmark (metho... [ 58%] 100 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (238)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[00/6a9754] process > run_method_benchmark (metho... [ 58%] 100 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (239)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[3d/689c0b] process > run_method_benchmark (metho... [ 58%] 100 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (240)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[3d/689c0b] process > run_method_benchmark (metho... [ 58%] 100 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (240)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[6e/2020f8] process > run_method_benchmark (metho... [ 58%] 100 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (241)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[49/8f5ce4] process > run_method_benchmark (metho... [ 65%] 111 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (242)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[93/abc5b5] process > run_method_benchmark (metho... [ 65%] 111 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (243)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[82/cc40d1] process > run_method_benchmark (metho... [ 65%] 111 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (244)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[e8/90e5b6] process > run_method_benchmark (metho... [ 65%] 111 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (245)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[3e/06551b] process > run_method_benchmark (metho... [ 65%] 111 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (246)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[ce/ad1c5b] process > run_method_benchmark (metho... [ 65%] 111 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (247)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[b6/e14045] process > run_method_benchmark (metho... [ 65%] 111 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (248)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[dc/f77448] process > run_method_benchmark (metho... [ 65%] 111 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (249)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[6b/1dc9a3] process > run_method_benchmark (metho... [ 65%] 111 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (249)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[d5/a00434] process > run_method_benchmark (metho... [ 66%] 113 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (250)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[0f/aef7fd] process > run_method_benchmark (metho... [ 66%] 113 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (251)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[7a/98f751] process > run_method_benchmark (metho... [ 66%] 113 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (252)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[1b/789102] process > run_method_benchmark (metho... [ 66%] 113 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (253)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[90/b24504] process > run_method_benchmark (metho... [ 66%] 113 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (254)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[a2/cecbd1] process > run_method_benchmark (metho... [ 66%] 113 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (255)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[ab/03d04a] process > run_method_benchmark (metho... [ 66%] 113 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (256)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[d1/b18158] process > run_method_benchmark (metho... [ 66%] 113 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (256)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[72/cb9f87] process > run_method_benchmark (metho... [ 69%] 118 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (256)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[c2/a1ac81] process > run_method_benchmark (metho... [ 73%] 125 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (256)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[7a/98f751] process > run_method_benchmark (metho... [ 80%] 136 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (256)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[f6/113027] process > run_method_benchmark (metho... [ 82%] 141 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (256)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[4e/4e4c26] process > run_method_benchmark (metho... [ 87%] 148 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (256)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[6e/2020f8] process > run_method_benchmark (metho... [ 90%] 154 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (256)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[6b/1dc9a3] process > run_method_benchmark (metho... [ 96%] 164 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (256)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[d1/b18158] process > run_method_benchmark (metho... [ 98%] 168 of 170
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (256)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[1b/789102] process > run_method_benchmark (metho... [100%] 170 of 170 ✔
+[-        ] process > add_n_processors               -
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (256)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[1b/789102] process > run_method_benchmark (metho... [100%] 170 of 170 ✔
+[-        ] process > add_n_processors               [  0%] 0 of 1
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (257)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[1b/789102] process > run_method_benchmark (metho... [100%] 170 of 170 ✔
+[ea/2f3eb0] process > add_n_processors               [  0%] 0 of 1
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
+
+executor >  sge (257)
+[10/36b2a9] process > obtain_basic_info              [100%] 1 of 1 ✔
+[85/bcc96f] process > generate_data_benchmark (gr... [100%] 85 of 85 ✔
+[1b/789102] process > run_method_benchmark (metho... [100%] 170 of 170 ✔
+[ea/2f3eb0] process > add_n_processors               [  0%] 0 of 1
+[-        ] process > generate_data                  -
+[-        ] process > run_method                     -
+[-        ] process > combine_results                -
