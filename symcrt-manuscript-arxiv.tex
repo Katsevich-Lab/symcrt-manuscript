@@ -1133,7 +1133,7 @@ On the other hand, the fact that $f$ is Lipschitz (say with Lipschitz constant $
 \begin{align*}
 &\frac{1}{n} \sum_{i=1}^n (f(\widehat \mu_{n,x}(Z_i))-f( \mu_{n,x}(Z_i)))^2\V_{\law_n}[\sry_i\mid \srz_i] \\
 &\quad\leq 
-\frac{L}{n} \sum_{i=1}^n (\widehat \mu_{n,x}(Z_i)- \mu_{n,x}(Z_i))^2\V_{\law_n}[\sry_i\mid \srz_i] = \frac{1}{L}E'_{n,x} = o_p(1).
+\frac{L^2}{n} \sum_{i=1}^n (\widehat \mu_{n,x}(Z_i)- \mu_{n,x}(Z_i))^2\V_{\law_n}[\sry_i\mid \srz_i] = L^2E'_{n,x} = o_p(1).
 \end{align*}
 Combining the last two displays with equation~\eqref{eq:CS_corrolary_doubly_robust} gives us the desired result.
 \end{proof}
@@ -1170,9 +1170,9 @@ Applying Theorem~\ref{thm:equivalence} to the sequence $\law^*_n$ and using the 
 &\quad \quad + \limsup_{n \rightarrow \infty} \sup_{\law_n \in \nulllaws_n \cap \regclass_n} \E_{\law_n}[\phi_n^{\GCM}(\srx, \sry, \srz)] \\
 &\quad\leq \limsup_{n \rightarrow \infty} \sup_{\law_n \in \nulllaws_n \cap  \regclass_n} \P_{\law_n}[\phi_n^{\dCRThat}(\srx, \sry, \srz) \neq \phi_n^{\GCM}(\srx, \sry, \srz)]  \\
 &\quad \quad + \limsup_{n \rightarrow \infty} \sup_{\law_n \in \nulllaws_n \cap \regclass_n} \E_{\law_n}[\phi_n^{\GCM}(\srx, \sry, \srz)] \\
-&\quad\leq \limsup_{n \rightarrow \infty} \sup_{\law_n \in \nulllaws_n \cap  \regclass_n} \P_{\law_n}[\phi_n^{\dCRThat}(\srx, \sry, \srz) \neq \phi_n^{\GCM}(\srx, \sry, \srz)] \\
-&\quad\leq \limsup_{n \rightarrow \infty}\ \P_{\law^*_n}[\phi_n^{\dCRThat}(\srx, \sry, \srz) \neq \phi_n^{\GCM}(\srx, \sry, \srz)] + \epsilon \\
-&\quad=\epsilon.
+&\quad\leq \limsup_{n \rightarrow \infty} \sup_{\law_n \in \nulllaws_n \cap  \regclass_n} \P_{\law_n}[\phi_n^{\dCRThat}(\srx, \sry, \srz) \neq \phi_n^{\GCM}(\srx, \sry, \srz)] + \alpha \\
+&\quad\leq \limsup_{n \rightarrow \infty}\ \P_{\law^*_n}[\phi_n^{\dCRThat}(\srx, \sry, \srz) \neq \phi_n^{\GCM}(\srx, \sry, \srz)] + \epsilon +\alpha \\
+&\quad=\epsilon + \alpha.
 \end{split}
 \end{equation*}
 Sending $\epsilon \rightarrow 0$ gives the desired conclusion.
@@ -1257,8 +1257,8 @@ and
 	\begin{split}
 	&\sup_{i,n} \ \E_{\law_n}[|\V_{\law_n}[\srx_i\mid \srz_i]\V_{\law_n}[\sry_i \mid \srz_i]|^{1+\delta/2}] \\
 	&\quad= \sup_n\ \E_{\law_n}[|\V_{\law_n}[\prx\mid \prz]\V_{\law_n}[\pry \mid \prz]|^{1+\delta/2}] \\
-	&\quad\leq \sup_n\ \E_{\law_n}[\E_{\law_n}[|\prx - \mu_{n,x}(\prz)|^{1+\delta} \mid \prz]\E_{\law_n}[|\pry - \mu_{n,y}(\prz)|^{1+\delta} \mid \prz]] \\
-	&\quad= \sup_n\ \E_{\law_n}[|\prx - \mu_{n,x}(\prz)(\pry - \mu_{n,y}(\prz))|^{2 + \delta}] \\
+	&\quad\leq \sup_n\ \E_{\law_n}[\E_{\law_n}[|\prx - \mu_{n,x}(\prz)|^{2+\delta} \mid \prz]\E_{\law_n}[|\pry - \mu_{n,y}(\prz)|^{2+\delta} \mid \prz]] \\
+	&\quad= \sup_n\ \E_{\law_n}[|(\prx - \mu_{n,x}(\prz))(\pry - \mu_{n,y}(\prz))|^{2 + \delta}] \\
 	&\quad< c_2 < \infty.
 	\end{split}
 	\label{eq:variance-bound-derivation}
@@ -1278,9 +1278,9 @@ We prove only the first, as the second will follow by symmetry. Given the conver
 	\label{eq:sufficient-convergence}
 	\end{split}
 \end{equation}
-The convergence $E'_{n,x} \convp 0$ is assumed~\eqref{eq:sp1}. To verify the convergence of the second term, note first that conditional Jensen (Lemma~\ref{lem:conditional-jensen}) and the derivation~\eqref{eq:variance-bound-derivation} give
+The convergence $E'_{n,x} \convp 0$ is assumed~\eqref{eq:sp1}. To verify the convergence of the second term, note first that conditional H\"older (Lemma~\ref{lem:cond_holder}) and the derivation~\eqref{eq:variance-bound-derivation} give
 \begin{equation}
-\sup_n\ s^2_n \leq \sup_n\ \E_{\law_n}[|\V_{\law_n}[\prx\mid \prz]\V_{\law_n}[\pry \mid \prz]|^{1+\delta/2}] < \infty,
+\sup_n\ s^2_n \leq \sup_n\ \{\E_{\law_n}[|\V_{\law_n}[\prx\mid \prz]\V_{\law_n}[\pry \mid \prz]|^{1+\delta/2}]\}^{2/(2+\delta)} < \infty,
 \end{equation}
 which combined with the convergence~\eqref{eq:variance_convg_2} implies that
 \begin{equation}
