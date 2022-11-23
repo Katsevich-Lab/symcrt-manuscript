@@ -15,7 +15,7 @@ max_gb=7.5
 profile="standard"
 
 ### INSTALL ALL R PACKAGES NECESSARY VIA RENV ###
-Rscript -e 'if(!require(renv)) install.packages("renv", repos = "http://cran.us.r-project.org")'
+Rscript -e 'if(!suppressMessages(require(renv))) install.packages("renv", repos = "http://cran.us.r-project.org")'
 Rscript -e 'renv::activate(); renv::restore()'  # This step may take up to 15 minutes
 OLD_R_LIBS_USER=$R_LIBS_USER
 export R_LIBS_USER=$(Rscript -e 'cat(.libPaths()[1])')
