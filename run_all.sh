@@ -9,8 +9,10 @@
 #############################################################
 
 # READ COMMAND LINE ARGUMENTS
-max_gb=$1    # GB available per core (default 8)
-profile=$2   # Nextflow profile (default "standard")
+# max_gb=$1    # GB available per core (default 8)
+# profile=$2   # Nextflow profile (default "standard")
+max_gb=7.5
+profile="standard"
 
 ### INSTALL ALL R PACKAGES NECESSARY VIA RENV ###
 Rscript -e 'if(!suppressMessages(require(renv))) install.packages("renv", repos = "http://cran.us.r-project.org")'

@@ -293,7 +293,7 @@ for (q in 1:length(distribution_list)) {
       y.grob <- textGrob("Power", 
                          gp=gpar(col="black"), rot=90)
       
-      x.grob <- textGrob("Effect size", 
+      x.grob <- textGrob(TeX("Effect size ($\\theta$)"), 
                          gp=gpar(col="black"))
       
       # add to plot

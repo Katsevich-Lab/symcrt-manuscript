@@ -327,7 +327,7 @@ for (q in 1:length(distribution_list)) {
       y.grob <- textGrob("Type I error", 
                          gp=gpar(col="black"), rot=90)
       
-      x.grob <- textGrob("Confounding strength", 
+      x.grob <- textGrob(TeX("Marginal association between $X$ and $Y$ ($\\nu$)"), 
                          gp=gpar(col="black"))
       
       # add to plot
