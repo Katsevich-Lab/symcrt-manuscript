@@ -297,7 +297,7 @@ if(file.exists(figure_path)){
   y.grob <- textGrob("Power", 
                      gp=gpar(col="black"), rot=90)
   
-  x.grob <- textGrob("Effect size", 
+  x.grob <- textGrob(TeX("Effect size ($\\theta$)"), 
                      gp=gpar(col="black"))
   
   # add to plot
