@@ -64,7 +64,8 @@ for (q in 1:length(distribution_list)) {
           Y_on_Z_reg = Y_on_Z_reg$mean_method_type,
           normalization = test_hyperparams$normalize
         ) |>
-        dplyr::select(method, infer_method, reg_method, X_on_Z_reg, Y_on_Z_reg, normalization)
+        dplyr::select(method, infer_method, reg_method, X_on_Z_reg, Y_on_Z_reg, normalization) |>
+        mutate(reg_method = ifelse(reg_method == "naive", "marginal", reg_method))
       
       # extract the parameter_grid from the specifier object
       simspec_dir <- sprintf(
@@ -277,7 +278,7 @@ for (q in 1:length(distribution_list)) {
       # get legend
       auxiliary_1 <- type_I_err[[4]] |>
         dplyr::mutate(variable_setting = factor(variable_setting, levels=c("rho = 0","rho = 0.2","rho = 0.4","rho = 0.6","rho = 0.8"))) |>
-        dplyr::filter(reg_method != "naive") |>
+        dplyr::filter(reg_method != "marginal") |>
         ggplot(aes(x = nu_scale, 
                           y = type_I_err,
                           colour = infer_reg,
@@ -297,7 +298,7 @@ for (q in 1:length(distribution_list)) {
       
       auxiliary_2 <- type_I_err[[4]] |>
         dplyr::mutate(variable_setting = factor(variable_setting, levels=c("rho = 0","rho = 0.2","rho = 0.4","rho = 0.6","rho = 0.8"))) |>
-        dplyr::filter(reg_method == "naive") |>
+        dplyr::filter(reg_method == "marginal") |>
         ggplot(aes(x = nu_scale, 
                           y = type_I_err,
                           colour = infer_reg,
