@@ -162,9 +162,9 @@ if(file.exists(figure_path)){
                       y = MSE,
                       colour = reg_method)) + 
     scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
-    scale_y_continuous(breaks = c(0,0.2,0.8), minor_breaks = seq(0, 0.8, 0.1), limits = c(0, NA)) +
-    ggh4x::facet_grid2(parameter ~ test_type, 
-                       scales = "fixed") +
+    scale_y_continuous(limits = c(0, 0.4)) +
+    # scale_y_continuous(breaks = c(0,0.2,0.8), minor_breaks = seq(0, 0.8, 0.1), limits = c(0, NA)) +
+    facet_grid(test_type ~ parameter, scales = "fixed") +
     geom_point(size = 0.5) +
     geom_line() +
     scale_color_manual(values = c("red", "#90ee90"))+
@@ -174,20 +174,20 @@ if(file.exists(figure_path)){
           axis.title.y = element_blank(),
           axis.ticks.x = element_blank(),
           axis.text.x = element_blank(),
-          axis.ticks.y = element_blank(),
-          axis.text.y = element_blank(),
+#          axis.ticks.y = element_blank(),
+#          axis.text.y = element_blank(),
           legend.position="none")+
-    xlab("Confounding strength") 
-  
+    xlab(TeX("Marginal association between $X$ and $Y$ ($\\nu$)")) +
+    ylab("Mean-squared estimation error")
   
   p2 =  MSE_alternative |>
     ggplot(aes(x = theta_scale, 
                       y = MSE,
                       colour = reg_method)) + 
     scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
-    scale_y_continuous(breaks = c(0, 0.6,0.8), minor_breaks = seq(0, 0.8, 0.2), limits = c(0, NA)) +
-    ggh4x::facet_grid2(parameter ~ test_type, 
-                       scales = "fixed") +
+    scale_y_continuous(limits = c(0, 0.8)) +
+    # scale_y_continuous(breaks = c(0, 0.6,0.8), minor_breaks = seq(0, 0.8, 0.2), limits = c(0, NA)) +
+    facet_grid(test_type ~ parameter, scales = "fixed") +
     geom_point(size = 0.5) +
     geom_line() +
     scale_color_manual(values = c("red", "#90ee90"))+
@@ -197,10 +197,11 @@ if(file.exists(figure_path)){
           axis.title.y = element_blank(),
           axis.ticks.x = element_blank(),
           axis.text.x = element_blank(),
-          axis.ticks.y = element_blank(),
-          axis.text.y = element_blank(),
+          # axis.ticks.y = element_blank(),
+          # axis.text.y = element_blank(),
           legend.position="none")+
-    xlab("Effect size") 
+    xlab(TeX("Effect size ($\\theta$)")) +
+    ylab("Mean-squared estimation error")
   
   # get the legend
   auxiliary =  MSE_null |>
@@ -229,11 +230,11 @@ if(file.exists(figure_path)){
   legend <- get_legend(auxiliary)
   
   # combine plot
-  plot <- plot_grid(p1, p2, ncol = 2, align = "v")
+  plot <- plot_grid(p1, p2, ncol = 1, align = "v")
   
   
   # create common x and y labels
-  y.grob <- textGrob("MSE", 
+  y.grob <- textGrob("Mean-squared estimation error", 
                      gp=gpar(col="black"), rot=90)
   
   
@@ -246,6 +247,6 @@ if(file.exists(figure_path)){
   ggsave(plot = g,
          filename = figure_path, 
          device = "pdf",
-         width = TEXTWIDTH, 
-         height = 0.5*TEXTHEIGHT)
+         width = 0.8*TEXTWIDTH, 
+         height = 0.65*TEXTHEIGHT)
 }
