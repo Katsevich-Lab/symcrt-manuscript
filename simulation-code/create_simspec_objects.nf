@@ -12,7 +12,6 @@ process extract_sim_indices {
   """
   #!/usr/bin/env Rscript
 
-  devtools::package_info("symcrt")
   source("$sim_version_fp")
   sapply(1:nrow(simulations), function(row)(as.list(simulations[row,]))) |> 
     unlist() |>
