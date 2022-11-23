@@ -4,7 +4,7 @@
 
 # READ COMMAND LINE ARGUMENTS
 max_gb=7.5
-profile="aws"
+profile="standard"
 # max_gb=$1    # GB available per core (default 8)
 # profile=$2   # Nextflow profile (default "standard")
 

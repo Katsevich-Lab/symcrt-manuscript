@@ -98,7 +98,7 @@ if(!file.exists("simulation-results/confounding/Liu.csv")){
   # compute type-I error for Liu et al.
   Liu$type_I_err <- typeI_err(Liu$confounding, 0.05)
   
-  write_csv(Liu, "simulation-results/confounding/Liu.csv")
+  readr::write_csv(Liu, "simulation-results/confounding/Liu.csv")
 } else{
   cat("Liu et al (2022) confounding level already computed!\n")
 }
@@ -165,7 +165,7 @@ if(!file.exists("simulation-results/confounding/Candès.csv")){
   rd_Candès$type_I_err <- typeI_err(rd_Candès$confounding, 0.05)
   
   # save the csv file
-  write.csv(rd_Candès, "simulation-results/confounding/Candès.csv")
+  readr::write_csv(rd_Candès, "simulation-results/confounding/Candès.csv")
 } else{
   cat("Candes et al (2018) confounding level already computed!\n")
 }
