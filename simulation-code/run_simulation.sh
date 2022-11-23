@@ -50,7 +50,7 @@ do
       -with-trace $output_dir/$sim_string"_trace.txt"
     wait
     if [ -f "$output_dir/$output_filename" ]; then
-      if [ -z "$NXF_WORK" ]; then
+      if [ -d "$NXF_WORK" ]; then
         rm -r $NXF_WORK/*
       fi
     else

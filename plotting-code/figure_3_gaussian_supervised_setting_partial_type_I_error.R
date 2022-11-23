@@ -25,7 +25,7 @@ if(file.exists(figure_path)){
     method_strings = method_strings[[setting]],
     distribution = distribution,
     way_to_learn = way_to_learn
-  )
+  ) 
   
   
   # label the normalization type for each setting
@@ -62,7 +62,8 @@ if(file.exists(figure_path)){
       Y_on_Z_reg = Y_on_Z_reg$mean_method_type,
       normalization = test_hyperparams$normalize
     ) |>
-    select(method, infer_method, reg_method, X_on_Z_reg, Y_on_Z_reg, normalization)
+    select(method, infer_method, reg_method, X_on_Z_reg, Y_on_Z_reg, normalization) |>
+    mutate(reg_method = ifelse(reg_method == "naive", "marginal", reg_method))
   
   # extract the parameter_grid from the specifier object
   simspec_dir <- sprintf(
@@ -310,7 +311,7 @@ if(file.exists(figure_path)){
   # get legend
   auxiliary_1 <- type_I_err[[4]] |>
     mutate(variable_setting = factor(variable_setting, levels = c("rho = 0", "rho = 0.2", "rho = 0.4", "rho = 0.6", "rho = 0.8"))) |>
-    filter(reg_method != "naive") |>
+    filter(reg_method != "marginal") |>
     ggplot(aes(
       x = nu_scale,
       y = type_I_err,
@@ -334,7 +335,7 @@ if(file.exists(figure_path)){
   
   auxiliary_2 <- type_I_err[[4]] |>
     mutate(variable_setting = factor(variable_setting, levels = c("rho = 0", "rho = 0.2", "rho = 0.4", "rho = 0.6", "rho = 0.8"))) |>
-    filter(reg_method == "naive") |>
+    filter(reg_method == "marginal") |>
     ggplot(aes(
       x = nu_scale,
       y = type_I_err,

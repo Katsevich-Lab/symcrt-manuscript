@@ -1,5 +1,11 @@
 #############################################################
 # REPRODUCE ALL SIMULATIONS
+#
+# Note: This code took about 24 hours to run on a computer 
+# cluster with 500 cores, with 8GB/core. The code will rerun
+# computations to regenerate only those files that are not
+# already present in this directory. 
+#
 #############################################################
 
 # READ COMMAND LINE ARGUMENTS
