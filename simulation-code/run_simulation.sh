@@ -1,3 +1,6 @@
+Rscript -e 'devtools::package_info("symcrt")'  # This step may take up to 15 minutes
+exit
+
 # 0. Parse command line arguments
 sim_version_fp=$1  # path to file specifying the parameters of the simulation
 sim_spec_dir=$2    # path to directory to store simulatr specifier objects
