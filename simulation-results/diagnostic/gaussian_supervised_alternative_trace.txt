@@ -1,876 +1,257 @@
 task_id	name	status	exit	realtime	peak_vmem
-1	obtain_basic_info	COMPLETED	0	1.5s	394 MB
-2	generate_data_benchmark (grid row: 1)	COMPLETED	0	3.9s	574.9 MB
-4	generate_data_benchmark (grid row: 3)	COMPLETED	0	3.8s	574.9 MB
-3	generate_data_benchmark (grid row: 2)	COMPLETED	0	3.7s	574.9 MB
-5	generate_data_benchmark (grid row: 4)	COMPLETED	0	3.6s	574.9 MB
-6	generate_data_benchmark (grid row: 5)	COMPLETED	0	4s	574.9 MB
-8	generate_data_benchmark (grid row: 7)	COMPLETED	0	5.2s	582.6 MB
-9	generate_data_benchmark (grid row: 8)	COMPLETED	0	5.2s	582.6 MB
-10	generate_data_benchmark (grid row: 9)	COMPLETED	0	5.1s	582.6 MB
-12	generate_data_benchmark (grid row: 11)	COMPLETED	0	5.6s	588.7 MB
-11	generate_data_benchmark (grid row: 10)	COMPLETED	0	5s	582.6 MB
-22	generate_data_benchmark (grid row: 21)	COMPLETED	0	14.6s	717.4 MB
-23	generate_data_benchmark (grid row: 22)	COMPLETED	0	14.5s	717.4 MB
-25	generate_data_benchmark (grid row: 24)	COMPLETED	0	14.4s	717.4 MB
-24	generate_data_benchmark (grid row: 23)	COMPLETED	0	14.4s	717.4 MB
-26	generate_data_benchmark (grid row: 25)	COMPLETED	0	10.3s	717.4 MB
-35	generate_data_benchmark (grid row: 34)	COMPLETED	0	4.6s	572.1 MB
-36	generate_data_benchmark (grid row: 35)	COMPLETED	0	4.4s	572.1 MB
-34	generate_data_benchmark (grid row: 33)	COMPLETED	0	4.4s	556.6 MB
-7	generate_data_benchmark (grid row: 6)	COMPLETED	0	3.7s	582.6 MB
-13	generate_data_benchmark (grid row: 12)	COMPLETED	0	5.4s	588.7 MB
-14	generate_data_benchmark (grid row: 13)	COMPLETED	0	5.3s	588.7 MB
-15	generate_data_benchmark (grid row: 14)	COMPLETED	0	5s	588.7 MB
-17	generate_data_benchmark (grid row: 16)	COMPLETED	0	7.2s	627.8 MB
-18	generate_data_benchmark (grid row: 17)	COMPLETED	0	7.3s	627.8 MB
-16	generate_data_benchmark (grid row: 15)	COMPLETED	0	4.8s	588.7 MB
-19	generate_data_benchmark (grid row: 18)	COMPLETED	0	7.2s	627.8 MB
-20	generate_data_benchmark (grid row: 19)	COMPLETED	0	7.5s	627.8 MB
-38	generate_data_benchmark (grid row: 37)	COMPLETED	0	7s	597.4 MB
-37	generate_data_benchmark (grid row: 36)	COMPLETED	0	6.9s	597.4 MB
-40	generate_data_benchmark (grid row: 39)	COMPLETED	0	6.9s	597.4 MB
-39	generate_data_benchmark (grid row: 38)	COMPLETED	0	6.8s	597.4 MB
-21	generate_data_benchmark (grid row: 20)	COMPLETED	0	7.4s	627.8 MB
-27	generate_data_benchmark (grid row: 26)	COMPLETED	0	3.1s	476.8 MB
-28	generate_data_benchmark (grid row: 27)	COMPLETED	0	3.1s	478.2 MB
-29	generate_data_benchmark (grid row: 28)	COMPLETED	0	3.1s	480.4 MB
-30	generate_data_benchmark (grid row: 29)	COMPLETED	0	3s	480.4 MB
-31	generate_data_benchmark (grid row: 30)	COMPLETED	0	3.1s	480.4 MB
-32	generate_data_benchmark (grid row: 31)	COMPLETED	0	3.4s	480.6 MB
-33	generate_data_benchmark (grid row: 32)	COMPLETED	0	3.3s	480.6 MB
-42	generate_data_benchmark (grid row: 41)	COMPLETED	0	10s	671.9 MB
-43	generate_data_benchmark (grid row: 42)	COMPLETED	0	10.2s	671.9 MB
-44	generate_data_benchmark (grid row: 43)	COMPLETED	0	10.1s	671.9 MB
-45	generate_data_benchmark (grid row: 44)	COMPLETED	0	10.1s	671.9 MB
-46	generate_data_benchmark (grid row: 45)	COMPLETED	0	10s	671.9 MB
-41	generate_data_benchmark (grid row: 40)	COMPLETED	0	6.7s	597.4 MB
-50	generate_data_benchmark (grid row: 49)	COMPLETED	0	4.5s	582.4 MB
-51	generate_data_benchmark (grid row: 50)	COMPLETED	0	4.3s	582.4 MB
-53	generate_data_benchmark (grid row: 52)	COMPLETED	0	4.2s	582.1 MB
-52	generate_data_benchmark (grid row: 51)	COMPLETED	0	4.1s	582.1 MB
-47	generate_data_benchmark (grid row: 46)	COMPLETED	0	4s	582.4 MB
-49	generate_data_benchmark (grid row: 48)	COMPLETED	0	4s	582.4 MB
-48	generate_data_benchmark (grid row: 47)	COMPLETED	0	3.9s	582.4 MB
-57	generate_data_benchmark (grid row: 56)	COMPLETED	0	4.7s	581.2 MB
-56	generate_data_benchmark (grid row: 55)	COMPLETED	0	4.6s	582.1 MB
-59	generate_data_benchmark (grid row: 58)	COMPLETED	0	4.6s	581.2 MB
-58	generate_data_benchmark (grid row: 57)	COMPLETED	0	4.5s	581.2 MB
-61	generate_data_benchmark (grid row: 60)	COMPLETED	0	4.5s	581.2 MB
-55	generate_data_benchmark (grid row: 54)	COMPLETED	0	4.1s	582.1 MB
-54	generate_data_benchmark (grid row: 53)	COMPLETED	0	4s	582.1 MB
-63	generate_data_benchmark (grid row: 62)	COMPLETED	0	3.7s	579.7 MB
-62	generate_data_benchmark (grid row: 61)	COMPLETED	0	3.5s	579.7 MB
-65	generate_data_benchmark (grid row: 64)	COMPLETED	0	3.5s	579.7 MB
-64	generate_data_benchmark (grid row: 63)	COMPLETED	0	3.8s	579.7 MB
-66	generate_data_benchmark (grid row: 65)	COMPLETED	0	3.8s	579.7 MB
-67	generate_data_benchmark (grid row: 66)	COMPLETED	0	3.6s	582.6 MB
-60	generate_data_benchmark (grid row: 59)	COMPLETED	0	4.4s	581.2 MB
-68	generate_data_benchmark (grid row: 67)	COMPLETED	0	3.7s	582.6 MB
-69	generate_data_benchmark (grid row: 68)	COMPLETED	0	3.7s	582.6 MB
-70	generate_data_benchmark (grid row: 69)	COMPLETED	0	4.8s	582.6 MB
-71	generate_data_benchmark (grid row: 70)	COMPLETED	0	4.5s	582.6 MB
-72	generate_data_benchmark (grid row: 71)	COMPLETED	0	4.9s	582.6 MB
-73	generate_data_benchmark (grid row: 72)	COMPLETED	0	4.9s	582.6 MB
-77	generate_data_benchmark (grid row: 76)	COMPLETED	0	7.2s	582.5 MB
-78	generate_data_benchmark (grid row: 77)	COMPLETED	0	7s	582.6 MB
-79	generate_data_benchmark (grid row: 78)	COMPLETED	0	7s	582.6 MB
-80	generate_data_benchmark (grid row: 79)	COMPLETED	0	7s	582.6 MB
-74	generate_data_benchmark (grid row: 73)	COMPLETED	0	4.8s	582.6 MB
-75	generate_data_benchmark (grid row: 74)	COMPLETED	0	4.8s	582.6 MB
-76	generate_data_benchmark (grid row: 75)	COMPLETED	0	4.8s	582.6 MB
-81	generate_data_benchmark (grid row: 80)	COMPLETED	0	6.9s	582.5 MB
-82	generate_data_benchmark (grid row: 81)	COMPLETED	0	6.8s	582.6 MB
-84	generate_data_benchmark (grid row: 83)	COMPLETED	0	6.7s	582.6 MB
-83	generate_data_benchmark (grid row: 82)	COMPLETED	0	6.6s	582.6 MB
-85	generate_data_benchmark (grid row: 84)	COMPLETED	0	6.6s	582.6 MB
-86	generate_data_benchmark (grid row: 85)	COMPLETED	0	3.7s	582.6 MB
-87	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 1)	COMPLETED	0	6.8s	624.2 MB
-102	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 9)	COMPLETED	0	9.9s	624.5 MB
-106	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 10)	COMPLETED	0	9.4s	624.6 MB
-105	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 10)	COMPLETED	0	9.4s	624 MB
-89	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 3)	COMPLETED	0	6.8s	623.6 MB
-90	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 3)	COMPLETED	0	6.7s	622.4 MB
-96	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 5)	COMPLETED	0	6.9s	624.8 MB
-95	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 5)	COMPLETED	0	6.7s	625.2 MB
-98	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 7)	COMPLETED	0	9.5s	625.2 MB
-88	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 1)	COMPLETED	0	6.6s	625.4 MB
-91	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 2)	COMPLETED	0	6.5s	621.7 MB
-92	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 2)	COMPLETED	0	6.4s	621.1 MB
-94	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 4)	COMPLETED	0	6.4s	620.9 MB
-93	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 4)	COMPLETED	0	6.3s	622.7 MB
-99	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 8)	COMPLETED	0	9.3s	625.6 MB
-100	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 8)	COMPLETED	0	9.3s	624.1 MB
-101	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 9)	COMPLETED	0	9.2s	625.1 MB
-97	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 7)	COMPLETED	0	9.5s	624.3 MB
-124	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 6)	COMPLETED	0	12.1s	625.7 MB
-123	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 6)	COMPLETED	0	12.2s	623.9 MB
-117	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 34)	COMPLETED	0	9.6s	622.5 MB
-120	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 35)	COMPLETED	0	9.6s	623.7 MB
-119	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 35)	COMPLETED	0	9.5s	622.9 MB
-121	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 33)	COMPLETED	0	9.5s	622.6 MB
-125	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 12)	COMPLETED	0	26.3s	642.6 MB
-128	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 13)	COMPLETED	0	26.2s	655 MB
-127	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 13)	COMPLETED	0	26.1s	650.8 MB
-130	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 14)	COMPLETED	0	26.1s	654.1 MB
-131	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 16)	COMPLETED	0	20.6s	682 MB
-132	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 16)	COMPLETED	0	20.7s	689.4 MB
-134	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 17)	COMPLETED	0	20.6s	685.3 MB
-104	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 11)	COMPLETED	0	24.3s	643.4 MB
-103	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 11)	COMPLETED	0	24.3s	651.5 MB
-108	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 21)	COMPLETED	0	17.2s	757.2 MB
-107	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 21)	COMPLETED	0	17.5s	753 MB
-109	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 22)	COMPLETED	0	19.1s	754.4 MB
-110	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 22)	COMPLETED	0	19s	752.9 MB
-111	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 24)	COMPLETED	0	19.1s	749.6 MB
-112	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 24)	COMPLETED	0	19.1s	792.7 MB
-113	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 23)	COMPLETED	0	18.9s	749.6 MB
-114	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 23)	COMPLETED	0	18.9s	757.3 MB
-116	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 25)	COMPLETED	0	19.1s	750.6 MB
-115	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 25)	COMPLETED	0	17s	750 MB
-118	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 34)	COMPLETED	0	9.7s	623.7 MB
-122	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 33)	COMPLETED	0	9.6s	621.9 MB
-133	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 17)	COMPLETED	0	20.5s	682 MB
-135	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 15)	COMPLETED	0	27.3s	650.8 MB
-136	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 15)	COMPLETED	0	27.5s	655.9 MB
-138	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 18)	COMPLETED	0	17.8s	685.3 MB
-137	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 18)	COMPLETED	0	17s	680.8 MB
-139	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 19)	COMPLETED	0	17s	681.5 MB
-140	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 19)	COMPLETED	0	17s	687.5 MB
-142	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 37)	COMPLETED	0	8.1s	653.4 MB
-141	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 37)	COMPLETED	0	8.1s	651.6 MB
-144	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 36)	COMPLETED	0	8.1s	656.3 MB
-143	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 36)	COMPLETED	0	8.2s	642.5 MB
-145	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 39)	COMPLETED	0	8.2s	652.6 MB
-146	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 39)	COMPLETED	0	8.1s	653.9 MB
-148	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 38)	COMPLETED	0	8s	655 MB
-147	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 38)	COMPLETED	0	7.9s	651 MB
-149	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 20)	COMPLETED	0	16.7s	682.5 MB
-150	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 20)	COMPLETED	0	16.7s	687.1 MB
-151	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 26)	COMPLETED	0	5.5s	617.2 MB
-152	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 26)	COMPLETED	0	5.6s	620.9 MB
-153	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 27)	COMPLETED	0	5.4s	617.9 MB
-154	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 27)	COMPLETED	0	5.4s	618.3 MB
-156	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 28)	COMPLETED	0	5.3s	618.2 MB
-155	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 28)	COMPLETED	0	5.2s	619.2 MB
-158	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 29)	COMPLETED	0	5.2s	620.7 MB
-157	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 29)	COMPLETED	0	5.7s	619.6 MB
-159	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 30)	COMPLETED	0	5.5s	617.1 MB
-161	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 31)	COMPLETED	0	9.8s	622.6 MB
-162	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 31)	COMPLETED	0	9.6s	622.1 MB
-163	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 32)	COMPLETED	0	9.6s	622.1 MB
-164	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 32)	COMPLETED	0	9.7s	623.1 MB
-166	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 41)	COMPLETED	0	10.8s	686.3 MB
-165	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 41)	COMPLETED	0	9.7s	679.7 MB
-168	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 42)	COMPLETED	0	10.5s	684.1 MB
-167	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 42)	COMPLETED	0	10.5s	680.4 MB
-126	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 12)	COMPLETED	0	26.4s	652.6 MB
-160	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 30)	COMPLETED	0	5.5s	618.1 MB
-169	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 43)	COMPLETED	0	10.4s	680.1 MB
-170	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 43)	COMPLETED	0	10.5s	683.6 MB
-172	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 44)	COMPLETED	0	10.7s	686.3 MB
-171	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 44)	COMPLETED	0	10.5s	681.1 MB
-173	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 45)	COMPLETED	0	10.5s	681.3 MB
-174	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 45)	COMPLETED	0	9.1s	704.1 MB
-175	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 40)	COMPLETED	0	7.6s	642.5 MB
-176	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 40)	COMPLETED	0	7.5s	643 MB
-129	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 14)	COMPLETED	0	27.6s	649.9 MB
-177	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 49)	COMPLETED	0	9.7s	625 MB
-178	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 49)	COMPLETED	0	9.5s	626.8 MB
-180	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 50)	COMPLETED	0	9.7s	626.2 MB
-179	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 50)	COMPLETED	0	10.1s	626.7 MB
-182	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 52)	COMPLETED	0	9.7s	624.8 MB
-181	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 52)	COMPLETED	0	9.6s	624.3 MB
-184	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 51)	COMPLETED	0	9.6s	624.9 MB
-193	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 55)	COMPLETED	0	10s	625.5 MB
-196	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 58)	COMPLETED	0	10s	627.8 MB
-195	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 58)	COMPLETED	0	9.7s	624.5 MB
-198	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 57)	COMPLETED	0	9.8s	626.4 MB
-197	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 57)	COMPLETED	0	9.7s	624.6 MB
-199	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 60)	COMPLETED	0	9.6s	625.2 MB
-200	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 60)	COMPLETED	0	9.4s	625.4 MB
-201	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 54)	COMPLETED	0	9.4s	624.7 MB
-202	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 54)	COMPLETED	0	9.9s	637.7 MB
-203	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 53)	COMPLETED	0	9.3s	624.5 MB
-204	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 53)	COMPLETED	0	9.3s	625.1 MB
-183	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 51)	COMPLETED	0	9.5s	625.6 MB
-185	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 46)	COMPLETED	0	9.6s	624 MB
-186	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 46)	COMPLETED	0	9.7s	626.4 MB
-188	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 48)	COMPLETED	0	10.2s	625.4 MB
-187	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 48)	COMPLETED	0	9.5s	624.1 MB
-189	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 47)	COMPLETED	0	9.4s	625.6 MB
-206	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 62)	COMPLETED	0	9.6s	625 MB
-205	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 62)	COMPLETED	0	9.4s	624.5 MB
-190	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 47)	COMPLETED	0	9.4s	626.3 MB
-191	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 56)	COMPLETED	0	9.5s	624.6 MB
-192	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 56)	COMPLETED	0	9.5s	625.9 MB
-194	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 55)	COMPLETED	0	9.3s	625 MB
-210	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 64)	COMPLETED	0	9.4s	624.6 MB
-211	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 63)	COMPLETED	0	9.5s	625.4 MB
-212	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 63)	COMPLETED	0	9.5s	626.5 MB
-214	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 65)	COMPLETED	0	9.6s	625.5 MB
-213	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 65)	COMPLETED	0	9.4s	624 MB
-215	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 66)	COMPLETED	0	9.2s	627.1 MB
-216	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 66)	COMPLETED	0	9.8s	625.4 MB
-217	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 59)	COMPLETED	0	9.9s	624.5 MB
-221	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 68)	COMPLETED	0	9.2s	624.5 MB
-222	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 68)	COMPLETED	0	9.2s	625.2 MB
-223	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 69)	COMPLETED	0	9.1s	625.6 MB
-224	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 69)	COMPLETED	0	9s	625 MB
-226	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 70)	COMPLETED	0	9s	624.6 MB
-208	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 61)	COMPLETED	0	9.5s	625.4 MB
-207	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 61)	COMPLETED	0	9.5s	626.4 MB
-209	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 64)	COMPLETED	0	10s	625 MB
-218	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 59)	COMPLETED	0	9.9s	627.6 MB
-219	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 67)	COMPLETED	0	9.6s	624.6 MB
-220	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 67)	COMPLETED	0	9.4s	625 MB
-225	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 70)	COMPLETED	0	9s	626.1 MB
-227	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 71)	COMPLETED	0	9.2s	624.9 MB
-228	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 71)	COMPLETED	0	9.2s	626.1 MB
-230	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 72)	COMPLETED	0	9.2s	628.7 MB
-229	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 72)	COMPLETED	0	9.7s	624.2 MB
-231	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 76)	COMPLETED	0	10.6s	624.4 MB
-233	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 77)	COMPLETED	0	10.3s	626.4 MB
-234	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 77)	COMPLETED	0	10.2s	626.4 MB
-235	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 78)	COMPLETED	0	10.1s	625.2 MB
-236	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 78)	COMPLETED	0	10.1s	625.4 MB
-238	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 79)	COMPLETED	0	10.6s	625.5 MB
-237	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 79)	COMPLETED	0	10.3s	624.4 MB
-232	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 76)	COMPLETED	0	10.5s	625.9 MB
-242	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 74)	COMPLETED	0	9.3s	625.4 MB
-241	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 74)	COMPLETED	0	9.2s	625.5 MB
-244	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 75)	COMPLETED	0	9.4s	625.4 MB
-243	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 75)	COMPLETED	0	9s	623.3 MB
-246	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 80)	COMPLETED	0	9.8s	625.4 MB
-245	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 80)	COMPLETED	0	9.7s	624 MB
-239	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 73)	COMPLETED	0	9.4s	624.5 MB
-240	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 73)	COMPLETED	0	9.5s	626.1 MB
-247	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 81)	COMPLETED	0	11.4s	625.3 MB
-248	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 81)	COMPLETED	0	11.3s	626.6 MB
-249	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 83)	COMPLETED	0	11.2s	625.6 MB
-250	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 83)	COMPLETED	0	11.2s	625.9 MB
-252	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 82)	COMPLETED	0	12s	626.5 MB
-251	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 82)	COMPLETED	0	11.6s	624.6 MB
-253	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 84)	COMPLETED	0	11.4s	628.1 MB
-254	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 84)	COMPLETED	0	11.3s	625.6 MB
-256	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 85)	COMPLETED	0	11.1s	624.2 MB
-255	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 85)	COMPLETED	0	11s	625.2 MB
-257	add_n_processors	COMPLETED	0	20.6s	414.3 MB
-259	generate_data (grid row: 2)	COMPLETED	0	1m 54s	956.4 MB
-261	generate_data (grid row: 4)	COMPLETED	0	1m 54s	956.4 MB
-260	generate_data (grid row: 3)	COMPLETED	0	1m 54s	956.4 MB
-262	generate_data (grid row: 5)	COMPLETED	0	2m 32s	956.4 MB
-258	generate_data (grid row: 1)	COMPLETED	0	2m 31s	956.4 MB
-284	generate_data (grid row: 27)	COMPLETED	0	2m 36s	758.2 MB
-283	generate_data (grid row: 26)	COMPLETED	0	2m 39s	758.2 MB
-285	generate_data (grid row: 28)	COMPLETED	0	2m 39s	758.2 MB
-287	generate_data (grid row: 30)	COMPLETED	0	2m 39s	758.2 MB
-286	generate_data (grid row: 29)	COMPLETED	0	2m 38s	758.2 MB
-343	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 2)	COMPLETED	0	2m	826.3 MB
-344	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 2)	COMPLETED	0	1m 59s	825.6 MB
-345	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 2)	COMPLETED	0	1m 59s	828.8 MB
-290	generate_data (grid row: 33)	COMPLETED	0	4m 44s	949.9 MB
-291	generate_data (grid row: 34)	COMPLETED	0	4m 43s	949.8 MB
-292	generate_data (grid row: 35)	COMPLETED	0	4m 44s	949.8 MB
-288	generate_data (grid row: 31)	COMPLETED	0	5m 40s	949.8 MB
-289	generate_data (grid row: 32)	COMPLETED	0	5m 40s	949.8 MB
-341	generate_data (grid row: 84)	COMPLETED	0	5m 38s	1.3 GB
-342	generate_data (grid row: 85)	COMPLETED	0	5m 34s	1.3 GB
-399	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 29)	COMPLETED	0	2m 31s	743.5 MB
-400	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 29)	COMPLETED	0	2m 31s	743.6 MB
-401	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 29)	COMPLETED	0	2m 32s	742.5 MB
-402	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 29)	COMPLETED	0	2m 31s	745.2 MB
-263	generate_data (grid row: 6)	COMPLETED	0	8m 37s	1.3 GB
-264	generate_data (grid row: 7)	COMPLETED	0	8m 36s	1.3 GB
-265	generate_data (grid row: 8)	COMPLETED	0	8m 36s	1.3 GB
-266	generate_data (grid row: 9)	COMPLETED	0	8m 36s	1.3 GB
-267	generate_data (grid row: 10)	COMPLETED	0	8m 36s	1.3 GB
-347	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 2)	COMPLETED	0	5m 57s	827.7 MB
-346	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 2)	COMPLETED	0	5m 57s	833.5 MB
-349	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 4)	COMPLETED	0	5m 57s	827.7 MB
-348	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 2)	COMPLETED	0	5m 56s	829.3 MB
-350	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 4)	COMPLETED	0	5m 56s	827.7 MB
-351	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 4)	COMPLETED	0	5m 57s	826.4 MB
-353	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 4)	COMPLETED	0	5m 56s	828.1 MB
-352	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 4)	COMPLETED	0	5m 55s	833.1 MB
-373	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 27)	COMPLETED	0	4m 6s	854.8 MB
-374	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 27)	COMPLETED	0	4m 6s	745.4 MB
-375	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 27)	COMPLETED	0	4m 5s	742.7 MB
-376	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 27)	COMPLETED	0	4m 5s	745.1 MB
-404	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 33)	COMPLETED	0	3m 43s	824.2 MB
-403	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 33)	COMPLETED	0	3m 43s	823.9 MB
-406	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 33)	COMPLETED	0	3m 43s	823.7 MB
-405	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 33)	COMPLETED	0	3m 42s	826.3 MB
-377	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 27)	COMPLETED	0	5m 12s	745.5 MB
-378	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 27)	COMPLETED	0	5m 12s	743.9 MB
-379	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 26)	COMPLETED	0	5m 11s	744.2 MB
-381	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 26)	COMPLETED	0	5m 11s	743.9 MB
-380	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 26)	COMPLETED	0	5m 11s	744.7 MB
-382	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 26)	COMPLETED	0	5m 11s	744 MB
-384	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 26)	COMPLETED	0	5m 12s	744.7 MB
-363	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 5)	COMPLETED	0	6m 45s	827.2 MB
-362	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 5)	COMPLETED	0	6m 45s	825.4 MB
-361	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 5)	COMPLETED	0	6m 45s	825.2 MB
-365	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 5)	COMPLETED	0	6m 45s	826.4 MB
-355	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 3)	COMPLETED	0	7m 28s	826.5 MB
-356	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 3)	COMPLETED	0	7m 27s	827.4 MB
-357	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 3)	COMPLETED	0	7m 28s	827 MB
-358	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 3)	COMPLETED	0	7m 27s	824.5 MB
-432	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 32)	COMPLETED	0	3m 33s	824.5 MB
-303	generate_data (grid row: 46)	COMPLETED	0	10m 27s	1.3 GB
-433	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 84)	COMPLETED	0	3m 59s	986.3 MB
-420	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 35)	COMPLETED	0	4m 58s	825.7 MB
-325	generate_data (grid row: 68)	COMPLETED	0	10m 16s	1.3 GB
-372	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 1)	COMPLETED	0	7m 24s	831.7 MB
-318	generate_data (grid row: 61)	COMPLETED	0	10m 54s	1.3 GB
-319	generate_data (grid row: 62)	COMPLETED	0	10m 54s	1.3 GB
-320	generate_data (grid row: 63)	COMPLETED	0	10m 54s	1.3 GB
-321	generate_data (grid row: 64)	COMPLETED	0	10m 54s	1.3 GB
-322	generate_data (grid row: 65)	COMPLETED	0	10m 54s	1.3 GB
-323	generate_data (grid row: 66)	COMPLETED	0	10m 54s	1.3 GB
-324	generate_data (grid row: 67)	COMPLETED	0	10m 51s	1.3 GB
-442	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 85)	COMPLETED	0	4m 15s	991.5 MB
-443	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 85)	COMPLETED	0	4m 15s	987.5 MB
-444	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 85)	COMPLETED	0	4m 15s	994.9 MB
-473	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 10)	COMPLETED	0	2m 53s	986.9 MB
-472	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 10)	COMPLETED	0	2m 44s	982 MB
-474	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 10)	COMPLETED	0	2m 54s	990.3 MB
-387	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 28)	COMPLETED	0	7m	742.8 MB
-390	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 28)	COMPLETED	0	7m 2s	741.2 MB
-389	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 28)	COMPLETED	0	7m	744.4 MB
-454	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 7)	COMPLETED	0	3m 25s	984.9 MB
-455	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 7)	COMPLETED	0	3m 25s	987.8 MB
-452	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 7)	COMPLETED	0	3m 25s	985.8 MB
-456	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 7)	COMPLETED	0	3m 25s	985.5 MB
-458	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 8)	COMPLETED	0	3m 25s	986.9 MB
-462	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 8)	COMPLETED	0	3m 13s	986 MB
-463	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 9)	COMPLETED	0	3m 14s	983.9 MB
-464	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 9)	COMPLETED	0	3m 14s	985.7 MB
-311	generate_data (grid row: 54)	COMPLETED	0	11m 59s	1.3 GB
-312	generate_data (grid row: 55)	COMPLETED	0	11m 38s	1.3 GB
-313	generate_data (grid row: 56)	COMPLETED	0	11m 56s	1.3 GB
-354	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 4)	COMPLETED	0	9m 22s	831.6 MB
-359	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 3)	COMPLETED	0	8m 29s	830.8 MB
-360	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 3)	COMPLETED	0	8m 29s	824.1 MB
-383	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 26)	COMPLETED	0	7m 2s	743.4 MB
-386	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 28)	COMPLETED	0	7m 2s	744.2 MB
-385	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 28)	COMPLETED	0	7m 2s	744.7 MB
-388	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 28)	COMPLETED	0	7m 2s	744 MB
-391	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 30)	COMPLETED	0	7m 13s	743.7 MB
-393	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 30)	COMPLETED	0	7m 13s	740.3 MB
-392	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 30)	COMPLETED	0	7m 11s	744.2 MB
-394	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 30)	COMPLETED	0	7m 10s	745.2 MB
-395	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 30)	COMPLETED	0	7m 10s	744.6 MB
-396	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 30)	COMPLETED	0	7m 9s	747.8 MB
-398	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 29)	COMPLETED	0	7m 9s	744.6 MB
-397	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 29)	COMPLETED	0	7m 9s	854.2 MB
-314	generate_data (grid row: 57)	COMPLETED	0	11m 55s	1.3 GB
-315	generate_data (grid row: 58)	COMPLETED	0	11m 56s	1.3 GB
-317	generate_data (grid row: 60)	COMPLETED	0	11m 48s	1.3 GB
-316	generate_data (grid row: 59)	COMPLETED	0	11m 42s	1.3 GB
-415	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 35)	COMPLETED	0	6m 22s	824.5 MB
-416	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 35)	COMPLETED	0	6m 22s	825 MB
-418	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 35)	COMPLETED	0	6m 22s	825.8 MB
-417	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 35)	COMPLETED	0	6m 21s	825 MB
-419	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 35)	COMPLETED	0	6m 21s	824.1 MB
-428	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 32)	COMPLETED	0	5m 34s	824.1 MB
-429	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 32)	COMPLETED	0	5m 32s	820.7 MB
-430	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 32)	COMPLETED	0	5m 33s	821.5 MB
-427	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 32)	COMPLETED	0	5m 33s	826.4 MB
-431	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 32)	COMPLETED	0	5m 34s	824.8 MB
-434	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 84)	COMPLETED	0	5m 37s	989.7 MB
-436	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 84)	COMPLETED	0	5m 37s	991.8 MB
-293	generate_data (grid row: 36)	COMPLETED	0	13m 44s	2.1 GB
-294	generate_data (grid row: 37)	COMPLETED	0	13m 43s	2.1 GB
-295	generate_data (grid row: 38)	COMPLETED	0	13m 43s	2.1 GB
-465	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 9)	COMPLETED	0	4m 6s	985.4 MB
-466	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 9)	COMPLETED	0	4m 6s	991.6 MB
-467	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 9)	COMPLETED	0	4m 6s	983.9 MB
-468	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 9)	COMPLETED	0	4m 6s	986.1 MB
-469	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 10)	COMPLETED	0	4m 6s	988 MB
-470	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 10)	COMPLETED	0	4m 6s	986.9 MB
-471	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 10)	COMPLETED	0	4m 6s	986.5 MB
-457	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 8)	COMPLETED	0	4m 59s	986.3 MB
-460	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 8)	COMPLETED	0	4m 58s	987.6 MB
-459	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 8)	COMPLETED	0	4m 58s	985.1 MB
-461	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 8)	COMPLETED	0	4m 58s	984.1 MB
-446	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 6)	COMPLETED	0	5m 59s	986 MB
-448	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 6)	COMPLETED	0	5m 59s	988.2 MB
-447	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 6)	COMPLETED	0	5m 59s	984.3 MB
-450	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 6)	COMPLETED	0	5m 58s	987.2 MB
-364	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 5)	COMPLETED	0	10m 21s	830.4 MB
-366	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 5)	COMPLETED	0	10m 22s	934 MB
-367	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 1)	COMPLETED	0	10m 22s	825.7 MB
-368	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 1)	COMPLETED	0	10m 20s	833.6 MB
-370	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 1)	COMPLETED	0	10m 20s	831.6 MB
-369	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 1)	COMPLETED	0	10m 19s	829.2 MB
-371	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 1)	COMPLETED	0	10m 19s	828.5 MB
-437	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 84)	COMPLETED	0	7m 2s	982.6 MB
-438	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 84)	COMPLETED	0	7m 1s	993 MB
-439	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 85)	COMPLETED	0	7m 1s	991.5 MB
-440	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 85)	COMPLETED	0	7m 2s	982.3 MB
-441	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 85)	COMPLETED	0	7m 1s	986.6 MB
-445	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 6)	COMPLETED	0	5m 59s	985.1 MB
-326	generate_data (grid row: 69)	COMPLETED	0	13m 53s	1.3 GB
-422	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 31)	COMPLETED	0	8m 13s	828.9 MB
-424	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 31)	COMPLETED	0	8m 12s	821.2 MB
-423	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 31)	COMPLETED	0	8m 14s	937 MB
-426	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 31)	COMPLETED	0	8m 14s	821.5 MB
-425	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 31)	COMPLETED	0	8m 13s	823.6 MB
-305	generate_data (grid row: 48)	COMPLETED	0	15m 26s	1.3 GB
-304	generate_data (grid row: 47)	COMPLETED	0	15m 26s	1.3 GB
-306	generate_data (grid row: 49)	COMPLETED	0	15m 26s	1.3 GB
-307	generate_data (grid row: 50)	COMPLETED	0	15m 26s	1.3 GB
-308	generate_data (grid row: 51)	COMPLETED	0	15m 26s	1.3 GB
-309	generate_data (grid row: 52)	COMPLETED	0	15m 26s	1.3 GB
-310	generate_data (grid row: 53)	COMPLETED	0	15m 26s	1.3 GB
-408	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 33)	COMPLETED	0	9m 13s	823.9 MB
-409	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 34)	COMPLETED	0	9m 13s	824.6 MB
-407	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 33)	COMPLETED	0	9m 13s	827.1 MB
-410	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 34)	COMPLETED	0	9m 12s	822.7 MB
-411	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 34)	COMPLETED	0	9m 12s	824.8 MB
-412	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 34)	COMPLETED	0	9m 12s	825 MB
-413	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 34)	COMPLETED	0	9m 11s	826.3 MB
-414	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 34)	COMPLETED	0	9m 12s	823.1 MB
-449	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 6)	COMPLETED	0	6m 21s	985.8 MB
-451	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 7)	COMPLETED	0	6m 20s	983.4 MB
-453	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 7)	COMPLETED	0	6m 21s	984.9 MB
-482	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 68)	COMPLETED	0	3m 18s	989.7 MB
-481	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 68)	COMPLETED	0	3m 18s	984.6 MB
-483	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 68)	COMPLETED	0	3m 18s	986.2 MB
-484	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 68)	COMPLETED	0	3m 18s	991.2 MB
-493	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 62)	COMPLETED	0	3m 30s	986.8 MB
-496	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 62)	COMPLETED	0	3m 30s	990.4 MB
-495	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 62)	COMPLETED	0	3m 30s	995.2 MB
-497	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 62)	COMPLETED	0	3m 29s	987.8 MB
-498	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 62)	COMPLETED	0	3m 29s	989.5 MB
-500	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 63)	COMPLETED	0	3m 29s	993.9 MB
-499	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 63)	COMPLETED	0	3m 29s	990.2 MB
-503	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 63)	COMPLETED	0	3m 13s	995.8 MB
-506	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 64)	COMPLETED	0	3m 13s	993.3 MB
-505	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 64)	COMPLETED	0	3m 13s	988.8 MB
-513	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 65)	COMPLETED	0	3m 20s	983.1 MB
-515	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 65)	COMPLETED	0	3m 19s	983.7 MB
-516	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 65)	COMPLETED	0	3m 19s	982.9 MB
-518	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 66)	COMPLETED	0	3m 15s	982.4 MB
-517	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 66)	COMPLETED	0	3m 15s	981.6 MB
-520	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 66)	COMPLETED	0	3m 15s	982.3 MB
-519	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 66)	COMPLETED	0	3m 15s	980 MB
-521	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 66)	COMPLETED	0	3m 7s	983.8 MB
-524	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 67)	COMPLETED	0	3m 3s	985.8 MB
-523	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 67)	COMPLETED	0	3m 3s	987.1 MB
-526	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 67)	COMPLETED	0	3m 3s	988.1 MB
-525	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 67)	COMPLETED	0	3m 3s	982.8 MB
-527	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 67)	COMPLETED	0	3m 3s	984.4 MB
-510	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 64)	COMPLETED	0	3m 58s	985.2 MB
-509	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 64)	COMPLETED	0	3m 58s	991.1 MB
-512	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 65)	COMPLETED	0	3m 58s	995.6 MB
-511	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 65)	COMPLETED	0	3m 58s	984 MB
-514	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 65)	COMPLETED	0	3m 58s	987.7 MB
-563	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 60)	COMPLETED	0	2m 45s	978.4 MB
-564	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 60)	COMPLETED	0	2m 44s	980.1 MB
-327	generate_data (grid row: 70)	COMPLETED	0	15m 14s	1.3 GB
-485	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 68)	COMPLETED	0	4m 34s	984.2 MB
-486	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 68)	COMPLETED	0	4m 34s	985.8 MB
-334	generate_data (grid row: 77)	COMPLETED	0	16m 12s	1.3 GB
-333	generate_data (grid row: 76)	COMPLETED	0	16m 12s	1.3 GB
-335	generate_data (grid row: 78)	COMPLETED	0	16m 11s	1.3 GB
-337	generate_data (grid row: 80)	COMPLETED	0	16m 12s	1.3 GB
-336	generate_data (grid row: 79)	COMPLETED	0	16m 11s	1.3 GB
-338	generate_data (grid row: 81)	COMPLETED	0	16m 11s	1.3 GB
-339	generate_data (grid row: 82)	COMPLETED	0	16m 11s	1.3 GB
-340	generate_data (grid row: 83)	COMPLETED	0	16m 11s	1.3 GB
-530	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 54)	COMPLETED	0	3m 7s	985.2 MB
-538	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 55)	COMPLETED	0	3m 20s	985.7 MB
-540	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 55)	COMPLETED	0	3m 19s	979.8 MB
-544	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 56)	COMPLETED	0	3m 35s	983.9 MB
-545	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 56)	COMPLETED	0	3m 34s	983.4 MB
-546	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 56)	COMPLETED	0	3m 37s	982.9 MB
-547	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 57)	COMPLETED	0	3m 34s	982.3 MB
-548	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 57)	COMPLETED	0	3m 35s	987.1 MB
-549	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 57)	COMPLETED	0	3m 34s	985.6 MB
-550	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 57)	COMPLETED	0	3m 33s	980.7 MB
-571	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 36)	COMPLETED	0	2m 16s	1.4 GB
-584	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 38)	COMPLETED	0	2m 51s	1.3 GB
-585	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 38)	COMPLETED	0	2m 51s	1.3 GB
-329	generate_data (grid row: 72)	COMPLETED	0	16m 14s	1.3 GB
-328	generate_data (grid row: 71)	COMPLETED	0	16m 12s	1.3 GB
-330	generate_data (grid row: 73)	COMPLETED	0	16m 14s	1.3 GB
-331	generate_data (grid row: 74)	COMPLETED	0	16m 12s	1.3 GB
-332	generate_data (grid row: 75)	COMPLETED	0	16m 15s	1.3 GB
-502	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 63)	COMPLETED	0	4m 42s	995.2 MB
-504	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 63)	COMPLETED	0	4m 43s	987.2 MB
-555	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 58)	COMPLETED	0	4m 19s	986.3 MB
-476	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 46)	COMPLETED	0	5m 41s	986.2 MB
-477	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 46)	COMPLETED	0	5m 41s	982.2 MB
-475	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 46)	COMPLETED	0	5m 41s	981.6 MB
-478	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 46)	COMPLETED	0	5m 41s	983.3 MB
-480	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 46)	COMPLETED	0	5m 39s	987.5 MB
-479	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 46)	COMPLETED	0	5m 40s	982.2 MB
-487	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 61)	COMPLETED	0	5m 7s	982.1 MB
-488	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 61)	COMPLETED	0	5m 7s	989.6 MB
-489	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 61)	COMPLETED	0	5m 7s	980.9 MB
-490	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 61)	COMPLETED	0	5m 6s	987.1 MB
-537	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 55)	COMPLETED	0	4m 19s	979.4 MB
-539	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 55)	COMPLETED	0	4m 19s	984.1 MB
-552	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 57)	COMPLETED	0	4m 19s	981.8 MB
-551	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 57)	COMPLETED	0	4m 19s	985.8 MB
-554	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 58)	COMPLETED	0	4m 19s	987.5 MB
-553	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 58)	COMPLETED	0	4m 18s	985.6 MB
-556	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 58)	COMPLETED	0	4m 18s	990.6 MB
-557	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 58)	COMPLETED	0	4m 18s	987.4 MB
-565	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 59)	COMPLETED	0	4m 9s	987.8 MB
-566	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 59)	COMPLETED	0	4m 9s	989.2 MB
-567	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 59)	COMPLETED	0	4m 9s	982.1 MB
-568	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 59)	COMPLETED	0	4m 9s	983.9 MB
-570	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 59)	COMPLETED	0	4m 9s	986.7 MB
-569	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 59)	COMPLETED	0	4m 9s	989.2 MB
-586	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 38)	COMPLETED	0	3m 2s	1.4 GB
-587	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 38)	COMPLETED	0	2m 58s	1.4 GB
-588	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 38)	COMPLETED	0	2m 58s	1.3 GB
-421	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 31)	COMPLETED	0	11m 14s	824.3 MB
-574	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 36)	COMPLETED	0	4m 58s	1.4 GB
-573	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 36)	COMPLETED	0	4m 58s	1.3 GB
-575	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 36)	COMPLETED	0	4m 58s	1.3 GB
-576	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 36)	COMPLETED	0	4m 58s	1.4 GB
-578	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 37)	COMPLETED	0	4m 57s	1.4 GB
-492	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 61)	COMPLETED	0	6m 51s	990.7 MB
-491	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 61)	COMPLETED	0	6m 51s	986.5 MB
-494	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 62)	COMPLETED	0	6m 51s	988.4 MB
-528	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 67)	COMPLETED	0	6m 5s	988.4 MB
-577	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 37)	COMPLETED	0	4m 57s	1.3 GB
-580	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 37)	COMPLETED	0	4m 57s	1.3 GB
-532	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 54)	COMPLETED	0	6m 1s	978.7 MB
-534	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 54)	COMPLETED	0	6m	984.3 MB
-572	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 36)	COMPLETED	0	4m 31s	1.3 GB
-589	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 69)	COMPLETED	0	3m 32s	979.6 MB
-435	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 84)	COMPLETED	0	10m 59s	986.6 MB
-508	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 64)	COMPLETED	0	6m 5s	982.5 MB
-529	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 54)	COMPLETED	0	6m 3s	984.2 MB
-531	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 54)	COMPLETED	0	6m 1s	980.4 MB
-533	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 54)	COMPLETED	0	6m 7s	984.4 MB
-536	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 55)	COMPLETED	0	6m 1s	980.2 MB
-535	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 55)	COMPLETED	0	6m 3s	984.8 MB
-595	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 48)	COMPLETED	0	3m 56s	989 MB
-597	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 48)	COMPLETED	0	3m 56s	986.1 MB
-598	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 48)	COMPLETED	0	3m 56s	982.3 MB
-600	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 48)	COMPLETED	0	3m 56s	986.1 MB
-599	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 48)	COMPLETED	0	3m 55s	982.4 MB
-601	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 47)	COMPLETED	0	3m 55s	983.2 MB
-602	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 47)	COMPLETED	0	3m 55s	981.6 MB
-604	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 47)	COMPLETED	0	3m 55s	981.7 MB
-609	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 49)	COMPLETED	0	3m 36s	985.2 MB
-611	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 49)	COMPLETED	0	3m 36s	982.6 MB
-612	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 49)	COMPLETED	0	3m 36s	985.1 MB
-613	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 50)	COMPLETED	0	3m 36s	986.4 MB
-615	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 50)	COMPLETED	0	3m 36s	985.1 MB
-614	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 50)	COMPLETED	0	3m 42s	984.7 MB
-616	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 50)	COMPLETED	0	3m 55s	979.1 MB
-617	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 50)	COMPLETED	0	3m 53s	984.9 MB
-618	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 50)	COMPLETED	0	3m 52s	986.7 MB
-619	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 51)	COMPLETED	0	3m 57s	983.7 MB
-620	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 51)	COMPLETED	0	3m 57s	985.8 MB
-621	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 51)	COMPLETED	0	3m 56s	984 MB
-622	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 51)	COMPLETED	0	3m 56s	982.7 MB
-624	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 51)	COMPLETED	0	3m 56s	986.3 MB
-631	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 53)	COMPLETED	0	4m 5s	982.5 MB
-630	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 52)	COMPLETED	0	3m 43s	986.6 MB
-632	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 53)	COMPLETED	0	3m 41s	982.5 MB
-633	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 53)	COMPLETED	0	3m 41s	983.6 MB
-634	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 53)	COMPLETED	0	3m 41s	985 MB
-635	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 53)	COMPLETED	0	3m 41s	984.3 MB
-636	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 53)	COMPLETED	0	3m 41s	984.2 MB
-562	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 60)	COMPLETED	0	6m 49s	987.8 MB
-561	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 60)	COMPLETED	0	6m 49s	986 MB
-269	generate_data (grid row: 12)	COMPLETED	0	20m 43s	2.1 GB
-282	generate_data (grid row: 25)	COMPLETED	0	20m 44s	5.3 GB
-268	generate_data (grid row: 11)	COMPLETED	0	20m 43s	2.1 GB
-270	generate_data (grid row: 13)	COMPLETED	0	20m 44s	2.1 GB
-272	generate_data (grid row: 15)	COMPLETED	0	20m 43s	2.1 GB
-271	generate_data (grid row: 14)	COMPLETED	0	20m 42s	2.1 GB
-296	generate_data (grid row: 39)	COMPLETED	0	20m 20s	2.1 GB
-297	generate_data (grid row: 40)	COMPLETED	0	20m 19s	2.1 GB
-501	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 63)	COMPLETED	0	7m 32s	991.1 MB
-507	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 64)	COMPLETED	0	8m 12s	980.6 MB
-522	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 66)	COMPLETED	0	7m 23s	984.5 MB
-558	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 58)	COMPLETED	0	6m 50s	984.8 MB
-560	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 60)	COMPLETED	0	6m 50s	987.3 MB
-559	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 60)	COMPLETED	0	6m 49s	986.5 MB
-605	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 47)	COMPLETED	0	4m 44s	978.5 MB
-603	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 47)	COMPLETED	0	4m 43s	981.8 MB
-607	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 49)	COMPLETED	0	4m 43s	980.7 MB
-606	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 47)	COMPLETED	0	4m 43s	988 MB
-608	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 49)	COMPLETED	0	4m 43s	983 MB
-623	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 51)	COMPLETED	0	4m 6s	979.9 MB
-626	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 52)	COMPLETED	0	4m 5s	981.7 MB
-625	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 52)	COMPLETED	0	4m 5s	979.8 MB
-627	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 52)	COMPLETED	0	4m 5s	982.5 MB
-628	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 52)	COMPLETED	0	4m 5s	980.9 MB
-629	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 52)	COMPLETED	0	4m 5s	983.1 MB
-639	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 70)	COMPLETED	0	2m 57s	986.2 MB
-641	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 70)	COMPLETED	0	2m 57s	985.1 MB
-640	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 70)	COMPLETED	0	2m 57s	986.3 MB
-642	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 70)	COMPLETED	0	2m 58s	986.7 MB
-652	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 76)	COMPLETED	0	3m 11s	979 MB
-651	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 76)	COMPLETED	0	3m 12s	976.7 MB
-657	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 78)	COMPLETED	0	3m 19s	979.8 MB
-660	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 78)	COMPLETED	0	3m 20s	981.8 MB
-691	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 72)	COMPLETED	0	2m 53s	981.7 MB
-692	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 72)	COMPLETED	0	2m 53s	980.3 MB
-542	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 56)	COMPLETED	0	6m 47s	985 MB
-541	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 56)	COMPLETED	0	6m 47s	975.6 MB
-543	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 56)	COMPLETED	0	6m 46s	970.9 MB
-714	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 74)	COMPLETED	0	2m 48s	984 MB
-579	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 37)	COMPLETED	0	5m 56s	1.3 GB
-582	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 37)	COMPLETED	0	5m 55s	1.3 GB
-581	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 37)	COMPLETED	0	5m 53s	1.4 GB
-583	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 38)	COMPLETED	0	5m 55s	1.3 GB
-706	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 73)	COMPLETED	0	3m 16s	979.6 MB
-654	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 76)	COMPLETED	0	3m 55s	986.8 MB
-653	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 76)	COMPLETED	0	3m 55s	986.6 MB
-655	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 78)	COMPLETED	0	3m 56s	983.2 MB
-656	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 78)	COMPLETED	0	3m 55s	987.3 MB
-658	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 78)	COMPLETED	0	3m 55s	987.7 MB
-708	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 73)	COMPLETED	0	3m 16s	979.2 MB
-715	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 75)	COMPLETED	0	3m 30s	984.8 MB
-716	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 75)	COMPLETED	0	3m 31s	984.3 MB
-718	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 75)	COMPLETED	0	3m 29s	984.9 MB
-717	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 75)	COMPLETED	0	3m 29s	986.9 MB
-719	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 75)	COMPLETED	0	3m 29s	988.5 MB
-720	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 75)	COMPLETED	0	3m 29s	991.8 MB
-643	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 77)	COMPLETED	0	4m 47s	989.1 MB
-646	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 77)	COMPLETED	0	4m 47s	984.1 MB
-645	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 77)	COMPLETED	0	4m 47s	989.7 MB
-647	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 77)	COMPLETED	0	4m 47s	984.8 MB
-648	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 77)	COMPLETED	0	4m 47s	987.1 MB
-650	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 76)	COMPLETED	0	4m 54s	985.2 MB
-649	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 76)	COMPLETED	0	4m 56s	985.5 MB
-666	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 80)	COMPLETED	0	4m 46s	987.1 MB
-667	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 79)	COMPLETED	0	4m 46s	984.9 MB
-668	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 79)	COMPLETED	0	4m 46s	984.8 MB
-670	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 79)	COMPLETED	0	4m 46s	985.3 MB
-669	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 79)	COMPLETED	0	4m 46s	986 MB
-671	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 79)	COMPLETED	0	4m 45s	993 MB
-672	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 79)	COMPLETED	0	4m 45s	986.6 MB
-701	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 71)	COMPLETED	0	3m 23s	986.5 MB
-702	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 71)	COMPLETED	0	3m 23s	986.8 MB
-707	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 73)	COMPLETED	0	3m 20s	978 MB
-709	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 74)	COMPLETED	0	3m 31s	977.2 MB
-610	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 49)	COMPLETED	0	5m 11s	984.6 MB
-644	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 77)	COMPLETED	0	4m 57s	983.2 MB
-590	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 69)	COMPLETED	0	6m 41s	987.2 MB
-592	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 69)	COMPLETED	0	6m 41s	986.9 MB
-591	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 69)	COMPLETED	0	6m 41s	986.6 MB
-593	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 69)	COMPLETED	0	6m 40s	986.3 MB
-594	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 69)	COMPLETED	0	6m 40s	986.3 MB
-703	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 73)	COMPLETED	0	4m 54s	984.7 MB
-704	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 73)	COMPLETED	0	4m 54s	984.7 MB
-705	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 73)	COMPLETED	0	4m 54s	985 MB
-700	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 71)	COMPLETED	0	4m 50s	984.5 MB
-699	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 71)	COMPLETED	0	4m 51s	984.4 MB
-659	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 78)	COMPLETED	0	5m 53s	984 MB
-661	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 80)	COMPLETED	0	5m 53s	986.4 MB
-662	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 80)	COMPLETED	0	5m 53s	986.2 MB
-664	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 80)	COMPLETED	0	5m 53s	985.3 MB
-663	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 80)	COMPLETED	0	5m 53s	986.1 MB
-711	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 74)	COMPLETED	0	5m 5s	986.3 MB
-713	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 74)	COMPLETED	0	5m 5s	984.4 MB
-665	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 80)	COMPLETED	0	5m 53s	984.9 MB
-679	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 82)	COMPLETED	0	5m 51s	993.5 MB
-681	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 82)	COMPLETED	0	5m 50s	987.5 MB
-682	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 82)	COMPLETED	0	5m 50s	987.4 MB
-683	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 82)	COMPLETED	0	5m 50s	985.3 MB
-684	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 82)	COMPLETED	0	5m 50s	986.1 MB
-686	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 83)	COMPLETED	0	5m 50s	986.5 MB
-685	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 83)	COMPLETED	0	5m 50s	987.1 MB
-688	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 83)	COMPLETED	0	5m 50s	986.3 MB
-695	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 72)	COMPLETED	0	4m 51s	983.2 MB
-698	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 71)	COMPLETED	0	4m 52s	984.8 MB
-697	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 71)	COMPLETED	0	4m 52s	985.1 MB
-687	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 83)	COMPLETED	0	5m	983 MB
-689	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 83)	COMPLETED	0	4m 59s	986 MB
-690	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 83)	COMPLETED	0	4m 59s	983.3 MB
-693	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 72)	COMPLETED	0	5m 5s	986.5 MB
-694	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 72)	COMPLETED	0	5m 5s	985.5 MB
-696	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 72)	COMPLETED	0	5m 12s	983.2 MB
-710	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 74)	COMPLETED	0	5m 5s	985.1 MB
-712	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 74)	COMPLETED	0	5m 5s	983.8 MB
-274	generate_data (grid row: 17)	COMPLETED	0	23m 38s	3.7 GB
-273	generate_data (grid row: 16)	COMPLETED	0	24m 10s	2.9 GB
-637	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 70)	COMPLETED	0	6m 55s	986.3 MB
-673	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 81)	COMPLETED	0	6m 20s	987 MB
-674	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 81)	COMPLETED	0	6m 19s	982.7 MB
-676	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 81)	COMPLETED	0	6m 19s	980.6 MB
-675	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 81)	COMPLETED	0	6m 19s	981.3 MB
-678	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 81)	COMPLETED	0	6m 19s	987.2 MB
-677	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 81)	COMPLETED	0	6m 19s	989.8 MB
-680	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 82)	COMPLETED	0	6m 19s	986.8 MB
-275	generate_data (grid row: 18)	COMPLETED	0	24m 55s	3.7 GB
-277	generate_data (grid row: 20)	COMPLETED	0	24m 7s	3.7 GB
-596	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 48)	COMPLETED	0	8m 4s	985.1 MB
-638	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 70)	COMPLETED	0	6m 50s	984.6 MB
-769	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 40)	COMPLETED	0	2m 52s	1.3 GB
-770	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 40)	COMPLETED	0	2m 52s	1.3 GB
-760	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 39)	COMPLETED	0	4m 2s	1.3 GB
-759	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 39)	COMPLETED	0	4m 2s	1.3 GB
-761	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 39)	COMPLETED	0	4m 2s	1.3 GB
-762	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 39)	COMPLETED	0	4m 2s	1.4 GB
-276	generate_data (grid row: 19)	COMPLETED	0	24m 59s	3.7 GB
-764	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 39)	COMPLETED	0	4m 12s	1.4 GB
-766	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 40)	COMPLETED	0	4m 12s	1.4 GB
-765	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 40)	COMPLETED	0	4m 12s	1.4 GB
-767	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 40)	COMPLETED	0	4m 12s	1.4 GB
-768	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 40)	COMPLETED	0	4m 12s	1.3 GB
-763	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 39)	COMPLETED	0	4m 12s	1.3 GB
-298	generate_data (grid row: 41)	COMPLETED	0	27m 7s	2.9 GB
-299	generate_data (grid row: 42)	COMPLETED	0	27m 34s	2.9 GB
-300	generate_data (grid row: 43)	COMPLETED	0	27m 34s	2.9 GB
-301	generate_data (grid row: 44)	COMPLETED	0	27m 34s	2.9 GB
-302	generate_data (grid row: 45)	COMPLETED	0	27m 33s	2.9 GB
-732	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 25)	COMPLETED	0	6m 53s	2.9 GB
-733	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 25)	COMPLETED	0	6m 53s	2.8 GB
-734	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 25)	COMPLETED	0	6m 58s	2.9 GB
-784	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 16)	COMPLETED	0	4m 37s	1.8 GB
-727	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 25)	COMPLETED	0	8m 35s	2.8 GB
-728	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 25)	COMPLETED	0	8m 35s	2.9 GB
-729	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 25)	COMPLETED	0	8m 35s	2.8 GB
-731	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 25)	COMPLETED	0	8m 34s	2.8 GB
-730	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 25)	COMPLETED	0	8m 34s	2.9 GB
-777	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 16)	COMPLETED	0	5m 49s	1.8 GB
-804	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 41)	COMPLETED	0	1m 47s	1.8 GB
-778	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 16)	COMPLETED	0	5m 35s	1.8 GB
-779	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 16)	COMPLETED	0	5m 35s	1.8 GB
-780	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 16)	COMPLETED	0	5m 35s	1.8 GB
-782	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 16)	COMPLETED	0	5m 35s	1.8 GB
-781	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 16)	COMPLETED	0	5m 35s	1.8 GB
-783	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 16)	COMPLETED	0	5m 37s	1.8 GB
-722	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 12)	COMPLETED	0	9m 39s	1.3 GB
-721	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 12)	COMPLETED	0	9m 33s	1.4 GB
-723	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 12)	COMPLETED	0	9m 31s	1.3 GB
-724	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 12)	COMPLETED	0	9m 31s	1.3 GB
-725	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 12)	COMPLETED	0	9m 33s	1.3 GB
-726	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 12)	COMPLETED	0	9m 34s	1.3 GB
-803	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 41)	COMPLETED	0	2m 55s	1.8 GB
-805	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 41)	COMPLETED	0	2m 55s	1.8 GB
-806	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 41)	COMPLETED	0	2m 55s	1.8 GB
-808	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 41)	COMPLETED	0	2m 55s	1.8 GB
-807	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 41)	COMPLETED	0	2m 55s	1.8 GB
-809	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 41)	COMPLETED	0	2m 54s	1.8 GB
-810	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 41)	COMPLETED	0	2m 54s	1.8 GB
-812	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 42)	COMPLETED	0	2m 53s	1.8 GB
-811	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 42)	COMPLETED	0	2m 56s	1.8 GB
-814	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 42)	COMPLETED	0	2m 55s	1.8 GB
-813	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 42)	COMPLETED	0	2m 55s	1.8 GB
-815	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 42)	COMPLETED	0	2m 55s	1.8 GB
-816	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 42)	COMPLETED	0	2m 55s	1.8 GB
-818	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 42)	COMPLETED	0	2m 55s	1.8 GB
-771	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 17)	COMPLETED	0	7m 3s	2 GB
-772	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 17)	COMPLETED	0	7m 2s	2 GB
-774	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 17)	COMPLETED	0	6m 59s	2 GB
-773	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 17)	COMPLETED	0	6m 59s	2 GB
-775	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 17)	COMPLETED	0	7m 4s	2 GB
-776	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 17)	COMPLETED	0	7m 2s	2 GB
-817	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 42)	COMPLETED	0	2m 55s	1.8 GB
-828	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 44)	COMPLETED	0	2m 56s	1.8 GB
-827	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 44)	COMPLETED	0	2m 56s	1.8 GB
-830	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 44)	COMPLETED	0	2m 56s	1.8 GB
-829	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 44)	COMPLETED	0	2m 56s	1.8 GB
-831	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 44)	COMPLETED	0	2m 56s	1.8 GB
-832	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 44)	COMPLETED	0	2m 56s	1.8 GB
-833	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 44)	COMPLETED	0	2m 55s	1.8 GB
-278	generate_data (grid row: 21)	COMPLETED	0	31m 44s	5.3 GB
-736	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 11)	COMPLETED	0	10m 35s	1.3 GB
-735	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 11)	COMPLETED	0	10m 33s	1.3 GB
-737	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 11)	COMPLETED	0	10m 31s	1.3 GB
-738	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 11)	COMPLETED	0	10m 32s	1.3 GB
-739	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 11)	COMPLETED	0	10m 34s	1.3 GB
-742	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 13)	COMPLETED	0	10m 26s	1.3 GB
-741	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 13)	COMPLETED	0	10m 30s	1.3 GB
-744	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 13)	COMPLETED	0	10m 25s	1.3 GB
-743	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 13)	COMPLETED	0	10m 22s	1.3 GB
-746	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 13)	COMPLETED	0	10m 25s	1.3 GB
-745	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 13)	COMPLETED	0	10m 28s	1.3 GB
-747	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 15)	COMPLETED	0	10m 23s	1.3 GB
-748	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 15)	COMPLETED	0	10m 23s	1.3 GB
-749	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 15)	COMPLETED	0	10m 22s	1.3 GB
-750	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 15)	COMPLETED	0	10m 26s	1.3 GB
-751	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 15)	COMPLETED	0	10m 29s	1.3 GB
-752	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 15)	COMPLETED	0	10m 25s	1.3 GB
-754	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 14)	COMPLETED	0	10m 26s	1.3 GB
-820	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 43)	COMPLETED	0	3m 9s	1.8 GB
-819	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 43)	COMPLETED	0	3m 8s	1.8 GB
-822	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 43)	COMPLETED	0	3m 8s	1.8 GB
-821	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 43)	COMPLETED	0	3m 8s	1.8 GB
-824	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 43)	COMPLETED	0	3m 8s	1.8 GB
-823	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 43)	COMPLETED	0	3m 8s	1.8 GB
-825	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 43)	COMPLETED	0	3m 8s	1.8 GB
-826	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 43)	COMPLETED	0	3m 8s	1.8 GB
-834	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 44)	COMPLETED	0	3m	1.8 GB
-836	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 45)	COMPLETED	0	3m	1.8 GB
-835	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 45)	COMPLETED	0	3m	1.8 GB
-837	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 45)	COMPLETED	0	2m 59s	1.8 GB
-838	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 45)	COMPLETED	0	2m 59s	1.8 GB
-840	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 45)	COMPLETED	0	2m 59s	1.8 GB
-841	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 45)	COMPLETED	0	2m 59s	1.8 GB
-839	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 45)	COMPLETED	0	2m 46s	1.8 GB
-842	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 45)	COMPLETED	0	2m 46s	1.8 GB
-740	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 11)	COMPLETED	0	10m 45s	1.3 GB
-793	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 20)	COMPLETED	0	7m 9s	2 GB
-794	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 20)	COMPLETED	0	7m 7s	2 GB
-796	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 20)	COMPLETED	0	7m 2s	2 GB
-795	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 20)	COMPLETED	0	7m 2s	2 GB
-753	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 14)	COMPLETED	0	10m 42s	1.4 GB
-755	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 14)	COMPLETED	0	10m 37s	1.3 GB
-756	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 14)	COMPLETED	0	10m 37s	1.3 GB
-757	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 14)	COMPLETED	0	10m 42s	1.3 GB
-758	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 14)	COMPLETED	0	10m 39s	1.3 GB
-786	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 18)	COMPLETED	0	7m 30s	2 GB
-785	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 18)	COMPLETED	0	7m 29s	2 GB
-787	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 18)	COMPLETED	0	7m 26s	2 GB
-788	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 18)	COMPLETED	0	7m 26s	2 GB
-789	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 18)	COMPLETED	0	7m 33s	2 GB
-790	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 18)	COMPLETED	0	7m 32s	2 GB
-791	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 20)	COMPLETED	0	7m 30s	2 GB
-792	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 20)	COMPLETED	0	7m 7s	2 GB
-797	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 19)	COMPLETED	0	7m 6s	2 GB
-798	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 19)	COMPLETED	0	7m 3s	2 GB
-799	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 19)	COMPLETED	0	7m 2s	2 GB
-800	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 19)	COMPLETED	0	7m 2s	2 GB
-802	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 19)	COMPLETED	0	7m 2s	2 GB
-801	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 19)	COMPLETED	0	7m	2 GB
-281	generate_data (grid row: 24)	COMPLETED	0	34m 39s	5.3 GB
-279	generate_data (grid row: 22)	COMPLETED	0	34m 26s	5.3 GB
-280	generate_data (grid row: 23)	COMPLETED	0	34m 39s	5.3 GB
-844	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 21)	COMPLETED	0	4m 42s	2.9 GB
-843	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 21)	COMPLETED	0	4m 42s	2.9 GB
-845	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 21)	COMPLETED	0	4m 42s	2.8 GB
-847	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 21)	COMPLETED	0	4m 54s	2.8 GB
-849	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 21)	COMPLETED	0	4m 54s	2.8 GB
-850	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 21)	COMPLETED	0	4m 54s	2.9 GB
-846	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 21)	COMPLETED	0	4m 58s	2.9 GB
-848	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 21)	COMPLETED	0	4m 55s	2.9 GB
-852	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 24)	COMPLETED	0	5m 20s	2.9 GB
-854	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 24)	COMPLETED	0	5m 26s	2.9 GB
-851	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 24)	COMPLETED	0	5m 20s	2.9 GB
-860	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 22)	COMPLETED	0	5m 54s	2.9 GB
-859	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 22)	COMPLETED	0	5m 53s	2.8 GB
-862	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 22)	COMPLETED	0	5m 53s	2.9 GB
-867	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 23)	COMPLETED	0	5m 50s	2.9 GB
-868	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 23)	COMPLETED	0	5m 49s	2.9 GB
-869	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 23)	COMPLETED	0	5m 49s	2.9 GB
-858	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 24)	COMPLETED	0	6m 27s	2.9 GB
-853	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 24)	COMPLETED	0	6m 35s	2.8 GB
-855	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 24)	COMPLETED	0	6m 29s	2.8 GB
-856	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 24)	COMPLETED	0	6m 29s	2.9 GB
-857	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 24)	COMPLETED	0	6m 27s	2.9 GB
-865	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 22)	COMPLETED	0	6m 20s	2.9 GB
-863	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 22)	COMPLETED	0	6m 22s	2.8 GB
-864	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 22)	COMPLETED	0	6m 22s	2.9 GB
-866	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 22)	COMPLETED	0	6m 20s	2.9 GB
-861	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 22)	COMPLETED	0	6m 27s	2.9 GB
-870	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 23)	COMPLETED	0	6m 13s	2.9 GB
-871	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 23)	COMPLETED	0	6m 8s	2.9 GB
-872	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 23)	COMPLETED	0	6m 7s	2.9 GB
-873	run_method (method: GCM_supervised_LASSO_LASSO_1; grid row: 23)	COMPLETED	0	6m 7s	2.8 GB
-874	run_method (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 23)	COMPLETED	0	6m 7s	2.9 GB
-875	combine_results	COMPLETED	0	26.9s	458.1 MB
+1	obtain_basic_info	COMPLETED	0	423ms	375.8 MB
+3	generate_data_benchmark (grid row: 2)	COMPLETED	0	1.8s	375.8 MB
+2	generate_data_benchmark (grid row: 1)	COMPLETED	0	1.8s	574.9 MB
+4	generate_data_benchmark (grid row: 3)	COMPLETED	0	1.8s	375.8 MB
+11	generate_data_benchmark (grid row: 10)	COMPLETED	0	2.1s	582.6 MB
+12	generate_data_benchmark (grid row: 11)	COMPLETED	0	2.8s	588.7 MB
+20	generate_data_benchmark (grid row: 19)	COMPLETED	0	4.3s	627.8 MB
+21	generate_data_benchmark (grid row: 20)	COMPLETED	0	4.2s	627.8 MB
+36	generate_data_benchmark (grid row: 35)	COMPLETED	0	1.8s	572.1 MB
+6	generate_data_benchmark (grid row: 5)	COMPLETED	0	1.9s	574.9 MB
+5	generate_data_benchmark (grid row: 4)	COMPLETED	0	2s	375.8 MB
+8	generate_data_benchmark (grid row: 7)	COMPLETED	0	2.3s	375.8 MB
+38	generate_data_benchmark (grid row: 37)	COMPLETED	0	3s	597.4 MB
+13	generate_data_benchmark (grid row: 12)	COMPLETED	0	2.9s	588.7 MB
+14	generate_data_benchmark (grid row: 13)	COMPLETED	0	3s	588.7 MB
+15	generate_data_benchmark (grid row: 14)	COMPLETED	0	2.8s	588.7 MB
+17	generate_data_benchmark (grid row: 16)	COMPLETED	0	5s	627.8 MB
+44	generate_data_benchmark (grid row: 43)	COMPLETED	0	5.8s	671.9 MB
+45	generate_data_benchmark (grid row: 44)	COMPLETED	0	5.9s	671.9 MB
+9	generate_data_benchmark (grid row: 8)	COMPLETED	0	2.4s	582.6 MB
+7	generate_data_benchmark (grid row: 6)	COMPLETED	0	2.3s	582.6 MB
+10	generate_data_benchmark (grid row: 9)	COMPLETED	0	2.4s	582.6 MB
+18	generate_data_benchmark (grid row: 17)	COMPLETED	0	4.5s	627.8 MB
+19	generate_data_benchmark (grid row: 18)	COMPLETED	0	4.9s	627.8 MB
+16	generate_data_benchmark (grid row: 15)	COMPLETED	0	3.9s	588.7 MB
+22	generate_data_benchmark (grid row: 21)	COMPLETED	0	6.8s	717.4 MB
+24	generate_data_benchmark (grid row: 23)	COMPLETED	0	7s	717.4 MB
+23	generate_data_benchmark (grid row: 22)	COMPLETED	0	7.1s	717.4 MB
+62	generate_data_benchmark (grid row: 61)	COMPLETED	0	2.1s	375.8 MB
+65	generate_data_benchmark (grid row: 64)	COMPLETED	0	2.1s	579.7 MB
+70	generate_data_benchmark (grid row: 69)	COMPLETED	0	2.1s	582.6 MB
+27	generate_data_benchmark (grid row: 26)	COMPLETED	0	2.2s	375.8 MB
+28	generate_data_benchmark (grid row: 27)	COMPLETED	0	1.8s	375.8 MB
+29	generate_data_benchmark (grid row: 28)	COMPLETED	0	1.8s	372.9 MB
+30	generate_data_benchmark (grid row: 29)	COMPLETED	0	1.9s	556.1 MB
+31	generate_data_benchmark (grid row: 30)	COMPLETED	0	2.1s	556.1 MB
+71	generate_data_benchmark (grid row: 70)	COMPLETED	0	2.1s	372.9 MB
+25	generate_data_benchmark (grid row: 24)	COMPLETED	0	7.3s	717.4 MB
+26	generate_data_benchmark (grid row: 25)	COMPLETED	0	7.1s	717.4 MB
+37	generate_data_benchmark (grid row: 36)	COMPLETED	0	3.1s	597.4 MB
+39	generate_data_benchmark (grid row: 38)	COMPLETED	0	3.2s	597.4 MB
+40	generate_data_benchmark (grid row: 39)	COMPLETED	0	3.2s	585.3 MB
+72	generate_data_benchmark (grid row: 71)	COMPLETED	0	2.2s	582.6 MB
+75	generate_data_benchmark (grid row: 74)	COMPLETED	0	2.1s	375.8 MB
+79	generate_data_benchmark (grid row: 78)	COMPLETED	0	2.2s	375.8 MB
+32	generate_data_benchmark (grid row: 31)	COMPLETED	0	2.1s	572.1 MB
+33	generate_data_benchmark (grid row: 32)	COMPLETED	0	1.9s	372.9 MB
+34	generate_data_benchmark (grid row: 33)	COMPLETED	0	2s	572.1 MB
+35	generate_data_benchmark (grid row: 34)	COMPLETED	0	2.3s	486.5 MB
+41	generate_data_benchmark (grid row: 40)	COMPLETED	0	3.7s	585.3 MB
+42	generate_data_benchmark (grid row: 41)	COMPLETED	0	6.1s	671.9 MB
+43	generate_data_benchmark (grid row: 42)	COMPLETED	0	7.3s	671.9 MB
+46	generate_data_benchmark (grid row: 45)	COMPLETED	0	6s	671.9 MB
+48	generate_data_benchmark (grid row: 47)	COMPLETED	0	2.2s	375.8 MB
+47	generate_data_benchmark (grid row: 46)	COMPLETED	0	2.4s	582.4 MB
+49	generate_data_benchmark (grid row: 48)	COMPLETED	0	2.5s	582.4 MB
+80	generate_data_benchmark (grid row: 79)	COMPLETED	0	2.2s	375.8 MB
+83	generate_data_benchmark (grid row: 82)	COMPLETED	0	2.2s	582.6 MB
+53	generate_data_benchmark (grid row: 52)	COMPLETED	0	2.2s	582.1 MB
+54	generate_data_benchmark (grid row: 53)	COMPLETED	0	2.3s	375.8 MB
+55	generate_data_benchmark (grid row: 54)	COMPLETED	0	2.3s	375.8 MB
+56	generate_data_benchmark (grid row: 55)	COMPLETED	0	2.4s	375.8 MB
+57	generate_data_benchmark (grid row: 56)	COMPLETED	0	2.2s	581.2 MB
+58	generate_data_benchmark (grid row: 57)	COMPLETED	0	2.4s	375.8 MB
+87	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 2)	COMPLETED	0	5s	620.5 MB
+90	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 1)	COMPLETED	0	5s	623.6 MB
+50	generate_data_benchmark (grid row: 49)	COMPLETED	0	2.3s	582.4 MB
+52	generate_data_benchmark (grid row: 51)	COMPLETED	0	2.3s	582.1 MB
+51	generate_data_benchmark (grid row: 50)	COMPLETED	0	2.5s	375.8 MB
+60	generate_data_benchmark (grid row: 59)	COMPLETED	0	2.2s	581.2 MB
+61	generate_data_benchmark (grid row: 60)	COMPLETED	0	2.3s	375.8 MB
+63	generate_data_benchmark (grid row: 62)	COMPLETED	0	2.3s	375.8 MB
+64	generate_data_benchmark (grid row: 63)	COMPLETED	0	2.1s	579.7 MB
+67	generate_data_benchmark (grid row: 66)	COMPLETED	0	2.1s	375.8 MB
+66	generate_data_benchmark (grid row: 65)	COMPLETED	0	2.2s	579.7 MB
+93	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 10)	COMPLETED	0	7.9s	624.2 MB
+59	generate_data_benchmark (grid row: 58)	COMPLETED	0	2.6s	581.2 MB
+73	generate_data_benchmark (grid row: 72)	COMPLETED	0	2.2s	582.6 MB
+74	generate_data_benchmark (grid row: 73)	COMPLETED	0	2.2s	377.7 MB
+76	generate_data_benchmark (grid row: 75)	COMPLETED	0	2.1s	375.8 MB
+102	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 35)	COMPLETED	0	8.4s	622.7 MB
+101	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 35)	COMPLETED	0	8.3s	623 MB
+105	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 4)	COMPLETED	0	5s	624.6 MB
+106	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 4)	COMPLETED	0	5.1s	624.9 MB
+110	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 37)	COMPLETED	0	6s	653.3 MB
+68	generate_data_benchmark (grid row: 67)	COMPLETED	0	2.2s	375.8 MB
+69	generate_data_benchmark (grid row: 68)	COMPLETED	0	2.1s	375.8 MB
+81	generate_data_benchmark (grid row: 80)	COMPLETED	0	2.3s	582.6 MB
+82	generate_data_benchmark (grid row: 81)	COMPLETED	0	2.2s	375.8 MB
+84	generate_data_benchmark (grid row: 83)	COMPLETED	0	2.2s	582.6 MB
+107	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 7)	COMPLETED	0	8.3s	624.4 MB
+108	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 7)	COMPLETED	0	8.5s	625.2 MB
+77	generate_data_benchmark (grid row: 76)	COMPLETED	0	2.2s	582.6 MB
+78	generate_data_benchmark (grid row: 77)	COMPLETED	0	2.2s	375.8 MB
+89	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 1)	COMPLETED	0	5s	624.2 MB
+91	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 3)	COMPLETED	0	5s	623.6 MB
+92	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 3)	COMPLETED	0	4.8s	626.5 MB
+94	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 10)	COMPLETED	0	8.1s	625 MB
+85	generate_data_benchmark (grid row: 84)	COMPLETED	0	2.2s	582.5 MB
+86	generate_data_benchmark (grid row: 85)	COMPLETED	0	2.4s	582.5 MB
+88	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 2)	COMPLETED	0	5.3s	624.1 MB
+117	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 16)	COMPLETED	0	14.9s	680.8 MB
+96	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 11)	COMPLETED	0	23.8s	657.7 MB
+95	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 11)	COMPLETED	0	23.2s	651.7 MB
+111	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 12)	COMPLETED	0	23.7s	641.9 MB
+127	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 9)	COMPLETED	0	8.1s	625.7 MB
+103	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 5)	COMPLETED	0	4.9s	620.6 MB
+104	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 5)	COMPLETED	0	4.9s	626.2 MB
+114	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 13)	COMPLETED	0	23.3s	654.7 MB
+113	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 13)	COMPLETED	0	23.3s	651.4 MB
+116	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 14)	COMPLETED	0	23.1s	653.9 MB
+115	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 14)	COMPLETED	0	23.4s	648.9 MB
+118	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 16)	COMPLETED	0	15.4s	695.2 MB
+109	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 37)	COMPLETED	0	6.2s	652.7 MB
+112	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 12)	COMPLETED	0	23.5s	653.4 MB
+121	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 44)	COMPLETED	0	7.2s	696.9 MB
+122	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 44)	COMPLETED	0	7.1s	682.6 MB
+124	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 8)	COMPLETED	0	8.3s	636.1 MB
+123	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 8)	COMPLETED	0	8.2s	624.4 MB
+126	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 6)	COMPLETED	0	8.5s	627 MB
+143	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 64)	COMPLETED	0	8.5s	625.6 MB
+151	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 28)	COMPLETED	0	3.8s	617.2 MB
+97	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 19)	COMPLETED	0	15.6s	682.3 MB
+98	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 19)	COMPLETED	0	15.8s	684.7 MB
+100	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 20)	COMPLETED	0	15.5s	703.2 MB
+99	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 20)	COMPLETED	0	15.7s	681.5 MB
+120	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 43)	COMPLETED	0	6.9s	685.4 MB
+119	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 43)	COMPLETED	0	7.2s	680.7 MB
+140	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 22)	COMPLETED	0	15.6s	760 MB
+145	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 69)	COMPLETED	0	8s	625.5 MB
+146	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 69)	COMPLETED	0	7.9s	624.3 MB
+128	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 9)	COMPLETED	0	8.7s	624.8 MB
+129	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 17)	COMPLETED	0	16s	681.1 MB
+131	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 18)	COMPLETED	0	15.5s	683.5 MB
+130	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 17)	COMPLETED	0	15.9s	703.5 MB
+132	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 18)	COMPLETED	0	16.4s	687.4 MB
+134	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 15)	COMPLETED	0	23.4s	657.6 MB
+163	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 36)	COMPLETED	0	5.9s	641.9 MB
+125	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 6)	COMPLETED	0	8.1s	624.5 MB
+138	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 23)	COMPLETED	0	15.8s	763.7 MB
+137	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 23)	COMPLETED	0	15.6s	754.3 MB
+139	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 22)	COMPLETED	0	15.6s	749.5 MB
+141	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 61)	COMPLETED	0	8.1s	623.9 MB
+133	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 15)	COMPLETED	0	23s	650.9 MB
+136	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 21)	COMPLETED	0	15.9s	777.8 MB
+135	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 21)	COMPLETED	0	16s	754.3 MB
+147	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 26)	COMPLETED	0	3.7s	619.8 MB
+148	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 26)	COMPLETED	0	3.8s	617.9 MB
+150	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 27)	COMPLETED	0	3.8s	617.5 MB
+162	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 25)	COMPLETED	0	15.6s	782.4 MB
+174	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 78)	COMPLETED	0	9s	625.1 MB
+183	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 40)	COMPLETED	0	5.8s	643 MB
+142	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 61)	COMPLETED	0	8.6s	625.6 MB
+144	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 64)	COMPLETED	0	8.3s	625 MB
+154	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 29)	COMPLETED	0	3.8s	620.7 MB
+153	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 29)	COMPLETED	0	3.5s	617.2 MB
+155	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 30)	COMPLETED	0	3.5s	617 MB
+156	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 30)	COMPLETED	0	3.7s	617.9 MB
+158	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 70)	COMPLETED	0	8s	625.2 MB
+149	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 27)	COMPLETED	0	3.8s	619.9 MB
+152	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 28)	COMPLETED	0	3.7s	617.9 MB
+159	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 24)	COMPLETED	0	16.5s	754.3 MB
+160	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 24)	COMPLETED	0	15.6s	786.3 MB
+161	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 25)	COMPLETED	0	15.6s	750 MB
+164	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 36)	COMPLETED	0	6s	642.9 MB
+165	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 38)	COMPLETED	0	6s	641.3 MB
+166	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 38)	COMPLETED	0	5.9s	645.7 MB
+157	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 70)	COMPLETED	0	7.9s	624.2 MB
+170	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 71)	COMPLETED	0	8s	625 MB
+171	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 74)	COMPLETED	0	7.8s	625.4 MB
+172	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 74)	COMPLETED	0	8s	634.8 MB
+173	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 78)	COMPLETED	0	8.9s	624 MB
+175	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 31)	COMPLETED	0	8.7s	622.6 MB
+193	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 46)	COMPLETED	0	8.4s	624.4 MB
+195	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 48)	COMPLETED	0	8.4s	624.4 MB
+196	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 48)	COMPLETED	0	8.2s	626.1 MB
+197	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 79)	COMPLETED	0	8.8s	625.1 MB
+198	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 79)	COMPLETED	0	8.9s	625.3 MB
+199	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 82)	COMPLETED	0	10.7s	625 MB
+168	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 39)	COMPLETED	0	6s	644.6 MB
+167	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 39)	COMPLETED	0	5.7s	652.6 MB
+169	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 71)	COMPLETED	0	8.1s	625.4 MB
+179	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 33)	COMPLETED	0	8.7s	622.4 MB
+180	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 33)	COMPLETED	0	8.5s	623.4 MB
+181	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 34)	COMPLETED	0	8.5s	622.5 MB
+182	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 34)	COMPLETED	0	8.3s	623.1 MB
+176	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 31)	COMPLETED	0	9.2s	623.6 MB
+178	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 32)	COMPLETED	0	8.7s	623.5 MB
+177	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 32)	COMPLETED	0	8.6s	622.5 MB
+185	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 41)	COMPLETED	0	7s	679.3 MB
+186	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 41)	COMPLETED	0	7.2s	685.8 MB
+187	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 42)	COMPLETED	0	7s	681.2 MB
+188	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 42)	COMPLETED	0	7.2s	686.3 MB
+189	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 45)	COMPLETED	0	6.8s	681.3 MB
+190	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 45)	COMPLETED	0	7.1s	686.3 MB
+212	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 57)	COMPLETED	0	8.5s	625.9 MB
+215	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 51)	COMPLETED	0	8.2s	623.9 MB
+184	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 40)	COMPLETED	0	5.7s	645 MB
+227	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 66)	COMPLETED	0	8s	624.2 MB
+191	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 47)	COMPLETED	0	8.3s	624.8 MB
+192	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 47)	COMPLETED	0	8.7s	636.5 MB
+194	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 46)	COMPLETED	0	8.8s	625.3 MB
+231	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 58)	COMPLETED	0	8.4s	625.1 MB
+234	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 72)	COMPLETED	0	8.1s	625.1 MB
+200	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 82)	COMPLETED	0	10.6s	625.5 MB
+201	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 52)	COMPLETED	0	8.3s	624.3 MB
+202	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 52)	COMPLETED	0	8.3s	625.8 MB
+214	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 49)	COMPLETED	0	8.4s	625.5 MB
+213	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 49)	COMPLETED	0	8.8s	625.1 MB
+216	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 51)	COMPLETED	0	8.2s	624.7 MB
+217	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 50)	COMPLETED	0	8.4s	626.6 MB
+210	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 56)	COMPLETED	0	8.4s	626.2 MB
+209	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 56)	COMPLETED	0	8.6s	624.5 MB
+211	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 57)	COMPLETED	0	8.4s	624.7 MB
+220	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 59)	COMPLETED	0	8.6s	625.2 MB
+221	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 60)	COMPLETED	0	8.2s	626.8 MB
+222	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 60)	COMPLETED	0	8.1s	625 MB
+224	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 62)	COMPLETED	0	8.5s	624.9 MB
+223	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 62)	COMPLETED	0	8.3s	624.8 MB
+246	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 81)	COMPLETED	0	10.6s	626 MB
+245	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 81)	COMPLETED	0	10.6s	625.4 MB
+251	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 77)	COMPLETED	0	9s	625.6 MB
+204	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 53)	COMPLETED	0	8.2s	624.7 MB
+203	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 53)	COMPLETED	0	8.3s	624.8 MB
+206	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 54)	COMPLETED	0	8.4s	624.9 MB
+205	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 54)	COMPLETED	0	8.1s	624.2 MB
+207	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 55)	COMPLETED	0	8.2s	625.9 MB
+208	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 55)	COMPLETED	0	8.2s	623.7 MB
+218	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 50)	COMPLETED	0	8.4s	625.2 MB
+219	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 59)	COMPLETED	0	8.5s	624.1 MB
+228	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 66)	COMPLETED	0	8.3s	625 MB
+229	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 65)	COMPLETED	0	8.5s	623.7 MB
+230	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 65)	COMPLETED	0	8.4s	625 MB
+232	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 58)	COMPLETED	0	8.8s	626.2 MB
+226	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 63)	COMPLETED	0	8.5s	625.2 MB
+225	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 63)	COMPLETED	0	8.5s	625 MB
+238	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 75)	COMPLETED	0	7.7s	625.2 MB
+237	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 75)	COMPLETED	0	7.8s	623.4 MB
+239	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 67)	COMPLETED	0	8.1s	624.2 MB
+240	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 67)	COMPLETED	0	8s	624.9 MB
+233	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 72)	COMPLETED	0	8.2s	624.9 MB
+236	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 73)	COMPLETED	0	8.1s	625.7 MB
+235	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 73)	COMPLETED	0	7.8s	623.6 MB
+242	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 68)	COMPLETED	0	7.5s	624.6 MB
+241	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 68)	COMPLETED	0	7.7s	625.1 MB
+243	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 80)	COMPLETED	0	8.9s	624.3 MB
+244	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 80)	COMPLETED	0	9s	626.2 MB
+248	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 83)	COMPLETED	0	10.6s	625.7 MB
+247	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 83)	COMPLETED	0	10.8s	625.3 MB
+250	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 76)	COMPLETED	0	9.4s	624.1 MB
+254	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 84)	COMPLETED	0	10.5s	625.4 MB
+253	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 84)	COMPLETED	0	10.6s	622.2 MB
+256	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 85)	COMPLETED	0	9.9s	625.3 MB
+255	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 85)	COMPLETED	0	10s	625 MB
+249	run_method_benchmark (method: GCM_supervised_LASSO_LASSO_1; grid row: 76)	COMPLETED	0	9.2s	624.9 MB
+252	run_method_benchmark (method: GCM_supervised_PLASSO_PLASSO_2; grid row: 77)	COMPLETED	0	9.6s	624.4 MB
