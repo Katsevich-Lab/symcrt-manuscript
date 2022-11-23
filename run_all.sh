@@ -13,8 +13,10 @@ max_gb=$1    # GB available per core (default 8)
 profile=$2   # Nextflow profile (default "standard")
 
 ### INSTALL ALL R PACKAGES NECESSARY VIA RENV ###
-Rscript -e 'install.packages("renv")'
+Rscript -e 'if(!suppressMessages(require(renv))) install.packages("renv", repos = "http://cran.us.r-project.org")'
 Rscript -e 'renv::activate(); renv::restore()'  # This step may take up to 15 minutes
+OLD_R_LIBS_USER=$R_LIBS_USER
+export R_LIBS_USER=$(Rscript -e 'cat(.libPaths()[1])')
 
 ### REPRODUCE THE BENCHMARKING SIMULATION ###
 sim_version_fp=$(pwd)"/simulation-code/sim_versions/sim_benchmarking.R"
@@ -27,6 +29,8 @@ sim_version_fp=$(pwd)"/simulation-code/sim_versions/sim_diagnostic.R"
 sim_spec_dir=$(pwd)"/simulation-code/sim_spec_objects/diagnostic"
 output_dir=$(pwd)"/simulation-results/diagnostic"
 bash simulation-code/run_simulation.sh $sim_version_fp $sim_spec_dir $output_dir $max_gb $profile
+
+export R_LIBS_USER=$OLD_R_LIBS_USER
 
 ### REPRODUCE THE CONFOUNDING SIMULATION ###
 Rscript simulation-code/assess-confounding-level.R
