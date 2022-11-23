@@ -1,12 +1,16 @@
 #############################################################
 # REPRODUCE ALL SIMULATIONS
+#
+# Note: This code took about 24 hours to run on a computer 
+# cluster with 500 cores, with 8GB/core. The code will rerun
+# computations to regenerate only those files that are not
+# already present in this directory. 
+#
 #############################################################
 
 # READ COMMAND LINE ARGUMENTS
-max_gb=7.5
-profile="standard"
-# max_gb=$1    # GB available per core (default 8)
-# profile=$2   # Nextflow profile (default "standard")
+max_gb=$1    # GB available per core (default 8)
+profile=$2   # Nextflow profile (default "standard")
 
 ### INSTALL ALL R PACKAGES NECESSARY VIA RENV ###
 Rscript -e 'install.packages("renv")'
