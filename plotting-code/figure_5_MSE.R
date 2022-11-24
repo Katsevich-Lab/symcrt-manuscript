@@ -161,9 +161,10 @@ if(file.exists(figure_path)){
     ggplot(aes(x = nu_scale, 
                       y = MSE,
                       colour = reg_method)) + 
-    scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
+    scale_x_continuous(breaks = c(0, 0.5, 1), 
+                       minor_breaks = seq(0, 1, 0.25), 
+                       labels = c(0, TeX("$0.5\\nu_{\\max}$"), TeX("$\\nu_{\\max}$"))) +
     scale_y_continuous(limits = c(0, 0.4)) +
-    # scale_y_continuous(breaks = c(0,0.2,0.8), minor_breaks = seq(0, 0.8, 0.1), limits = c(0, NA)) +
     facet_grid(test_type ~ parameter, scales = "fixed") +
     geom_point(size = 0.5) +
     geom_line() +
@@ -172,10 +173,6 @@ if(file.exists(figure_path)){
     theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm"), size = 10),
           strip.text.y = element_text(margin = margin(0,0.08,0,0.08, "cm"), size = 10),
           axis.title.y = element_blank(),
-          axis.ticks.x = element_blank(),
-          axis.text.x = element_blank(),
-#          axis.ticks.y = element_blank(),
-#          axis.text.y = element_blank(),
           legend.position="none")+
     xlab(TeX("Marginal association between $X$ and $Y$ ($\\nu$)")) +
     ylab("Mean-squared estimation error")
@@ -184,9 +181,10 @@ if(file.exists(figure_path)){
     ggplot(aes(x = theta_scale, 
                       y = MSE,
                       colour = reg_method)) + 
-    scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
     scale_y_continuous(limits = c(0, 0.8)) +
-    # scale_y_continuous(breaks = c(0, 0.6,0.8), minor_breaks = seq(0, 0.8, 0.2), limits = c(0, NA)) +
+    scale_x_continuous(breaks = c(0, 0.5, 1), 
+                       minor_breaks = seq(0, 1, 0.25), 
+                       labels = c(0, TeX("$0.5\\theta_{\\max}$"), TeX("$\\theta_{\\max}$"))) +
     facet_grid(test_type ~ parameter, scales = "fixed") +
     geom_point(size = 0.5) +
     geom_line() +
@@ -195,10 +193,6 @@ if(file.exists(figure_path)){
     theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm"), size = 10),
           strip.text.y = element_text(margin = margin(0,0.08,0,0.08, "cm"), size = 10),
           axis.title.y = element_blank(),
-          axis.ticks.x = element_blank(),
-          axis.text.x = element_blank(),
-          # axis.ticks.y = element_blank(),
-          # axis.text.y = element_blank(),
           legend.position="none")+
     xlab(TeX("Effect size ($\\theta$)")) +
     ylab("Mean-squared estimation error")
@@ -219,8 +213,6 @@ if(file.exists(figure_path)){
     theme(axis.ticks.x = element_blank(),
           axis.text.x = element_blank(),
           axis.title.y = element_blank(),
-          axis.ticks.y = element_blank(),
-          axis.text.y = element_blank(),
           legend.position="none")+
     xlab("Confounding strength")+
     theme(axis.title.y = element_blank(),
@@ -248,5 +240,5 @@ if(file.exists(figure_path)){
          filename = figure_path, 
          device = "pdf",
          width = 0.8*TEXTWIDTH, 
-         height = 0.65*TEXTHEIGHT)
+         height = 0.72*TEXTHEIGHT)
 }

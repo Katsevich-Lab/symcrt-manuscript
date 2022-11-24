@@ -205,7 +205,9 @@ if(file.exists(figure_path)){
   p1 <- type_I_err[[1]] |>
     mutate(variable_setting = factor(variable_setting, levels = c("n = 100", "n = 200", "n = 400", "n = 800", "n = 1600"))) |>
     ggplot(aes(x = nu_scale, y = type_I_err, colour = infer_reg, linetype = infer_reg)) +
-    scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
+    scale_x_continuous(breaks = c(0, 0.5, 1), 
+                       minor_breaks = seq(0, 1, 0.25), 
+                       labels = c(0, TeX("$0.5\\nu_{\\max}$"), TeX("$\\nu_{\\max}$"))) +
     scale_y_continuous(breaks = c(0, 1), minor_breaks = seq(0, 1, 0.25), limits = c(0.02, NA)) +
     facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
     geom_point(size = 0.5) +
@@ -217,8 +219,8 @@ if(file.exists(figure_path)){
     theme(
       strip.text.x = element_text(margin = margin(0.1, 0, 0.1, 0, "cm")),
       axis.title.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.text.x = element_blank(),
+      # axis.ticks.x = element_blank(),
+      # axis.text.x = element_blank(),
       axis.title.y = element_blank(),
       legend.position = "none"
     )
@@ -232,7 +234,9 @@ if(file.exists(figure_path)){
       colour = infer_reg,
       linetype = infer_reg
     )) +
-    scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
+    scale_x_continuous(breaks = c(0, 0.5, 1), 
+                       minor_breaks = seq(0, 1, 0.25), 
+                       labels = c(0, TeX("$0.5\\nu_{\\max}$"), TeX("$\\nu_{\\max}$"))) +
     scale_y_continuous(minor_breaks = seq(0, 1, 0.25), limits = c(0.02, NA)) +
     facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
     geom_point(size = 0.5) +
@@ -244,8 +248,8 @@ if(file.exists(figure_path)){
     theme(
       strip.text.x = element_text(margin = margin(0.1, 0, 0.1, 0, "cm")),
       axis.title.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.text.x = element_blank(),
+      # axis.ticks.x = element_blank(),
+      # axis.text.x = element_blank(),
       axis.title.y = element_blank(),
       axis.ticks.y = element_blank(),
       axis.text.y = element_blank(),
@@ -260,7 +264,9 @@ if(file.exists(figure_path)){
       colour = infer_reg,
       linetype = infer_reg
     )) +
-    scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
+    scale_x_continuous(breaks = c(0, 0.5, 1), 
+                       minor_breaks = seq(0, 1, 0.25), 
+                       labels = c(0, TeX("$0.5\\nu_{\\max}$"), TeX("$\\nu_{\\max}$"))) +
     scale_y_continuous(minor_breaks = seq(0, 1, 0.25), limits = c(0.02, NA)) +
     facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
     geom_point(size = 0.5) +
@@ -272,8 +278,8 @@ if(file.exists(figure_path)){
     theme(
       strip.text.x = element_text(margin = margin(0.1, 0, 0.1, 0, "cm")),
       axis.title.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.text.x = element_blank(),
+      # axis.ticks.x = element_blank(),
+      # axis.text.x = element_blank(),
       axis.title.y = element_blank(),
       axis.ticks.y = element_blank(),
       axis.text.y = element_blank(),
@@ -288,7 +294,9 @@ if(file.exists(figure_path)){
       colour = infer_reg,
       linetype = infer_reg
     )) +
-    scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
+    scale_x_continuous(breaks = c(0, 0.5, 1), 
+                       minor_breaks = seq(0, 1, 0.25), 
+                       labels = c(0, TeX("$0.5\\nu_{\\max}$"), TeX("$\\nu_{\\max}$"))) +
     scale_y_continuous(minor_breaks = seq(0, 1, 0.25), limits = c(0.02, NA)) +
     facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
     geom_point(size = 0.5) +
@@ -300,8 +308,8 @@ if(file.exists(figure_path)){
     theme(
       strip.text.x = element_text(margin = margin(0.1, 0, 0.1, 0, "cm")),
       axis.title.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.text.x = element_blank(),
+      # axis.ticks.x = element_blank(),
+      # axis.text.x = element_blank(),
       axis.title.y = element_blank(),
       axis.ticks.y = element_blank(),
       axis.text.y = element_blank(),
@@ -362,7 +370,6 @@ if(file.exists(figure_path)){
   
   # combine the plot
   plot <- plot_grid(p1, p2, p3, p4, ncol = 4, align = "v")
-  
   
   # create common x and y labels
   y.grob <- textGrob("Type I error",

@@ -186,7 +186,9 @@ for (q in 1:length(distribution_list)) {
                           y = type_I_err,
                           colour = infer_reg,
                           linetype = infer_reg)) + 
-        scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
+        scale_x_continuous(breaks = c(0, 0.5, 1), 
+                           minor_breaks = seq(0, 1, 0.25), 
+                           labels = c(0, TeX("$0.5\\nu_{\\max}$"), TeX("$\\nu_{\\max}$"))) +
         scale_y_continuous(breaks = c(0, 1), minor_breaks = seq(0, 1, 0.25)) +
         facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
         geom_point(size = 0.5) +
@@ -197,8 +199,8 @@ for (q in 1:length(distribution_list)) {
         plotting_theme + 
         theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),
               axis.title.x = element_blank(),
-              axis.ticks.x = element_blank(),
-              axis.text.x = element_blank(),
+              # axis.ticks.x = element_blank(),
+              # axis.text.x = element_blank(),
               axis.title.y = element_blank(),
               legend.position="none")
       
@@ -209,7 +211,9 @@ for (q in 1:length(distribution_list)) {
                           y = type_I_err,
                           colour = infer_reg,
                           linetype = infer_reg)) + 
-        scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
+        scale_x_continuous(breaks = c(0, 0.5, 1), 
+                           minor_breaks = seq(0, 1, 0.25), 
+                           labels = c(0, TeX("$0.5\\nu_{\\max}$"), TeX("$\\nu_{\\max}$"))) +
         scale_y_continuous(minor_breaks = seq(0, 1, 0.25)) +
         facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
         geom_point(size = 0.5) +
@@ -220,8 +224,8 @@ for (q in 1:length(distribution_list)) {
         plotting_theme + 
         theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),
               axis.title.x = element_blank(),
-              axis.ticks.x = element_blank(),
-              axis.text.x = element_blank(),
+              # axis.ticks.x = element_blank(),
+              # axis.text.x = element_blank(),
               axis.title.y = element_blank(),
               axis.ticks.y = element_blank(),
               axis.text.y = element_blank(),
@@ -233,7 +237,9 @@ for (q in 1:length(distribution_list)) {
                           y = type_I_err,
                           colour = infer_reg,
                           linetype = infer_reg)) + 
-        scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
+        scale_x_continuous(breaks = c(0, 0.5, 1), 
+                           minor_breaks = seq(0, 1, 0.25), 
+                           labels = c(0, TeX("$0.5\\nu_{\\max}$"), TeX("$\\nu_{\\max}$"))) +
         scale_y_continuous(minor_breaks = seq(0, 1, 0.25)) +
         facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
         geom_point(size = 0.5) +
@@ -244,8 +250,8 @@ for (q in 1:length(distribution_list)) {
         plotting_theme + 
         theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),
               axis.title.x = element_blank(),
-              axis.ticks.x = element_blank(),
-              axis.text.x = element_blank(),
+              # axis.ticks.x = element_blank(),
+              # axis.text.x = element_blank(),
               axis.title.y = element_blank(),
               axis.ticks.y = element_blank(),
               axis.text.y = element_blank(),
@@ -257,7 +263,9 @@ for (q in 1:length(distribution_list)) {
                           y = type_I_err,
                           colour = infer_reg,
                           linetype = infer_reg)) + 
-        scale_x_continuous(minor_breaks = seq(0, 1, 0.25)) +
+        scale_x_continuous(breaks = c(0, 0.5, 1), 
+                           minor_breaks = seq(0, 1, 0.25), 
+                           labels = c(0, TeX("$0.5\\nu_{\\max}$"), TeX("$\\nu_{\\max}$"))) +
         scale_y_continuous(minor_breaks = seq(0, 1, 0.25)) +
         facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
         geom_point(size = 0.5) +
@@ -268,8 +276,8 @@ for (q in 1:length(distribution_list)) {
         plotting_theme + 
         theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),
               axis.title.x = element_blank(),
-              axis.ticks.x = element_blank(),
-              axis.text.x = element_blank(),
+              # axis.ticks.x = element_blank(),
+              # axis.text.x = element_blank(),
               axis.title.y = element_blank(),
               axis.ticks.y = element_blank(),
               axis.text.y = element_blank(),

@@ -128,7 +128,7 @@ maxbibnames = 5]{biblatex} 							% for citations and bibliography
 	\maketitle
 	\thispagestyle{empty}
 	\begin{abstract}
-		Model-X approaches to testing conditional independence between a predictor and an outcome variable given a vector of covariates usually assume exact knowledge of the conditional distribution of the predictor given the covariates. Nevertheless, model-X methodologies are often deployed with this conditional distribution learned in sample. We investigate the consequences of this choice through the lens of the distilled conditional randomization test (dCRT). We find that Type-I error control is still possible, but only if the mean of the outcome variable given the covariates is estimated well enough. This demonstrates that the dCRT is doubly robust, and motivates a comparison to the generalized covariance measure (GCM) test, another doubly robust conditional independence test. We prove that these two tests are asymptotically equivalent, and show that the GCM test is in fact optimal against (generalized) partially linear alternatives by leveraging semiparametric efficiency theory. In an extensive simulation study, we compare the dCRT to the GCM test. We find that the GCM test and the dCRT are quite similar in terms of both Type-I error and power, and that post lasso based test statistics (as compared to lasso based statistics) can dramatically improve Type-I error control for both methods.
+		Model-X approaches to testing conditional independence between a predictor and an outcome variable given a vector of covariates usually assume exact knowledge of the conditional distribution of the predictor given the covariates. Nevertheless, model-X methodologies are often deployed with this conditional distribution learned in sample. We investigate the consequences of this choice through the lens of the distilled conditional randomization test (dCRT). We find that Type-I error control is still possible, but only if the mean of the outcome variable given the covariates is estimated well enough. This demonstrates that the dCRT is doubly robust, and motivates a comparison to the generalized covariance measure (GCM) test, another doubly robust conditional independence test. We prove that these two tests are asymptotically equivalent, and show that the GCM test is in fact optimal against (generalized) partially linear alternatives by leveraging semiparametric efficiency theory. In an extensive simulation study, we compare the dCRT to the GCM test. We find that the GCM test and the dCRT are quite similar in terms of both Type-I error and power, and that post-lasso based test statistics (as compared to lasso based statistics) can dramatically improve Type-I error control for both methods.
 	\end{abstract}
 	
 	
@@ -194,7 +194,7 @@ maxbibnames = 5]{biblatex} 							% for citations and bibliography
 			\end{algorithm}
 		\end{minipage}
 	\end{center}
-	The hat on $\dCRThat$ is to emphasize that $\law_n(\prx|\prz)$ is approximated rather than known a priori; this is the procedure that is typically applied in practice instead of the dCRT (which required known $\law_n(\prx|\prz)$). The resampled test statistics $T_n^{\dCRThat}(\srxk^{(m)}, \srx, \sry, \srz)$~\eqref{eq:resampled-dcrt-def} have four arguments instead of three in order to emphasize that the conditional mean $\widehat \mu_{n,x}(\cdot)$ is not refit upon resampling.
+	The hat on $\dCRThat$ is to emphasize that $\law_n(\prx|\prz)$ is approximated rather than known a priori; this is the procedure that is typically applied in practice instead of the dCRT (which requires known $\law_n(\prx|\prz)$). The resampled test statistics $T_n^{\dCRThat}(\srxk^{(m)}, \srx, \sry, \srz)$~\eqref{eq:resampled-dcrt-def} have four arguments instead of three in order to emphasize that the conditional mean $\widehat \mu_{n,x}(\cdot)$ is not refit upon resampling.
 	
 	The goal of this paper is to study the properties of model-X methods that learn $\law_n(\prx|\prz)$ in sample, through the lens of the $\dCRThat$. In addition to the quality of the approximation to $\law_n(\prx|\prz)$, we find that the choice of test statistic, and in particular the quality of the estimate $\E[\pry|\prz]$ is essential: Type-I error is lost when this estimate is poor (Section~\ref{sec:neg-results} here and \cite{Li2022}) but can be guaranteed via a double robustness phenomenon if the estimate is good enough (Section~\ref{sec:dr-and-equivalence}). This observation contrasts with the conventional wisdom that the choice of test statistic used with model-X methods impacts power \citep{Katsevich2020a} but not Type-I error control \citep{CetL16}. Furthermore, it brings model-X methods more in line with double regression / double machine learning methods \citep{Shah2018, Chernozhukov2018}. This motivates us to compare the $\dCRThat$ with the GCM test \citep{Shah2018}; we find that the two are in fact asymptotically equivalent (Section~\ref{sec:dr-and-equivalence}). Furthermore, we show using semiparametric efficiency theory that the GCM test has optimal power among conditional independence tests against local (generalized) partially linear alternatives (Section~\ref{sec:optimality}). Comparing the GCM test to the $\dCRThat$ in an extensive simulation study (Section~\ref{sec:simulations}), we find that the GCM test usually performs quite similarly to the $\dCRThat$ in terms of robustness and power. Since the former test is resampling-free, this suggests it may be preferable in practice to the latter. This work leads to a number of conclusions at the intersection of conditional independence testing, model-X inference, and doubly robust inference (Section~\ref{sec:conclusion}). In proving our theoretical results, we collate a number of conditional analogs of classical convergence theorems (some but not all novel; Appendix \ref{sec:conditional-convergence-results}) and state a slightly sharpened theorem on semiparametric testing optimality (Appendix~\ref{sec:optimality-proofs}), which may be of independent interest.
 	
@@ -233,7 +233,7 @@ maxbibnames = 5]{biblatex} 							% for citations and bibliography
 	\begin{theorem} \label{thm:normal-limit} \linktoproof{proof:thm:normal-limit}
 		Suppose the sequences of true and learned laws $\law_n$ and $\lawhat_n$ satisfy the following two nondegeneracy properties:
 		\begin{gather}
-			\P_{\law_n}[(\widehat S_{n}^{\dCRThat})^2 \geq c] \rightarrow 1 \ \text{for some } c > 0
+			\P_{\law_n}[(\widehat S_{n}^{\dCRThat})^2 \geq \epsilon] \rightarrow 1 \ \text{for some } \epsilon > 0
 			\label{eq:var-bounded-below}; \tag{NDG1} \\
 			0 < \V_{\lawhat_n}[\srx_i|\srz_i], (\sry_i - \widehat \mu_{n, y}(\srz_i))^2, (\sry_i - \mu_{n, y}(\srz_i))^2 < \infty \ \text{almost surely}. \label{eq:variance-bounds} \tag{NDG2}
 		\end{gather}
@@ -242,7 +242,7 @@ maxbibnames = 5]{biblatex} 							% for citations and bibliography
 			\frac{1}{n^{1+\delta/2}} \sum_{i=1}^n |\sry_i-\widehat\mu_{n,y}(\srz_i)|^{2+\delta}\E_{\lawhat_n}\left[|\srxk_i-\widehat\mu_{n,x}(\srz_i)|^{2+\delta}\mid \srx,\srz\right] \convp 0
 			\label{eq:lyapunov-condition} \tag{Lyap-1}
 		\end{equation}
-		is satisfied, then
+		is satisfied for some $\delta > 0$, then
 		\begin{equation}
 			\frac{1}{\widehat S_{n}^{\dCRThat}}T_n^{\dCRThat}(\srxk, \srx, \sry, \srz) \mid \srx, \sry, \srz \convdp N(0,1)
 			\label{eq:conditional-convergence}
@@ -274,12 +274,12 @@ maxbibnames = 5]{biblatex} 							% for citations and bibliography
 		
 	\end{corollary}
 
-	This result extends \citet[Theorem 2]{Katsevich2020a} by allowing $\widehat \mu_{n,x}$ and $\widehat \mu_{n,y}$ to be fit in sample, rather than assuming $\mu_{n,x}$ is known and $\widehat \mu_{n,y}$ is fit out of sample. It is a first indication that the dCRT approximates a test based on asymptotic normality.
+	This result extends \citet[Theorem 2]{Katsevich2020a} by allowing $\widehat \mu_{n,x}$ and $\widehat \mu_{n,y}$ to be fit in sample, rather than assuming $\mu_{n,x}$ is known and $\widehat \mu_{n,y}$ is fit out of sample. It is a first indication that the $\dCRThat$ approximates a test based on asymptotic normality.
 	
 	
 	\section{$\dCRThat$ is not robust for general $\widehat \mu_{n,y}$} \label{sec:neg-results}
 	
-	One of the hallmarks of MX inference is that it requires ``no restriction on the dimensionality of the data or the conditional distribution of [$\law_n(\pry|\prz)$]'' \citep{CetL16}. For the CRT, this means that Type-I error is controlled in finite samples, regardless of the test statistic used or the distribution of the response variable. If $\law_n(\prx|\prz)$ is described by a parametric model with $k$ parameters and we have $N \gg n \cdot k$ unlabeled samples to learn this model, then at least asymptotic Type-I error control is still possible without assumptions on $\law_n(\pry|\prz)$ \citep{Berrett2019}. By contrast, in this section we show that when $\law_n(\prx|\prz)$ is approximated in sample, we cannot expect Type-I error control without assumptions on the response variable.
+	One of the hallmarks of MX inference is that it requires ``no restriction on the dimensionality of the data or the conditional distribution of [$\law_n(\pry|\prz)$]'' \citep{CetL16}. For the CRT, this means that Type-I error is controlled in finite samples, regardless of the test statistic used or the distribution of the response variable. If $\law_n(\prx|\prz)$ is described by a parametric model with $k$ unknown parameters and we have $N \gg n \cdot k$ unlabeled samples to learn this model, then at least asymptotic Type-I error control is still possible without assumptions on $\law_n(\pry|\prz)$ \citep{Berrett2019}. By contrast, in this section we show that when $\law_n(\prx|\prz)$ is approximated in sample, we cannot expect Type-I error control without assumptions on the response variable.
 	
 	Let us consider a simple null model $\law_n$ with
 	\begin{equation}
@@ -317,7 +317,7 @@ maxbibnames = 5]{biblatex} 							% for citations and bibliography
 	
 	\subsection{The GCM test}
 	
-	The GCM test is defined as
+	The GCM test \citep{Shah2018} is defined as
 	\begin{equation}
 		\phi_n^{\GCM}(\srx, \sry, \srz) \equiv \indicator(T_n^{\GCM}(\srx, \sry, \srz) > z_{1-\alpha}),
 		\label{eq:gcm-test}
@@ -353,7 +353,7 @@ maxbibnames = 5]{biblatex} 							% for citations and bibliography
 		\end{split}
 		\tag{SP2}
 	\end{equation}
-	The requirement~\eqref{eq:sp1} that $E_{n, x} E_{n, y}  = o_{\law_n}(n^{-1/2})$ is the doubly-robust property of the GCM test: poorer estimates for $\mu_{n,x}$ can be made up for by better estimate of $\mu_{n,y}$.
+	The requirement~\eqref{eq:sp1} that $E_{n, x} E_{n, y}  = o_{\law_n}(n^{-1/2})$ is the doubly-robust property of the GCM test: poorer estimates for $\mu_{n,x}$ can be made up for by better estimates of $\mu_{n,y}$.
 	
 	In the following sections, it will be convenient to augment the assumption~\eqref{eq:sp1} as follows:
 	\begin{equation}
@@ -399,8 +399,8 @@ maxbibnames = 5]{biblatex} 							% for citations and bibliography
 			\item $\V_{\lawhat_n}[\srx_i|\srz_i] \equiv (\srx_i - \widehat \mu_{n,x}(\srz_i))^2$;
 			\item $\V_{\lawhat_n}[\prx|\prz] \equiv f(\widehat \mu_{n,x}(\prz))$, if 
 			\begin{itemize}
-				\item $\V_{\law_n}[\prx|\prz] = f(\mu_{n,x}(\prz))$ for $f$ being Lipschitz on domain $\cup_{n=1}^{\infty}\mathrm{Conv}(\mathrm{supp}(\law_{n}(\prx)))$ and $\mathrm{supp}(\widehat \mu_{n,x}(\prz))\subseteq\mathrm{Conv}(\mathrm{supp}(\law_{n}(\prx)))$ almost surely for every $n$;
-				\item $\sup_n \E_{\law_n}[|\pry-\mu_{n,y}(\prz)|^{2+\delta}] < \infty$.
+				\item $\V_{\law_n}[\prx|\prz] = f(\mu_{n,x}(\prz))$ for $f$ Lipschitz on domain $\cup_{n=1}^{\infty}\mathrm{Conv}(\mathrm{supp}(\law_{n}(\prx)))$ and $\mathrm{supp}(\widehat \mu_{n,x}(\prz))\subseteq\mathrm{Conv}(\mathrm{supp}(\law_{n}(\prx)))$ almost surely for every $n$;
+				\item $\sup_n \E_{\law_n}[|\pry-\mu_{n,y}(\prz)|^{2+\delta}] < \infty$ for some $\delta > 0$.
 			\end{itemize}
 		\end{enumerate} 
 	\end{proposition}
@@ -508,7 +508,7 @@ maxbibnames = 5]{biblatex} 							% for citations and bibliography
 	\end{itemize}
 	We give an example of when these assumptions hold in the next section.
 	
-	\subsection{Example: kernel ridge regression} \label{sec:kernel-ridge-regression}
+	\subsection{Example: Kernel ridge regression} \label{sec:kernel-ridge-regression}
 	We illustrate Theorem \ref{thm:optimality} with a kernel ridge regression example, borrowed from \citet[Section 4]{Shah2018}. Suppose the conditional expectations $\mu_x(\prz) \equiv \E_{\law}[\prx|\prz]$ and $\mu_y(\prz) \equiv \E_{\law}[\pry|\prz]$ satisfy $\mu_x, \mu_y \in \H_k$ for some reproducing kernel Hilbert space $(\H_k,\|\cdot\|_{\H_k})$ with reproducing kernel $k:\mathbb{R}\times\mathbb{R}\rightarrow\mathbb{R}$. In particular, we consider $\H_k \equiv W^{1,2}([0,1]) \subset L^2([0,1])$, i.e. the Sobolev space defined 
 	\begin{align*}
 		W^{1,2}([0,1]) \equiv \big\{f:[0,1]\rightarrow \mathbb{R} \mid f(0)=0,\ f \text{ is absolutely continuous with } \dot{f}\in L^2([0,1])\big\},
@@ -548,7 +548,7 @@ maxbibnames = 5]{biblatex} 							% for citations and bibliography
 				&\law_{\theta_n(h)}(\pry|\prx, \prz) \equiv N(\prx h_\beta/\sqrt{n} + \mu_{0y}(\prz) + h_g(\prz)/\sqrt{n}, 1).
 			\end{split}
 		\end{equation}
-		Then, the GCM test based on the kernel ridge estimators~\eqref{eq:kernel-ridge-estimators} is LAUMP($B_{W^{1,2}}(0, C)$).
+		Then, the GCM test based on the kernel ridge estimators~\eqref{eq:kernel-ridge-estimators} is LAUMP($B_{W^{1,2}}(0, C)$) against alternatives $\law_{\theta_n(h)}$.
 	\end{corollary}
 	
 	Hence, the GCM test based on kernel ridge regression does not just control Type-I error \citep[Theorem 11]{Shah2018}; it is also optimal against local alternatives.
@@ -642,7 +642,7 @@ maxbibnames = 5]{biblatex} 							% for citations and bibliography
 			$3\theta_{\max}/4$& $\nu_{\max}/2$ \\
 			$\theta_{\max}$ & $\nu_{\max}/2$
 		\end{tabular}
-		\caption{The values of the sample size $n$, covariate dimension $p$, autocorrelation of covariates $\rho$, sparsity $s$, signal strength $\theta$, and marginal association strength $\nu$ used for the simulation study. Each of the parameters $n, p, s, \rho$ was varied among the values in the first table while keeping the other three at their default values, indicated in bold. For example, $p = 400, s = 5, \rho = 0.4$ were kept fixed while varying $n \in \{100, 200, 400, 800, 1600\}$. The second and third tables denote the values of $(\theta, \nu)$ used for the null and alternative simulations. Each combination of $(n, p, s, \rho)$ was paired with each of the five values of $(\theta, \nu)$ displayed for null and alternative simulations.}
+		\caption{The values of the sample size $n$, covariate dimension $p$, sparsity $s$, autocorrelation of covariates $\rho$, signal strength $\theta$, and marginal association strength $\nu$ used for the simulation study. Each of the parameters $n, p, s, \rho$ was varied among the values in the first table while keeping the other three at their default values, indicated in bold. For example, $p = 400, s = 5, \rho = 0.4$ were kept fixed while varying $n \in \{100, 200, 400, 800, 1600\}$. The second and third tables denote the values of $(\theta, \nu)$ used for the null and alternative simulations. Each combination of $(n, p, s, \rho)$ was paired with each of the five values of $(\theta, \nu)$ displayed for null and alternative simulations.}
 		\label{tab:parameter-values}
 	\end{table}
 	
@@ -654,7 +654,7 @@ maxbibnames = 5]{biblatex} 							% for citations and bibliography
 	
 	Since the primary focus of this paper is the setting when no auxiliary unlabeled data are available, we implement the Maxway CRT by randomly splitting the data into two equal pieces, using the first as the unlabeled data (in particular, ignoring the response data) and the second as the labeled data. This strategy is consistent with the real data analysis in \citet[Section 6]{Li2022}. We also consider a bona-fide semi-supervised setup, in order to compare the GCM test and $\dCRThat$ to the Maxway CRT in the setting originally considered by \citet{Li2022}. However, in the semi-supervised setting we use all of the available data on $(\prx, \prz)$ (i.e. both unlabeled and labeled data) to fit $\law_n(\prx|\prz)$. By contrast, \citet{Li2022} used only the unlabeled data to learn $\law_n(\prx|\prz)$ in their implementation of the $\dCRThat$ for semi-supervised data.
 	
-	Finally, we noted in Section~\ref{sec:dr-and-equivalence} that the $\dCRThat$ already has a built-in doubly robust property. Therefore, we conjectured that the Type-I error inflation observed in the simulations of \citet{Li2022} is attributable to poor estimation of $\mu_n(\prx|\prz)$ and/or $\mu_n(\pry|\prz)$ and that the $\dCRThat$ can achieve Type-I error control if used in conjunction with better estimators of these conditional means. Taking inspiration from \citet{Li2022}, we also considered versions of the $\dCRThat$ and the GCM test based on the post-lasso in addition to those based on the usual lasso. In summary, we compared five methods: lasso and post-lasso based GCM, lasso and post-lasso based $\dCRThat$, and Maxway CRT (Table~\ref{tab:methods-compared}). As a point of reference for the null simulation, we also included the GCM test with intercept-only models for $\mu_{n,x}$ and $\mu_{n,y}$; the Type-I error of this test quantifies the degree of marginal association in the data-generating model. As a point of reference for the alternative simulation, we also included the GCM test with $\mu_{n,x}$ and $\mu_{n,y}$ set to their ground truth values; the power of this test is the maximum power achievable by any test and therefore quantifies the signal strength in the data-generating model.
+	Finally, we noted in Section~\ref{sec:dr-and-equivalence} that the $\dCRThat$ already has a built-in doubly robust property. Therefore, we conjectured that the Type-I error inflation observed in the simulations of \citet{Li2022} is attributable to poor estimation of $\mu_n(\prx|\prz)$ and/or $\mu_n(\pry|\prz)$ and that the $\dCRThat$ can achieve Type-I error control if used in conjunction with better estimators of these conditional means. Taking inspiration from \citet{Li2022}, we also considered versions of the $\dCRThat$ and the GCM test based on the post-lasso in addition to those based on the usual lasso. In summary, we compared five methods: lasso and post-lasso based GCM, lasso and post-lasso based $\dCRThat$, and Maxway CRT (Table~\ref{tab:methods-compared}). As a point of reference for the null simulation, we also included the GCM test with intercept-only models for $\mu_{n,x}$ and $\mu_{n,y}$; the Type-I error of this test quantifies the degree of marginal association in the data-generating model (Section~\ref{sec:sim-revisiting}). As a point of reference for the alternative simulation, we also included the GCM test with $\mu_{n,x}$ and $\mu_{n,y}$ set to their ground truth values; the power of this test is the maximum power achievable by any test and therefore quantifies the signal strength in the data-generating model.
 	
 	\begin{table}[!ht]
 		\centering
@@ -670,7 +670,7 @@ maxbibnames = 5]{biblatex} 							% for citations and bibliography
 			GCM (marginal) & intercept-only & all & intercept-only & all/labeled \\
 			GCM (oracle) & ground truth & -- & ground truth & --
 		\end{tabular}
-		\caption{The five methodologies compared, how they estimate $\mu_{n,x}$ and $\mu_{n,y}$, and what data they use for each in the context of semi-supervised or fully supervised data. Note that in the fully supervised case, data is split in half to form ``unlabeled'' and labeled sets for Maxway CRT. In this case, the $\dCRThat$ and GCM tests still use all of the data for estimating $\mu_{n,x}$ and $\mu_{n,y}$. Two additional tests were used for reference purposes: the GCM test with intercept-only models for $\mu_{n,x}$ and $\mu_{n,y}$ and the GCM test with $\mu_{n,x}$ and $\mu_{n,y}$ set to their ground truth values.}
+		\caption{The five methodologies compared, how they estimate $\mu_{n,x}$ and $\mu_{n,y}$, and what data they use for each in the context of semi-supervised or fully supervised data. Note that in the fully supervised case, data is split in half to form ``unlabeled'' and labeled sets for Maxway CRT. In this case, the $\dCRThat$ and GCM tests still use all of the data available for estimating $\mu_{n,x}$ and $\mu_{n,y}$. Two additional tests were used for reference purposes: the GCM test with intercept-only models for $\mu_{n,x}$ and $\mu_{n,y}$ and the GCM test with $\mu_{n,x}$ and $\mu_{n,y}$ set to their ground truth values.}
 		\label{tab:methods-compared}
 	\end{table}
 	
@@ -690,7 +690,7 @@ maxbibnames = 5]{biblatex} 							% for citations and bibliography
 	\begin{itemize}
 		\item As one would expect, across all simulation settings, all methods have poorer Type-I error control as sample size $n$ decreases, dimension $p$ increases, sparsity $s$ increases, autocorrelation $\rho$ increases, or marginal association strength $\nu$ increases.
 		\item For Gaussian responses, the $\dCRThat$ and GCM methods based on the same test statistics have very similar Type-I error control, echoing the asymptotic equivalence of the two methods (Theorem~\ref{thm:equivalence}). For binary responses, the lasso-based $\dCRThat$ has somewhat lower Type-I error than the lasso-based GCM test (Figure~\ref{fig:binomial_supervised_null}). The discreteness of binary responses likely slows down the convergence to normality of the GCM statistic, rendering the resampling-based null distribution of the $\dCRThat$ a better approximation to the null distribution.
-		\item Across all simulation settings, the $\dCRThat$ and GCM methods based on the post-lasso have dramatically better Type-I error control than their lasso-based counterparts. This is because the post-lasso tends to more fully regress the confounders $\prz$ out of the response $\pry$; see also Section~\ref{sec:lasso-vs-plasso} below.
+		\item Across all simulation settings, the $\dCRThat$ and GCM methods based on the post-lasso have dramatically better Type-I error control than their lasso-based counterparts. This is because the post-lasso tends to more fully regress the confounders $\prz$ out of the response $\pry$; see also Appendix~\ref{sec:lasso-vs-plasso}.
 		\item Across all simulation settings, Maxway CRT has better Type-I error control than the lasso-based $\dCRThat$ (in line with the results of \cite{Li2022}), but worse Type-I error control than the post-lasso-based $\dCRThat$. The latter is likely due to the fact that Maxway CRT uses only half of the available data on $(\prx, \prz)$ to fit $\law_n(\prx|\prz)$, and therefore does not adjust for $\prz$ as accurately.
 	\end{itemize}
 	
@@ -704,20 +704,20 @@ maxbibnames = 5]{biblatex} 							% for citations and bibliography
 	Next, we list the main conclusions regarding power based on the results in Figures~\ref{fig:gaussian_supervised_partial_alternative} (Gaussian supervised), \ref{fig:gaussian_semi-supervised_alternative} (Gaussian semi-supervised), \ref{fig:binomial_supervised_alternative} (binary supervised), and~\ref{fig:binomial_semi-supervised_alternative} (binary semi-supervised): 
 	\begin{itemize}
 		\item Across all simulation settings, GCM-based methods have somewhat higher power than their $\dCRThat$-based methods. This may have to do with the stabilizing effect of the GCM normalization, compared to the unnormalized $\dCRThat$ statistic. The difference between the two tends to vanish as sample size grows, reflecting the asymptotic equivalence of the two methods (Corollary~\ref{cor:asymptotic-equivalence-alternative}).
-		\item Across all simulation settings, the $\dCRThat$ and GCM methods based on the lasso have lower power than their post-lasso-based counterparts. This is because the post-lasso introduces more variance into the estimation of $\mu_{n,y}$; see also Section~\ref{sec:lasso-vs-plasso} below.
+		\item Across all simulation settings, the $\dCRThat$ and GCM methods based on the lasso have lower power than their post-lasso-based counterparts. This is because the post-lasso introduces more variance into the estimation of $\mu_{n,y}$; see also Appendix~\ref{sec:lasso-vs-plasso}.
 		\item Across Gaussian and binary supervised simulation settings (Figures~\ref{fig:gaussian_supervised_alternative} and~\ref{fig:binomial_supervised_alternative}), Maxway CRT has the lowest power among all methods compared. The reason for this is that Maxway CRT relies on data splitting and therefore has half the effective sample size of the other methods. On the other hand, for semi-supervised settings (Figures~\ref{fig:gaussian_semi-supervised_alternative} and~\ref{fig:binomial_semi-supervised_alternative}), Maxway CRT has power comparable to or better than those of the post-lasso-based methods, but still worse than the lasso-based methods. This is due to the additional variance introduced by the refitting step in the post-lasso.
 	\end{itemize}
 	
 	\begin{figure}[h]
 		\centering
 		\includegraphics[scale = 1]{figures/gaussian_supervised_setting_alternative_partial.pdf}
-		\caption{Type I error control for Gaussian supervised setting: we vary only one parameter in each column and there are five values of the signal strength $\theta$ in each subplot. Each point is the average of 400 Monte Carlo replicates.}
+		\caption{Power for Gaussian supervised setting: we vary only one parameter in each column and there are five values of the signal strength $\theta$ in each subplot. Each point is the average of 400 Monte Carlo replicates.}
 		\label{fig:gaussian_supervised_partial_alternative}
 \end{figure}
 
 In summary, the methods with the best Type-I error control across all simulation settings are the $\dCRThat$ and the GCM test based on the post-lasso, although this improved robustness does come with a cost in terms of power when compared to the lasso-based methods. We investigate the associated trade-off in Appendix~\ref{sec:lasso-vs-plasso}.
 
-\section{Conclusion} \label{sec:conclusion}
+\section{Conclusions} \label{sec:conclusion}
 
 \paragraph{Model-X inference with $\law(\prx|\prz)$ fit in sample can be doubly robust.}
 
@@ -725,15 +725,15 @@ Model-X inference \citep{CetL16} is presented as a mode of inference where the a
 
 \paragraph{The GCM test has similar Type-I error and power as the dCRT.}
 
-When fitting $\law(\prx|\prz)$ in sample, the dCRT is essentially a double regression methodology. This prompts a comparison to the GCM test \citep{Shah2018}, another conditional independence test based on double regression. We established that the two tests are asymptotically equivalent under the null (Theorem~\ref{thm:equivalence}) and under arbitrary local alternatives (Corollary~\ref{cor:asymptotic-equivalence-alternative}). This suggests that the dCRT and the GCM test---when applied with the same estimators for $\E[\prx|\prz]$ and $\E[\pry|\prz]$---should have similar Type-I error control and power. Our numerical simulations (Section~\ref{sec:simulations}) largely confirm this behavior in finite samples. A possible exception to this conclusion is the case when discreteness in the response variable $\pry$ slows down the convergence of the $\dCRThat$ resampling distribution to normality (Theorem~\ref{thm:normal-limit}). In such cases, we observed that the $\dCRThat$ can in fact have better Type-I error control than the GCM based on the same estimators (Figure~\ref{fig:binomial_supervised_null}), presumably thanks to a better approximation to the null distribution in finite samples. Nevertheless, the broad similarity between the performance of the GCM test and the dCRT, together with the fact that the former test requires no resampling, suggests that the GCM test may be preferable to the dCRT in many practical problems.
+When fitting $\law(\prx|\prz)$ in sample, the dCRT is essentially a double regression methodology. This prompts a comparison to the GCM test \citep{Shah2018}, another conditional independence test based on double regression. We established that the two tests are asymptotically equivalent under the null (Theorem~\ref{thm:equivalence}) and under arbitrary local alternatives (Corollary~\ref{cor:asymptotic-equivalence-alternative}). This suggests that the dCRT and the GCM test---when applied with the same estimators for $\E[\prx|\prz]$ and $\E[\pry|\prz]$---should have similar Type-I error control and power. Our numerical simulations (Section~\ref{sec:simulations}) largely confirm this behavior in finite samples. A possible exception to this conclusion is the case when discreteness in the data slows down the convergence of the $\dCRThat$ resampling distribution to normality (Theorem~\ref{thm:normal-limit}). In such cases, we observed that the $\dCRThat$ can in fact have better Type-I error control than the GCM based on the same estimators (Figure~\ref{fig:binomial_supervised_null}), presumably thanks to a better approximation to the null distribution in finite samples. Nevertheless, the broad similarity between the performance of the GCM test and the dCRT, together with the fact that the former test requires no resampling, suggests that the GCM test may be preferable to the dCRT in many practical problems.
 
-\paragraph{The post lasso yields much better Type-I error control than the lasso.}
+\paragraph{The post-lasso yields much better Type-I error control than the lasso.}
 
-Double robustness results for the GCM test and the dCRT apply only insofar as the estimation methods used in conjunction with these tests are accurate enough~\eqref{eq:sp1}. The default estimation method for $\E[\prx|\prz]$ and $\E[\pry|\prz]$ in many model-X applications is the lasso. As was demonstrated by \cite{Li2022}, the shrinkage bias of the lasso leads to inadequate adjustment of $\prx$ and $\pry$ for $\prz$, which in turn leads to inflated Type-I error. The same authors proposed the Maxway CRT, an extension of the dCRT involving the identification of coordinates of $\prz$ impacting $\prx$ and $\pry$ via the lasso followed by least squares refitting. Inspired by this work, we applied the original dCRT with post lasso estimates for $\E[\prx|\prz]$ and $\E[\pry|\prz]$. We found vastly improved Type-I error control (Figure~\ref{fig:gaussian_supervised_null}), compared not just to the lasso-based dCRT but also to the Maxway CRT itself. The decreased bias of the post lasso helps adjust for $\prz$ more fully, although we found that the extra variance incurred by refitting does come at a cost in power. Nevertheless, our results suggest that applying the post lasso in conjunction with model X methodologies can lead to significant improvements in robustness.
+Double robustness results for the GCM test and the dCRT apply only insofar as the estimation methods used in conjunction with these tests are accurate enough~\eqref{eq:sp1}. The default estimation method for $\E[\prx|\prz]$ and $\E[\pry|\prz]$ in many model-X applications is the lasso. As was demonstrated by \cite{Li2022}, the shrinkage bias of the lasso leads to inadequate adjustment of $\prx$ and $\pry$ for $\prz$, which in turn leads to inflated Type-I error. The same authors proposed the Maxway CRT, an extension of the dCRT involving the identification of coordinates of $\prz$ impacting $\prx$ and $\pry$ via the lasso followed by least squares refitting. Inspired by this work, we applied the original dCRT with post-lasso estimates for $\E[\prx|\prz]$ and $\E[\pry|\prz]$. We found vastly improved Type-I error control (Figure~\ref{fig:gaussian_supervised_null}), compared not just to the lasso-based dCRT but also to the Maxway CRT itself. The decreased bias of the post-lasso helps adjust for $\prz$ more fully, although we found that the extra variance incurred by refitting does come at a cost in power. Nevertheless, our results suggest that applying the post-lasso in conjunction with model X methodologies can lead to significant improvements in robustness.
 
 \paragraph{The GCM test is the optimal conditional independence test against alternatives without interactions between $\prx$ and $\prz$.} 
 
-It is widely known in the semiparametric literature that the GCM test is the efficient score test for (generalized) partially linear models. The connection between the GCM test and semiparametric theory was noted briefly by \citet{Shah2018}, though not explored in depth; presumably this is because the GCM test is a conditional independence test rather than a test of a parameter in a semiparametric model. Nevertheless, we find that if the semiparametric \textit{null} hypothesis can be embedded within the conditional independence null hypothesis~\eqref{eq:interior-point}, semiparametric optimality theory can be carried over fairly directly to conditional independence testing to establish optimality against semiparametric \textit{alternative} distributions (Theorem~\ref{thm:optimality}). Thanks to this connection, we find that the GCM test has optimal asymptotic power among conditional independence tests against local generalized partially linear model alternatives~\eqref{eq:alternatives-1}. On the other hand, we leave open the question of optimality against alternatives where $\prx$ and $\prz$ are allowed to interact. We also leave open whether our optimality result can be extended to the high-dimensional regime.
+It is widely known in the semiparametric literature that the GCM test is the efficient score test for (generalized) partially linear models. The connection between the GCM test and semiparametric theory was noted briefly by \citet{Shah2018}, though not explored in depth; presumably because the GCM test is a conditional independence test rather than a test of a parameter in a semiparametric model. Nevertheless, we find that if the semiparametric \textit{null} hypothesis can be embedded within the conditional independence null hypothesis~\eqref{eq:interior-point}, semiparametric optimality theory can be carried over fairly directly to conditional independence testing to establish optimality against semiparametric \textit{alternative} distributions (Theorem~\ref{thm:optimality}). Thanks to this connection, we find that the GCM test has optimal asymptotic power among conditional independence tests against local generalized partially linear model alternatives~\eqref{eq:alternatives-1}. On the other hand, we leave open the question of optimality against alternatives where $\prx$ and $\prz$ are allowed to interact. We also leave open whether our optimality result can be extended to the high-dimensional regime.
 
 \paragraph{Limitations: The proportional regime and the variable selection problem.} 
 
@@ -741,7 +741,7 @@ Our results about the equivalence between the GCM test and the dCRT, and the dou
 
 \section*{Acknowledgments}
 
-EK was partially supported by NSF DMS-2113072. ZN was partially supported by the grant ``Statistical Software for Single Cell CRISPR Screens'' awarded to EK by Analytics at Wharton. We gratefully acknowledge help from Timothy Barry with our simulation studies and the underlying computational infrastructure, including his \verb|simulatr| R package and Nextflow pipeline. We also acknowledge dedicated support from the staff at the Wharton High Performance Computing Cluster. We also thank Lucas Janson for providing details about the simulation setting in \citet{CetL16}.
+EK was partially supported by NSF DMS-2113072. ZN was partially supported by the grant ``Statistical Software for Single Cell CRISPR Screens'' awarded to EK by Analytics at Wharton. We acknowledge help from Timothy Barry with our simulation studies and the underlying computational infrastructure, including his \verb|simulatr| R package and Nextflow pipeline. We acknowledge dedicated support from the staff at the Wharton High Performance Computing Cluster. We acknowledge Lucas Janson for providing details about the simulation setting in \citet{CetL16}. We acknowledge Eric Tchetgen Tchetgen for discussions on hypothesis testing in the semiparametric models.
 
 \printbibliography
 
@@ -795,7 +795,7 @@ and $T_n^{\dCRT}(\srxk, \srx, \sry, \srz)$ is as defined in equation~\eqref{eq:r
 \label{cor:double-robustness-ndcrt}
 Let $\regclass_n$ be a sequence of regularity conditions such that for any sequence $\law_n \in \regclass_n$, we have the the nondegeneracy conditions~\eqref{eq:var-bounded-below} and~\eqref{eq:variance-bounds}, the conditional Lyapunov condition~\eqref{eq:lyapunov-condition}, and the assumptions~\eqref{eq:sp1} and~\eqref{eq:sp2}. Then, the $\ndCRThat$ has asymptotic Type-I error control over $\nulllaws_n \cap \regclass_n$ in the sense of the definition~\eqref{eq:asymptotic-control}.
 \end{corollary}
-Comparing Corollary~\ref{cor:double-robustness-ndcrt} to Corollary~\ref{cor:dcrt-double-robustness}, we see that the $\ndCRThat$ controls Type-I error under weaker assumptions than the $\dCRThat$; in particular the variance of $\law_n(\prx|\prz)$ need not be estimated with any degree of accuracy.
+Comparing Corollary~\ref{cor:double-robustness-ndcrt} to Corollary~\ref{cor:dcrt-double-robustness}, we see that the $\ndCRThat$ controls Type-I error under weaker assumptions than required for the $\dCRThat$; in particular the variance of $\law_n(\prx|\prz)$ need not be estimated with any degree of accuracy.
 
 
 \section{Conditional convergence results} \label{sec:conditional-convergence-results}
@@ -805,7 +805,7 @@ The proofs of our theoretical results rely on the conditional counterparts of se
 First we define a notion of conditional convergence in probability, analogous to our definition of conditional convergence in distribution (Definition~\ref{def:conditional-convergence-distribution}).
 
 \begin{definition} \label{def:conditional-convergence-probability}
-	For each $n$, let $W_n$ be a random variable and let $\mathcal F_n$ be a $\sigma$-algebra. Then, we say $W_n$ converges in probability to a constant $c$ conditionally on $\mathcal F_n$ if $W_n$ converges in distribution to the delta mass at $c$ conditionally on $W_n$ (recall Definition~\ref{def:conditional-convergence-distribution}). We denote this convergence by ${W_n \mid \mathcal F_n \convpp c}$. In symbols, 
+	For each $n$, let $W_n$ be a random variable and let $\mathcal F_n$ be a $\sigma$-algebra. Then, we say $W_n$ converges in probability to a constant $c$ conditionally on $\mathcal F_n$ if $W_n$ converges in distribution to the delta mass at $c$ conditionally on $\mathcal F_n$ (recall Definition~\ref{def:conditional-convergence-distribution}). We denote this convergence by ${W_n \mid \mathcal F_n \convpp c}$. In symbols, 
 	\begin{equation}
 		W_n \mid \mathcal F_n \convpp c \quad \text{if} \quad W_n \mid \mathcal F_n \convdp \delta_c.
 	\end{equation}
@@ -901,7 +901,7 @@ The above definitions and results on conditional convergence are not particularl
 
 Notions of conditional convergence in probability and in distribution have been explicitly defined by \citet{Nowak2005}. However, these notions require a single conditioning $\sigma$-algebra as well as almost sure convergences of conditional probabilities, whereas in Definitions~\ref{def:conditional-convergence-distribution} and~\ref{def:conditional-convergence-probability} we allow the conditioning $\sigma$-algebra to change with $n$ and for the conditional probabilities to converge in probability. Our Definition~\ref{def:conditional-convergence-distribution} can be viewed as formalizing the notion of conditional convergence in distribution implicitly used by \citet{Wang2020b}. Related notions of conditional convergence in distribution allowing for changing conditioning $\sigma$-algebra are present implicitly in the works of \citet{Dedecker2002} and \citet{bulinski2017conditional}, though these are based on the convergence of conditional characteristic functions as opposed to conditional cumulative distribution functions. % We prove in Lemma~\ref{lem:concf_to_weak} that in-probability convergence of conditional characteristic functions \citep{bulinski2017conditional} implies in-probability convergence of conditional cumulative distribution functions (Definition~\ref{def:conditional-convergence-distribution}).
 
-Turning to the convergence results themselves, we were not able to find conditional Polya's or Slutsky's theorems (Theorems~\ref{thm:cond_polya} and~\ref{thm:cond_slutsky}) in the literature. Versions of the conditional law of large numbers are given by \cite{Majerek2005a} and \cite{PrakasaRao2009}, but these involve a single conditioning $\sigma$-algebra and do not allow for triangular arrays, unlike Theorem~\ref{thm:wlln_cond}. Remarkably, we could not find even the unconditional triangular array law of large numbers (Corollary~\ref{cor:wlln}) in the literature; existing results either assume a second-moment condition or use truncation \citep[Theorems 2.2.4 and 2.2.6, respectively]{Durrett2010} instead of a $1+\delta$ moment condition or are not applicable to triangular arrays \citep[Lemma 19]{Shah2018}. As for laws of large numbers, \citet{Grzenda2008, PrakasaRao2009, Yuan2014} give non-triangular array versions of the conditional central limit theorem that require a single conditioning $\sigma$-algebra, unlike Theorem~\ref{thm:conditional-clt}. Versions of the conditional central limit theorem appropriate for varying conditioning $\sigma$-algebras and triangular arrays are given by \citet{Dedecker2002, bulinski2017conditional}, those these involve different notions of conditional convergence in distribution. % We use the result of \citet{bulinski2017conditional} as a building block in the proof of Theorem~\ref{thm:conditional-clt}. 
+Turning to the convergence results themselves, we were not able to find conditional Polya's or Slutsky's theorems (Theorems~\ref{thm:cond_polya} and~\ref{thm:cond_slutsky}) in the literature. Versions of the conditional law of large numbers are given by \cite{Majerek2005a} and \cite{PrakasaRao2009}, but these involve a single conditioning $\sigma$-algebra and do not allow for triangular arrays, unlike Theorem~\ref{thm:wlln_cond}. Remarkably, we could not find even the unconditional triangular array law of large numbers (Corollary~\ref{cor:wlln}) in the literature; existing results either assume a second-moment condition or use truncation \citep[Theorems 2.2.4 and 2.2.6, respectively]{Durrett2010} instead of a $1+\delta$ moment condition or are not applicable to triangular arrays \citep[Lemma 19]{Shah2018}. As for central limit theorems, \citet{Grzenda2008, PrakasaRao2009, Yuan2014} give non-triangular array versions of the conditional central limit theorem that require a single conditioning $\sigma$-algebra, unlike Theorem~\ref{thm:conditional-clt}. Versions of the conditional central limit theorem appropriate for varying conditioning $\sigma$-algebras and triangular arrays are given by \citet{Dedecker2002, bulinski2017conditional}, those these involve different notions of conditional convergence in distribution. % We use the result of \citet{bulinski2017conditional} as a building block in the proof of Theorem~\ref{thm:conditional-clt}. 
 Finally, we note that our result that conditional convergence in distribution implies in-probability quantile convergence (Lemma~\ref{lem:conditional-convergence-to-quantile}) is a generalization of \citet[Lemma 3]{Wang2020b} to general conditioning $\sigma$-algebras.
 
 \section{Proofs for Section~\ref{sec:conv-to-normal}}
@@ -915,7 +915,7 @@ We prove instead the stronger Theorem~\ref{thm:normal-limit-stronger} and Coroll
 \begin{theorem} \label{thm:normal-limit-stronger}
 	Let $\law_n$ be a sequence of laws and $\lawhat_n$ be a sequence of estimates. Suppose either of the following two sets of assumptions is satisfied: 
 	\begin{enumerate}
-		\item The nondegeneracy conditions ~\eqref{eq:var-bounded-below} and~\eqref{eq:variance-bounds} and the conditional Lyapunov condition~\eqref{eq:lyapunov-condition} holds.
+		\item The nondegeneracy conditions ~\eqref{eq:var-bounded-below} and~\eqref{eq:variance-bounds} and the conditional Lyapunov condition~\eqref{eq:lyapunov-condition} hold.
 		\item The assumptions of Theorem~\ref{thm:equivalence} hold.
 	\end{enumerate}
 	Then, the normalized $T_n^{\dCRThat}(\srxk, \srx, \sry, \srz)$ converges conditionally to a normal distribution~\eqref{eq:conditional-convergence} and therefore the $\dCRThat$ critical value $C^{\dCRThat}_n(\srx, \sry, \srz)$ converges to $z_{1-\alpha}$~\eqref{eq:critical-value-convergence}.
@@ -933,11 +933,11 @@ W_{in} \equiv \frac{1}{\sqrt{n}}(\srxk_i - \widehat \mu_{n,x}(\srz_i))(\sry_i - 
 \end{equation}
 and $\mathcal F_n \equiv \sigma(\srx, \sry, \srz)$. To verify the assumptions of the conditional CLT, note first that $W_{in}$ are independent conditionally on $\mathcal F_n$ by construction and satisfy $0 < \V[W_{in} \mid \mathcal F_n] < \infty$ by the nondegeneracy assumption~\eqref{eq:variance-bounds}. Next, recalling definition~\eqref{eq:conditional-variance-def}, we have
 \begin{equation*}
-s^2_n \equiv \sum_{i = 1}^n \V_{\lawhat_n}[W_{in}\mid \srx,\sry,\srz] \equiv (\widehat S_n^{\dCRThat})^2,
+S^2_n \equiv \sum_{i = 1}^n \V_{\lawhat_n}[W_{in}\mid \srx,\sry,\srz] \equiv (\widehat S_n^{\dCRThat})^2,
 \end{equation*}
 so that
 \begin{align*}
-		&\frac{1}{s_n^{2+\delta}} \sum_{i = 1}^n \E_{\lawhat_n}[|W_{in}|^{2+\delta} \mid \srx,\sry,\srz] \\
+		&\frac{1}{S_n^{2+\delta}} \sum_{i = 1}^n \E_{\lawhat_n}[|W_{in}|^{2+\delta} \mid \srx,\sry,\srz] \\
 		&\quad= \frac{1}{(\widehat S_n^{\dCRThat})^{2+\delta}} \cdot \frac{1}{n^{1+\delta/2}} \sum_{i=1}^n |\sry_i-\widehat\mu_{n,y}(\srz_i)|^{2+\delta}\E_{\lawhat_n}\left[\left|\srxk_i-\widehat\mu_{n,x}(\srz_i)\right|^{2+\delta}\mid \srx,\srz\right].
 \end{align*}
 This quantity converges to zero in probability due to the nondegeneracy condition~\eqref{eq:var-bounded-below} and the Lyapunov condition~\eqref{eq:lyapunov-condition}. Hence, the conditional CLT gives the desired conditional convergence~\eqref{eq:conditional-convergence}.
@@ -950,9 +950,9 @@ We begin by decomposing $T_n^{\dCRThat}(\srxk, \srx, \sry, \srz)$:
  	&\quad -\frac{1}{\sqrt n}\sum_{i = 1}^n (\srxk_i - \widehat \mu_{n,x}(\srz_i))(\widehat \mu_{n,y}(\srz_i) - \mu_{n,y}(\srz_i))\\
 	&\equiv I_n - J_n.
  \end{align}
-We claim that $J_n \convp 0$. Indeed, from $\E[J_n \mid \srx,\sry,\srz] = 0$ and the assumption $\widehat E'_{n, y} \convp 0$ it follows
+We claim that $J_n \convp 0$. Indeed, from $\E[J_n \mid \srx,\sry,\srz] = 0$ and the assumption $\widehat E'_{n, y} \convp 0$~\eqref{eq:sp1prime} it follows
 \begin{equation*}
-\E[J_n^2 \mid \srx,\sry,\srz] = \V[J_n \mid \srx,\sry,\srz] \equiv \widehat E'_{n,y} \convp 0. 
+\E[J_n^2 \mid \srx,\sry,\srz] = \V[J_n \mid \srx,\sry,\srz] \equiv (\widehat E'_{n,y})^2 \convp 0. 
 \end{equation*}
 Hence by Lemma \ref{lem:conditional-expectation-to-unconditional} we have $J_n^2 \convp 0$, so that $J_n \convp 0$, as claimed. Next, we claim that an appropriately rescaled $I_n$ converges conditionally to $N(0,1)$. To this end, we apply the conditional CLT (Theorem~\ref{thm:conditional-clt}) with
  \begin{equation}
@@ -960,14 +960,14 @@ Hence by Lemma \ref{lem:conditional-expectation-to-unconditional} we have $J_n^2
  \end{equation}
  and $\mathcal{F}_n \equiv \sigma(\srx,\sry,\srz)$. To verify the assumptions of the conditional CLT, note first that $W_{in}$ are independent conditionally on $\mathcal F_n$ by construction and satisfy $0 < \V[W_{in} \mid \mathcal F_n] < \infty$ by the nondegeneracy assumption~\eqref{eq:variance-bounds}. Next, observe that
  \begin{equation*}
-	s^2_n \equiv \sum_{i = 1}^n \V[W_{in}\mid \srx,\sry,\srz] =  \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i|\srz_i](\sry_i - \mu_{n,y}(\srz_i))^2 \equiv(S_n^{\dCRThat})^2,
+	S^2_n \equiv \sum_{i = 1}^n \V[W_{in}\mid \srx,\sry,\srz] =  \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i|\srz_i](\sry_i - \mu_{n,y}(\srz_i))^2 \equiv(S_n^{\dCRThat})^2,
  \end{equation*}
 so that
 \begin{align*}
-	&\frac{1}{s_n^{2+\delta}} \sum_{i = 1}^n \E[|W_{in}|^{2+\delta} \mid \srx,\sry,\srz] \\
+	&\frac{1}{S_n^{2+\delta}} \sum_{i = 1}^n \E[|W_{in}|^{2+\delta} \mid \srx,\sry,\srz] \\
 	&\quad= \frac{1}{(S_n^{\dCRThat})^{2+\delta}} \cdot \frac{1}{n^{1+\delta/2}} \sum_{i=1}^n |\sry_i-\mu_{n,y}(\srz_i)|^{2+\delta}\E_{\lawhat_n}[|\srxk_i-\widehat\mu_{n,x}(\srz_i)|^{2+\delta}\mid \srx,\srz].
 \end{align*}
-Since the first factor is stochastically bounded (conclusion~\ref{eq:bounded-away-from-zero} from Lemma~\ref{lem:cond-sample-variance-equivalence2}), it suffices to show that the second factor converges to zero in probability. To this end, by Lemma~\ref{lem:conditional-expectation-to-unconditional} it suffices to note that $\law_n \in \nulllaws_n$ and the Lyapunov assumption~\eqref{eq:lyapunov-condition-2} give
+Since the first factor is stochastically bounded (conclusion~\eqref{eq:bounded-away-from-zero} from Lemma~\ref{lem:cond-sample-variance-equivalence2}), it suffices to show that the second factor converges to zero in probability. To this end, by Lemma~\ref{lem:conditional-expectation-to-unconditional} it suffices to note that $\law_n \in \nulllaws_n$ and the Lyapunov assumption~\eqref{eq:lyapunov-condition-2} give
 \begin{equation}
 \begin{split}
 &\E\left[\left.\frac{1}{n^{1+\delta/2}} \sum_{i=1}^n |\sry_i-\mu_{n,y}(\srz_i)|^{2+\delta}\E_{\lawhat_n}[|\srxk_i-\widehat\mu_{n,x}(\srz_i)|^{2+\delta}\mid \srx,\srz] \right| \srx, \srz \right] \\
@@ -1008,7 +1008,7 @@ The desired equivalence is given by Lemma~\ref{lem:equivalence-lemma} with $T_n(
 		&= \epsilon^{-1} \E[\E[W_n \wedge \epsilon\mid \mathcal{F}_n]]\\
 		&\leq \epsilon^{-1} \E[\E[W_n \mid \mathcal{F}_n]\wedge \epsilon] \to 0,
 	\end{align}
-	where the last convergence is due to bounded convergence theorem. 
+	where the last convergence is due to bounded convergence theorem and the assumption $\E[W_n \mid \mathcal{F}_n]\convp 0$. 
 \end{proof}
 
 
@@ -1023,14 +1023,14 @@ If the critical value of the first converges in probability to that of the secon
 C_n(\srx, \sry, \srz) \convp z_{1-\alpha}
 \label{eq:convergence-of-critical-value}
 \end{equation}
-and the test statistic does not accumulate near the critical value:
+and the test statistic does not accumulate near the limiting critical value:
 \begin{equation}
 \lim_{\delta \rightarrow 0}\limsup_{n \rightarrow \infty}\ \P_{\law_n}[|T_n(\srx, \sry, \srz)-z_{1-\alpha}| \leq \delta] = 0,
 \label{eq:non-accumulation-app}
 \end{equation}
 then the two tests are asymptotically equivalent:
 \begin{equation}
-\lim_{n \rightarrow \infty}\P[\phi_n^{1}(\srx, \sry, \srz) = \phi_n^2(\srx, \sry, \srz)] = 1.
+\lim_{n \rightarrow \infty}\P_{\law_n}[\phi_n^{1}(\srx, \sry, \srz) = \phi_n^2(\srx, \sry, \srz)] = 1.
 \end{equation}
 \end{lemma}
 
@@ -1084,7 +1084,7 @@ Given the asymptotic equivalence of the variance estimates~\eqref{eq:asymptotic-
 \begin{equation}
 	T_n \equiv T_n^\GCM \quad \text{and} \quad C_n \equiv \frac{\widehat S_n^{\dCRThat}}{\widehat S_{n}^{\GCM}}z_{1-\alpha}
 \end{equation}
-Then, $\phi_n^1$ is the GCM test and $\phi_n^2$ is the $\MXtwohat$ $F$-test. The asymptotic equivalence of the variance estimates~\eqref{eq:asymptotic-variance-equivalence} then implies the critical value convergence assumption~\eqref{eq:convergence-of-critical-value} of Lemma~\ref{lem:equivalence-lemma}. The non-accumulation assumption~\eqref{eq:non-accumulation-app} is a consequence of the fact that, under the assumptions of Theorem~\ref{thm:equivalence}, we have $T^{\text{\GCM}}_n \convd N(0,1)$ \citep{Shah2018}. On the other hand, by Corollary~\ref{cor:asymptotic-equivalence-stronger} (whose conclusion holds under the assumptions of Theorem~\ref{thm:equivalence}), we also know that $\dCRThat$ is asymptotically equivalent to the $\MXtwohat$ $F$-test. Hence, both the GCM test and the $\dCRThat$ are asymptotically equivalent to the $\MXtwohat$ $F$-test, so they are asymptotically equivalent to each other as well.
+Then, $\phi_n^1$ is the $\MXtwohat$ $F$-test and $\phi_n^2$ is the GCM test. The asymptotic equivalence of the variance estimates~\eqref{eq:asymptotic-variance-equivalence} then implies the critical value convergence assumption~\eqref{eq:convergence-of-critical-value} of Lemma~\ref{lem:equivalence-lemma}. The non-accumulation assumption~\eqref{eq:non-accumulation-app} is a consequence of the fact that, under the assumptions of Theorem~\ref{thm:equivalence}, we have $T^{\text{\GCM}}_n \convd N(0,1)$ \citep{Shah2018}. On the other hand, by Corollary~\ref{cor:asymptotic-equivalence-stronger} (whose conclusion holds under the assumptions of Theorem~\ref{thm:equivalence}), we also know that $\dCRThat$ is asymptotically equivalent to the $\MXtwohat$ $F$-test. Hence, both the GCM test and the $\dCRThat$ are asymptotically equivalent to the $\MXtwohat$ $F$-test, so they are asymptotically equivalent to each other as well.
 \end{proof}
 
 \begin{proof}[Proof of Proposition~\ref{prop:sufficient-for-variance-consistency}] \newtarget{proof:prop:sufficient-for-variance-consistency}{}
@@ -1109,7 +1109,7 @@ $$
 By the Cauchy-Schwartz inequality, we have
 \begin{equation}
 \begin{split} \label{eq:CS_corrolary_doubly_robust}
-	\frac{1}{n} &\sum_{i=1}^n (f(\widehat \mu_{n,x}(\srz_i))-f(\mu_{n,x}(\srz_i)))\V_{\law_n}[\sry_i\mid \srz_i]\\ &\leq \sqrt{\frac{1}{n} \sum_{i=1}^n (f(\widehat \mu_{n,x}(Z_i))-f( \mu_{n,x}(Z_i))^2\V_{\law_n}[\sry_i\mid \srz_i]}\sqrt{\frac{1}{n} \sum_{i=1}^n \V_{\law_n}[\sry_i\mid \srz_i]}
+	&\left|\frac{1}{n} \sum_{i=1}^n (f(\widehat \mu_{n,x}(\srz_i))-f(\mu_{n,x}(\srz_i)))\V_{\law_n}[\sry_i\mid \srz_i]\right| \\ &\quad\leq \sqrt{\frac{1}{n} \sum_{i=1}^n (f(\widehat \mu_{n,x}(Z_i))-f( \mu_{n,x}(Z_i))^2\V_{\law_n}[\sry_i\mid \srz_i]}\sqrt{\frac{1}{n} \sum_{i=1}^n \V_{\law_n}[\sry_i\mid \srz_i]}.
 \end{split}
 \end{equation}
 Given the assumption that $\sup_n \E_{\law_n}[|\pry-\mu_{n,y}(\prz)|^{2+\delta}] < \infty$ for some $\delta>0$, Jensen's inequality gives
@@ -1132,7 +1132,7 @@ On the other hand, we know $\mathrm{supp}(\mu_{n,x}(Z_i))\subseteq \mathrm{Conv}
 \begin{align*}
 &\frac{1}{n} \sum_{i=1}^n (f(\widehat \mu_{n,x}(Z_i))-f( \mu_{n,x}(Z_i)))^2\V_{\law_n}[\sry_i\mid \srz_i] \\
 &\quad\leq 
-\frac{L^2}{n} \sum_{i=1}^n (\widehat \mu_{n,x}(Z_i)- \mu_{n,x}(Z_i))^2\V_{\law_n}[\sry_i\mid \srz_i] = L^2(E'_{n,x})^2 = o_p(1).
+\frac{L^2}{n} \sum_{i=1}^n (\widehat \mu_{n,x}(Z_i)- \mu_{n,x}(Z_i))^2\V_{\law_n}[\sry_i\mid \srz_i] \equiv L^2(E'_{n,x})^2 = o_p(1).
 \end{align*}
 Combining the last two displays with equation~\eqref{eq:CS_corrolary_doubly_robust} gives us the desired result.
 \end{proof}
@@ -1142,7 +1142,7 @@ Define the event
 $$
 A_n \equiv \{\phi^{\dCRThat}_{n}(\srx, \sry, \srz) \neq \phi^{\GCM}_{n}(\srx, \sry, \srz)\}
 $$
-The conclusion~\eqref{eq:asymptotic-test-equivalence} of Theorem~\ref{thm:equivalence} implies that $\P_{\law_n}[A_n] \to 0$, so by contiguity of $\law'_n$ to $\law_n$ we also have $\P_{\law'_n}[A_n] \to 0$. This shows the desired asymptotic equivalence of tests~\eqref{eq:equivalent-tests-alternative}. To show the asymptotic equivalence of powers, we derive
+The conclusion~\eqref{eq:asymptotic-test-equivalence} of Theorem~\ref{thm:equivalence} implies that $\P_{\law_n}[A_n] \to 0$, so by the assumed contiguity of $\law'_n$ to $\law_n$ we also have $\P_{\law'_n}[A_n] \to 0$. This shows the desired asymptotic equivalence of tests~\eqref{eq:equivalent-tests-alternative}. To show the asymptotic equivalence of powers, we derive
 \begin{align*}
 |\E_{\law'_n}[\phi_n^{\dCRThat}&(\srx, \sry, \srz)-\phi_n^{\GCM}(\srx, \sry, \srz)]|
 \\ &\leq
@@ -1321,7 +1321,7 @@ To this end, we apply the conditional WLLN (Theorem~\ref{thm:wlln_cond}) with $\
 	\begin{align*}
 		&\frac{1}{n^{1+\delta/2}} \sum_{i = 1}^n \E_{\law_n}[|W_{in}|^{1+\delta/2} \mid \mathcal{F}_n] \\
 		&\quad\equiv \frac{1}{n^{1+\delta/2}} \sum_{i = 1}^n \E_{\law_n}\left[\V_{\lawhat_n}[\srx_i\mid \srz_i]^{1+\delta/2} \cdot |\sry_i-\mu_{n,y}(\srz_i)|^{2+\delta}\mid \srx,\srz\right]\\
-		&\quad\leq \frac{1}{n^{1+\delta/2}} \sum_{i = 1}^n \E_{\law_n}\left[\E_{\lawhat_n}[|\srxk_i-\widehat{\mu}_{n,x}(Z_i)|^{2+\delta} \mid \srx, \srz] \cdot |\sry_i-\mu_{n,y}(Z_i)|^{2+\delta} \mid \srx,\srz]\right]\\
+		&\quad\leq \frac{1}{n^{1+\delta/2}} \sum_{i = 1}^n \E_{\law_n}\left[\E_{\lawhat_n}[|\srxk_i-\widehat{\mu}_{n,x}(Z_i)|^{2+\delta} \mid \srx, \srz] \cdot |\sry_i-\mu_{n,y}(Z_i)|^{2+\delta} \mid \srx,\srz\right]\\
 		&\quad= \frac{1}{n^{1+\delta/2}} \sum_{i = 1}^n \E_{\lawhat_n}[|\srxk_i-\widehat\mu_{n,x}(Z_i)|^{2+\delta}\mid \srx, \srz] \cdot \E_{\law_n}\left[|\sry_i-\mu_{n,y}(Z_i)|^{2+\delta} \mid Z_i\right]\\
 		&\quad\convp 0. 
 	\end{align*}
@@ -1407,7 +1407,7 @@ The stochastic boundedness from below~\eqref{eq:bounded-away-from-zero} follows 
 % \end{proof}
 
 \begin{lemma} \label{lem:var-ratio-ndcrt-dcrt}
-If the nondegeneracy conditions~\eqref{eq:var-bounded-below} and~\eqref{eq:variance-bounds} and the conditional Lyapunov condition~\eqref{eq:lyapunov-condition} hold, then the variance estimates $(\widehat S_n^{\GCM})^2$ and $(\widehat S_n^{\dCRT})^2$ are equivalent under resampling:
+If the nondegeneracy conditions~\eqref{eq:var-bounded-below} and~\eqref{eq:variance-bounds} and the conditional Lyapunov condition~\eqref{eq:lyapunov-condition} hold, then the variance estimates $(\widehat S_n^{\GCM})^2$ and $(\widehat S_n^{\dCRThat})^2$ are equivalent under resampling:
 \begin{equation}
 \frac{(\widehat S_n^{\dCRThat}(\srx, \sry, \srz))^2}{(\widehat S_{n}^{\GCM}(\srxk, \srx, \sry, \srz))^2} \convp 1.
 \label{eq:var-ratio-ndcrt-dcrt}
@@ -1429,7 +1429,7 @@ First we claim that $\frac{1}{n}\sum_{i = 1}^n W_{in} \convp 0$.  We will use co
 where the latter convergence is by the assumption~\eqref{eq:lyapunov-condition}.
 Hence we have that $\frac{1}{n} \sum_{i = 1}^n W_{in}  \mid \mathcal F_n \convpp 0$ which by Lemma \ref{lem:conditional-convergence-to-unconditional} implies $\frac{1}{n} \sum_{i=1}^n W_{in} \convp 0$.
 
-Next we show that $\frac{1}{n} \sum_{i=1}^n W^2_{in} - (\widehat S_{n}^{\dCRThat})^2 \convp 0$. We will use conditional WLLN with $\mathcal{F}_n = \sigma(\srx,\sry,\srz)$, observing that $\E\left(\frac{1}{n} \sum_{i=1}^n W^2_{in} \mid \mathcal{F}_n\right) = (\widehat S_{n}^{\dCRThat})^2 $. Next we verify the moment condition~\eqref{eq:wlln_cond_assumption}:
+Next we show that $\frac{1}{n} \sum_{i=1}^n W^2_{in} - (\widehat S_{n}^{\dCRThat})^2 \convp 0$. We will use conditional WLLN with $\mathcal{F}_n = \sigma(\srx,\sry,\srz)$, observing that $\E\left[\frac{1}{n} \sum_{i=1}^n W^2_{in} \mid \mathcal{F}_n\right] = (\widehat S_{n}^{\dCRThat})^2 $. Next we verify the moment condition~\eqref{eq:wlln_cond_assumption}:
 \begin{align}
 	\frac{1}{n^{1+\delta/2}} \sum_{i = 1}^n &\E[|W_{in}|^{2+\delta} \mid \mathcal{F}_n] \\&= \frac{1}{n^{1+\delta/2}} \sum_{i=1}^n |\sry_i-\widehat\mu_{n,y}(\srz_i)|^{2+\delta}\E\left[|\srxk_i-\widehat\mu_{n,x}(\srz_i)|^{2+\delta}\mid \srx,\srz\right] \convp 0,
 \end{align} 
@@ -1438,7 +1438,7 @@ Hence we have that $\frac{1}{n} \sum_{i = 1}^n W^2_{in} - (\widehat S_{n}^{\dCRT
 
 Combining both of these results we find that 
 \begin{equation*}
-(\widehat S_{n}^{\ndCRThat}(\srxk, \srx, \sry, \srz))^2 - (\widehat S_{n}^{\dCRThat}(\srx, \sry, \srz))^2 \convp 0. 
+(\widehat S_{n}^{\GCM}(\srxk, \srx, \sry, \srz))^2 - (\widehat S_{n}^{\dCRThat}(\srx, \sry, \srz))^2 \convp 0. 
 \end{equation*}
 Now using the nondegeneracy condition~\eqref{eq:var-bounded-below} we can conclude that~\eqref{eq:var-ratio-ndcrt-dcrt} holds true, as desired.
 \end{proof}
@@ -1547,7 +1547,11 @@ T^{\GCM}_n(\srx, \sry, \srz) &= \frac{1}{s(\theta_0)\sqrt{n}}\sum_{i = 1}^n (\sr
 \end{split}
 \label{eq:asymptotic-equivalence-gcm-opt}
 \end{equation}
-The first equality follows from the proof of Theorem 6 in \citet{Shah2018}, the second follows from the derivations of the efficient score~\eqref{eq:GCM-efficient-score} and efficient information~\eqref{eq:GCM-efficient-info} in Lemma~\ref{lem:semiparametric-results}, and the third from equation~\eqref{eq:normalized-efficient-score} in Theorem~\ref{thm:classic-semiparametric-optimality}. From the local asymptotic normality~\eqref{eq:LAN} it follows that $\prod_{i=1}^n\law_{\theta_{n}(h)}$ and $\prod_{i=1}^n\law_{\theta_0}$ are contiguous by Le Cam's first lemma \citep[Example 6.5]{VDV1998}. We therefore find that
+The first equality follows from the proof of Theorem 6 in \citet{Shah2018}, the second follows from the derivations of the efficient score~\eqref{eq:GCM-efficient-score} and efficient information~\eqref{eq:GCM-efficient-info} in Lemma~\ref{lem:semiparametric-results}, and the third from equation~\eqref{eq:normalized-efficient-score} in Theorem~\ref{thm:classic-semiparametric-optimality}. From the local asymptotic normality~\eqref{eq:LAN} it follows that $\prod_{i=1}^n\law_{\theta_{n}(h)}$ and $\prod_{i=1}^n\law_{\theta_0}$ are contiguous by Le Cam's first lemma \citep[Example 6.5]{VDV1998}. It follows that 
+\begin{equation*}
+	T^{\GCM}_n(\srx, \sry, \srz) = T_n^{\text{opt}}(\srx, \sry, \srz) + o_{\law_{\theta_{n}(h)}}(1)
+\end{equation*}
+We therefore find that
 \begin{align*}
 	1 - \Phi(z_{1-\alpha} - h_\beta \cdot s(\theta_0)) = \lim_{n\rightarrow\infty}\P_{\law_{\theta_{n}(h)}}[T_n^{\text{opt}}>z_{1-\alpha}]=\lim_{n\rightarrow\infty}\P_{\law_{\theta_{n}(h)}}[T_n^{\GCM}>z_{1-\alpha}].
 \end{align*}
@@ -1600,19 +1604,19 @@ Consider the parametric submodel $t \mapsto \law_{(th_\beta, g_0 + th_g)}$ for s
 \end{equation*}
 Letting $\lambda_{y}$ be the base measure of the exponential family $f_\eta$, we denote $\lambda \equiv \law_{x,z} \times \lambda_{y}$ and $\mathrm d \law_{(th_\beta, g_0 + th_g)}(x, y, z)/\mathrm d \lambda$ the density of the parametric model for $(\prx, \pry, \prz)$ with respect to $\lambda$. According to \citet[Lemma 7.6]{VDV1998}, this submodel is differentiable in quadratic mean at $t = 0$ if the map 
 \begin{equation*}
-t \mapsto \sqrt{\frac{\mathrm d \law_{(th_\beta, g_0 + th_g)}}{d\lambda}(x, y, z)} = \sqrt{\frac{\mathrm df_{\eta_t}}{d\lambda_y}(y)} = \exp\left(\frac{y\eta_t-\psi(\eta_t)}{2}\right)
+t \mapsto \sqrt{\frac{\mathrm d \law_{(th_\beta, g_0 + th_g)}}{\mathrm d\lambda}(x, y, z)} = \sqrt{\frac{\mathrm df_{\eta_t}}{\mathrm d\lambda_y}(y)} = \exp\left(\frac{y\eta_t-\psi(\eta_t)}{2}\right)
 \end{equation*}
 is continuously differentiable at $t = 0$ for each $(x,  y, z) \in \R^{1 + 1 + p}$ and the elements of the Fisher information matrix are well-defined and continuous at $t = 0$. To show continuous differentiability of the square root density, we compute that
 \begin{align*}
-	\frac{\partial}{\partial t}\sqrt{\frac{\mathrm d \law_{(th_\beta, g_0 + th_g)}}{d\lambda}(x, y, z)} = \exp\left(\frac{y\eta_t-\psi(\eta_t)}{2}\right)\cdot\frac{(y-\dot{\psi}(\eta_t))}{2}\cdot (xh_\beta + h_g(z)).
+	\frac{\partial}{\partial t}\sqrt{\frac{\mathrm d \law_{(th_\beta, g_0 + th_g)}}{\mathrm d\lambda}(x, y, z)} = \exp\left(\frac{y\eta_t-\psi(\eta_t)}{2}\right)\cdot\frac{(y-\dot{\psi}(\eta_t))}{2}\cdot (xh_\beta + h_g(z)).
 \end{align*}
 The linearity of $\eta_t$ in $t$ and the smoothness of $\psi$ imply the continuous differentiability of the above function in $t$.
 
 Next consider the information matrix
 \begin{align*}
-	I_t &\equiv \E_{\law_{(th_\beta, g_0 + th_g)}}\left[\left(\frac{\partial}{\partial t}\log \frac{\mathrm d \law_{(th_\beta, g_0 + th_g)}}{d\lambda}(\prx, \pry, \prz)\right)^2\right] \\
+	I_t &\equiv \E_{\law_{(th_\beta, g_0 + th_g)}}\left[\left(\frac{\partial}{\partial t}\log \frac{\mathrm d \law_{(th_\beta, g_0 + th_g)}}{\mathrm d\lambda}(\prx, \pry, \prz)\right)^2\right] \\
 	&= \E_{\law_{(th_\beta, g_0 + th_g)}}\left[\left(\frac{\partial}{\partial t}(\pry \eta_t(\prx, \prz) - \psi(\eta_t(\prx, \prz)))\right)^2\right] \\
-	&= \E_{\law_{(\beta_t,g_t)}}[(\pry-\dot{\psi}(\eta_t(\prx, \prz)))^2(\prx h_\beta+h_g(\prz))^2 \\
+	&= \E_{\law_{(\beta_t,g_t)}}[(\pry-\dot{\psi}(\eta_t(\prx, \prz)))^2(\prx h_\beta+h_g(\prz))^2] \\
 	&=\E_{\law_{x,z}}\left[(\prx h_\beta+h_g(\prz))^2\ddot{\psi}(\eta_t(\prx, \prz))\right].
 \end{align*}
 We must show that $I_t$ is well-defined and continuous at $t = 0$. By assumption~\eqref{eq:moment-assumptions-app}, either $\ddot \psi = K > 0$ and $\E_{\law_{x,z}}[\prx^2] < \infty$ or $(\prx,\prz)$ is compactly supported and $\H_g \subseteq C(\R^p)$. If $\ddot \psi = K > 0$ and $\E_{\law_{x,z}}[\prx^2] < \infty$, then we have 
