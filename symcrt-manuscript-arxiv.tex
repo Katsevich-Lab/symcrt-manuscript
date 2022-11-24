@@ -1132,7 +1132,7 @@ On the other hand, we know $\mathrm{supp}(\mu_{n,x}(Z_i))\subseteq \mathrm{Conv}
 \begin{align*}
 &\frac{1}{n} \sum_{i=1}^n (f(\widehat \mu_{n,x}(Z_i))-f( \mu_{n,x}(Z_i)))^2\V_{\law_n}[\sry_i\mid \srz_i] \\
 &\quad\leq 
-\frac{L^2}{n} \sum_{i=1}^n (\widehat \mu_{n,x}(Z_i)- \mu_{n,x}(Z_i))^2\V_{\law_n}[\sry_i\mid \srz_i] = L^2E'_{n,x} = o_p(1).
+\frac{L^2}{n} \sum_{i=1}^n (\widehat \mu_{n,x}(Z_i)- \mu_{n,x}(Z_i))^2\V_{\law_n}[\sry_i\mid \srz_i] = L^2(E'_{n,x})^2 = o_p(1).
 \end{align*}
 Combining the last two displays with equation~\eqref{eq:CS_corrolary_doubly_robust} gives us the desired result.
 \end{proof}
@@ -1542,7 +1542,7 @@ On the other hand, because $\law_{\theta_0} \in \mathscr{R}$, it follows that
 \begin{equation}
 \begin{split}
 T^{\GCM}_n(\srx, \sry, \srz) &= \frac{1}{s(\theta_0)\sqrt{n}}\sum_{i = 1}^n (\srx_i - \E_{\law_{\theta_0}}[\srx_i \mid \srz_i])(\sry_i- \E_{\law_{\theta_0}}[\sry_i \mid \srz_i]) + o_{\law_{\theta_0}}(1) \\
-&= \frac{1}{\widetilde I(\theta_0)^{1/2}n^{1/2}}\sum_{i = 1}^n \widetilde S(\srx_i, \sry_i, \srz_i) \\
+&= \frac{1}{\widetilde I(\theta_0)^{1/2}n^{1/2}}\sum_{i = 1}^n \widetilde S(\srx_i, \sry_i, \srz_i) + o_{\law_{\theta_0}}(1) \\
 &= T_n^{\text{opt}}(\srx, \sry, \srz) + o_{\law_{\theta_0}}(1).
 \end{split}
 \label{eq:asymptotic-equivalence-gcm-opt}
