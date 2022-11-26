@@ -188,7 +188,7 @@ maxbibnames = 5]{biblatex} 							% for citations and bibliography
 						T_n^{\dCRThat}(\srxk^{(m)}, \srx, \sry, \srz) \equiv \frac{1}{\sqrt{n}}\sum_{i = 1}^n (\srxk_i - \widehat \mu_{n,x}(\srz_i))(\sry_i - \widehat \mu_{n,y}(\srz_i)); \label{eq:resampled-dcrt-def}
 					\end{equation}
 				}
-				\nonl \textbf{Output:} $\dCRThat$ $p$-value	 \small $\frac{1}{M+1} (1+ \sum_{i=1}^M\indicator\{T_n^{\dCRThat}(\srxk^{(m)}, \srx, \sry, \srz) \geq T_n^{\dCRThat}(\srx, \sry, \srz)\}).$
+				\nonl \textbf{Output:} $\dCRThat$ $p$-value	 \small $\frac{1}{M+1} (1+ \sum_{m=1}^M\indicator\{T_n^{\dCRThat}(\srxk^{(m)}, \srx, \sry, \srz) \geq T_n^{\dCRThat}(\srx, \sry, \srz)\}).$
 				\caption{\bf The $\dCRThat$.}
 				\label{alg:dcrt-hat}
 			\end{algorithm}
