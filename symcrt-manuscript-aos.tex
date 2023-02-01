@@ -105,7 +105,7 @@
 \let\oldnl\nl% Store \nl in \oldnl
 \newcommand{\nonl}{\renewcommand{\nl}{\let\nl\oldnl}} % Remove line number for one line of alg
 
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+% \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 \endlocaldefs
 
@@ -131,7 +131,7 @@
 %% \orcid{0000-0000-0000-0000}               %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \author[A]{\fnms{Ziang}~\snm{Niu$^*$}\ead[label=e1]{ziangniu@upenn.edu}},
-\author[A]{\fnms{Abhinav}~\snm{Chakraborty$^*$}\ead[label=e2]{abch@wharton.upenn.edu}}
+\author[A]{\fnms{Abhinav}~\snm{Chakraborty$^*$}\ead[label=e2]{abch@wharton.upenn.edu}},
 \author[B]{\fnms{Oliver}~\snm{Dukes}\ead[label=e3]{oliver.dukes@ugent.be}}
 \and
 \author[A]{\fnms{Eugene}~\snm{Katsevich}\ead[label=e4]{ekatsevi@wharton.upenn.edu}}
@@ -144,7 +144,7 @@
 \end{aug}
 
 \begin{abstract}
-    Model-X approaches to testing conditional independence between a predictor and an outcome variable given a vector of covariates usually assume exact knowledge of the conditional distribution of the predictor given the covariates. Nevertheless, model-X methodologies are often deployed with this conditional distribution learned in sample. We investigate the consequences of this choice through the lens of the distilled conditional randomization test (dCRT). We find that Type-I error control is still possible, but only if the mean of the outcome variable given the covariates is estimated well enough. This demonstrates that the dCRT is doubly robust, and motivates a comparison to the generalized covariance measure (GCM) test, another doubly robust conditional independence test. We prove that these two tests are asymptotically equivalent, and show that the GCM test is in fact optimal against (generalized) partially linear alternatives by leveraging semiparametric efficiency theory. In an extensive simulation study, we compare the dCRT to the GCM test. We find that the GCM test and the dCRT are quite similar in terms of both Type-I error and power, and that post-lasso based test statistics (as compared to lasso based statistics) can dramatically improve Type-I error control for both methods.
+    Model-X approaches to testing conditional independence between a predictor and an outcome variable given a vector of covariates usually assume exact knowledge of the conditional distribution of the predictor given the covariates. Nevertheless, model-X methodologies are often deployed with this conditional distribution learned in sample. We investigate the consequences of this choice through the lens of the distilled conditional randomization test (dCRT). We find that Type-I error control is still possible, but only if the mean of the outcome variable given the covariates is estimated well enough. This demonstrates that the dCRT is doubly robust, and motivates a comparison to the generalized covariance measure (GCM) test, another doubly robust conditional independence test. We prove that these two tests are asymptotically equivalent, and show that the GCM test is optimal against (generalized) partially linear alternatives by leveraging semiparametric efficiency theory. In an extensive simulation study, we compare the dCRT to the GCM test. These two tests have broadly similar Type-I error and power, though dCRT can have somewhat better Type-I error control in small samples when the response is discrete. Post-lasso based test statistics (as compared to lasso based statistics) can dramatically improve Type-I error control for both methods.
 \end{abstract}
 
 \begin{keyword}
@@ -165,47 +165,94 @@
 %%%% Main text entry area:
 
 \renewcommand{\thefootnote}{*} 
-	\footnotetext{These authors contributed equally to this work.}
+\footnotetext{These authors contributed equally to this work.}
+\renewcommand{\thefootnote}{1} 
 
 \section{Introduction}
 	
+\subsection{Conditional independence testing and the model-X assumption}
+
 Given a predictor $\prx \in \R$, response $\pry \in \R$, and high-dimensional covariate vector $\prz \in \R^{p}$ drawn from a joint distribution $(\prx, \pry, \prz) \sim \law_n$ (potentially varying with $n$ to accommodate growing $p$), consider testing the hypothesis of conditional independence (CI)
 \begin{equation}
     H_{0n}: \pry\ \independent\ \prx\ |\ \prz
     \label{conditional-independence}
 \end{equation}
-at level $\alpha \in (0,1)$ using $n$ data points 
+at level $\alpha \in (0,1)$ using $n$ data points
 \begin{equation}
     \label{eq:xyz}
     (\srx, \sry, \srz) \equiv \{(\srx_i, \sry_i, \srz_i)\}_{i = 1, \dots, n} \iidsim \law_n. 
 \end{equation}
 In a high-dimensional regression setting, $H_{0n}$ is a model-agnostic way of formulating the null hypothesis that the predictor $\prx$ is unimportant in the regression of $\pry$ on $(\prx, \prz)$ \citep{CetL16}. In a causal inference setting with treatment $\prx$, outcome $\pry$, observed confounders $\prz$, and no unobserved confounders, $H_{0n}$ is the null hypothesis of no causal effect of $\prx$ on $\pry$ \citep{Pearl2009}.
 
-Formally, a sequence of tests $\phi_n: (\srx, \sry, \srz) \mapsto [0,1]$ of $H_{0n}$ has asymptotic Type-I error control over this null if 
-\begin{equation}
-    \limsup_{n \rightarrow \infty}\sup_{\law_n \in \nulllaws_n} \E_{\law_n}[\phi_n(\srx,\sry,\srz)] \leq \alpha,
-\end{equation}
-where
+As \citet{Shah2018} showed, the CI null hypothesis is too large in the sense that any test controlling Type-I error on $H_{0n}$ must be powerless against all alternatives (unless $\prz$ is supported on a finite set). Therefore, additional assumptions must be placed on $\law_n$ to make progress. One such assumption is the \textit{model-X (MX) assumption} \citep{CetL16}, which states that $\law_n(\prx | \prz)$ is known exactly. Under the MX assumption, \citet{CetL16} propose the MX knockoffs and conditional randomization test (CRT) methodologies, which have elegant finite-sample Type-I error control guarantees. These MX methodologies have since exploded in popularity, undergoing active methodological development and deployment in a range of applications.
+
+One of the primary challenges in the practical application of MX methods is to obtain the required conditional distribution $\law_n(\prx|\prz)$. Outside the context of randomized controlled experiments \citep{Aufiero2022, Ham2022}, the MX assumption is an approximation \citep{Barber2018, Huang2019, Li2022}. In genome-wide association studies, a realistic parametric distribution can be postulated for this conditional law \citep{SetC17}, but the parameters of this distribution must still be learned from data. In practice, the conditional law is usually fit in sample on the same data that is used for testing, and then treated as if it were known \citep{CetL16, SetC17, SetS19, Bates2020, Liu2022a, Li2021b, Sesia2021, Katsevich2020c}. Such adaptations of MX methodologies are widely deployed, but their robustness and power properties have not been thoroughly investigated. 
+
+\subsection{Our contributions} 
+
+In this paper, we address this gap by investigating the properties of MX methods with $\law_n(\prx|\prz)$ learned in sample. This investigation leads us to establish close connections between these methods and double regression approaches to CI testing, and to explore the optimality of CI tests against semiparametric alternatives. We focus our analyses on the \textit{distilled conditional randomization test} (\textit{dCRT}), a fast and powerful instance of the CRT \citep{Liu2022a}, and the \textit{generalized covariance measure (GCM) test}, a prototypical double regression approach to CI testing \citep{Shah2018}. Both tests involve learning $\law_n(\prx \mid \prz)$ and $\law_n(\pry \mid \prz)$ in sample. Our main contributions are outlined next:
+
+\begin{enumerate}
+	\item \textbf{The dCRT with $\law_n(\prx \mid \prz)$ learned in sample with can have poor Type-I error control if $\law_n(\pry \mid \prz)$ is learned poorly.} If $\law(\prx \mid \prz)$ is known exactly, then the dCRT has finite-sample Type-I error control regardless of $\law(\pry \mid \prz)$ or the quality of its estimate. This is no longer the case once $\law(\prx \mid \prz)$ is fit in sample, as we demonstrate in a numerical simulation and a theoretical counterexample (Section~\ref{sec:neg-results}).
+	\item \textbf{The dCRT is doubly robust, in the sense that errors in $\law_n(\prx \mid \prz)$ can be compensated for by better approximations of $\law_n(\pry \mid \prz)$.} The MX assumption shifts the modeling burden entirely from $\law_n(\pry \mid \prz)$ to $\law_n(\prx \mid \prz)$. When the latter is fit in sample, shifting the modeling burden partially back towards $\law_n(\pry \mid \prz)$ helps recover asymptotic Type-I error control, as we demonstrate theoretically (Section~\ref{sec:double-robustness}).
+	\item \textbf{The dCRT resampling distribution approaches normality, making this test asymptotically equivalent to the GCM test.} The dCRT is a resampling-based test, whereas the GCM test is asymptotic. In large samples, however, the resampling-based null distribution of the former converges to the $N(0,1)$ null distribution of the latter (Section~\ref{sec:conv-to-normal}). We show that these two tests are asymptotically equivalent against local alternatives (Section~\ref{sec:equivalence}).
+	\item \textbf{The GCM test is asymptotically uniformly most powerful against local non-interacting alternatives.} Optimality results are widely prevalent in the semiparametric literature, but not in the CI testing literature. We leverage semiparametric optimality theory to prove that the GCM is the optimal CI test against  local (generalized) partially linear alternatives (Section~\ref{sec:optimality}), a broad class of alternatives in which $\prx$ and $\prz$ do not interact.
+	\item \textbf{In finite samples, the dCRT and GCM test have broadly similar Type-I error and power, with some exceptions.} The asymptotic equivalence between the dCRT and GCM test largely carries over to finite samples, as we demonstrate in numerical simulations (Section~\ref{sec:simulations}). The two tests have broadly similar Type-I error and power, although there is some divergence in small samples or when $\pry$ is discrete: in these cases dCRT can have somewhat better Type-I error control but somewhat worse power. 
+	\item \textbf{In finite samples, replacing the lasso with the post-lasso markedly improves Type-I error control for both dCRT and GCM test.} In MX applications, the lasso is perhaps the most common approach for learning both $\law_n(\prx \mid \prz)$ and $\law_n(\pry \mid \prz)$. However, we demonstrate in numerical simulations (Section~\ref{sec:simulations}) that the bias reduction offered by the post-lasso greatly improves Type-I error control in the context of both GCM test and dCRT, though at some cost in power. 
+\end{enumerate}
+
+On the way to making the aforementioned primary contributions, we make a few secondary contributions of independent interest:
+
+\begin{enumerate}
+	\item[7.] \textbf{We reexamine numerical simulation setups from prior MX papers, finding that many have only low levels of marginal dependence between $\prx$ and $\pry$.} Prior works have used numerical simulations to establish that MX methods are fairly robust when fitting $\mathcal L_n(\prx|\prz)$ in sample. However, we note that the conditional independence testing problem~\eqref{conditional-independence} is difficult to the extent that $\prz$ induces spurious marginal dependence between $\prx$ and $\pry$ (a ``confounding'' effect). We find simulation setups in prior works have low levels of this marginal dependence (Section~\ref{sec:sim-revisiting}), potentially leading to optimistic conclusions.
+	
+	\item[8.] \textbf{We collate a number of conditional analogs of classical convergence theorems (some but not all novel).} The dCRT involves resampling conditionally on the observed data, so its asymptotic analysis requires reasoning about convergence after conditioning on a $\sigma$-algebra that changes with $n$. We state and prove conditional analogs of Slutsky's theorem, the law of large numbers, the central limit theorem, and other classical convergence theorems (Appendix~\ref{sec:conditional-convergence-results}). These results are not surprising, but at least some appear novel.
+	
+	\item[9.] \textbf{We prove a sharpened theorem on optimality in semiparametric testing.} In the literature on semiparametric \textit{estimation}, an estimator need only be regular \textit{in the vicinity of a point} for efficiency bounds to hold, whereas popular textbooks \citep{VDV1998, Kosorok2008} state semiparametric \textit{testing} optimality results \textit{globally}: a test must control Type-I error on the entire semiparametric null, rather than just in the vicinity of a point, for efficiency bounds to hold. We address this gap by proving a stronger local optimality result for semiparametric testing (Appendix~\ref{sec:semiparametric-preliminaries}).
+\end{enumerate}
+
+\subsection{Related work}
+
+The question of robustness of existing MX methods to misspecification of $\law_n(\prx \mid \prz)$ has been investigated before, though not specifically in the context of learning this distribution in sample. \citet{Berrett2019} proved that, \textit{in the worst case} over all possible test statistics and all possible distributions $\law_n(\pry \mid \prz)$, the excess Type-I error of the CRT based on an approximation to $\law_n(\prx \mid \prz)$ is bounded below by the total variation error in approximating $\prod_{i = 1}^n \law_n(\srx_i \mid \srz_i)$. This error is $O(1)$ when fitting $\law_n(\prx \mid \prz)$ in sample. We show (see contribution 1) that, even when specializing to the dCRT test statistic, Type-I error control can be poor when $\law_n(\pry \mid \prz)$ is estimated poorly. \cite{Berrett2019} provided a matching upper bound on the Type-I error of the CRT, while \citet{Barber2018} proved a similar upper bound for MX knockoffs. These worst-case bounds guarantee Type-I error control only when an additional unlabeled sample of size $N \gg n$ is available. Another kind of robustness to misspecification of the MX assumption was proposed by \citet{Katsevich2020a}; they showed that if only the first two moments of $\law_n(\prx \mid \prz)$ are known exactly, then the dCRT has asymptotic Type-I error control. Even this weaker assumption cannot be expected to hold when $\law_n(\prx \mid \prz)$ is fit in sample, however.
+
+Other MX methods have been designed specifically to have improved robustness to misspecifications of $\law_n(\prx \mid \prz)$. For example, if this law is known to belong to a parametric family with a low-dimensional sufficient statistic, MX inference can be carried out conditionally on this sufficient statistic without needing to accurately estimate the parameters themselves \citep{Huang2019,Barber2020}. The former methodology enjoys a double robustness property, related to but different from the one we state for the dCRT (see contribution 2). The \textit{conditional permutation test} \citep{Berrett2019} was proposed as a more robust variant of the CRT, though this additional robustness has yet to be formalized theoretically. Finally, the \textit{Maxway CRT} \citep{Li2022} has recently been proposed as a doubly robust analog of the dCRT. We argue that the dCRT itself is doubly robust. We conjecture that the improved empirical performance of the Maxway CRT over the (lasso-based) dCRT is primarily due to the post-lasso step in the former. Indeed, our inspiration to apply the dCRT with the post-lasso (see contribution 6) comes from the Maxway CRT; we find in simulations that this variant of the dCRT is actually more robust than the Maxway CRT.
+
+Asymptotic analysis of MX methodologies has also been undertaken before \citep{Weinstein2017, Liu2019, Weinstein2020, Katsevich2020a, Wang2020b}, although primarily for the purposes of power analyses and none in the context of fitting $\law_n(\prx \mid \prz)$ in sample. All but \citet{Katsevich2020a} assume that $\law_n(\prx \mid \prz)$ is known exactly (the full MX assumption), whereas the latter assumes that the first two moments of this distribution are known exactly. In some ways, the current work generalizes the results of \citet{Katsevich2020a}. For example, the convergence of the dCRT resampling distribution to normality (see contribution 3) was shown in a fixed-dimensional setting where $\law_n(\prx \mid \prz)$ is learned out of sample and the first two moments of $\law_n(\prx \mid \prz)$ are known. Here, we allow growing dimension, and learning both $\law_n(\prx \mid \prz)$ and $\law_n(\pry \mid \prz)$ in sample.
+
+\subsection{Notation, definitions, and preliminaries}
+
+\paragraph*{Notation}
+
+We use boldface font to denote population quantities and regular font to denote sample quantities. We denote by 
 \begin{equation}
     \nulllaws_n \equiv \{\law_n: \law_n(\prx, \pry \mid \prz) = \law_n(\prx\mid\prz) \times \law_n(\pry\mid\prz)\}
 \end{equation}
-is the set of laws satisfying conditional independence. As \citet{Shah2018} showed, however, in most cases such tests $\phi_n$ are powerless. The null $\nulllaws_n$ is therefore too large, and we must content ourselves with controlling Type-I error on only a subset $\nulllaws_n \cap \regclass_n$ where $\law_n$ satisfies additional regularity conditions defined by $\regclass_n$. We may hope to find nontrivial tests $\phi_n$ satisfying the following slightly weaker guarantee:
+the set of laws satisfying conditional independence, and $\regclass_n$ a class of distributions satisfying some regularity assumptions. For example, the MX assumption is that 
+\begin{equation*}
+\law_n \in \regclass_n \equiv \{\law_n: \law_n(\prx | \prz) = \law_n^*(\prx | \prz)\}, 
+\end{equation*}
+where $\law_n^*(\prx | \prz)$ is a fixed, known distribution. For any regularity class $\regclass_n$, we consider testing the null hypothesis $\law_n \in \nulllaws_n \cap \regclass_n$. A sequence of tests $\phi_n: (\srx, \sry, \srz) \mapsto [0,1]$ of this null hypothesis has asymptotic Type-I error control if
 \begin{equation}
     \limsup_{n \rightarrow \infty}\sup_{\law_n \in \nulllaws_n \cap \regclass_n} \E_{\law_n}[\phi_n(\srx,\sry,\srz)] \leq \alpha.
     \label{eq:asymptotic-control}
 \end{equation}
+Let
+\begin{equation}
+    \mu_{n,x}(\prz) \equiv \E_{\law_n}[\prx|\prz] \quad \text{and} \quad \mu_{n,y}(\prz) \equiv \E_{\law_n}[\pry|\prz].
+\end{equation}
 
-One choice of $\regclass_n$ is $\{\law_n: \law_n(\prx | \prz) = \law_n^*(\prx | \prz)\}$, where $\law_n^*(\prx | \prz)$ is a fixed, known distribution. Restriction to $\regclass_n$, i.e. assuming exact knowledge of $\law_n(\prx | \prz)$, is called the \textit{model-X (MX) assumption} \citep{CetL16}. These authors propose the \textit{conditional randomization test} (CRT) in this setting, which controls Type-I error not just asymptotically~\eqref{eq:asymptotic-control} but in finite samples as well. The CRT is based on constructing a null distribution for any test statistic by resampling $\srx$ conditionally on $\srz$ using the known conditional law $\law_n(\prx|\prz)$. While the CRT is in general computationally costly, using a test statistic of the form
+\color{red}
+\paragraph*{The dCRT and $\dCRThat$}
+
+These authors propose the \textit{conditional randomization test} (CRT) in this setting, which controls Type-I error not just asymptotically~\eqref{eq:asymptotic-control} but in finite samples as well. The CRT is based on constructing a null distribution for any test statistic by resampling $\srx$ conditionally on $\srz$ using the known conditional law $\law_n(\prx|\prz)$. While the CRT is in general computationally costly, using a test statistic of the form
 \begin{equation*}
     T_n^{\dCRT}(\srx, \sry, \srz) \equiv \frac{1}{\sqrt{n}}\sum_{i = 1}^n (\srx_i - \mu_{n,x}(\srz_i))(\sry_i - \widehat \mu_{n,y}(\srz_i))
 \end{equation*}
 gives a fast and powerful test called the \textit{distilled CRT} (dCRT; \cite{Liu2022a}). Here, 
-\begin{equation}
-    \mu_{n,x}(\prz) \equiv \E_{\law_n}[\prx|\prz] \quad \text{and} \quad \mu_{n,y}(\prz) \equiv \E_{\law_n}[\pry|\prz];
-\end{equation}
+
 the former is known under the MX assumption and the latter is learned in sample. Variants of the dCRT have now been deployed in genetics \citep{Bates2020} and genomics \citep{Katsevich2020c} applications.
 
-One of the primary challenges in the practical application of MX methods like the CRT is to obtain the required conditional distribution $\law_n(\prx|\prz)$. Outside the context of randomized controlled experiments \citep{Aufiero2022, Ham2022}, the MX assumption is an approximation \citep{Barber2018, Huang2019, Li2022}. In genome-wide association studies, a realistic parametric distribution can be postulated for this conditional law \citep{SetC17}, but the parameters of this distribution must still be learned from data. In cases where a large external unsupervised dataset of $(\prx, \prz)$ pairs is available, it has been shown that the distribution $\law_n(\prx|\prz)$ can be learned accurately enough for the CRT to control Type-I error \citep{Berrett2019}. In practice, however, the conditional law is usually fit in sample on the same data that is used for testing \citep{CetL16, SetC17, SetS19, Bates2020, Liu2022a, Li2021b, Sesia2021, Katsevich2020c}. In the case of the dCRT, this results in a procedure we call $\dCRThat$ (Algorithm~\ref{alg:dcrt-hat}) based on the following test statistic:
+In the case of the dCRT, this results in a procedure we call $\dCRThat$ (Algorithm~\ref{alg:dcrt-hat}) based on the following test statistic:
 \begin{equation}
     T_n^{\dCRThat}(\srx, \sry, \srz) \equiv \frac{1}{\sqrt{n}}\sum_{i = 1}^n (\srx_i - \widehat \mu_{n,x}(\srz_i))(\sry_i - \widehat \mu_{n,y}(\srz_i)).
     \label{eq:dcrt-hat-stat}
@@ -231,7 +278,47 @@ One of the primary challenges in the practical application of MX methods like th
 \end{center}
 The hat on $\dCRThat$ is to emphasize that $\law_n(\prx|\prz)$ is approximated rather than known a priori; this is the procedure that is typically applied in practice instead of the dCRT (which requires known $\law_n(\prx|\prz)$). The resampled test statistics $T_n^{\dCRThat}(\srxk^{(m)}, \srx, \sry, \srz)$~\eqref{eq:resampled-dcrt-def} have four arguments instead of three in order to emphasize that the conditional mean $\widehat \mu_{n,x}(\cdot)$ is not refit upon resampling.
 
-The goal of this paper is to study the properties of model-X methods that learn $\law_n(\prx|\prz)$ in sample, through the lens of the $\dCRThat$. In addition to the quality of the approximation to $\law_n(\prx|\prz)$, we find that the choice of test statistic, and in particular the quality of the estimate $\E[\pry|\prz]$ is essential: Type-I error control is lost when this estimate is poor (Section~\ref{sec:neg-results} here and \cite{Li2022}) but can be guaranteed via a double robustness phenomenon if the estimate is good enough (Section~\ref{sec:dr-and-equivalence}). This observation contrasts with the conventional wisdom that the choice of test statistic used with model-X methods impacts power \citep{Katsevich2020a} but not Type-I error control \citep{CetL16}. Furthermore, it brings model-X methods more in line with double regression / double machine learning methods \citep{Shah2018, Chernozhukov2018}. This motivates us to compare the $\dCRThat$ with the GCM test \citep{Shah2018}; we find that the two are in fact asymptotically equivalent (Section~\ref{sec:dr-and-equivalence}). Furthermore, we show using semiparametric efficiency theory that the GCM test has optimal power among conditional independence tests against local (generalized) partially linear alternatives (Section~\ref{sec:optimality}). Comparing the GCM test to the $\dCRThat$ in an extensive simulation study (Section~\ref{sec:simulations}), we find that the GCM test usually performs quite similarly to the $\dCRThat$ in terms of robustness and power. Since the former test is resampling-free, this suggests it may be preferable in practice to the latter. This work leads to a number of conclusions at the intersection of conditional independence testing, model-X inference, and rate doubly robust inference (Section~\ref{sec:conclusion}). In proving our theoretical results, we collate a number of conditional analogs of classical convergence theorems (some but not all novel; Appendix \ref{sec:conditional-convergence-results}) and state a slightly sharpened theorem on semiparametric testing optimality (Appendix~\ref{sec:optimality-proofs}), which may be of independent interest.
+\paragraph*{The GCM test}
+
+The GCM test \citep{Shah2018} is defined as
+\begin{equation}
+    \phi_n^{\GCM}(\srx, \sry, \srz) \equiv \indicator(T_n^{\GCM}(\srx, \sry, \srz) > z_{1-\alpha}),
+    \label{eq:gcm-test}
+\end{equation}
+where
+\begin{equation}
+    T_n^{\GCM}(\srx, \sry, \srz) \equiv \frac{1}{\widehat S_{n}^{\GCM}}\frac{1}{\sqrt{n}}\sum_{i = 1}^n (\srx_i - \widehat \mu_{n,x}(\srz_i))(\sry_i - \widehat \mu_{n,y}(\srz_i)) = \frac{1}{\widehat S_{n}^{\GCM}}T_n^{\dCRThat}(\srx, \sry, \srz)
+\end{equation}
+and $(\widehat S_{n}^{\GCM})^2$ is the empirical variance of the product-of-residual summands:
+\begin{equation}
+    (\widehat S_{n}^{\GCM})^2 \equiv \widehat{\V}\{(\srx_i - \widehat \mu_{n,x}(\srz_i))(\sry_i - \widehat \mu_{n,y}(\srz_i))\}.
+\end{equation}
+It controls Type-I error if the following in-sample mean-squared error quantities are small \citep{Shah2018}:
+\small
+\begin{equation*}
+    E_{n, x} \equiv \left(\frac{1}{n}\sum_{i = 1}^n (\widehat \mu_{n,x}(\srz_i) -  \mu_{n,x}(\srz_i))^2\right)^{1/2};\ E'_{n, x} \equiv \left(\frac{1}{n}\sum_{i = 1}^n (\widehat \mu_{n,x}(\srz_i) -  \mu_{n,x}(\srz_i))^2\textnormal{Var}_{\law_n}[\sry_i|\srz_i]\right)^{1/2};
+\end{equation*}	
+\begin{equation*}
+    E_{n, y} \equiv \left(\frac{1}{n}\sum_{i = 1}^n (\widehat \mu_{n,y}(\srz_i) -  \mu_{n,y}(\srz_i))^2\right)^{1/2};\ E'_{n, y} \equiv \left(\frac{1}{n}\sum_{i = 1}^n (\widehat \mu_{n,y}(\srz_i) -  \mu_{n,y}(\srz_i))^2\textnormal{Var}_{\law_n}[\srx_i|\srz_i]\right)^{1/2}.
+\end{equation*}
+\normalsize
+In particular, \citet{Shah2018} require that
+\begin{equation}
+    E_{n, x} E_{n, y}  = o_{\law_n}(n^{-1/2}),\  E'_{n, x} = o_{\law_n}(1),\  E'_{n, y} = o_{\law_n}(1)
+    \label{eq:sp1}, \tag{SP1}
+\end{equation}
+and, for some constants $c_1, c_2, \delta > 0$,
+\begin{equation}
+    \begin{split}
+        &\inf_n\ \E_{\law_n}[(\prx-\mu_{n,x}(\prz))^2(\pry-\mu_{n,y}(\prz))^2] > c_1\\
+        &\sup_n\ \E_{\law_n}[|(\prx-\mu_{n,x}(\prz))(\pry-\mu_{n,y}(\prz))|^{2+\delta}] < c_2.
+        \label{eq:sp2}
+    \end{split}
+    \tag{SP2}
+\end{equation}
+The GCM test is therefore doubly robust in the sense that it controls Type-I error if the product of the estimation errors for $\E[\prx|\prz]$ and $\E[\pry|\prz]$ ($E_{n,x}E_{n,y}$) converges to zero at the $o(n^{-1/2})$ rate. Note that this is a \textit{rate double robustness} property rather than a \textit{model double robustness} property; see \citet{Smucler2019} for a discussion of this distinction.
+
+\color{black}
 
 \section{$\dCRThat$ resampling distribution converges to normal} \label{sec:conv-to-normal}
 
@@ -311,84 +398,6 @@ Indeed, we have the following corollary.
 
 This result extends \citet[Theorem 2]{Katsevich2020a} by allowing $\widehat \mu_{n,x}$ and $\widehat \mu_{n,y}$ to be fit in sample, rather than assuming $\mu_{n,x}$ is known and $\widehat \mu_{n,y}$ is fit out of sample. It is a first indication that the $\dCRThat$ approximates a test based on asymptotic normality.
 
-\section{$\dCRThat$ resampling distribution converges to normal} \label{sec:conv-to-normal}
-	
-To make it easier to analyze the asymptotic properties of the $\dCRThat$, in this section we prove that it is asymptotically equivalent to the resampling-free $\MXtwohat$ $F$-test, a variant of the $\MXtwo$ $F$-test \citep{Katsevich2020a} where the first two moments of $\law_n(\prx|\prz)$ are estimated in sample. This equivalence was already shown by these authors in the case when $\mu_{n,x}$ is known and $\widehat \mu_{n,y}$ is fit out of sample (see their Theorem 2). They conjectured that the equivalence continues to hold when $\widehat \mu_{n,y}$ is fit in sample. Here, we prove this conjecture, not just when $\widehat \mu_{n,y}$ is fit in sample, but also when the first two moments of $\mu_{n,x}$ are unknown and also fit in sample.
-
-Note that the variance of the resampling distribution of $T_n^{\dCRThat}$ is
-\begin{equation}
-    (\widehat S_{n}^{\dCRThat})^2 \equiv \V_{\lawhat_n}[T_n^{\dCRThat}(\srxk, \srx, \sry, \srz) \mid \srx, \sry, \srz] = \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i|\srz_i](\sry_i - \widehat \mu_{n,y}(\srz_i))^2.
-    \label{eq:conditional-variance-def}
-\end{equation}
-It will be convenient to reformulate $\dCRThat$ as 
-\begin{equation*}
-    \begin{split}
-        \phi^{\dCRThat}_n(\srx, \sry, \srz) &\equiv \indicator(T_n^{\dCRThat}(\srx, \sry, \srz) > \Q_{1-\alpha}[T_n^{\dCRThat}(\srxk, \srx, \sry, \srz) \mid \srx, \sry, \srz]) \\
-        &= \indicator\left(\frac{1}{\widehat S_{n}^{\dCRThat}}T_n^{\dCRThat}(\srx, \sry, \srz) > \Q_{1-\alpha}\left[\frac{1}{\widehat S_{n}^{\dCRThat}}T_n^{\dCRThat}(\srxk, \srx, \sry, \srz) \mid \srx, \sry, \srz\right]\right) \\
-        &\equiv \indicator\left(\frac{1}{\widehat S_{n}^{\dCRThat}}T_n^{\dCRThat}(\srx, \sry, \srz) > C^{\dCRThat}_n(\srx, \sry, \srz)\right).
-    \end{split}
-\end{equation*}
-Note that this test is obtained from that in Algorithm~\ref{alg:dcrt-hat} by sending $M \rightarrow \infty$; we focus our theoretical analysis here and throughout on this infinite-resamples limit of the $\dCRThat$. Here, the $\alpha$ conditional quantile $\Q_{\alpha}[W \mid \mathcal F]$ of a random variable $W$ given a $\sigma$-algebra $\mathcal F$ is defined via
-\begin{equation}
-    \mathbb{Q}_{\alpha}[W \mid \mathcal F] \equiv \inf\{t:\P[W \leq t \mid \mathcal F] \geq \alpha\}.
-\end{equation}
-One would expect, based on the central limit theorem, that the conditional distribution of the ratio $T_n^{\dCRThat}(\srxk, \srx, \sry, \srz)/\widehat S_{n}^{\dCRThat}$ tends to $N(0,1)$. This statement is complicated by the conditioning event, which requires us to be careful to define conditional convergence in distribution:
-
-\begin{definition} \label{def:conditional-convergence-distribution}
-    For each $n$, let $W_n$ be a random variable and let $\mathcal F_n$ be a $\sigma$-algebra. Then, we say $W_n$ converges in distribution to a random variable $W$ conditionally on $\mathcal F_n$ if
-    \begin{equation}
-        \P[W_n \leq t \mid \mathcal F_n] \convp \P[W \leq t] \ \text{for each } t \in \R \text{ at which } t \mapsto \P[W \leq t] \text{ is continuous.}
-    \end{equation}
-    We denote this relation via $W_n \mid \mathcal F_n \convdp W$.
-\end{definition}
-
-Based on an extension of the Lyapunov central limit theorem to conditional convergence in distribution (Theorem~\ref{thm:conditional-clt}), we get the following result:
-\begin{theorem} \label{thm:normal-limit} 
-    Suppose the sequences of true and learned laws $\law_n$ and $\lawhat_n$ satisfy the following two nondegeneracy properties:
-    \begin{gather}
-        \P_{\law_n}[(\widehat S_{n}^{\dCRThat})^2 \geq \epsilon] \rightarrow 1 \ \text{for some } \epsilon > 0
-        \label{eq:var-bounded-below}; \tag{NDG1} \\
-        0 < \V_{\lawhat_n}[\srx_i|\srz_i], (\sry_i - \widehat \mu_{n, y}(\srz_i))^2, (\sry_i - \mu_{n, y}(\srz_i))^2 < \infty \ \text{almost surely}. \label{eq:variance-bounds} \tag{NDG2}
-    \end{gather}
-    If the conditional Lyapunov condition
-    \begin{equation}
-        \frac{1}{n^{1+\delta/2}} \sum_{i=1}^n |\sry_i-\widehat\mu_{n,y}(\srz_i)|^{2+\delta}\E_{\lawhat_n}\left[|\srxk_i-\widehat\mu_{n,x}(\srz_i)|^{2+\delta}\mid \srx,\srz\right] \convp 0
-        \label{eq:lyapunov-condition} \tag{Lyap-1}
-    \end{equation}
-    is satisfied for some $\delta > 0$, then
-    \begin{equation}
-        \frac{1}{\widehat S_{n}^{\dCRThat}}T_n^{\dCRThat}(\srxk, \srx, \sry, \srz) \mid \srx, \sry, \srz \convdp N(0,1)
-        \label{eq:conditional-convergence}
-    \end{equation}
-    and therefore
-    \begin{equation}
-        C^{\dCRThat}_n(\srx, \sry, \srz) \equiv \Q_{1-\alpha}\left[\frac{1}{\widehat S_{n}^{\dCRThat}}T_n^{\dCRThat}(\srxk, \srx, \sry, \srz) \mid \srx, \sry, \srz\right] \convp z_{1-\alpha}.
-        \label{eq:critical-value-convergence}
-    \end{equation}
-\end{theorem}
-
-This suggests that the $\dCRThat$ is asymptotically equivalent to the $\MXtwohat$ $F$-test, defined
-\begin{equation}
-    \phi_n^{\MXtwohat}(\srx,\sry,\srz) \equiv \indicator\left(\frac{1}{\widehat S_{n}^{\dCRThat}}T_n^{\dCRThat}(\srx, \sry, \srz) > z_{1-\alpha}\right).
-    \label{eq:mx-2-f-test}
-\end{equation}
-Indeed, we have the following corollary.
-
-\begin{corollary} \label{cor:asymptotic-equivalence} 
-    Consider a sequence of laws $\law_n$ satisfying the assumptions~\eqref{eq:var-bounded-below}, \eqref{eq:variance-bounds}, and~\eqref{eq:lyapunov-condition} of Theorem~\ref{thm:normal-limit}, and assume that the test statistic does not accumulate near $z_{1-\alpha}$, i.e.
-    \begin{equation}
-        \lim_{\delta \rightarrow 0}\limsup_{n \rightarrow \infty}\ \P_{\law_n}[|T_n^{\dCRThat}(\srx, \sry, \srz)-z_{1-\alpha}| \leq \delta] = 0.
-        \label{eq:non-accumulation}
-    \end{equation}
-    Then, the $\dCRThat$ is asymptotically equivalent to the $\MXtwohat$ $F$-test:
-    \begin{equation}
-        \lim_{n \rightarrow \infty}\P_{\law_n}[\phi_n^{\dCRThat}(\srx, \sry, \srz) = \phi_n^{\MXtwohat}(\srx, \sry, \srz)] = 1.
-    \end{equation}
-    
-\end{corollary}
-
-This result extends \citet[Theorem 2]{Katsevich2020a} by allowing $\widehat \mu_{n,x}$ and $\widehat \mu_{n,y}$ to be fit in sample, rather than assuming $\mu_{n,x}$ is known and $\widehat \mu_{n,y}$ is fit out of sample. It is a first indication that the $\dCRThat$ approximates a test based on asymptotic normality.
-
 \section{$\dCRThat$ is not robust for general $\widehat \mu_{n,y}$} \label{sec:neg-results}
 	
 One of the hallmarks of MX inference is that it requires ``no restriction on the dimensionality of the data or the conditional distribution of [$\law_n(\pry|\prz)$]'' \citep{CetL16}. For the CRT, this means that Type-I error is controlled in finite samples, regardless of the test statistic used or the distribution of the response variable. If $\law_n(\prx|\prz)$ is described by a parametric model with $k$ unknown parameters and we have $N \gg n \cdot k$ unlabeled samples to learn this model, then at least asymptotic Type-I error control is still possible without assumptions on $\law_n(\pry|\prz)$ \citep{Berrett2019}. By contrast, in this section we show that when $\law_n(\prx|\prz)$ is approximated in sample, we cannot expect Type-I error control without assumptions on the response variable.
@@ -415,7 +424,7 @@ which can be made arbitrarily close to one as $c \rightarrow \infty$. This issue
 Numerical simulations (although with lasso instead of ridge regression) confirm this phenomenon. We constructed a numerical simulation based on the null model~\eqref{eq:simple-null-model} with $n = 1600$,  $p = 400$, and $\beta$ having only $s = 5$ nonzero entries (see Section~\ref{sec:sim-design} below for more on our data-generating model). In this setting, we applied the $\dCRThat$ using the cross-validated lasso and intercept-only models to estimate $\mu_{n,x}$ and $\mu_{n,y}$, respectively. As we increased the magnitude of the coefficient vector $\beta$, this test exhibited significant loss of Type-I error control (Figure~\ref{fig:negative_Result}). By contrast, using the lasso instead of the intercept-only model to estimate $\mu_{n,y}$ reduced the Type-I error to nearly the nominal level.
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale = 1]{figures/negative_result_dCRT.pdf}
+    \includegraphics[scale = 0.85]{figures/negative_result_dCRT.pdf}
     \caption{The Type-I error of two instances of the $\dCRThat$ under the data-generating model~\eqref{eq:simple-null-model}, depending on which method is used to estimate $\mu_{n,y}$, when the lasso is used to estimate $\mu_{n,x}$. Improved estimation of $\mu_{n,y}$ leads to markedly reduced Type-I error.}
     \label{fig:negative_Result}
 \end{figure}
@@ -432,46 +441,8 @@ a rate insufficient for Type-I error control. If we had at least consistency of 
 	
 Of course, in practice $\widehat \mu_{n,y}$ is not fit as naively as in the counterexample from Section~\ref{sec:neg-results}. The conditional mean $\E[\pry|\prz]$ is usually approximated via a machine learning algorithm, as improved approximation of this quantity improves the power of the dCRT \citep{Katsevich2020a}. In the context where $\law_n(\prx|\prz)$ must be approximated, we claim that more accurate estimation of $\E[\pry|\prz]$ can improve not just the power but also the Type-I error control of the $\dCRThat$. This is due to a \textit{double robustness} property of the $\dCRThat$, which we state in this section. This property is a consequence of the fact that, under the null, the $\dCRThat$ is asymptotically equivalent to another doubly-robust conditional independence test, the GCM test \citep{Shah2018}. This equivalence also implies that the $\dCRThat$ and GCM test have the same asymptotic power against contiguous alternatives.
 
-\subsection{The GCM test}
 
-The GCM test \citep{Shah2018} is defined as
-\begin{equation}
-    \phi_n^{\GCM}(\srx, \sry, \srz) \equiv \indicator(T_n^{\GCM}(\srx, \sry, \srz) > z_{1-\alpha}),
-    \label{eq:gcm-test}
-\end{equation}
-where
-\begin{equation}
-    T_n^{\GCM}(\srx, \sry, \srz) \equiv \frac{1}{\widehat S_{n}^{\GCM}}\frac{1}{\sqrt{n}}\sum_{i = 1}^n (\srx_i - \widehat \mu_{n,x}(\srz_i))(\sry_i - \widehat \mu_{n,y}(\srz_i)) = \frac{1}{\widehat S_{n}^{\GCM}}T_n^{\dCRThat}(\srx, \sry, \srz)
-\end{equation}
-and $(\widehat S_{n}^{\GCM})^2$ is the empirical variance of the product-of-residual summands:
-\begin{equation}
-    (\widehat S_{n}^{\GCM})^2 \equiv \widehat{\V}\{(\srx_i - \widehat \mu_{n,x}(\srz_i))(\sry_i - \widehat \mu_{n,y}(\srz_i))\}.
-\end{equation}
-It controls Type-I error if the following in-sample mean-squared error quantities are small \citep{Shah2018}:
-\small
-\begin{equation*}
-    E_{n, x} \equiv \left(\frac{1}{n}\sum_{i = 1}^n (\widehat \mu_{n,x}(\srz_i) -  \mu_{n,x}(\srz_i))^2\right)^{1/2};\ E'_{n, x} \equiv \left(\frac{1}{n}\sum_{i = 1}^n (\widehat \mu_{n,x}(\srz_i) -  \mu_{n,x}(\srz_i))^2\textnormal{Var}_{\law_n}[\sry_i|\srz_i]\right)^{1/2};
-\end{equation*}	
-\begin{equation*}
-    E_{n, y} \equiv \left(\frac{1}{n}\sum_{i = 1}^n (\widehat \mu_{n,y}(\srz_i) -  \mu_{n,y}(\srz_i))^2\right)^{1/2};\ E'_{n, y} \equiv \left(\frac{1}{n}\sum_{i = 1}^n (\widehat \mu_{n,y}(\srz_i) -  \mu_{n,y}(\srz_i))^2\textnormal{Var}_{\law_n}[\srx_i|\srz_i]\right)^{1/2}.
-\end{equation*}
-\normalsize
-In particular, \citet{Shah2018} require that
-\begin{equation}
-    E_{n, x} E_{n, y}  = o_{\law_n}(n^{-1/2}),\  E'_{n, x} = o_{\law_n}(1),\  E'_{n, y} = o_{\law_n}(1)
-    \label{eq:sp1}, \tag{SP1}
-\end{equation}
-and, for some constants $c_1, c_2, \delta > 0$,
-\begin{equation}
-    \begin{split}
-        &\inf_n\ \E_{\law_n}[(\prx-\mu_{n,x}(\prz))^2(\pry-\mu_{n,y}(\prz))^2] > c_1\\
-        &\sup_n\ \E_{\law_n}[|(\prx-\mu_{n,x}(\prz))(\pry-\mu_{n,y}(\prz))|^{2+\delta}] < c_2.
-        \label{eq:sp2}
-    \end{split}
-    \tag{SP2}
-\end{equation}
-The GCM test is therefore doubly robust in the sense that it controls Type-I error if the product of the estimation errors for $\E[\prx|\prz]$ and $\E[\pry|\prz]$ ($E_{n,x}E_{n,y}$) converges to zero at the $o(n^{-1/2})$ rate. Note that this is a \textit{rate double robustness} property rather than a \textit{model double robustness} property; see \citet{Smucler2019} for a discussion of this distinction.
-
+\color{red}
 In the following sections, it will be convenient to augment the assumption~\eqref{eq:sp1} as follows:
 \begin{equation}
     E_{n, x} E_{n, y}  = o_{\law_n}(n^{-1/2}),\  E'_{n, x} = o_{\law_n}(1),\  E'_{n, y} = o_{\law_n}(1),\ \widehat E'_{n,y} = o_{\law_n}(1),
@@ -481,8 +452,9 @@ where
 \begin{equation}
     \widehat E'_{n, y} \equiv \left(\frac{1}{n}\sum_{i = 1}^n (\widehat \mu_{n,y}(\srz_i) -  \mu_{n,y}(\srz_i))^2\textnormal{Var}_{\lawhat_n}[\srx_i|\srz_i]\right)^{1/2}.
 \end{equation}
+\color{black}
 
-\subsection{Equivalence between GCM test and $\dCRThat$}
+\subsection{Equivalence between GCM test and $\dCRThat$} \label{sec:equivalence}
 
 When comparing the GCM test~\eqref{eq:gcm-test} to the $\MXtwohat$ $F$-test~\eqref{eq:mx-2-f-test}, which is asymptotically equivalent to the $\dCRThat$ (Corollary~\ref{cor:asymptotic-equivalence}), the only difference is the normalization term. Under the null hypothesis, this difference vanishes asymptotically as long as the estimated variance $\V_{\lawhat_n}[\prx|\prz]$ is consistent in the following sense:
 \begin{equation}
@@ -540,7 +512,7 @@ One consequence of Theorem~\ref{thm:equivalence} is that the $\dCRThat$ and GCM 
 
 By constructing a null distribution via resampling, the CRT allows for arbitrarily complicated test statistics whose asymptotic distributions are not known. For the $\dCRThat$, however, the resampling-based null distribution simply recapitulates the asymptotic normal distribution used by the GCM test (Theorems~\ref{thm:normal-limit} and~\ref{thm:equivalence}). Therefore, at least in large samples, the extra computational burden of resampling is unnecessary as the equivalent GCM can be applied instead.
 
-\subsection{Double robustness of $\dCRThat$}
+\subsection{Double robustness of $\dCRThat$} \label{sec:double-robustness}
 
 Another consequence of Theorem~\ref{thm:equivalence} is that the $\dCRThat$ is doubly robust under the variance consistency condition~\eqref{eq:variance-consistency}, since it is equivalent under the null hypothesis to the doubly robust GCM test. % In fact, we can weaken the variance consistency condition to one of conservative variance estimation:
 % \begin{equation}
@@ -559,7 +531,7 @@ Our conclusion that $\dCRThat$ is doubly robust initially appears at odds with t
 
 \section{GCM test is optimal against certain alternatives} \label{sec:optimality}
 
-We have shown that, in large samples, the dCRT has the same power against local alternatives as the resampling-free GCM test. Of course, other instances of the much more general CRT paradigm have better power than the GCM test against certain alternatives. We show in this section, however, that this is not the case for generalized partially linear models (GPLMs), a broad class of alternatives. In fact, the GCM test is asymptotically most powerful against GPLM alternatives. We leverage classical semiparametric efficiency theory \citep{Choi1996, VDV1998, Kosorok2008} to prove this result. We state our optimality result in Section~\ref{sec:optimality-result}, give an example of its application in Section~\ref{sec:kernel-ridge-regression}, and then compare it to existing semiparametric optimality results in Section~\ref{sec:semiparametric-discussion}.
+We have shown that, in large samples, the $\dCRThat$ has the same power against local alternatives as the resampling-free GCM test. Of course, other instances of the much more general CRT paradigm have better power than the GCM test against certain alternatives. We show in this section, however, that this is not the case for generalized partially linear models (GPLMs), a broad class of alternatives. In fact, the GCM test is asymptotically most powerful against GPLM alternatives. We leverage classical semiparametric efficiency theory \citep{Choi1996, VDV1998, Kosorok2008} to prove this result. We state our optimality result in Section~\ref{sec:optimality-result}, give an example of its application in Section~\ref{sec:kernel-ridge-regression}, and then compare it to existing semiparametric optimality results in Section~\ref{sec:semiparametric-discussion}.
 
 \subsection{Optimality result} \label{sec:optimality-result}
 
@@ -568,7 +540,7 @@ To facilitate the link with semiparametric theory, in this section of the paper 
     \law_{\theta}(\prx, \pry, \prz) \equiv \law_{\beta, \eta}(\prx, \pry, \prz) \equiv \law_{x,z}(\prx, \prz) \times f_{\bm \eta}(\pry|\prx, \prz),\quad \bm \eta = \prx \beta + g(\prz).
     \label{eq:alternatives-1}
 \end{equation}
-Here, $f_\eta$ is a one-parameter exponential family with natural parameter $\eta \in \R$ and log-partition function $\psi$, $\beta \in \R$ and 
+Here, $\law_{x,z}$ is a fixed law, $f_\eta$ is a one-parameter exponential family with natural parameter $\eta \in \R$ and log-partition function $\psi$, $\beta \in \R$ and 
 \begin{equation}
     g \in \H_g \subseteq L^2(\law_{x,z}(\bm Z)), 
 \end{equation}
@@ -601,7 +573,7 @@ Finally, define
 \end{equation}
 We are now ready to state our main optimality result.
 
-\begin{theorem} \label{thm:optimality} \hyperref[sec:optimality-proof]{\textnormal{[Proof]}}
+\begin{theorem} \label{thm:optimality} 
     Consider the conditional independence testing problem~\eqref{eq:testing-problem}, with a collection of null distributions $\regclass\subseteq\nulllaws$ satisfying some regularity conditions, a linear subspace $\H_g \subseteq L^2(\law_{x,z}(\bm Z))$ specifying possible values for the nonparametric component $g$ in the GPLM alternative model~\eqref{eq:alternatives-1}, and some subset $\mathcal S \subseteq \H_g$. If the following four assumptions hold:
     \begin{align}
         \text{assumptions \eqref{eq:sp1} and \eqref{eq:sp2} hold for all } \law \in \regclass, \label{eq:sp-assumptions}\\
@@ -644,7 +616,7 @@ $W^{1,2}([0,1])$ is an RKHS with kernel $k(x,y)=\min\{x,y\}$ \citep[Example 12.1
 \end{equation}
 with $\lambda$ tuned as described in \citet[Section 4]{Shah2018}. Using \citet[Theorem 11]{Shah2018}, the following result can be derived as a consequence of Theorem~\ref{thm:optimality}.
 
-\begin{corollary}\label{cor:RKHS_example} \hyperref[sec:proof-rkhs]{\textnormal{[Proof]}}
+\begin{corollary}\label{cor:RKHS_example}
     Fix $C>0$, and consider the following regularity class $\regclass \subseteq \nulllaws$:
     \begin{equation}
         \begin{split}
@@ -680,7 +652,7 @@ Despite the similarity between Theorem~\ref{thm:optimality} and existing semipar
 
 Note that Theorem~\ref{thm:optimality} gives the power against local alternatives of the GCM test with $\mu_x$ and $\mu_y$ estimated in sample. This complements \citet[Theorem 8]{Shah2018}, where these authors compute the power of the GCM test against non-local alternatives by resorting to sample splitting, which is not required to show Type-I error control for the GCM test. This sample splitting is necessary under non-local alternatives to avoid Donsker conditions; using either sample splitting or Donsker conditions is also standard practice in the semiparametric literature. By contrast, we avoid sample splitting by exploiting the special structure of the conditional independence null and contiguity arguments to compute limiting power under local alternatives.
 
-While the Type-I error control results in Section~\ref{sec:dr-and-equivalence} are stated in the high-dimensional setting, Theorem~\ref{thm:optimality} is stated only for fixed-dimensional covariate vectors $\prz$. Indeed, semiparametric optimality theory is predominantly low-dimensional. A notable exception is the work of \citet{Jankova2018a}, which provides a semiparametric theory of estimation in high dimensions. Extending this theory to hypothesis testing is nontrivial, and beyond the scope of the current work. Nevertheless, proving optimality statements for conditional independence testing in high dimensions is an interesting direction for future work. We note in passing that high-dimensional results for lasso-based estimators often assume exact sparsity of the coefficient vector, which poses a problem for conditions~\eqref{eq:interior-point} requiring the regularity class $\regclass$ to have interior points.
+While the Type-I error control results in Section~\ref{sec:dr-and-equivalence} are stated in the high-dimensional setting, Theorem~\ref{thm:optimality} is stated only for fixed-dimensional covariate vectors $\prz$. Indeed, semiparametric optimality theory is predominantly low-dimensional. A notable exception is the work of \citet{Jankova2018a}, which provides a semiparametric theory of estimation in high dimensions. Extending this theory to hypothesis testing is nontrivial, and beyond the scope of the current work. Nevertheless, proving optimality statements for conditional independence testing in high dimensions is an interesting direction for future work. We note in passing that high-dimensional results for lasso-based estimators often assume exact sparsity of the coefficient vector, which poses a problem for condition~\eqref{eq:interior-point} requiring the regularity class $\regclass$ to have interior points.
 
 Finally, we note that Theorem~\ref{thm:optimality} gives the optimality of the GCM statistic against alternative models for $\pry$ in which $\prx$ and $\prz$ do not interact. For alternatives where the conditional association between $\pry$ and $\prx$ is modified by $\prz$,  the GCM test will no longer be optimal. Variants of the CRT \citep{Zhong2021, Sesia2022}, model-X knockoffs \citep{Li2021b}, and the GCM test \citep{Lundborg2022} are designed to improve power in the presence of effect modification are available, although their optimality properties are not described. Optimal tests developed specifically for detecting interaction effects between $\bm X$ and $\bm Z$ (rather than main effects) may be constructed based on \citet{Vansteelandt2008}.
 
@@ -698,7 +670,7 @@ Similar conclusions have been drawn from numerical simulations in subsequent pap
 
 To resolve this apparent contradiction, we consider a common data-generating model used in MX literature:
 \begin{equation}
-    \law_n(\prx, \prz) = N(0, \Sigma), \quad \law_n(\pry|\prx,\prz) = N(\prx^T \theta + \prz^T \beta, \sigma^2_y).
+    \law_n(\prx, \prz) = N(0, \Sigma), \quad \law_n(\pry|\prx,\prz) = N(\prx \theta + \prz^T \beta, \sigma^2_y).
     \label{eq:ar1-dgp}
 \end{equation}
 Often, $(\prx, \prz)$ are assumed to have a spatial structure (motivated by the GWAS application), with $\Sigma = \Sigma(\rho) \in \R^{(1+p) \times (1+p)}$ taken to be the AR(1) covariance matrix with autocorrelation parameter $\rho \in (-1,1)$. This covariance matrix roughly approximates linkage disequilibrium structure among genotypes, where correlations among variables are local with respect to the spatial structure. Conditional independence under this model~\eqref{eq:ar1-dgp} reduces to $H_0: \theta = 0$. Furthermore, the conditional distribution $\law_n(\prx|\prz)$ implied by the normal joint distribution is that of a linear model:
@@ -721,7 +693,7 @@ For the data-generating models used by \citet{CetL16, Liu2022a}, we evaluate the
 
 \subsection{Simulation design} \label{sec:sim-design}
 
-\paragraph*{Data-generating model.} As discussed in the previous section, appropriately setting the marginal correlation between $\prx$ and $\pry$ in a given data-generating model is crucial to properly evaluate the impact of inaccurate estimation of $\law_n(\prx|\prz)$ on the Type-I error control of a model-X method. Keeping this in mind, we propose the following data-generating model:
+\paragraph*{Data-generating model} As discussed in the previous section, appropriately setting the marginal correlation between $\prx$ and $\pry$ in a given data-generating model is crucial to properly evaluate the impact of inaccurate estimation of $\law_n(\prx|\prz)$ on the Type-I error control of a model-X method. Keeping this in mind, we propose the following data-generating model:
 \begin{equation}
     \law_n(\prz) = N(0, \Sigma(\rho)),\ \law_n(\prx | \prz) = N(\prz^T \beta, 1), \ \law_n(\pry|\prx,\prz) = N(\prx^T \theta + \prz^T \beta, 1).
     \label{eq:normal-dgm}
@@ -763,7 +735,7 @@ We set the first $s$ coefficients of $\beta$ to be equal to $\nu$ and the rest t
     \label{tab:parameter-values}
 \end{table}
 
-\paragraph*{Methodologies compared.}
+\paragraph*{Methodologies compared}
 
 In Section~\ref{sec:dr-and-equivalence}, we found that the GCM test and the $\dCRThat$ are equivalent when applied with the same estimation methods for $\mu_{n,x}$ and $\mu_{n,y}$. Using this equivalence, we also showed that the $\dCRThat$ is robust to errors in $\widehat \mu_{n,x}$ if they are compensated for by accurate estimates $\widehat \mu_{n,y}$. In our simulation to assess Type-I error, we wish to probe the finite-sample Type-I error control of the GCM and the $\dCRThat$. We apply both of these methods with the lasso to estimate $\mu_{n,x}$ and $\mu_{n,y}$, as this is the most common choice in the MX literature.
 
@@ -791,7 +763,7 @@ Finally, we noted in Section~\ref{sec:dr-and-equivalence} that the $\dCRThat$ al
     \label{tab:methods-compared}
 \end{table}
 
-\paragraph*{Evaluation of power in the presence of Type-I error inflation.}
+\paragraph*{Evaluation of power in the presence of Type-I error inflation}
 
 The methodologies compared control Type-I error to differing extents across the variety of simulation parameters in Table~\ref{tab:parameter-values}. This makes it challenging to compare power across methods, since some control Type-I error while others do not. To address this challenge, we chose to compare the power of the \textit{test statistics} underlying the methods, each under oracle calibration to ensure Type-I error control. Given the composite null, exact oracle calibration is computationally intractable. Therefore, we instead calibrated each test with respect to the point null given by 
 \begin{equation*}
@@ -836,17 +808,17 @@ In summary, the methods with the best Type-I error control across all simulation
 
 \section{Conclusions} \label{sec:conclusion}
 
-\paragraph*{Model-X inference with $\law(\prx|\prz)$ fit in sample can be doubly robust.}
+\paragraph*{Model-X inference with $\law(\prx|\prz)$ fit in sample can be doubly robust}
 
 Model-X inference \citep{CetL16} is presented as a mode of inference where the assumptions are transferred entirely from $\law(\pry|\prz)$ to $\law(\prx|\prz)$; no restrictions are made on the former law (or the test statistic used, at least in the context of the CRT), while the latter law is assumed exactly known. In practice, however, the law $\law(\prx|\prz)$ is often fit in sample. In the context of the dCRT, we show that Type-I error control cannot be guaranteed without restrictions on $\law(\pry|\prz)$ or the test statistic used (Section~\ref{sec:neg-results}). On the other hand, test statistics based on decent estimates of $\E[\pry|\prz]$ can compensate for errors in the estimation of $\law(\prx|\prz)$ and restore Type-I error control (Corollary~\ref{cor:dcrt-double-robustness}), a double robustness phenomenon. This result brings model-X inference more in line with double regression inferential methodologies: The conditional mean $\E[\prx|\prz]$ is estimated in the context of in-sample approximation to the ``model for X,'' and the conditional mean $\E[\pry|\prz]$ is estimated when computing the model-X test statistic. Relatedly, a double robustness property was noted for conditional model-X knockoffs \citep{Huang2019}. A doubly robust version of the dCRT has also been recently proposed (the Maxway CRT; \cite{Li2022}), although we argue that the original dCRT is itself doubly robust.
 
 \paragraph*{The GCM test has similar Type-I error and power as the dCRT}
 
-When fitting $\law(\prx|\prz)$ in sample, the dCRT is essentially a double regression methodology. This prompts a comparison to the GCM test \citep{Shah2018}, another conditional independence test based on double regression. We established that the two tests are asymptotically equivalent under the null (Theorem~\ref{thm:equivalence}) and under arbitrary local alternatives (Corollary~\ref{cor:asymptotic-equivalence-alternative}). This suggests that the dCRT and the GCM test---when applied with the same estimators for $\E[\prx|\prz]$ and $\E[\pry|\prz]$---should have similar Type-I error control and power. Our numerical simulations (Section~\ref{sec:simulations}) largely confirm this behavior in finite samples. A possible exception to this conclusion is the case when discreteness in the data slows down the convergence of the $\dCRThat$ resampling distribution to normality (Theorem~\ref{thm:normal-limit}). In such cases, we observed that the $\dCRThat$ can in fact have better Type-I error control than the GCM based on the same estimators (Figure~\ref{fig:binomial_supervised_null}), presumably thanks to a better approximation to the null distribution in finite samples. Nevertheless, the broad similarity between the performance of the GCM test and the dCRT, together with the fact that the former test requires no resampling, suggests that the GCM test may be preferable to the dCRT in many practical problems.
+When fitting $\law(\prx|\prz)$ in sample, the dCRT is essentially a double regression methodology. This prompts a comparison to the GCM test \citep{Shah2018}, another conditional independence test based on double regression. We established that the two tests are asymptotically equivalent under the null (Theorem~\ref{thm:equivalence}) and under arbitrary local alternatives (Corollary~\ref{cor:asymptotic-equivalence-alternative}). This suggests that the dCRT and the GCM test---when applied with the same estimators for $\E[\prx|\prz]$ and $\E[\pry|\prz]$---should have similar Type-I error control and power. Our numerical simulations (Section~\ref{sec:simulations}) largely confirm this behavior in finite samples. A possible exception to this conclusion is the case when small samples or discreteness in the data slows down the convergence of the $\dCRThat$ resampling distribution to normality (Theorem~\ref{thm:normal-limit}). In such cases, we observed that the $\dCRThat$ can in fact have better Type-I error control than the GCM based on the same estimators (Figure~\ref{fig:binomial_supervised_null}), presumably thanks to a better approximation to the null distribution in finite samples. Nevertheless, the broad similarity between the performance of the GCM test and the dCRT, together with the fact that the former test requires no resampling, suggests that the GCM test may be preferable to the dCRT in many practical problems.
 
 \paragraph*{The post-lasso yields much better Type-I error control than the lasso}
 
-Double robustness results for the GCM test and the dCRT apply only insofar as the estimation methods used in conjunction with these tests are accurate enough~\eqref{eq:sp1}. The default estimation method for $\E[\prx|\prz]$ and $\E[\pry|\prz]$ in many model-X applications is the lasso. As was demonstrated by \cite{Li2022}, the shrinkage bias of the lasso leads to inadequate adjustment of $\prx$ and $\pry$ for $\prz$, which in turn leads to inflated Type-I error. The same authors proposed the Maxway CRT, an extension of the dCRT involving the identification of coordinates of $\prz$ impacting $\prx$ and $\pry$ via the lasso followed by least squares refitting. Inspired by this work, we applied the original dCRT with post-lasso estimates for $\E[\prx|\prz]$ and $\E[\pry|\prz]$. We found vastly improved Type-I error control (Figure~\ref{fig:gaussian_supervised_null}), compared not just to the lasso-based dCRT but also to the Maxway CRT itself. The decreased bias of the post-lasso helps adjust for $\prz$ more fully, although we found that the extra variance incurred by refitting does come at a cost in power. Nevertheless, our results suggest that applying the post-lasso in conjunction with model X methodologies can lead to significant improvements in robustness.
+Double robustness results for the GCM test and the dCRT apply only insofar as the estimation methods used in conjunction with these tests are accurate enough~\eqref{eq:sp1}. The default estimation method for $\E[\prx|\prz]$ and $\E[\pry|\prz]$ in many model-X applications is the lasso. As was demonstrated by \cite{Li2022}, the shrinkage bias of the lasso leads to inadequate adjustment of $\prx$ and $\pry$ for $\prz$, which in turn leads to inflated Type-I error. The same authors proposed the Maxway CRT, an extension of the dCRT involving the identification of coordinates of $\prz$ impacting $\prx$ and $\pry$ via the lasso followed by least squares refitting. Inspired by this work, we applied the original dCRT with post-lasso estimates for $\E[\prx|\prz]$ and $\E[\pry|\prz]$. We found vastly improved Type-I error control (Figure~\ref{fig:gaussian_supervised_null}), compared not just to the lasso-based dCRT but also to the Maxway CRT itself. The decreased bias of the post-lasso helps adjust for $\prz$ more fully, although we found that the extra variance incurred by refitting does come at a cost in power. Nevertheless, our results suggest that applying the post-lasso in conjunction with model-X methodologies can lead to significant improvements in robustness.
 
 \paragraph*{The GCM test is the optimal conditional independence test against alternatives without interactions between $\prx$ and $\prz$} 
 
@@ -908,6 +880,7 @@ Our results about the equivalence between the GCM test and the dCRT, and the dou
     \bibliographystyle{imsart-nameyear} % Style BST file (imsart-number.bst or imsart-nameyear.bst)
     \bibliography{/Users/ekatsevi/.references/symcrt}       % Bibliography file (usually '*.bib')
     
+\clearpage
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %% Multiple Appendixes:                     %%
@@ -1047,7 +1020,7 @@ As a corollary of Theorem~\ref{thm:wlln_cond}, if we choose $\mathcal{F}_n=\{\va
 	\end{equation}
 	then 
 	\begin{equation}
-		\frac{1}{S_n} \sum_{i = 1}^n (W_{in} - \E[W_{in} \mid \mathcal{F}_n]) \mid \mathcal F_n \convp N(0,1).
+		\frac{1}{S_n} \sum_{i = 1}^n (W_{in} - \E[W_{in} \mid \mathcal{F}_n]) \mid \mathcal F_n \convdp N(0,1).
 	\end{equation}
 	
 \end{theorem}
@@ -1065,8 +1038,7 @@ The above definitions and results on conditional convergence are not particularl
 
 Notions of conditional convergence in probability and in distribution have been explicitly defined by \citet{Nowak2005}. However, these notions require a single conditioning $\sigma$-algebra as well as almost sure convergences of conditional probabilities, whereas in Definitions~\ref{def:conditional-convergence-distribution} and~\ref{def:conditional-convergence-probability} we allow the conditioning $\sigma$-algebra to change with $n$ and for the conditional probabilities to converge in probability. Our Definition~\ref{def:conditional-convergence-distribution} can be viewed as formalizing the notion of conditional convergence in distribution implicitly used by \citet{Wang2020b}. Related notions of conditional convergence in distribution allowing for changing conditioning $\sigma$-algebra are present implicitly in the works of \citet{Dedecker2002} and \citet{bulinski2017conditional}, though these are based on the convergence of conditional characteristic functions as opposed to conditional cumulative distribution functions. % We prove in Lemma~\ref{lem:concf_to_weak} that in-probability convergence of conditional characteristic functions \citep{bulinski2017conditional} implies in-probability convergence of conditional cumulative distribution functions (Definition~\ref{def:conditional-convergence-distribution}).
 
-Turning to the convergence results themselves, we were not able to find conditional Polya's or Slutsky's theorems (Theorems~\ref{thm:cond_polya} and~\ref{thm:cond_slutsky}) in the literature. Versions of the conditional law of large numbers are given by \cite{Majerek2005a} and \cite{PrakasaRao2009}, but these involve a single conditioning $\sigma$-algebra and do not allow for triangular arrays, unlike Theorem~\ref{thm:wlln_cond}. Remarkably, we could not find even the unconditional triangular array law of large numbers (Corollary~\ref{cor:wlln}) in the literature; existing results either assume a second-moment condition or use truncation \citep[Theorems 2.2.4 and 2.2.6, respectively]{Durrett2010} instead of a $1+\delta$ moment condition or are not applicable to triangular arrays \citep[Lemma 19]{Shah2018}. As for central limit theorems, \citet{Grzenda2008, PrakasaRao2009, Yuan2014} give non-triangular array versions of the conditional central limit theorem that require a single conditioning $\sigma$-algebra, unlike Theorem~\ref{thm:conditional-clt}. Versions of the conditional central limit theorem appropriate for varying conditioning $\sigma$-algebras and triangular arrays are given by \citet{Dedecker2002, bulinski2017conditional}, those these involve different notions of conditional convergence in distribution. % We use the result of \citet{bulinski2017conditional} as a building block in the proof of Theorem~\ref{thm:conditional-clt}. 
-Finally, we note that our result that conditional convergence in distribution implies in-probability quantile convergence (Lemma~\ref{lem:conditional-convergence-to-quantile}) is a generalization of \citet[Lemma 3]{Wang2020b} to general conditioning $\sigma$-algebras.
+Turning to the convergence results themselves, we were not able to find conditional Polya's theorem (Theorem~\ref{thm:cond_polya}) in the literature. Conditional Slutsky's theorem (Theorem~\ref{thm:cond_slutsky}) is a generalization of \citet[Lemma 5]{Wang2020b} to the case when $a_n$ is not necessarily independent of $\mathcal F_n$ and $b_n \neq 0$. Versions of the conditional law of large numbers are given by \cite{Majerek2005a} and \cite{PrakasaRao2009}, but these involve a single conditioning $\sigma$-algebra and do not allow for triangular arrays, unlike Theorem~\ref{thm:wlln_cond}. Remarkably, we could not find even the unconditional triangular array law of large numbers (Corollary~\ref{cor:wlln}) in the literature; existing results either assume a second-moment condition or use truncation \citep[Theorems 2.2.4 and 2.2.6, respectively]{Durrett2010} instead of a $1+\delta$ moment condition or are not applicable to triangular arrays \citep[Lemma 19]{Shah2018}. As for central limit theorems, \citet{Grzenda2008, PrakasaRao2009, Yuan2014} give non-triangular array versions of the conditional central limit theorem that require a single conditioning $\sigma$-algebra, unlike Theorem~\ref{thm:conditional-clt}. Versions of the conditional central limit theorem appropriate for varying conditioning $\sigma$-algebras and triangular arrays are given by \citet{Dedecker2002, bulinski2017conditional}, those these involve different notions of conditional convergence in distribution. Results similar to Theorem~\ref{thm:conditional-clt} for $\delta = 1$ are presented in a recent line of work on sample-splitting-based inference \citep{Kim2020a, Shekhar2022a, Shekhar2022}; these can be proved via the Berry-Esseen theorem. Finally, we note that our result that conditional convergence in distribution implies in-probability quantile convergence (Lemma~\ref{lem:conditional-convergence-to-quantile}) is a generalization of \citet[Lemma 3]{Wang2020b} to general conditioning $\sigma$-algebras.
 
 \section{Proofs for Section~\ref{sec:conv-to-normal}}
 
@@ -1089,7 +1061,7 @@ We prove instead the stronger Theorem~\ref{thm:normal-limit-stronger} and Coroll
 
 It suffices to prove the conditional convergence in distribution~\eqref{eq:conditional-convergence}, as the convergence of the critical value~\eqref{eq:critical-value-convergence} follows from Lemma~\ref{lem:conditional-convergence-to-quantile} because the normal distribution has continuous and strictly increasing CDF. We prove the conditional convergence~\eqref{eq:conditional-convergence} for each of the two sets of assumptions.
 
-\paragraph*{Assumption 1.}
+\paragraph*{Assumption 1}
 
 We proceed by applying the conditional CLT (Theorem~\ref{thm:conditional-clt}) with 
 \begin{equation}
@@ -1106,7 +1078,7 @@ so that
 \end{align*}
 This quantity converges to zero in probability due to the nondegeneracy condition~\eqref{eq:var-bounded-below} and the Lyapunov condition~\eqref{eq:lyapunov-condition}. Hence, the conditional CLT gives the desired conditional convergence~\eqref{eq:conditional-convergence}.
  
- \paragraph*{Assumption 2.}
+ \paragraph*{Assumption 2}
 
 We begin by decomposing $T_n^{\dCRThat}(\srxk, \srx, \sry, \srz)$:
  \begin{align}
@@ -1941,7 +1913,7 @@ Compare to the lasso estimation method for $\mu_{n,x}$ and $\mu_{n,y}$, the post
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale = 1]{figures/MSE.pdf}
+	\includegraphics[width = 0.75\textwidth]{figures/MSE.pdf}
 	\caption{MSE on shared variables and total variables: first column displays the MSE of lasso and post-lasso on shared active variables $Z_{\mathcal{A}}$ and the second column displays the MSE of lasso and post-lasso on total variables. All the experiments are carried out with GCM statistic with $n=100,d=400,s=5,\rho=0.4$.}
 	\label{fig:MSE}
 \end{figure}
