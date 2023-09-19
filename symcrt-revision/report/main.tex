@@ -180,28 +180,29 @@ whereas $\mathrm{dCRT}$ controls the Type-I error very well. The histogram in th
 the resampling distribution and normal distribution.  
 
 
+
 \begin{figure*}
-    \centering
-    \begin{subfigure}[h]{0.3\textwidth}
+    \begin{subfigure}{0.5\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{Figures/Q1/qq-plots.pdf} \\
-        \small{(a)}
-    \end{subfigure}
-    \begin{subfigure}[h]{0.3\textwidth}  
+        \includegraphics[width=\linewidth]{Figures/Q1/qq-plots.pdf} \\
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{Figures/Q1/type_I_err_5e-2.pdf} \\ 
-        \small{(b)}
+        \includegraphics[width=\linewidth]{Figures/Q1/type_I_err_5e-2.pdf} \\ 
     \end{subfigure}
-    \begin{subfigure}[h]{0.3\textwidth}  
+
+    \begin{subfigure}{0.5\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{Figures/Q1/resampled-test-stats.pdf} \\ 
-        \small{(c)}
+        \includegraphics[width=\linewidth]{Figures/Q1/sampled-test-stats.pdf} \\ 
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figures/Q1/ecdf_comparison.pdf}
     \end{subfigure}
-    \caption{\small{The illustration of finite-sample difference when the underlying distributions of $X,Y$ are discrete.
-    Left: Q-Q plot. Middle: Type-I error comparison with significance level $0.05$. Right: histogram of the resampled test 
-    statistic.} }
+    \caption{Type-I error and MSE comparison when $\bm Y|\bm Z$ is a $\mathrm{Poisson}$ model.}
     \label{fig:dCRT_GCM_binomial_poisson} 
 \end{figure*}
+
 
 
 \section{Simulation study for the second (and partly the third) question}

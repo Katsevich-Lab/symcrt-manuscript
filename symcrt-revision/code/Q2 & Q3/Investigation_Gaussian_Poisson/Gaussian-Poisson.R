@@ -7,8 +7,8 @@ library(ggplot2)
 
 ## X|Z binomial; Y|Z Gaussian; varying dimension
 parameter_grid <- data.frame(
-  d = seq(11, 15, by = 1),      # dimension of Z
-  n = 100                      # sample size
+  d = seq(10, 18, by = 2),      # dimension of Z
+  n = 200                       # sample size
 )
 
 parameter_grid
@@ -196,12 +196,18 @@ simulatr_spec <- simulatr_specifier(
 )
 
 
-check_results <- check_simulatr_specifier_object(simulatr_spec, B_in = 1e4)
+check_results <- check_simulatr_specifier_object(simulatr_spec, B_in = 5e3)
 
-# sim_results <- check_simulatr_specifier_object(simulatr_spec)
+# save the results as RDS file
+n <- max(parameter_grid$n)
+d_min <- min(parameter_grid$d)
+d_max <- max(parameter_grid$d)
+saveRDS(check_results, sprintf("results/check_results_%s_%s_%s.rds",
+                               n, d_min, d_max))
 
 check_results$metrics
 
+# plot type-I error
 type_I_err <- check_results$metrics |>
   ggplot(aes(x = d,
              y = mean,
@@ -218,12 +224,11 @@ type_I_err <- check_results$metrics |>
   theme(legend.position = "bottom") 
 
 
-ggsave(filename = "figures/varying-dimension-gaussian-poisson.pdf",
+# save the plot
+ggsave(filename = sprintf("figures/varying-dimension-gaussian-poisson-%s-%s-%s.pdf",
+                          n, d_min, d_max),
        plot = type_I_err,
        device = "pdf",
        width = 7,
-       height = 5)
-
-# save the rds result
-saveRDS(check_results, "Q2_gaussian_poisson.rds")
+       height = 7)
 

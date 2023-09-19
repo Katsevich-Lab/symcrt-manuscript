@@ -194,28 +194,61 @@ ggsave(filename = "comp-times.png",
        width = 3,
        height = 3)
 
-# plot dCRT resampling distribution
+# plot GCM sampling distribution
 
-data <- generate_data_pois(n, gamma_0, gamma_1, beta_0, beta_1)
-X <- data$X; Y <- data$Y; Z <- data$Z
-n <- length(X)
-Y_on_Z_fitted <- glm(Y ~ Z,
-                     family = "poisson")$fitted.values
-X_on_Z_fitted <- glm(X ~ Z, family = "binomial")$fitted.values
-R <- (X - X_on_Z_fitted)*(Y - Y_on_Z_fitted)
-z_stat <- sum(1/sqrt(n)*sum(R))/sd(R)
-null_z_stats <- numeric(B_small)
+set.seed(1)
+result <- data.frame(sampled_stats = rep(0, reps_calibration),
+                     resampled_stats = rep(0, reps_calibration))
+for (i in 1:reps_calibration) {
+  data <- generate_data_pois(n, gamma_0, gamma_1, beta_0, beta_1)
+  X <- data$X; Y <- data$Y; Z <- data$Z
+  n <- length(X)
+  Y_on_Z_fitted <- glm(Y ~ Z,
+                       family = "poisson")$fitted.values
+  X_on_Z_fitted <- glm(X ~ Z, family = "binomial")$fitted.values
+  R <- (X - X_on_Z_fitted)*(Y - Y_on_Z_fitted)
+  z_stat <- sum(1/sqrt(n)*sum(R))/sd(R)
+  result$sampled_stats[i] <- z_stat
+}
 for(b in 1:B_small){
   X_resampled <- rbinom(n = n, size = 1, prob = X_on_Z_fitted)
   R_resampled <- (X_resampled - X_on_Z_fitted)*(Y - Y_on_Z_fitted)
-  null_z_stats[b] <- sum(1/sqrt(n)*sum(R_resampled))/sd(R_resampled)
+  result$resampled_stats[b] <- sum(1/sqrt(n)*sum(R_resampled))/sd(R_resampled)
 }
-resampled_test_stats <- tibble(null_z_stats) |>
-  ggplot(aes(x = null_z_stats)) +
-  geom_histogram(color = "black", bins = 20) +
-  labs(x = "Resampled test statistics")
-ggsave(filename = "resampled-test-stats.pdf",
-       plot = resampled_test_stats,
+
+
+test_stats <- tibble(result) |>
+  ggplot(aes(x = sampled_stats)) +
+  scale_x_continuous(limits = c(-4.5, 4.5), 
+                     breaks = seq(-4.5, 4.5, by = 1.5), 
+                     labels = seq(-4.5, 4.5, by = 1.5)) +
+  geom_histogram(mapping = aes(x = sampled_stats, y=..density..), color = "black", bins = 20) +
+  stat_function(fun = dnorm, args = list(mean = 0, sd = 1), color = "red") +
+  labs(x = "Sampling distribution of GCM test statistics")
+
+
+ecdf_comparison <- tibble(result) |>
+  mutate(normal_stats = rnorm(reps_calibration)) |>
+  pivot_longer(cols = c("sampled_stats", "resampled_stats", "normal_stats"),
+               values_to = "test_statistics",
+               names_to = "method") |>
+  ggplot(aes_string(x = "test_statistics", colour = "method")) + 
+  stat_ecdf() +
+  labs(x = "Value of test statistics", 
+       y = "Empirical CDF") +
+  theme(legend.position = "bottom") +
+  guides(color = guide_legend(override.aes = list(size = 10))) +
+  scale_color_discrete(name="")
+
+
+ggsave(filename = "sampled-test-stats.pdf",
+       plot = test_stats,
        device = "pdf",
        width = 3.5,
        height = 3.5)
+
+ggsave(filename = "ecdf_comparison.pdf",
+       plot = ecdf_comparison,
+       device = "pdf",
+       width = 5,
+       height = 5)
