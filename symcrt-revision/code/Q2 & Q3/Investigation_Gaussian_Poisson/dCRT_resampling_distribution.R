@@ -103,7 +103,8 @@ emp_CDF_unnormalized_statistics <- tibble(result) |>
   labs(x = "Value of test statistics", 
        y = "Empirical CDF",
        title = "Empirical CDF comparison for unnormalized statistics") +
-  theme(legend.position = "bottom") +
+  theme(legend.position = "bottom",
+        plot.title = element_text(hjust = 0.5)) +
   guides(color = guide_legend(override.aes = list(size = 6))) +
   scale_color_discrete(name="")
 
@@ -207,7 +208,8 @@ emp_CDF_normalized_statistics <- tibble(result) |>
   labs(x = "Value of test statistics", 
        y = "Empirical CDF",
        title = "Empirical CDF comparison for normalized statistics") +
-  theme(legend.position = "bottom") +
+  theme(legend.position = "bottom",
+        plot.title = element_text(hjust = 0.5)) +
   guides(color = guide_legend(override.aes = list(size = 6))) +
   scale_color_discrete(name="")
 

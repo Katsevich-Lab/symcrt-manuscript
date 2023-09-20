@@ -208,6 +208,8 @@ saveRDS(check_results, sprintf("results/check_results_%s_%s_%s.rds",
 check_results$metrics
 
 # plot type-I error
+check_results <- readRDS(sprintf("results/check_results_%s_%s_%s.rds",
+                                 n, d_min, d_max))
 type_I_err <- check_results$metrics |>
   ggplot(aes(x = d,
              y = mean,
@@ -221,7 +223,8 @@ type_I_err <- check_results$metrics |>
   labs(x = "Dimension of covariate Z",
        y = "Type I Error",
        title = "Gaussian-Poisson model") +
-  theme(legend.position = "bottom") 
+  theme(legend.position = "bottom",
+        plot.title = element_text(hjust = 0.5)) 
 
 
 # save the plot
