@@ -242,3 +242,6 @@ if(file.exists(figure_path)){
          width = 0.8*TEXTWIDTH, 
          height = 0.72*TEXTHEIGHT)
 }
+
+# print the maximum standard error
+print(max(max(MSE_alternative$MSE_se), max(MSE_null$MSE_se)))
