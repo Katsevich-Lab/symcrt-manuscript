@@ -1073,6 +1073,76 @@ Turning to the convergence results themselves, we were not able to find conditio
 
 \section{Proofs for Section~\ref{sec:conv-to-normal}}
 
+\subsection{Auxiliary lemmas}
+
+\begin{lemma}
+	\label{lem:conditional-expectation-to-unconditional}
+	Let $W_n$ be a sequence of nonnegative random variables and let $\mathcal F_n$ be a sequence of $\sigma$-algebras. If $\E[W_n \mid \mathcal{F}_n]\convp 0$, then $ W_n \convp 0$.
+\end{lemma}
+\begin{proof}
+	For any $\epsilon>0$, we have
+	\begin{align}
+		\P[W_n \geq \epsilon] &= \P[W_n \wedge \epsilon \geq \epsilon] \\
+		&\leq \epsilon^{-1} \E[W_n \wedge \epsilon] \\
+		&= \epsilon^{-1} \E[\E[W_n \wedge \epsilon\mid \mathcal{F}_n]]\\
+		&\leq \epsilon^{-1} \E[\E[W_n \mid \mathcal{F}_n]\wedge \epsilon] \to 0,
+	\end{align}
+	where the last convergence is due to bounded convergence theorem and the assumption $\E[W_n \mid \mathcal{F}_n]\convp 0$. 
+\end{proof}
+
+
+\begin{lemma}[Asymptotic equivalence of tests] \label{lem:equivalence-lemma}
+	
+	Consider two hypothesis tests based on the same test statistic $T_n(\srx, \sry, \srz)$ but different critical values:
+	\begin{equation*}
+		\phi_n^1(\srx, \sry, \srz) \equiv \indicator(T_n(\srx, \sry, \srz) > C_n(\srx, \sry, \srz)); \quad \phi_n^2(\srx, \sry, \srz) \equiv \indicator(T_n(\srx, \sry, \srz) > z_{1-\alpha}). 
+	\end{equation*}
+	If the critical value of the first converges in probability to that of the second:
+	\begin{equation}
+		C_n(\srx, \sry, \srz) \convp z_{1-\alpha}
+		\label{eq:convergence-of-critical-value}
+	\end{equation}
+	and the test statistic does not accumulate near the limiting critical value:
+	\begin{equation}
+		\lim_{\delta \rightarrow 0}\limsup_{n \rightarrow \infty}\ \P_{\law_n}[|T_n(\srx, \sry, \srz)-z_{1-\alpha}| \leq \delta] = 0,
+		\label{eq:non-accumulation-app}
+	\end{equation}
+	then the two tests are asymptotically equivalent:
+	\begin{equation}
+		\lim_{n \rightarrow \infty}\P_{\law_n}[\phi_n^{1}(\srx, \sry, \srz) = \phi_n^2(\srx, \sry, \srz)] = 1.
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	
+	Note that for any $\delta>0$, we have
+	\begin{equation}
+		\begin{aligned}
+			\mathbb{P}_{\law_{n}}&  {\left[\phi_{n}^{1}(\srx,\sry,\srz) \neq \phi_{n}^{2}(\srx,\sry,\srz)\right] } \\
+			&= \mathbb{P}_{\law_{n}}\left[\min \left(z_{1-\alpha}, C_{n}\right)<T_{n} \leq \max \left(z_{ 1-\alpha}, C_{n}\right)\right] \\
+			&= \mathbb{P}_{\law_{n}}\left[\min \left(z_{ 1-\alpha}, C_{n} \right)<T_{n} \leq \max \left(z_{ 1-\alpha}, C_{n}\right),\left|C_{n}-z_{ 1-\alpha}\right| \leq \delta\right] \\
+			&\quad+\mathbb{P}_{\law_{n}}\left[\min \left(z_{ 1-\alpha}, C_{n}\right)<T_{n} \leq \max \left(z_{ 1-\alpha}, C_{n}\right),\left|C_{n}-z_{ 1-\alpha}\right|>\delta\right] \\
+			& \leq  \mathbb{P}_{\law_{n}}\left[\left|T_{n}-z_{1-\alpha}\right| \leq \delta\right]+\mathbb{P}_{\law_{n}}\left[\left|C_{n}-z_{ 1-\alpha}\right|>\delta\right] .
+		\end{aligned}
+		\label{eq:tests-not-same}
+	\end{equation}
+	
+	\noindent To justify the last step, suppose without loss of generality that $z_{1-\alpha} \leq C_n$. Then note that if $z_{1-\alpha}<T_{n} \leq C_{n}$ and $C_{n}-z_{1-\alpha} \leq \delta$ then
+	$$
+	|T_{n} - z_{1-\alpha}| = T_{n} -z_{1-\alpha} \leq C_n-z_{1-\alpha} \leq \delta.
+	$$
+	Taking a limsup on both sides in equation~\eqref{eq:tests-not-same} and using the assumed convergence~\eqref{eq:convergence-of-critical-value}, we find that
+	$$
+	\begin{aligned}
+		\limsup_{n\to \infty}\mathbb{P}_{\law_{n}} & {\left[\phi_{n}^{1}(\srx,\sry,\srz) \neq \phi_{n}^{2}(\srx,\sry,\srz)\right] } \\
+		\leq & \limsup_{n\to \infty}\mathbb{P}_{\law_{n}}\left[\left|T_{n}(\srx,\sry,\srz)-z_{1-\alpha}\right| \leq \delta\right]+ \limsup_{n\to \infty}\mathbb{P}_{\law_{n}}\left[\left|C_{n}(\srx,\sry,\srz)-z_{ 1-\alpha}\right|>\delta\right]\\
+		= &\limsup_{n\to \infty}\mathbb{P}_{\law_{n}}\left[\left|T_{n}(\srx,\sry,\srz)-z_{1-\alpha}\right| \leq \delta\right].
+	\end{aligned}
+	$$
+	Letting $\delta \rightarrow 0$ and using our assumption~\eqref{eq:non-accumulation-app}, we arrive at the claimed asymptotic equivalence. This completes the proof.
+\end{proof}
+
+
 \subsection{Proofs of main results}
 
 \begin{proof}[Proofs of Theorem~\ref{thm:normal-limit} and Corollary~\ref{cor:asymptotic-equivalence}] 
@@ -1169,74 +1239,6 @@ Under the assumptions of Theorem \ref{thm:normal-limit-stronger}, if the non-acc
 The desired equivalence is given by Lemma~\ref{lem:equivalence-lemma} with $T_n(\srx, \sry, \srz) \equiv (\widehat S_{n}^{\dCRThat})^{-1} T_n^{\dCRThat}$ and $C_n(\srx, \sry, \srz) \equiv C_n^{\dCRThat}(\srx, \sry, \srz)$, since $\phi_n^1$ and $\phi_n^2$ in the lemma statement reduce to $\dCRThat$ and the $\MXtwohat$ $F$-test, respectively. This lemma is applicable because the convergence of the critical value~\eqref{eq:convergence-of-critical-value} is given by Theorem~\ref{thm:normal-limit-stronger} and the non-accumulation condition~\eqref{eq:non-accumulation-app} is assumed.
 \end{proof}
 
-\subsection{Auxiliary lemmas}
-
-\begin{lemma}
-	\label{lem:conditional-expectation-to-unconditional}
-	Let $W_n$ be a sequence of nonnegative random variables and let $\mathcal F_n$ be a sequence of $\sigma$-algebras. If $\E[W_n \mid \mathcal{F}_n]\convp 0$, then $ W_n \convp 0$.
-\end{lemma}
-\begin{proof}
-	For any $\epsilon>0$, we have
-	\begin{align}
-		\P[W_n \geq \epsilon] &= \P[W_n \wedge \epsilon \geq \epsilon] \\
-		&\leq \epsilon^{-1} \E[W_n \wedge \epsilon] \\
-		&= \epsilon^{-1} \E[\E[W_n \wedge \epsilon\mid \mathcal{F}_n]]\\
-		&\leq \epsilon^{-1} \E[\E[W_n \mid \mathcal{F}_n]\wedge \epsilon] \to 0,
-	\end{align}
-	where the last convergence is due to bounded convergence theorem and the assumption $\E[W_n \mid \mathcal{F}_n]\convp 0$. 
-\end{proof}
-
-
-\begin{lemma}[Asymptotic equivalence of tests] \label{lem:equivalence-lemma}
-	
-Consider two hypothesis tests based on the same test statistic $T_n(\srx, \sry, \srz)$ but different critical values:
-\begin{equation*}
-\phi_n^1(\srx, \sry, \srz) \equiv \indicator(T_n(\srx, \sry, \srz) > C_n(\srx, \sry, \srz)); \quad \phi_n^2(\srx, \sry, \srz) \equiv \indicator(T_n(\srx, \sry, \srz) > z_{1-\alpha}). 
-\end{equation*}
-If the critical value of the first converges in probability to that of the second:
-\begin{equation}
-C_n(\srx, \sry, \srz) \convp z_{1-\alpha}
-\label{eq:convergence-of-critical-value}
-\end{equation}
-and the test statistic does not accumulate near the limiting critical value:
-\begin{equation}
-\lim_{\delta \rightarrow 0}\limsup_{n \rightarrow \infty}\ \P_{\law_n}[|T_n(\srx, \sry, \srz)-z_{1-\alpha}| \leq \delta] = 0,
-\label{eq:non-accumulation-app}
-\end{equation}
-then the two tests are asymptotically equivalent:
-\begin{equation}
-\lim_{n \rightarrow \infty}\P_{\law_n}[\phi_n^{1}(\srx, \sry, \srz) = \phi_n^2(\srx, \sry, \srz)] = 1.
-\end{equation}
-\end{lemma}
-
-\begin{proof}
-
-Note that for any $\delta>0$, we have
-\begin{equation}
-	\begin{aligned}
-		\mathbb{P}_{\law_{n}}&  {\left[\phi_{n}^{1}(\srx,\sry,\srz) \neq \phi_{n}^{2}(\srx,\sry,\srz)\right] } \\
-		&= \mathbb{P}_{\law_{n}}\left[\min \left(z_{1-\alpha}, C_{n}\right)<T_{n} \leq \max \left(z_{ 1-\alpha}, C_{n}\right)\right] \\
-		&= \mathbb{P}_{\law_{n}}\left[\min \left(z_{ 1-\alpha}, C_{n} \right)<T_{n} \leq \max \left(z_{ 1-\alpha}, C_{n}\right),\left|C_{n}-z_{ 1-\alpha}\right| \leq \delta\right] \\
-		&\quad+\mathbb{P}_{\law_{n}}\left[\min \left(z_{ 1-\alpha}, C_{n}\right)<T_{n} \leq \max \left(z_{ 1-\alpha}, C_{n}\right),\left|C_{n}-z_{ 1-\alpha}\right|>\delta\right] \\
-		& \leq  \mathbb{P}_{\law_{n}}\left[\left|T_{n}-z_{1-\alpha}\right| \leq \delta\right]+\mathbb{P}_{\law_{n}}\left[\left|C_{n}-z_{ 1-\alpha}\right|>\delta\right] .
-	\end{aligned}
-\label{eq:tests-not-same}
-\end{equation}
-
-\noindent To justify the last step, suppose without loss of generality that $z_{1-\alpha} \leq C_n$. Then note that if $z_{1-\alpha}<T_{n} \leq C_{n}$ and $C_{n}-z_{1-\alpha} \leq \delta$ then
-$$
-|T_{n} - z_{1-\alpha}| = T_{n} -z_{1-\alpha} \leq C_n-z_{1-\alpha} \leq \delta.
-$$
-Taking a limsup on both sides in equation~\eqref{eq:tests-not-same} and using the assumed convergence~\eqref{eq:convergence-of-critical-value}, we find that
-$$
-\begin{aligned}
-	\limsup_{n\to \infty}\mathbb{P}_{\law_{n}} & {\left[\phi_{n}^{1}(\srx,\sry,\srz) \neq \phi_{n}^{2}(\srx,\sry,\srz)\right] } \\
-	\leq & \limsup_{n\to \infty}\mathbb{P}_{\law_{n}}\left[\left|T_{n}(\srx,\sry,\srz)-z_{1-\alpha}\right| \leq \delta\right]+ \limsup_{n\to \infty}\mathbb{P}_{\law_{n}}\left[\left|C_{n}(\srx,\sry,\srz)-z_{ 1-\alpha}\right|>\delta\right]\\
-	= &\limsup_{n\to \infty}\mathbb{P}_{\law_{n}}\left[\left|T_{n}(\srx,\sry,\srz)-z_{1-\alpha}\right| \leq \delta\right].
-\end{aligned}
-$$
-Letting $\delta \rightarrow 0$ and using our assumption~\eqref{eq:non-accumulation-app}, we arrive at the claimed asymptotic equivalence. This completes the proof.
-\end{proof}
 
 \section{Proofs for Section~\ref{sec:dr-and-equivalence} and Appendix~\ref{sec:ndcrt}}
 
@@ -1244,6 +1246,258 @@ For the sake of this section, we define
 \begin{equation}
 	s^2_n \equiv \E_{\law_n}[\V_{\law_n}[\prx|\prz]\V_{\law_n}[\pry|\prz]]. 
 \end{equation}
+
+\subsection{Auxiliary lemmas}
+
+\begin{lemma}[Conditional Jensen inequality, \cite{Davidson2003}, Theorem 10.18] \label{lem:conditional-jensen}
+	Let $W$ be a random variable and let $\phi$ be a convex function, such that $W$ and $\phi(W)$ are integrable. For any $\sigma$-algebra $\mathcal F$, we have the inequality
+	\begin{equation*}
+		\phi(\E[W \mid \mathcal F]) \leq  \E[\phi(W) \mid \mathcal F] \quad \text{almost surely}.
+	\end{equation*}
+\end{lemma}
+
+\begin{lemma} \label{lem:conditional-convergence-to-unconditional}
+	Let $W_n$ be a sequence of random variables and $\mathcal F_n$ a sequence of $\sigma$-algebras. If $W_n \mid \mathcal F_n \convpp 0$, then $W_n \convp 0$. 
+\end{lemma}
+
+\begin{proof}
+	Let $\epsilon > 0$. Because of the assumed conditional convergence in probability, we have
+	\begin{equation*}
+		\P[|W_n| > \epsilon \mid \mathcal F_n] \convp 0.
+	\end{equation*}
+	By the bounded convergence theorem, it follows that
+	\begin{equation*}
+		\P[|W_n| > \epsilon] = \E[\P[|W_n| > \epsilon \mid \mathcal F_n]] \rightarrow 0,
+	\end{equation*}
+	from which the conclusion follows.
+\end{proof}
+
+\begin{lemma}
+	\label{lem:variance_convg}
+	Consider a sequence of laws $\law_n \in \nulllaws_n$. Given assumption~\eqref{eq:sp2}, we have
+	\begin{align}
+		\frac{1}{n} \sum_{i=1}^n \V_{\law_n}[\srx_i\mid \srz_i]\V_{\law_n}[\sry_i \mid \srz_i] -s^2_n &\convp 0; \label{eq:variance_convg_1} \\ 
+		\frac{1}{n}\sum_{i = 1}^n (\srx_i - \mu_{n,x}(\srz_i))^2\V_{\law_n}[\sry_i\mid\srz_i]-s^2_n &\convp 0; \label{eq:variance_convg_2} \\
+		\frac{1}{n}\sum_{i = 1}^n \V_{\law_n}[\srx_i\mid\srz_i](\sry_i - \mu_{n,y}(\srz_i))^2-s^2_n &\convp 0. \label{eq:variance_convg_3}
+	\end{align}
+	Given additionally assumption~\eqref{eq:sp1}, we also have
+	\begin{align}
+		\frac{1}{n} \sum_{i = 1}^n (\srx_i - \widehat \mu_{n,x}(\srz_i))^2\V_{\law_n}[\sry_i\mid\srz_i] - s^2_n &\convp 0; \label{eq:variance_convg_4} \\
+		\frac{1}{n}\sum_{i = 1}^n \V_{\law_n}[\srx_i\mid\srz_i](\sry_i - \widehat \mu_{n,y}(\srz_i))^2-s^2_n &\convp 0. \label{eq:variance_convg_5}
+	\end{align}
+	Given additionally the conditional Lyapunov condition~\eqref{eq:lyapunov-condition-2} and the variance consistency condition~\eqref{eq:variance-consistency}, we also have
+	\begin{align}
+		(S^{\dCRThat}_n)^2 - s_n^2 \equiv \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i\mid\srz_i](\sry_i - \mu_{n,y}(\srz_i))^2-s^2_n &\convp 0. \label{eq:variance_convg_6}
+	\end{align}
+	Given additionally the assumption $\widehat E'_{n,y} \convp 0$, we also have
+	\begin{align}
+		(\widehat S^{\dCRThat}_n)^2 - s_n^2 \equiv \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i\mid\srz_i](\sry_i - \widehat \mu_{n,y}(\srz_i))^2-s^2_n &\convp 0. \label{eq:variance_convg_7}
+	\end{align}
+	
+\end{lemma}
+
+\begin{proof}
+	
+	We prove the convergence statements in order.
+	
+	\paragraph*{Proofs of statements~\eqref{eq:variance_convg_1}, \eqref{eq:variance_convg_2}, \eqref{eq:variance_convg_3}}
+	
+	These statements are consequences of the weak law of large numbers (Corollary~\ref{cor:wlln}). To verify the statement~\eqref{eq:variance_convg_1}, we note that
+	\begin{equation*}
+		\E_{\law_n}[\V_{\law_n}[\srx_i\mid \srz_i]\V_{\law_n}[\sry_i \mid \srz_i]] = \E_{\law_n}[\V_{\law_n}[\prx\mid \prz]\V_{\law_n}[\pry \mid \prz]] \equiv s^2_n, 
+	\end{equation*}
+	and
+	\begin{equation}
+		\begin{split}
+			&\sup_{i,n} \ \E_{\law_n}[|\V_{\law_n}[\srx_i\mid \srz_i]\V_{\law_n}[\sry_i \mid \srz_i]|^{1+\delta/2}] \\
+			&\quad= \sup_n\ \E_{\law_n}[|\V_{\law_n}[\prx\mid \prz]\V_{\law_n}[\pry \mid \prz]|^{1+\delta/2}] \\
+			&\quad\leq \sup_n\ \E_{\law_n}[\E_{\law_n}[|\prx - \mu_{n,x}(\prz)|^{2+\delta} \mid \prz]\E_{\law_n}[|\pry - \mu_{n,y}(\prz)|^{2+\delta} \mid \prz]] \\
+			&\quad= \sup_n\ \E_{\law_n}[|(\prx - \mu_{n,x}(\prz))(\pry - \mu_{n,y}(\prz))|^{2 + \delta}] \\
+			&\quad< c_2 < \infty.
+		\end{split}
+		\label{eq:variance-bound-derivation}
+	\end{equation}
+	The inequality in the third line follows from the conditional Jensen inequality (Lemma~\ref{lem:conditional-jensen}), the equality in the fourth line follows from the conditional independence assumption, and the inequality in the fifth line follows from the $2+\delta$ moment assumption~\eqref{eq:sp2}. Hence we have verified the sufficient condition~\eqref{eq:wlln_sufficient} for the WLLN, so the convergence~\eqref{eq:variance_convg_1} follows. Statements~\eqref{eq:variance_convg_2} and~\eqref{eq:variance_convg_3} can be verified with similar arguments.
+	
+	\paragraph*{Proofs of statements~\eqref{eq:variance_convg_4} and~\eqref{eq:variance_convg_5}} 
+	
+	We prove only the first, as the second will follow by symmetry. Given the convergence~\eqref{eq:variance_convg_2}, the statement~\eqref{eq:variance_convg_4} will follow if we show that
+	\begin{equation}
+		\begin{split}
+			&\frac{1}{n} \sum_{i = 1}^n (\srx_i - \widehat \mu_{n,x}(\srz_i))^2\V_{\law_n}[\sry_i\mid\srz_i] - \frac{1}{n} \sum_{i = 1}^n (\srx_i - \mu_{n,x}(\srz_i))^2\V_{\law_n}[\sry_i\mid\srz_i] \\
+			&\quad= \frac{1}{n} \sum_{i = 1}^n (\widehat \mu_{n,x}(\srz_i) - \mu_{n,x}(\srz_i))^2\V_{\law_n}[\sry_i\mid\srz_i] \\
+			&\quad \quad -\frac{2}{n}\sum_{i = 1}^n (\srx_i - \mu_{n,x}(\srz_i))(\widehat \mu_{n,x}(\srz_i) - \mu_{n,x}(\srz_i))\V_{\law_n}[\sry_i\mid\srz_i] \\
+			&\quad \equiv (E'_{n,x})^2 - \frac{2}{n}\sum_{i = 1}^n (\srx_i - \mu_{n,x}(\srz_i))(\widehat \mu_{n,x}(\srz_i) - \mu_{n,x}(\srz_i))\V_{\law_n}[\sry_i\mid\srz_i] \\
+			&\quad\convp 0.
+			\label{eq:sufficient-convergence}
+		\end{split}
+	\end{equation}
+	The convergence $E'_{n,x} \convp 0$ is assumed~\eqref{eq:sp1}. To verify the convergence of the second term, note first that conditional H\"older (Lemma~\ref{lem:cond_holder}) and the derivation~\eqref{eq:variance-bound-derivation} give
+	\begin{equation}
+		\sup_n\ s^2_n \leq \sup_n\ \{\E_{\law_n}[|\V_{\law_n}[\prx\mid \prz]\V_{\law_n}[\pry \mid \prz]|^{1+\delta/2}]\}^{2/(2+\delta)} < \infty,
+	\end{equation}
+	which combined with the convergence~\eqref{eq:variance_convg_2} implies that
+	\begin{equation}
+		\frac{1}{n}\sum_{i = 1}^n (\srx_i - \mu_{n,x}(\srz_i))^2\V_{\law_n}[\sry_i\mid\srz_i] = O_p(1).
+	\end{equation}
+	Therefore, by the Cauchy-Schwartz inequality we find that 
+	\begin{equation*}
+		\begin{split}
+			&\left(\frac{1}{n}\sum_{i = 1}^n (\srx_i - \mu_{n,x}(\srz_i))(\widehat \mu_{n,x}(\srz_i) - \mu_{n,x}(\srz_i))\V_{\law_n}[\sry_i\mid\srz_i]\right)^2 \\
+			&\quad\leq \left(\frac{1}{n}\sum_{i = 1}^n (\srx_i - \mu_{n,x}(\srz_i))^2 \V_{\law_n}[\sry_i\mid\srz_i]\right) \left(\frac{1}{n}\sum_{i = 1}^n (\widehat \mu_{n,x}(\srz_i) - \mu_{n,x}(\srz_i))^2\V_{\law_n}[\sry_i\mid\srz_i]\right) \\
+			&\quad\equiv \left(\frac{1}{n}\sum_{i = 1}^n (\srx_i - \mu_{n,x}(\srz_i))^2 \V_{\law_n}[\sry_i\mid\srz_i]\right) \cdot (E'_{n,x})^2 \\
+			&\quad= O_p(1) \cdot o_p(1) = o_p(1).
+		\end{split}
+	\end{equation*}
+	This proves the convergence~\eqref{eq:sufficient-convergence}, which in turn implies the claimed convergence~\eqref{eq:variance_convg_4}.
+	
+	\paragraph*{Proof of statement~\eqref{eq:variance_convg_6}}
+	
+	Note that
+	\begin{equation*}
+		\begin{split}
+			&\frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i\mid\srz_i](\sry_i - \mu_{n,y}(\srz_i))^2-s^2_n \\
+			&\quad= \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i\mid\srz_i](\sry_i - \mu_{n,y}(\srz_i))^2 - \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i\mid\srz_i]\V[\sry_i \mid \srz_i]  \\
+			&\quad \quad + \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i\mid\srz_i]\V[\sry_i \mid \srz_i] - \frac{1}{n}\sum_{i = 1}^n \V_{\law_n}[\srx_i\mid\srz_i]\V[\sry_i \mid \srz_i] \\
+			&\quad \quad + \frac{1}{n}\sum_{i = 1}^n \V_{\law_n}[\srx_i\mid\srz_i]\V[\sry_i \mid \srz_i] - s^2_n \\
+			&\quad = \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i\mid\srz_i](\sry_i - \mu_{n,y}(\srz_i))^2 - \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i\mid\srz_i]\V[\sry_i \mid \srz_i] + o_p(1),
+		\end{split}
+	\end{equation*}
+	where we used the variance consistency assumption~\eqref{eq:variance-consistency} and the convergence result~\eqref{eq:variance_convg_1} to obtain the last line. Hence, it suffices to show that
+	\begin{equation}
+		\frac{1}{n}\sum_{i = 1}^n \left(\V_{\lawhat_n}[\srx_i\mid\srz_i](\sry_i - \mu_{n,y}(\srz_i))^2 - \V_{\lawhat_n}[\srx_i\mid\srz_i]\V[\sry_i \mid \srz_i]\right) \convp 0.
+		\label{eq:sufficient-convergence-2}
+	\end{equation}
+	To this end, we apply the conditional WLLN (Theorem~\ref{thm:wlln_cond}) with $\mathcal{F}_n = \sigma(X,Z)$ and
+	\begin{equation*}
+		W_{in} = \V_{\lawhat_n}[\srx_i\mid \srz_i](\sry_i-\mu_{n,y}(\srz_i))^2.
+	\end{equation*}
+	We check the required $1+\delta$ moment condition~\eqref{eq:wlln_cond_assumption}:
+	\begin{align*}
+		&\frac{1}{n^{1+\delta/2}} \sum_{i = 1}^n \E_{\law_n}[|W_{in}|^{1+\delta/2} \mid \mathcal{F}_n] \\
+		&\quad\equiv \frac{1}{n^{1+\delta/2}} \sum_{i = 1}^n \E_{\law_n}\left[\V_{\lawhat_n}[\srx_i\mid \srz_i]^{1+\delta/2} \cdot |\sry_i-\mu_{n,y}(\srz_i)|^{2+\delta}\mid \srx,\srz\right]\\
+		&\quad\leq \frac{1}{n^{1+\delta/2}} \sum_{i = 1}^n \E_{\law_n}\left[\E_{\lawhat_n}[|\srxk_i-\widehat{\mu}_{n,x}(Z_i)|^{2+\delta} \mid \srx, \srz] \cdot |\sry_i-\mu_{n,y}(Z_i)|^{2+\delta} \mid \srx,\srz\right]\\
+		&\quad= \frac{1}{n^{1+\delta/2}} \sum_{i = 1}^n \E_{\lawhat_n}[|\srxk_i-\widehat\mu_{n,x}(Z_i)|^{2+\delta}\mid \srx, \srz] \cdot \E_{\law_n}\left[|\sry_i-\mu_{n,y}(Z_i)|^{2+\delta} \mid Z_i\right]\\
+		&\quad\convp 0. 
+	\end{align*}
+	The inequality in the third line follows from the conditional Jensen inequality (Lemma~\ref{lem:conditional-jensen}), the equality in the fourth line from the assumed conditional independence, and the convergence in the fifth line from the conditional Lyaponov assumption~\eqref{eq:lyapunov-condition-2}. Therefore, the conditional WLLN gives
+	\begin{equation*}
+		\begin{split}
+			&\frac{1}{n} \sum_{i=1}^n \left(\V_{\lawhat_n}[\srx_i\mid \srz_i](\sry_i-\mu_{n,y}(\srz_i))^2- \V_{\lawhat_n}[\srx_i\mid \srz_i]\V_{\law_n}[\sry_i \mid \srz_i]\right) \\
+			&\quad = \frac{1}{n} \sum_{i=1}^n \left(\V_{\lawhat_n}[\srx_i\mid \srz_i](\sry_i-\mu_{n,y}(\srz_i))^2- \E_{\law_n}[\V_{\lawhat_n}[\srx_i\mid \srz_i](\sry_i-\mu_{n,y}(\srz_i))^2 | \srx, \srz]\right) \\
+			&\quad \convpp 0,
+		\end{split}
+	\end{equation*}
+	where the equality follows from the assumed conditional independence. Since conditional convergence in probability implies unconditional convergence in probability (Lemma~\ref{lem:conditional-convergence-to-unconditional}), this verifies the claimed convergence statement~\eqref{eq:sufficient-convergence-2} and completes the proof of the statement~\eqref{eq:variance_convg_6}.
+	
+	\paragraph*{Proof of statement~\eqref{eq:variance_convg_7}} 
+	
+	Given the convergence~\eqref{eq:variance_convg_6}, it suffices to show that
+	\begin{equation}
+		\frac{1}{n}\sum_{i=1}^n \V_{\lawhat_n}[\srx_i\mid \srz_i](\sry_i-\widehat \mu_{n,y}(\srz_i))^2-\frac{1}{n}\sum_{i=1}^n \V_{\lawhat_n}[\srx_i\mid \srz_i](\sry_i-\mu_{n,y}(\srz_i))^2
+		\convp 0
+	\end{equation}
+	Given the assumption that $\widehat E'_{n,y} \convp 0$, this statement's proof is analogous to that of statement~\eqref{eq:sufficient-convergence}, so we omit it for the sake of brevity. This completes the proof of the lemma.
+\end{proof}
+
+\begin{lemma}
+	\label{lem:cond-sample-variance-equivalence2}
+	Define
+	\begin{equation}
+		(S_n^{\dCRThat})^2 \equiv \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i|\srz_i](\sry_i - \mu_{n,y}(\srz_i))^2.		
+	\end{equation}
+	Under the assumptions of Theorem~\ref{thm:equivalence}, we have
+	\begin{equation}
+		\frac{(S^{\dCRThat}_n)^2}{(\widehat S^{\dCRThat}_n)^2}  \convp 1
+		\label{eq:dcrt-var-equivalence}
+	\end{equation}
+	and
+	\begin{equation}
+		\P[(S^{\dCRThat}_n)^2 > \epsilon] \rightarrow 1 \quad \text{for some } \epsilon > 0.
+		\label{eq:bounded-away-from-zero}
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	The equivalence of variances~\eqref{eq:dcrt-var-equivalence} follows from the convergences~\eqref{eq:variance_convg_6} and~\eqref{eq:variance_convg_7} (Lemma~\ref{lem:variance_convg}), as well as the observation that conditional independence and the assumption~\eqref{eq:sp2} imply 
+	\begin{equation}
+		\inf_n s^2_n = \inf_{n}\ \E_{\law_n}[(\prx - \mu_{n,x}(\prz))^2(\pry - \mu_{n,y}(\prz))^2] > 0.
+	\end{equation}
+	The stochastic boundedness from below~\eqref{eq:bounded-away-from-zero} follows from the latter fact and the convergence~\eqref{eq:variance_convg_6}.
+\end{proof}
+
+
+% \begin{lemma}
+	% 	\label{lem:helper-doubly-robust}
+	% 	$A_n$,$B_n$, $U_n$ and $V_n$ are non-negative random variables such that $\forall\, \delta >0$ we have $\P(A_n - B_n \geq -\delta) \to 1$ and 
+	% 	\begin{gather}
+		% 	A_n - U_n \convp 0\\
+		% 	B_n - V_n \convp 0\\
+		% 	V_n - \sigma_n^2 \convp 0\\
+		% 	c_1<\sigma_n^2	
+		% 	\end{gather}
+	% for some constants $c_1$ and $c_2$.
+	% 	then
+	% 	\begin{gather}
+		% 	\P\left(U_n - V_n \geq -\delta\right) \to 1\\	
+		% 	\min\left(\frac{U_n}{V_n},1\right) \convp 1
+		% 	\end{gather}
+	% \end{lemma}
+% \begin{proof}
+	% 	Fix $\delta>0$
+	% 	\begin{align}
+		% 		\P\left(U_n - V_n \leq -\delta\right) &\leq \P\left(U_n - V_n \leq -\delta, |U_n - A_n| \leq \delta/4, |V_n - B_n| \leq \delta/4\right)\\ &+ \P(|U_n - A_n| \geq \delta/4) + \P(|V_n - B_n| \leq \delta/4) \\
+		% 		&\leq \P(A_n - B_n \leq - \delta/2) + o(1)\\
+		% 		&= o(1).   
+		% 	\end{align}
+	% Next we look at
+	% \begin{align}
+		% 	\P\left[\min\left(\frac{U_n}{V_n},1\right) \notin (1-\delta,1+\delta)\right] &= \P\left[\frac{U_n}{V_n} \leq 1-\delta\right]\\
+		% 	&=\P(U_n - V_n \leq -\delta V_n)\\
+		% 	&\leq \P(U_n - V_n \leq -\delta V_n, |V_n - \sigma_n^2| \leq c_1/2)\\ &+ \P(|V_n - \sigma_n^2| > c_1/2 )\\
+		% 	&\leq \P(U_n - V_n \leq -\delta c_1/2) + o(1)\\
+		% 	&= o(1)
+		% \end{align}
+	% which gives us the desired result.
+	% \end{proof}
+
+\begin{lemma} \label{lem:var-ratio-ndcrt-dcrt}
+	If the nondegeneracy conditions~\eqref{eq:var-bounded-below} and~\eqref{eq:variance-bounds} and the conditional Lyapunov condition~\eqref{eq:lyapunov-condition} hold, then the variance estimates $(\widehat S_n^{\GCM})^2$ and $(\widehat S_n^{\dCRThat})^2$ are equivalent under resampling:
+	\begin{equation}
+		\frac{(\widehat S_n^{\dCRThat}(\srx, \sry, \srz))^2}{(\widehat S_{n}^{\GCM}(\srxk, \srx, \sry, \srz))^2} \convp 1.
+		\label{eq:var-ratio-ndcrt-dcrt}
+	\end{equation}
+\end{lemma}
+\begin{proof}
+	Define 
+	\begin{equation*}
+		W_{in}  \equiv  (\srxk_i - \widehat \mu_{n,x}(\srz_i))(\sry_i - \widehat \mu_{n,y}(\srz_i)),
+	\end{equation*}
+	so that 
+	\begin{equation*}
+		(\widehat S_{n}^{\GCM}(\srxk, \srx, \sry, \srz))^2 \equiv \frac{1}{n} \sum_{i=1}^n W_{in}^2 - \left(\frac{1}{n} \sum_{i=1}^n W_{in}\right)^2.
+	\end{equation*} 
+	First we claim that $\frac{1}{n}\sum_{i = 1}^n W_{in} \convp 0$.  We will use conditional WLLN (Theorem~\ref{thm:wlln_cond}) with $\mathcal{F}_n \equiv \sigma(\srx,\sry,\srz)$. First note that $\E[W_{in} \mid \mathcal{F}_n] = 0$ by construction. We also check the moment condition~\eqref{eq:wlln_cond_assumption}:
+	\begin{align*}
+		\frac{1}{n^{2+\delta}} \sum_{i = 1}^n &\E[|W_{in}|^{2+\delta} \mid \mathcal{F}_n] \\&= \frac{1}{n^{1+\delta/2}}\frac{1}{n^{1+\delta/2}} \sum_{i=1}^n |\sry_i-\widehat\mu_{n,y}(\srz_i)|^{2+\delta}\E\left[|\srxk_i-\widehat\mu_{n,x}(\srz_i)|^{2+\delta}\mid \srx,\srz\right] \convp 0,
+	\end{align*} 
+	where the latter convergence is by the assumption~\eqref{eq:lyapunov-condition}.
+	Hence we have that $\frac{1}{n} \sum_{i = 1}^n W_{in}  \mid \mathcal F_n \convpp 0$ which by Lemma \ref{lem:conditional-convergence-to-unconditional} implies $\frac{1}{n} \sum_{i=1}^n W_{in} \convp 0$.
+	
+	Next we show that $\frac{1}{n} \sum_{i=1}^n W^2_{in} - (\widehat S_{n}^{\dCRThat})^2 \convp 0$. We will use conditional WLLN with $\mathcal{F}_n = \sigma(\srx,\sry,\srz)$, observing that $\E\left[\frac{1}{n} \sum_{i=1}^n W^2_{in} \mid \mathcal{F}_n\right] = (\widehat S_{n}^{\dCRThat})^2 $. Next we verify the moment condition~\eqref{eq:wlln_cond_assumption}:
+	\begin{align}
+		\frac{1}{n^{1+\delta/2}} \sum_{i = 1}^n &\E[|W_{in}|^{2+\delta} \mid \mathcal{F}_n] \\&= \frac{1}{n^{1+\delta/2}} \sum_{i=1}^n |\sry_i-\widehat\mu_{n,y}(\srz_i)|^{2+\delta}\E\left[|\srxk_i-\widehat\mu_{n,x}(\srz_i)|^{2+\delta}\mid \srx,\srz\right] \convp 0,
+	\end{align} 
+	where the latter convergence is by the assumption~\eqref{eq:lyapunov-condition}.
+	Hence we have that $\frac{1}{n} \sum_{i = 1}^n W^2_{in} - (\widehat S_{n}^{\dCRThat})^2  \mid \mathcal F_n \convpp 0$ which by Lemma \ref{lem:conditional-convergence-to-unconditional} implies that $\frac{1}{n} \sum_{i=1}^n W^2_{in} - (\widehat S_{n}^{\dCRThat})^2 \convp 0$.
+	
+	Combining both of these results we find that 
+	\begin{equation*}
+		(\widehat S_{n}^{\GCM}(\srxk, \srx, \sry, \srz))^2 - (\widehat S_{n}^{\dCRThat}(\srx, \sry, \srz))^2 \convp 0. 
+	\end{equation*}
+	Now using the nondegeneracy condition~\eqref{eq:var-bounded-below} we can conclude that~\eqref{eq:var-ratio-ndcrt-dcrt} holds true, as desired.
+\end{proof}
+
 
 \subsection{Proofs of main results}
 
@@ -1266,7 +1520,7 @@ Then, $\phi_n^1$ is the $\MXtwohat$ $F$-test and $\phi_n^2$ is the GCM test. The
 
 We treat the two cases separately.
 
-\paragraph*{Case 1.}
+\paragraph*{Case 1}
 We have
 \begin{align*}
 &\frac{1}{n} \sum_{i = 1}^n ((\srx_i - \widehat \mu_{n,x}(\srz_i))^2 - \V_{\law_n}[\srx_i \mid \srz_i])\V_{\law_n}[\sry_i\mid\srz_i] \\
@@ -1276,7 +1530,7 @@ We have
 \end{align*}
 where the third line follows from the convergences~\eqref{eq:variance_convg_4} and~\eqref{eq:variance_convg_1} from Lemma \ref{lem:variance_convg}. This shows the variance consistency property~\eqref{eq:variance-consistency}.
 
-\paragraph*{Case 2.}
+\paragraph*{Case 2}
 We need to show that
 $$
 \frac{1}{n} \sum_{i=1}^n (f(\widehat \mu_{n,x}(Z_i))-f(\mu_{n,x}(\srx_i)))\V_{\law_n}[\sry_i\mid \srz_i] \convp 0.
@@ -1364,258 +1618,6 @@ The first factor converges to 1 in probability (Lemma~\ref{lem:var-ratio-ndcrt-d
  
 The proof of this corollary is directly analogous to that of Corollary~\ref{cor:dcrt-double-robustness}, so we omit it for the sake of brevity.
 
-\end{proof}
-
-
-\subsection{Auxiliary lemmas}
-
-\begin{lemma}[Conditional Jensen inequality, \cite{Davidson2003}, Theorem 10.18] \label{lem:conditional-jensen}
-Let $W$ be a random variable and let $\phi$ be a convex function, such that $W$ and $\phi(W)$ are integrable. For any $\sigma$-algebra $\mathcal F$, we have the inequality
-\begin{equation*}
-	\phi(\E[W \mid \mathcal F]) \leq  \E[\phi(W) \mid \mathcal F] \quad \text{almost surely}.
-\end{equation*}
-\end{lemma}
-
-\begin{lemma} \label{lem:conditional-convergence-to-unconditional}
-	Let $W_n$ be a sequence of random variables and $\mathcal F_n$ a sequence of $\sigma$-algebras. If $W_n \mid \mathcal F_n \convpp 0$, then $W_n \convp 0$. 
-\end{lemma}
-
-\begin{proof}
-	Let $\epsilon > 0$. Because of the assumed conditional convergence in probability, we have
-	\begin{equation*}
-	\P[|W_n| > \epsilon \mid \mathcal F_n] \convp 0.
-	\end{equation*}
-	By the bounded convergence theorem, it follows that
-	\begin{equation*}
-	\P[|W_n| > \epsilon] = \E[\P[|W_n| > \epsilon \mid \mathcal F_n]] \rightarrow 0,
-	\end{equation*}
-	from which the conclusion follows.
-\end{proof}
-
-\begin{lemma}
-	\label{lem:variance_convg}
-	Consider a sequence of laws $\law_n \in \nulllaws_n$. Given assumption~\eqref{eq:sp2}, we have
-	\begin{align}
-	\frac{1}{n} \sum_{i=1}^n \V_{\law_n}[\srx_i\mid \srz_i]\V_{\law_n}[\sry_i \mid \srz_i] -s^2_n &\convp 0; \label{eq:variance_convg_1} \\ 
-	\frac{1}{n}\sum_{i = 1}^n (\srx_i - \mu_{n,x}(\srz_i))^2\V_{\law_n}[\sry_i\mid\srz_i]-s^2_n &\convp 0; \label{eq:variance_convg_2} \\
-	\frac{1}{n}\sum_{i = 1}^n \V_{\law_n}[\srx_i\mid\srz_i](\sry_i - \mu_{n,y}(\srz_i))^2-s^2_n &\convp 0. \label{eq:variance_convg_3}
-	\end{align}
-	Given additionally assumption~\eqref{eq:sp1}, we also have
-	\begin{align}
-	\frac{1}{n} \sum_{i = 1}^n (\srx_i - \widehat \mu_{n,x}(\srz_i))^2\V_{\law_n}[\sry_i\mid\srz_i] - s^2_n &\convp 0; \label{eq:variance_convg_4} \\
-	\frac{1}{n}\sum_{i = 1}^n \V_{\law_n}[\srx_i\mid\srz_i](\sry_i - \widehat \mu_{n,y}(\srz_i))^2-s^2_n &\convp 0. \label{eq:variance_convg_5}
-	\end{align}
-	Given additionally the conditional Lyapunov condition~\eqref{eq:lyapunov-condition-2} and the variance consistency condition~\eqref{eq:variance-consistency}, we also have
-	\begin{align}
-	(S^{\dCRThat}_n)^2 - s_n^2 \equiv \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i\mid\srz_i](\sry_i - \mu_{n,y}(\srz_i))^2-s^2_n &\convp 0. \label{eq:variance_convg_6}
-	\end{align}
-	Given additionally the assumption $\widehat E'_{n,y} \convp 0$, we also have
-	\begin{align}
-		(\widehat S^{\dCRThat}_n)^2 - s_n^2 \equiv \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i\mid\srz_i](\sry_i - \widehat \mu_{n,y}(\srz_i))^2-s^2_n &\convp 0. \label{eq:variance_convg_7}
-	\end{align}
-
-\end{lemma}
-
-\begin{proof}
-
-	We prove the convergence statements in order.
-
-\paragraph*{Proofs of statements~\eqref{eq:variance_convg_1}, \eqref{eq:variance_convg_2}, \eqref{eq:variance_convg_3}.}
-
-These statements are consequences of the weak law of large numbers (Corollary~\ref{cor:wlln}). To verify the statement~\eqref{eq:variance_convg_1}, we note that
-\begin{equation*}
-	\E_{\law_n}[\V_{\law_n}[\srx_i\mid \srz_i]\V_{\law_n}[\sry_i \mid \srz_i]] = \E_{\law_n}[\V_{\law_n}[\prx\mid \prz]\V_{\law_n}[\pry \mid \prz]] \equiv s^2_n, 
-\end{equation*}
-and
-\begin{equation}
-	\begin{split}
-	&\sup_{i,n} \ \E_{\law_n}[|\V_{\law_n}[\srx_i\mid \srz_i]\V_{\law_n}[\sry_i \mid \srz_i]|^{1+\delta/2}] \\
-	&\quad= \sup_n\ \E_{\law_n}[|\V_{\law_n}[\prx\mid \prz]\V_{\law_n}[\pry \mid \prz]|^{1+\delta/2}] \\
-	&\quad\leq \sup_n\ \E_{\law_n}[\E_{\law_n}[|\prx - \mu_{n,x}(\prz)|^{2+\delta} \mid \prz]\E_{\law_n}[|\pry - \mu_{n,y}(\prz)|^{2+\delta} \mid \prz]] \\
-	&\quad= \sup_n\ \E_{\law_n}[|(\prx - \mu_{n,x}(\prz))(\pry - \mu_{n,y}(\prz))|^{2 + \delta}] \\
-	&\quad< c_2 < \infty.
-	\end{split}
-	\label{eq:variance-bound-derivation}
-\end{equation}
-The inequality in the third line follows from the conditional Jensen inequality (Lemma~\ref{lem:conditional-jensen}), the equality in the fourth line follows from the conditional independence assumption, and the inequality in the fifth line follows from the $2+\delta$ moment assumption~\eqref{eq:sp2}. Hence we have verified the sufficient condition~\eqref{eq:wlln_sufficient} for the WLLN, so the convergence~\eqref{eq:variance_convg_1} follows. Statements~\eqref{eq:variance_convg_2} and~\eqref{eq:variance_convg_3} can be verified with similar arguments.
-
-\paragraph*{Proofs of statements~\eqref{eq:variance_convg_4} and~\eqref{eq:variance_convg_5}.} 
-
-We prove only the first, as the second will follow by symmetry. Given the convergence~\eqref{eq:variance_convg_2}, the statement~\eqref{eq:variance_convg_4} will follow if we show that
-\begin{equation}
-	\begin{split}
-	&\frac{1}{n} \sum_{i = 1}^n (\srx_i - \widehat \mu_{n,x}(\srz_i))^2\V_{\law_n}[\sry_i\mid\srz_i] - \frac{1}{n} \sum_{i = 1}^n (\srx_i - \mu_{n,x}(\srz_i))^2\V_{\law_n}[\sry_i\mid\srz_i] \\
-	&\quad= \frac{1}{n} \sum_{i = 1}^n (\widehat \mu_{n,x}(\srz_i) - \mu_{n,x}(\srz_i))^2\V_{\law_n}[\sry_i\mid\srz_i] \\
-	&\quad \quad -\frac{2}{n}\sum_{i = 1}^n (\srx_i - \mu_{n,x}(\srz_i))(\widehat \mu_{n,x}(\srz_i) - \mu_{n,x}(\srz_i))\V_{\law_n}[\sry_i\mid\srz_i] \\
-	&\quad \equiv (E'_{n,x})^2 - \frac{2}{n}\sum_{i = 1}^n (\srx_i - \mu_{n,x}(\srz_i))(\widehat \mu_{n,x}(\srz_i) - \mu_{n,x}(\srz_i))\V_{\law_n}[\sry_i\mid\srz_i] \\
-	&\quad\convp 0.
-	\label{eq:sufficient-convergence}
-	\end{split}
-\end{equation}
-The convergence $E'_{n,x} \convp 0$ is assumed~\eqref{eq:sp1}. To verify the convergence of the second term, note first that conditional H\"older (Lemma~\ref{lem:cond_holder}) and the derivation~\eqref{eq:variance-bound-derivation} give
-\begin{equation}
-\sup_n\ s^2_n \leq \sup_n\ \{\E_{\law_n}[|\V_{\law_n}[\prx\mid \prz]\V_{\law_n}[\pry \mid \prz]|^{1+\delta/2}]\}^{2/(2+\delta)} < \infty,
-\end{equation}
-which combined with the convergence~\eqref{eq:variance_convg_2} implies that
-\begin{equation}
-	\frac{1}{n}\sum_{i = 1}^n (\srx_i - \mu_{n,x}(\srz_i))^2\V_{\law_n}[\sry_i\mid\srz_i] = O_p(1).
-\end{equation}
-Therefore, by the Cauchy-Schwartz inequality we find that 
-\begin{equation*}
-	\begin{split}
-		&\left(\frac{1}{n}\sum_{i = 1}^n (\srx_i - \mu_{n,x}(\srz_i))(\widehat \mu_{n,x}(\srz_i) - \mu_{n,x}(\srz_i))\V_{\law_n}[\sry_i\mid\srz_i]\right)^2 \\
-		&\quad\leq \left(\frac{1}{n}\sum_{i = 1}^n (\srx_i - \mu_{n,x}(\srz_i))^2 \V_{\law_n}[\sry_i\mid\srz_i]\right) \left(\frac{1}{n}\sum_{i = 1}^n (\widehat \mu_{n,x}(\srz_i) - \mu_{n,x}(\srz_i))^2\V_{\law_n}[\sry_i\mid\srz_i]\right) \\
-		&\quad\equiv \left(\frac{1}{n}\sum_{i = 1}^n (\srx_i - \mu_{n,x}(\srz_i))^2 \V_{\law_n}[\sry_i\mid\srz_i]\right) \cdot (E'_{n,x})^2 \\
-		&\quad= O_p(1) \cdot o_p(1) = o_p(1).
-	\end{split}
-\end{equation*}
-This proves the convergence~\eqref{eq:sufficient-convergence}, which in turn implies the claimed convergence~\eqref{eq:variance_convg_4}.
-
-\paragraph*{Proof of statement~\eqref{eq:variance_convg_6}.}
-
-Note that
-\begin{equation*}
-	\begin{split}
-		&\frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i\mid\srz_i](\sry_i - \mu_{n,y}(\srz_i))^2-s^2_n \\
-		&\quad= \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i\mid\srz_i](\sry_i - \mu_{n,y}(\srz_i))^2 - \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i\mid\srz_i]\V[\sry_i \mid \srz_i]  \\
-		&\quad \quad + \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i\mid\srz_i]\V[\sry_i \mid \srz_i] - \frac{1}{n}\sum_{i = 1}^n \V_{\law_n}[\srx_i\mid\srz_i]\V[\sry_i \mid \srz_i] \\
-		&\quad \quad + \frac{1}{n}\sum_{i = 1}^n \V_{\law_n}[\srx_i\mid\srz_i]\V[\sry_i \mid \srz_i] - s^2_n \\
-		&\quad = \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i\mid\srz_i](\sry_i - \mu_{n,y}(\srz_i))^2 - \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i\mid\srz_i]\V[\sry_i \mid \srz_i] + o_p(1),
-	\end{split}
-\end{equation*}
-where we used the variance consistency assumption~\eqref{eq:variance-consistency} and the convergence result~\eqref{eq:variance_convg_1} to obtain the last line. Hence, it suffices to show that
-\begin{equation}
-	\frac{1}{n}\sum_{i = 1}^n \left(\V_{\lawhat_n}[\srx_i\mid\srz_i](\sry_i - \mu_{n,y}(\srz_i))^2 - \V_{\lawhat_n}[\srx_i\mid\srz_i]\V[\sry_i \mid \srz_i]\right) \convp 0.
-	\label{eq:sufficient-convergence-2}
-\end{equation}
-To this end, we apply the conditional WLLN (Theorem~\ref{thm:wlln_cond}) with $\mathcal{F}_n = \sigma(X,Z)$ and
-	\begin{equation*}
-	W_{in} = \V_{\lawhat_n}[\srx_i\mid \srz_i](\sry_i-\mu_{n,y}(\srz_i))^2.
-	\end{equation*}
-	We check the required $1+\delta$ moment condition~\eqref{eq:wlln_cond_assumption}:
-	\begin{align*}
-		&\frac{1}{n^{1+\delta/2}} \sum_{i = 1}^n \E_{\law_n}[|W_{in}|^{1+\delta/2} \mid \mathcal{F}_n] \\
-		&\quad\equiv \frac{1}{n^{1+\delta/2}} \sum_{i = 1}^n \E_{\law_n}\left[\V_{\lawhat_n}[\srx_i\mid \srz_i]^{1+\delta/2} \cdot |\sry_i-\mu_{n,y}(\srz_i)|^{2+\delta}\mid \srx,\srz\right]\\
-		&\quad\leq \frac{1}{n^{1+\delta/2}} \sum_{i = 1}^n \E_{\law_n}\left[\E_{\lawhat_n}[|\srxk_i-\widehat{\mu}_{n,x}(Z_i)|^{2+\delta} \mid \srx, \srz] \cdot |\sry_i-\mu_{n,y}(Z_i)|^{2+\delta} \mid \srx,\srz\right]\\
-		&\quad= \frac{1}{n^{1+\delta/2}} \sum_{i = 1}^n \E_{\lawhat_n}[|\srxk_i-\widehat\mu_{n,x}(Z_i)|^{2+\delta}\mid \srx, \srz] \cdot \E_{\law_n}\left[|\sry_i-\mu_{n,y}(Z_i)|^{2+\delta} \mid Z_i\right]\\
-		&\quad\convp 0. 
-	\end{align*}
-	The inequality in the third line follows from the conditional Jensen inequality (Lemma~\ref{lem:conditional-jensen}), the equality in the fourth line from the assumed conditional independence, and the convergence in the fifth line from the conditional Lyaponov assumption~\eqref{eq:lyapunov-condition-2}. Therefore, the conditional WLLN gives
-	\begin{equation*}
-	\begin{split}
-	&\frac{1}{n} \sum_{i=1}^n \left(\V_{\lawhat_n}[\srx_i\mid \srz_i](\sry_i-\mu_{n,y}(\srz_i))^2- \V_{\lawhat_n}[\srx_i\mid \srz_i]\V_{\law_n}[\sry_i \mid \srz_i]\right) \\
-	&\quad = \frac{1}{n} \sum_{i=1}^n \left(\V_{\lawhat_n}[\srx_i\mid \srz_i](\sry_i-\mu_{n,y}(\srz_i))^2- \E_{\law_n}[\V_{\lawhat_n}[\srx_i\mid \srz_i](\sry_i-\mu_{n,y}(\srz_i))^2 | \srx, \srz]\right) \\
-	&\quad \convpp 0,
-	\end{split}
-	\end{equation*}
-	where the equality follows from the assumed conditional independence. Since conditional convergence in probability implies unconditional convergence in probability (Lemma~\ref{lem:conditional-convergence-to-unconditional}), this verifies the claimed convergence statement~\eqref{eq:sufficient-convergence-2} and completes the proof of the statement~\eqref{eq:variance_convg_6}.
-
-\paragraph*{Proof of statement~\eqref{eq:variance_convg_7}.} 
-
-Given the convergence~\eqref{eq:variance_convg_6}, it suffices to show that
-\begin{equation}
-\frac{1}{n}\sum_{i=1}^n \V_{\lawhat_n}[\srx_i\mid \srz_i](\sry_i-\widehat \mu_{n,y}(\srz_i))^2-\frac{1}{n}\sum_{i=1}^n \V_{\lawhat_n}[\srx_i\mid \srz_i](\sry_i-\mu_{n,y}(\srz_i))^2
-\convp 0
-\end{equation}
-Given the assumption that $\widehat E'_{n,y} \convp 0$, this statement's proof is analogous to that of statement~\eqref{eq:sufficient-convergence}, so we omit it for the sake of brevity. This completes the proof of the lemma.
-\end{proof}
-
-\begin{lemma}
-	\label{lem:cond-sample-variance-equivalence2}
-	Define
-	\begin{equation}
-	(S_n^{\dCRThat})^2 \equiv \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i|\srz_i](\sry_i - \mu_{n,y}(\srz_i))^2.		
-	\end{equation}
-	Under the assumptions of Theorem~\ref{thm:equivalence}, we have
-	\begin{equation}
-	\frac{(S^{\dCRThat}_n)^2}{(\widehat S^{\dCRThat}_n)^2}  \convp 1
-	\label{eq:dcrt-var-equivalence}
-	\end{equation}
-	and
-	\begin{equation}
-	\P[(S^{\dCRThat}_n)^2 > \epsilon] \rightarrow 1 \quad \text{for some } \epsilon > 0.
-	\label{eq:bounded-away-from-zero}
-	\end{equation}
-\end{lemma}
-
-\begin{proof}
-The equivalence of variances~\eqref{eq:dcrt-var-equivalence} follows from the convergences~\eqref{eq:variance_convg_6} and~\eqref{eq:variance_convg_7} (Lemma~\ref{lem:variance_convg}), as well as the observation that conditional independence and the assumption~\eqref{eq:sp2} imply 
-\begin{equation}
-	\inf_n s^2_n = \inf_{n}\ \E_{\law_n}[(\prx - \mu_{n,x}(\prz))^2(\pry - \mu_{n,y}(\prz))^2] > 0.
-\end{equation}
-The stochastic boundedness from below~\eqref{eq:bounded-away-from-zero} follows from the latter fact and the convergence~\eqref{eq:variance_convg_6}.
-\end{proof}
-
-
-% \begin{lemma}
-% 	\label{lem:helper-doubly robust}
-% 	$A_n$,$B_n$, $U_n$ and $V_n$ are non-negative random variables such that $\forall\, \delta >0$ we have $\P(A_n - B_n \geq -\delta) \to 1$ and 
-% 	\begin{gather}
-% 	A_n - U_n \convp 0\\
-% 	B_n - V_n \convp 0\\
-% 	V_n - \sigma_n^2 \convp 0\\
-% 	c_1<\sigma_n^2	
-% 	\end{gather}
-% for some constants $c_1$ and $c_2$.
-% 	then
-% 	\begin{gather}
-% 	\P\left(U_n - V_n \geq -\delta\right) \to 1\\	
-% 	\min\left(\frac{U_n}{V_n},1\right) \convp 1
-% 	\end{gather}
-% \end{lemma}
-% \begin{proof}
-% 	Fix $\delta>0$
-% 	\begin{align}
-% 		\P\left(U_n - V_n \leq -\delta\right) &\leq \P\left(U_n - V_n \leq -\delta, |U_n - A_n| \leq \delta/4, |V_n - B_n| \leq \delta/4\right)\\ &+ \P(|U_n - A_n| \geq \delta/4) + \P(|V_n - B_n| \leq \delta/4) \\
-% 		&\leq \P(A_n - B_n \leq - \delta/2) + o(1)\\
-% 		&= o(1).   
-% 	\end{align}
-% Next we look at
-% \begin{align}
-% 	\P\left[\min\left(\frac{U_n}{V_n},1\right) \notin (1-\delta,1+\delta)\right] &= \P\left[\frac{U_n}{V_n} \leq 1-\delta\right]\\
-% 	&=\P(U_n - V_n \leq -\delta V_n)\\
-% 	&\leq \P(U_n - V_n \leq -\delta V_n, |V_n - \sigma_n^2| \leq c_1/2)\\ &+ \P(|V_n - \sigma_n^2| > c_1/2 )\\
-% 	&\leq \P(U_n - V_n \leq -\delta c_1/2) + o(1)\\
-% 	&= o(1)
-% \end{align}
-% which gives us the desired result.
-% \end{proof}
-
-\begin{lemma} \label{lem:var-ratio-ndcrt-dcrt}
-If the nondegeneracy conditions~\eqref{eq:var-bounded-below} and~\eqref{eq:variance-bounds} and the conditional Lyapunov condition~\eqref{eq:lyapunov-condition} hold, then the variance estimates $(\widehat S_n^{\GCM})^2$ and $(\widehat S_n^{\dCRThat})^2$ are equivalent under resampling:
-\begin{equation}
-\frac{(\widehat S_n^{\dCRThat}(\srx, \sry, \srz))^2}{(\widehat S_{n}^{\GCM}(\srxk, \srx, \sry, \srz))^2} \convp 1.
-\label{eq:var-ratio-ndcrt-dcrt}
-\end{equation}
-\end{lemma}
-\begin{proof}
-Define 
-\begin{equation*}
-W_{in}  \equiv  (\srxk_i - \widehat \mu_{n,x}(\srz_i))(\sry_i - \widehat \mu_{n,y}(\srz_i)),
-\end{equation*}
-so that 
-\begin{equation*}
-(\widehat S_{n}^{\GCM}(\srxk, \srx, \sry, \srz))^2 \equiv \frac{1}{n} \sum_{i=1}^n W_{in}^2 - \left(\frac{1}{n} \sum_{i=1}^n W_{in}\right)^2.
-\end{equation*} 
-First we claim that $\frac{1}{n}\sum_{i = 1}^n W_{in} \convp 0$.  We will use conditional WLLN (Theorem~\ref{thm:wlln_cond}) with $\mathcal{F}_n \equiv \sigma(\srx,\sry,\srz)$. First note that $\E[W_{in} \mid \mathcal{F}_n] = 0$ by construction. We also check the moment condition~\eqref{eq:wlln_cond_assumption}:
-\begin{align*}
-	\frac{1}{n^{2+\delta}} \sum_{i = 1}^n &\E[|W_{in}|^{2+\delta} \mid \mathcal{F}_n] \\&= \frac{1}{n^{1+\delta/2}}\frac{1}{n^{1+\delta/2}} \sum_{i=1}^n |\sry_i-\widehat\mu_{n,y}(\srz_i)|^{2+\delta}\E\left[|\srxk_i-\widehat\mu_{n,x}(\srz_i)|^{2+\delta}\mid \srx,\srz\right] \convp 0,
-\end{align*} 
-where the latter convergence is by the assumption~\eqref{eq:lyapunov-condition}.
-Hence we have that $\frac{1}{n} \sum_{i = 1}^n W_{in}  \mid \mathcal F_n \convpp 0$ which by Lemma \ref{lem:conditional-convergence-to-unconditional} implies $\frac{1}{n} \sum_{i=1}^n W_{in} \convp 0$.
-
-Next we show that $\frac{1}{n} \sum_{i=1}^n W^2_{in} - (\widehat S_{n}^{\dCRThat})^2 \convp 0$. We will use conditional WLLN with $\mathcal{F}_n = \sigma(\srx,\sry,\srz)$, observing that $\E\left[\frac{1}{n} \sum_{i=1}^n W^2_{in} \mid \mathcal{F}_n\right] = (\widehat S_{n}^{\dCRThat})^2 $. Next we verify the moment condition~\eqref{eq:wlln_cond_assumption}:
-\begin{align}
-	\frac{1}{n^{1+\delta/2}} \sum_{i = 1}^n &\E[|W_{in}|^{2+\delta} \mid \mathcal{F}_n] \\&= \frac{1}{n^{1+\delta/2}} \sum_{i=1}^n |\sry_i-\widehat\mu_{n,y}(\srz_i)|^{2+\delta}\E\left[|\srxk_i-\widehat\mu_{n,x}(\srz_i)|^{2+\delta}\mid \srx,\srz\right] \convp 0,
-\end{align} 
-where the latter convergence is by the assumption~\eqref{eq:lyapunov-condition}.
-Hence we have that $\frac{1}{n} \sum_{i = 1}^n W^2_{in} - (\widehat S_{n}^{\dCRThat})^2  \mid \mathcal F_n \convpp 0$ which by Lemma \ref{lem:conditional-convergence-to-unconditional} implies that $\frac{1}{n} \sum_{i=1}^n W^2_{in} - (\widehat S_{n}^{\dCRThat})^2 \convp 0$.
-
-Combining both of these results we find that 
-\begin{equation*}
-(\widehat S_{n}^{\GCM}(\srxk, \srx, \sry, \srz))^2 - (\widehat S_{n}^{\dCRThat}(\srx, \sry, \srz))^2 \convp 0. 
-\end{equation*}
-Now using the nondegeneracy condition~\eqref{eq:var-bounded-below} we can conclude that~\eqref{eq:var-ratio-ndcrt-dcrt} holds true, as desired.
 \end{proof}
 
 \section{Proofs for Section~\ref{sec:optimality}} \label{sec:optimality-proofs}
@@ -1741,7 +1743,7 @@ This shows that $\phi_n^{\GCM}$ is LAUMP($g_0$) and verifies the claimed asympto
 
 It suffices to verify each of the four assumptions of Theorem~\ref{thm:optimality}.
 
-\paragraph*{Verification of assumption~\eqref{eq:sp-assumptions}.}
+\paragraph*{Verification of assumption~\eqref{eq:sp-assumptions}}
 
 Note that assumption~\eqref{eq:sp2} is satisfied because by construction, $\prx - \mu_{x}(\prz)$ and $\pry - \mu_y(\prz)$ are independent standard normal random variables for any $\law \in \regclass$. Next, let 
 \begin{align}\label{eq:eigen_decomp}
@@ -1755,7 +1757,7 @@ be an eigendecomposition of the Sobolev kernel $k$ with eigenfunctions $e_{j}$ o
 \end{align*}
 The first two of these statements follow directly from the construction of $\regclass$. The third follows from the eigendecomposition of the Sobolev kernel under the uniform measure on $[0,1]$ \citep[Example 12.23]{Wainwright2019} with $\lambda_j = (\frac{2}{(2j-1)\pi})^2$.
 
-\paragraph*{Verification of assumption~\eqref{eq:moment-assumptions}.}
+\paragraph*{Verification of assumption~\eqref{eq:moment-assumptions}}
 
 Since we are using the normal exponential family, we have $\ddot \psi = 1$. Furthermore, 
 \begin{equation}
@@ -1763,15 +1765,15 @@ Since we are using the normal exponential family, we have $\ddot \psi = 1$. Furt
 \end{equation}
 since $\mu_{0x} \in W^{(1,2)}([0,1]) \subseteq L^2([0,1])$.
 
-\paragraph*{Verification of assumption~\eqref{eq:conditional-expectation}.}
+\paragraph*{Verification of assumption~\eqref{eq:conditional-expectation}}
 
 By construction, $\E_{\law_{x,z}}[\prx |\ \cdot\ ] = \mu_{0x} \in W^{1,2}([0,1])$.
 
-\paragraph*{Verification of assumption~\eqref{eq:interior-point}.} This assumption is a consequence of the openness of the ball $B_{W^{1,2}}(0, C)$ in $W^2([0,1])$.
+\paragraph*{Verification of assumption~\eqref{eq:interior-point}} This assumption is a consequence of the openness of the ball $B_{W^{1,2}}(0, C)$ in $W^2([0,1])$.
 
 \subsection{Proof of Lemma~\ref{lem:semiparametric-results}} \label{sec:proof-of-lemma-9}
 
-\paragraph*{Differentiability of parametric submodels.}
+\paragraph*{Differentiability of parametric submodels}
 
 Consider the parametric submodel $t \mapsto \law_{(th_\beta, g_0 + th_g)}$ for some $(h_\beta, h_g) \in \R \times \H_g$, and denote 
 \begin{equation*}
@@ -1827,11 +1829,11 @@ S(\prx, \pry, \prz) &= \left.\frac{\partial}{\partial t}(\pry \eta_t(\prx, \prz)
 \end{align*}
 as claimed~\eqref{eq:gcm-score}.
 
-\paragraph*{Local asymptotic normality of parametric submodels.}
+\paragraph*{Local asymptotic normality of parametric submodels}
 
 The local asymptotic normality of parametric submodels~\eqref{eq:LAN} follows from the previously established quadratic mean differentiability \citep[Theorem 7.2]{VDV1998}.
 
-\paragraph*{Efficient score and information.}
+\paragraph*{Efficient score and information}
 
 For $(h_\beta, h_g) \in \R \times \H_g$, define the score operator
 \begin{equation}
@@ -1925,7 +1927,7 @@ as claimed~\eqref{eq:GCM-efficient-score}. From there we find that the efficient
 \end{equation}
 also as claimed~\eqref{eq:GCM-efficient-info}.
 
-\paragraph*{Differentiability of $\beta$ and efficient influence function.}
+\paragraph*{Differentiability of $\beta$ and efficient influence function}
 
 By \citet[Lemma 25.25]{VDV1998}, the differentiability of $\beta$ at $\law_{\theta_0}$ with respect to the tangent set $\dot \law_{\theta_0}$ follows from the quadratic mean differentiability proved above and the assumption that $\widetilde I_{\theta_0} = s^2(\theta_0) > 0$~\eqref{eq:nonsingular-fisher-info}. The same lemma gives the efficient influence function as the ratio of the efficient score and the efficient information. This completes the proof.
 
@@ -1937,13 +1939,13 @@ In this section, we present details about existing robustness simulation setups 
 
 Here we provide details about the simulation setups considered in \cite{CetL16, Liu2022a, Li2022}.
 
-\paragraph*{\citet{Liu2022a}.}
+\paragraph*{\citet{Liu2022a}}
 In this paper, the authors consider the double high-dimensional linear model. Suppose $\{Z_i,Y_i\}_{i=1}^{n}$ is $n=800$ iid data and $Z_i\sim N(\bm{0},\bm{\Sigma}_{p})$ where $p=800$ and $\bm{\Sigma}_p$ is chosen to be AR(1) and the autocorrelation is set to be $0.5$. Then they consider $Y_i=Z_i^{\top}\beta+\epsilon$ where $\beta$ is vector of dimension $p$ and only $s=50$ is set to be nonzero with magnitude $\nu=0.175$ and random sign. They consider two ways to set the nonzero components of $\beta$: spacing these non-zero coefficients equally or choosing them to be the first 50 coefficients of $\beta$. The authors consider, rather than testing conditional independence, the false discovery rate (FDR) of variable selection.
 
-\paragraph*{\citet{CetL16}.}
+\paragraph*{\citet{CetL16}}
 In this paper, the authors consider a bit different setting where $Y|Z$ is now a high-dimensional logistic model. The sample size $n=800$ and $Z_i\sim N(\bm{0},\bm{\Sigma}_{p})$ where $p=1500$ and $\bm{\Sigma}_p$ is chosen to be AR(1) and the autocorrelation is set to be $0.3$. After the sampling, the design matrix is centered and every column is normalized to have norm 1. Similarly, only $s=50$ coordinates of $\beta$ are set to be nonzero and the sign is random whereas the magnitude is set to be $\nu=20$. They set a randomly-chosen set of $s=50$ coefficients of $\beta$ to be nonzero and consider again the FDR control.
 
-\paragraph*{\citet{Li2022}.}
+\paragraph*{\citet{Li2022}}
 In this paper, a similar setting is considered while $Z$ is a data matrix with row $n=250$ and column $p=500$ where each row is sampled from $N(0,\bm{\Sigma}_p)$ and $\bm{\Sigma}_p$ is an AR(1) matrix with autocorrelation $0.5$. However, a crucial difference in this paper is the way to set $\E(X|Z)$ and $\E(Y|Z)$. As for $X$, it is generated by a linear predictor $X=Z\gamma+\epsilon$ where $\gamma$ is a $p$ dimensional vector with first $s=5$ is nonzero and the other coordinate remains zero and $\epsilon$ follows the standard normal distribution. The sign of each coordinate is randomly chosen and the magnitude is set to be $\nu=0.3$. As for $Y$, we set $\beta=\gamma$ and $Y=Z\beta+\xi$ where $\xi$ follows standard normal distribution such that $\xi$ is independent of $\epsilon$. We can see that $X$ and $Y$ support on the same subset of $Z$ so that the marginal association between $\prx$ and $\pry$ is much larger than that in first two simulation designs.
 
 \subsection{Comparing the lasso and post-lasso estimation methods} \label{sec:lasso-vs-plasso}

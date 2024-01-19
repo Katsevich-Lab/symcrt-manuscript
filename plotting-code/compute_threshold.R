@@ -73,10 +73,9 @@ for (k in 1:nrow(p_grid)) {
   }
   
   # add an extra line to adaptive_threshold[[k]]
-  adaptive_threshold[[k]][nrow(adaptive_threshold[[k]])+1, 1] = "GCM"
-  adaptive_threshold[[k]][nrow(adaptive_threshold[[k]]), 2] = as.character("oracle")
-  adaptive_threshold[[k]][nrow(adaptive_threshold[[k]]), 3] = qnorm(0.025)
-  adaptive_threshold[[k]][nrow(adaptive_threshold[[k]]), 4] = qnorm(0.975)
+  oracle_index <- which(adaptive_threshold[[k]]$reg_method == "oracle")
+  adaptive_threshold[[k]][oracle_index, 3] = qnorm(0.025)
+  adaptive_threshold[[k]][oracle_index, 4] = qnorm(0.975)
   
   # add a new column indexing the grid id
   adaptive_threshold[[k]]$grid_id <- k

@@ -13,6 +13,9 @@ way_to_learn_list <- c("supervised", "semi_supervised")
 setting <- "null"
 source("simulation-code/sim_versions/sim_benchmarking.R")
 
+max_se <- matrix(0, 
+                 nrow = length(distribution_list), 
+                 ncol = length(way_to_learn_list))
 for (q in 1:length(distribution_list)) {
   for (p in 1:length(way_to_learn_list)) {
     # extract the distribution and way_to_learn
@@ -65,7 +68,7 @@ for (q in 1:length(distribution_list)) {
           normalization = test_hyperparams$normalize
         ) |>
         dplyr::select(method, infer_method, reg_method, X_on_Z_reg, Y_on_Z_reg, normalization) |>
-        mutate(reg_method = ifelse(reg_method == "naive", "marginal", reg_method))
+        mutate(reg_method = ifelse(reg_method == "naive", "intercept-only", reg_method))
       
       # extract the parameter_grid from the specifier object
       simspec_dir <- sprintf(
@@ -129,6 +132,7 @@ for (q in 1:length(distribution_list)) {
       result <- list()
       varying_values <- colnames(p_grid)[1:4]
       type_I_err <- list()
+      max_se_setup <- numeric(length(varying_values))
       for (k in 1:length(varying_values)) {
         # find the varying index
         name <- varying_values[k]
@@ -176,8 +180,11 @@ for (q in 1:length(distribution_list)) {
         
         # store the type_I_error
         type_I_err[[k]] <- type_I_error
+        
+        # store the type_I_err_se
+        max_se_setup[k] <- max(type_I_error$type_I_err_se)
       }
-      
+      max_se[q, p] <- max(max_se_setup)
       
       # create ggplot object
       p1 =  type_I_err[[1]] |>
@@ -286,7 +293,7 @@ for (q in 1:length(distribution_list)) {
       # get legend
       auxiliary_1 <- type_I_err[[4]] |>
         dplyr::mutate(variable_setting = factor(variable_setting, levels=c("rho = 0","rho = 0.2","rho = 0.4","rho = 0.6","rho = 0.8"))) |>
-        dplyr::filter(reg_method != "marginal") |>
+        dplyr::filter(reg_method != "intercept-only") |>
         ggplot(aes(x = nu_scale, 
                           y = type_I_err,
                           colour = infer_reg,
@@ -306,7 +313,7 @@ for (q in 1:length(distribution_list)) {
       
       auxiliary_2 <- type_I_err[[4]] |>
         dplyr::mutate(variable_setting = factor(variable_setting, levels=c("rho = 0","rho = 0.2","rho = 0.4","rho = 0.6","rho = 0.8"))) |>
-        dplyr::filter(reg_method == "marginal") |>
+        dplyr::filter(reg_method == "intercept-only") |>
         ggplot(aes(x = nu_scale, 
                           y = type_I_err,
                           colour = infer_reg,
@@ -351,3 +358,6 @@ for (q in 1:length(distribution_list)) {
     }
   }
 }
+
+# print the maximum standard error
+print(max(as.vector(max_se)))

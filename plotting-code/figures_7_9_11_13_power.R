@@ -12,6 +12,9 @@ way_to_learn_list <- c("supervised", "semi_supervised")
 setting <- "alternative"
 source("simulation-code/sim_versions/sim_benchmarking.R")
 
+max_se <- matrix(0, 
+                 nrow = length(distribution_list), 
+                 ncol = length(way_to_learn_list))
 for (q in 1:length(distribution_list)) {
   for (p in 1:length(way_to_learn_list)) {
     # extract the distribution and way_to_learn
@@ -98,6 +101,7 @@ for (q in 1:length(distribution_list)) {
       result <- list()
       varying_values <- colnames(p_grid)[1:4]
       rejection <- list()
+      max_se <- numeric(length(varying_values))
       for (k in 1:length(varying_values)) {
         # find the varying index
         name <- varying_values[k]
@@ -129,6 +133,7 @@ for (q in 1:length(distribution_list)) {
           summarise(
             rejection_rate = mean(value < cutoff_lower, na.rm = TRUE) + 
               mean(value > cutoff_upper, na.rm = TRUE),
+            rejection_rate_se = sd(value < cutoff_lower | value > cutoff_upper, na.rm = TRUE) / sqrt(n()),
             .groups = "drop"
           ) |>
           dplyr::left_join(variable_parameters[(5*(k-1)+1):(5*k),], by = name) |>
@@ -143,6 +148,9 @@ for (q in 1:length(distribution_list)) {
         
         # store the rejection rate
         rejection[[k]] <- rejection_rate
+        
+        # store the rejection rate se
+        max_se[k] <- max(rejection_rate$rejection_rate_se)
       }
       
       # creat ggplot object
@@ -319,3 +327,5 @@ for (q in 1:length(distribution_list)) {
   }
 }
 
+# print the maximum standard error
+print(max(as.vector(max_se)))

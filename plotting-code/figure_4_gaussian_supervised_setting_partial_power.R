@@ -95,6 +95,7 @@ if(file.exists(figure_path)){
   result <- list()
   varying_values <- colnames(p_grid)[1:4]
   rejection <- list()
+  max_se <- numeric(length(varying_values))
   for (k in 1:length(varying_values)) {
     # find the varying index
     name <- varying_values[k]
@@ -126,6 +127,7 @@ if(file.exists(figure_path)){
       summarise(
         rejection_rate = mean(value < cutoff_lower, na.rm = TRUE) + 
           mean(value > cutoff_upper, na.rm = TRUE),
+        rejection_rate_se = sd(value < cutoff_lower | value > cutoff_upper, na.rm = TRUE) / sqrt(n()),
         .groups = "drop"
       ) |>
       dplyr::left_join(variable_parameters[(5*(k-1)+1):(5*k),], by = name) |>
@@ -150,6 +152,9 @@ if(file.exists(figure_path)){
     
     # store the rejection rate
     rejection[[k]] <- rejection_rate
+    
+    # store the rejection rate se
+    max_se[k] <- max(rejection_rate$rejection_rate_se)
   }
   
   
@@ -320,3 +325,6 @@ if(file.exists(figure_path)){
          width = TEXTWIDTH, 
          height = 0.6*TEXTHEIGHT)
 }
+
+# print the maximum standard error
+print(max(max_se))
