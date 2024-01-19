@@ -147,6 +147,12 @@
     Model-X approaches to testing conditional independence between a predictor and an outcome variable given a vector of covariates usually assume exact knowledge of the conditional distribution of the predictor given the covariates. Nevertheless, model-X methodologies are often deployed with this conditional distribution learned in sample. We investigate the consequences of this choice through the lens of the distilled conditional randomization test (dCRT). We find that Type-I error control is still possible, but only if the mean of the outcome variable given the covariates is estimated well enough. This demonstrates that the dCRT is doubly robust, and motivates a comparison to the generalized covariance measure (GCM) test, another doubly robust conditional independence test. We prove that these two tests are asymptotically equivalent, and show that the GCM test is optimal against (generalized) partially linear alternatives by leveraging semiparametric efficiency theory. In an extensive simulation study, we compare the dCRT to the GCM test. These two tests have broadly similar Type-I error and power, though dCRT can have somewhat better Type-I error control but somewhat worse power in small samples or when the response is discrete. We also find that post-lasso based test statistics (as compared to lasso based statistics) can dramatically improve Type-I error control for both methods.
 \end{abstract}
 
+\begin{keyword}[class=MSC]
+	\kwd[Primary ]{62J07}
+	\kwd{62G10}
+	\kwd{62G09}
+\end{keyword}
+
 \begin{keyword}
 \kwd{Model-X}
 \kwd{Conditional randomization test}
@@ -690,7 +696,7 @@ For the data-generating models used by \citet{CetL16, Liu2022a}, we evaluate the
 \end{equation}
 We set the first $s$ coefficients of $\beta$ to be equal to $\nu$ and the rest to zero. Therefore, the entire data-generating process is parameterized by the six parameters $(n, p, s, \rho, \theta, \nu)$ (Table~\ref{tab:parameter-values}). For both null and alternative simulations, we vary each of the first four across five values each, setting the remaining three to the default value indicated in bold. The fifth parameter $\theta$ controls the signal strength and the sixth parameter $\nu$ controls the extent of marginal association between $\prx$ and $\pry$. For the null simulation, we set $\theta \equiv 0$, and for each setting of $(n, p, s, \rho)$, we choose five values of $\nu$ equally spaced between 0 (no marginal association) and $\nu_{\max}$ (computed so that the marginal GCM method has Type-I error 0.99). Note that $\nu_{\max}$ depends on the parameters $(n, p, s, \rho)$, so not exactly the same values of $\nu$ were used across settings of these four parameters. For the alternative simulation, we kept $\nu$ fixed at $\nu_{\max}/2$ while for each setting of $(n, p, s, \rho)$, we choose five values of $\theta$ equally spaced between 0 (no signal) and $\theta_{\max}$ (computed so that the GCM method with oracle settings of $\widehat \mu_{n,x}$ and $\widehat \mu_{n,y}$ has power 0.99). Finally, we complement the linear regression data-generating model~\eqref{eq:normal-dgm} with an analogous one based on logistic regression.
 
-\begin{table}[!ht]
+\begin{table}
     \centering
     \begin{tabular}{ llll }
         $n$ & $p$ & $s$ & $\rho$ \\ 
@@ -735,7 +741,7 @@ Since the primary focus of this paper is the setting when no auxiliary unlabeled
 
 Finally, we noted in Section~\ref{sec:dr-and-equivalence} that the $\dCRThat$ already has a built-in doubly robust property. Therefore, we conjectured that the Type-I error inflation observed in the simulations of \citet{Li2022} is attributable to poor estimation of $\mu_n(\prx|\prz)$ and/or $\mu_n(\pry|\prz)$ and that the $\dCRThat$ can achieve Type-I error control if used in conjunction with better estimators of these conditional means. Taking inspiration from \citet{Li2022}, we also considered versions of the $\dCRThat$ and the GCM test based on the post-lasso in addition to those based on the usual lasso. In summary, we compared five methods: lasso and post-lasso based GCM, lasso and post-lasso based $\dCRThat$, and Maxway CRT (Table~\ref{tab:methods-compared}). As a point of reference for the null simulation, we also included the GCM test with intercept-only models for $\mu_{n,x}$ and $\mu_{n,y}$; the Type-I error of this test quantifies the degree of marginal association in the data-generating model (Section~\ref{sec:sim-revisiting}). As a point of reference for the alternative simulation, we also included the GCM test with $\mu_{n,x}$ and $\mu_{n,y}$ set to their ground truth values; the power of this test is the maximum power achievable by any test and therefore quantifies the signal strength in the data-generating model.
 
-\begin{table}[!ht]
+\begin{table}
     \centering
     \begin{tabular}{ lllll }
         Method name & Estimating $\mu_{n,x}$ & Data for $\widehat \mu_{n,x}$ & Estimating $\mu_{n,y}$ & Data for $\widehat \mu_{n,y}$\\ 
@@ -1617,7 +1623,7 @@ This result is like \citet[Theorem 1]{Choi1996}, except it explicitly deals with
 
 To apply the semiparametric theory from the previous section, the following lemma (proved in Section~\ref{sec:proof-of-lemma-9}) identifies the tangent space, the efficient score, and the efficient information at $\law_{\theta_0}$. These results are not novel or surprising; similar results are stated, for example, by \citet{Robins2001} in the cases of linear, logistic, and Poisson regressions. Nevertheless, we state and prove Lemma~\ref{lem:semiparametric-results} for a self-contained exposition and for precisely tracking the technical assumptions used. 
 
-\begin{lemma} \label{lem:semiparametric-results} \hyperref[sec:proof-of-lemma-9]{\textnormal{[Proof]}}
+\begin{lemma} \label{lem:semiparametric-results}
 In the context of the semiparametric model \eqref{eq:alternatives-1}, suppose the following assumptions hold:
 \begin{align}
 	s^2(\theta_0) \equiv \E_{\law_{\theta_0}}[\V_{\law_{\theta_0}}[\prx|\prz]\V_{\law_{\theta_0}}[\pry|\prz]] > 0; \label{eq:nonsingular-fisher-info} \\
@@ -1890,13 +1896,13 @@ In this section, we present details about existing robustness simulation setups 
 
 Here we provide details about the simulation setups considered in \cite{CetL16, Liu2022a, Li2022}.
 
-\paragraph*{\citet{Liu2022a}.}
+\paragraph*{\citet{Liu2022a}}
 In this paper, the authors consider the double high-dimensional linear model. Suppose $\{Z_i,Y_i\}_{i=1}^{n}$ is $n=800$ iid data and $Z_i\sim N(\bm{0},\bm{\Sigma}_{p})$ where $p=800$ and $\bm{\Sigma}_p$ is chosen to be AR(1) and the autocorrelation is set to be $0.5$. Then they consider $Y_i=Z_i^{\top}\beta+\epsilon$ where $\beta$ is vector of dimension $p$ and only $s=50$ is set to be nonzero with magnitude $\nu=0.175$ and random sign. They consider two ways to set the nonzero components of $\beta$: spacing these non-zero coefficients equally or choosing them to be the first 50 coefficients of $\beta$. The authors consider, rather than testing conditional independence, the false discovery rate (FDR) of variable selection.
 
-\paragraph*{\citet{CetL16}.}
+\paragraph*{\citet{CetL16}}
 In this paper, the authors consider a bit different setting where $Y|Z$ is now a high-dimensional logistic model. The sample size $n=800$ and $Z_i\sim N(\bm{0},\bm{\Sigma}_{p})$ where $p=1500$ and $\bm{\Sigma}_p$ is chosen to be AR(1) and the autocorrelation is set to be $0.3$. After the sampling, the design matrix is centered and every column is normalized to have norm 1. Similarly, only $s=50$ coordinates of $\beta$ are set to be nonzero and the sign is random whereas the magnitude is set to be $\nu=20$. They set a randomly-chosen set of $s=50$ coefficients of $\beta$ to be nonzero and consider again the FDR control.
 
-\paragraph*{\citet{Li2022}.}
+\paragraph*{\citet{Li2022}}
 In this paper, a similar setting is considered while $Z$ is a data matrix with row $n=250$ and column $p=500$ where each row is sampled from $N(0,\bm{\Sigma}_p)$ and $\bm{\Sigma}_p$ is an AR(1) matrix with autocorrelation $0.5$. However, a crucial difference in this paper is the way to set $\E(X|Z)$ and $\E(Y|Z)$. As for $X$, it is generated by a linear predictor $X=Z\gamma+\epsilon$ where $\gamma$ is a $p$ dimensional vector with first $s=5$ is nonzero and the other coordinate remains zero and $\epsilon$ follows the standard normal distribution. The sign of each coordinate is randomly chosen and the magnitude is set to be $\nu=0.3$. As for $Y$, we set $\beta=\gamma$ and $Y=Z\beta+\xi$ where $\xi$ follows standard normal distribution such that $\xi$ is independent of $\epsilon$. We can see that $X$ and $Y$ support on the same subset of $Z$ so that the marginal association between $\prx$ and $\pry$ is much larger than that in first two simulation designs.
 
 \subsection{Comparing the lasso and post-lasso estimation methods} \label{sec:lasso-vs-plasso}
