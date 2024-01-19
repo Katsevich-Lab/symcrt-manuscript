@@ -154,6 +154,12 @@
     Model-X approaches to testing conditional independence between a predictor and an outcome variable given a vector of covariates usually assume exact knowledge of the conditional distribution of the predictor given the covariates. Nevertheless, model-X methodologies are often deployed with this conditional distribution learned in sample. We investigate the consequences of this choice through the lens of the distilled conditional randomization test (dCRT). We find that Type-I error control is still possible, but only if the mean of the outcome variable given the covariates is estimated well enough. This demonstrates that the dCRT is doubly robust, and motivates a comparison to the generalized covariance measure (GCM) test, another doubly robust conditional independence test. We prove that these two tests are asymptotically equivalent, and show that the GCM test is optimal against (generalized) partially linear alternatives by leveraging semiparametric efficiency theory. In an extensive simulation study, we compare the dCRT to the GCM test. These two tests have broadly similar Type-I error and power, though dCRT can have somewhat better Type-I error control but somewhat worse power in small samples or when the response is discrete. We also find that post-lasso based test statistics (as compared to lasso based statistics) can dramatically improve Type-I error control for both methods.
 \end{abstract}
 
+\begin{keyword}[class=MSC]
+	\kwd[Primary ]{62J07}
+	\kwd{62G10}
+	\kwd{62G09}
+\end{keyword}
+
 \begin{keyword}
 \kwd{Model-X}
 \kwd{Conditional randomization test}
@@ -1191,14 +1197,6 @@ We claim that $J_n \convp 0$. Indeed, from $\E[J_n \mid \srx,\sry,\srz] = 0$ and
 \begin{equation*}
 \E[J_n^2 \mid \srx,\sry,\srz] = \V[J_n \mid \srx,\sry,\srz] \equiv (\widehat E'_{n,y})^2 \convp 0. 
 \end{equation*}
-\nav{ 
-The following lemma which which appears as Lemma \ref{lem:conditional-expectation-to-unconditional} is particularly useful now:
-\begin{lemma}
-	%\label{lem:conditional-expectation-to-unconditional}
-	Let $W_n$ be a sequence of nonnegative random variables and let $\mathcal F_n$ be a sequence of $\sigma$-algebras. If $\E[W_n \mid \mathcal{F}_n]\convp 0$, then $ W_n \convp 0$.
-\end{lemma}
-}
-
 Hence by Lemma \ref{lem:conditional-expectation-to-unconditional} we have $J_n^2 \convp 0$, so that $J_n \convp 0$, as claimed. Next, we claim that an appropriately rescaled $I_n$ converges conditionally to $N(0,1)$. To this end, we apply the conditional CLT (Theorem~\ref{thm:conditional-clt}) with
  \begin{equation}
  	W_{in} \equiv \frac{1}{\sqrt{n}}(\srxk_i - \widehat \mu_{n,x}(\srz_i))(\sry_i - \mu_{n,y}(\srz_i))
