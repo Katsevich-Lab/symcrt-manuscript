@@ -200,8 +200,8 @@ for (q in 1:length(distribution_list)) {
         facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
         geom_point(size = 0.5) +
         geom_line() +
-        scale_linetype_manual(values = c("solid","dashed", "solid", "dotted", "dashed", "solid")) +
-        scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2"))+
+        scale_linetype_manual(values = c("solid","dashed","dotted", "solid", "dashed", "solid")) +
+        scale_color_manual(values = c(rep("red", 2), "grey", "#90ee90", "#90ee90", "#129cf2"))+
         geom_hline(yintercept = level, linetype = "dashed") +
         plotting_theme + 
         theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),
@@ -225,8 +225,8 @@ for (q in 1:length(distribution_list)) {
         facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
         geom_point(size = 0.5) +
         geom_line() +
-        scale_linetype_manual(values = c("solid","dashed", "solid", "dotted", "dashed", "solid")) +
-        scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2"))+
+        scale_linetype_manual(values = c("solid","dashed", "dotted", "solid", "dashed", "solid")) +
+        scale_color_manual(values = c(rep("red", 2), "grey", "#90ee90", "#90ee90", "#129cf2"))+
         geom_hline(yintercept = level, linetype = "dashed") +
         plotting_theme + 
         theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),
@@ -251,8 +251,8 @@ for (q in 1:length(distribution_list)) {
         facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
         geom_point(size = 0.5) +
         geom_line() +
-        scale_linetype_manual(values = c("solid","dashed", "solid", "dotted", "dashed", "solid")) +
-        scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2"))+
+        scale_linetype_manual(values = c("solid","dashed", "dotted", "solid", "dashed", "solid")) +
+        scale_color_manual(values = c(rep("red", 2), "grey", "#90ee90", "#90ee90", "#129cf2"))+
         geom_hline(yintercept = level, linetype = "dashed") +
         plotting_theme + 
         theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),
@@ -277,8 +277,8 @@ for (q in 1:length(distribution_list)) {
         facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
         geom_point(size = 0.5) +
         geom_line() +
-        scale_linetype_manual(values = c("solid","dashed", "solid", "dotted", "dashed", "solid")) +
-        scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2"))+
+        scale_linetype_manual(values = c("solid","dashed", "dotted", "solid", "dashed", "solid")) +
+        scale_color_manual(values = c(rep("red", 2), "grey", "#90ee90", "#90ee90", "#129cf2"))+
         geom_hline(yintercept = level, linetype = "dashed") +
         plotting_theme + 
         theme(strip.text.x = element_text(margin = margin(0.1,0,0.1,0, "cm")),

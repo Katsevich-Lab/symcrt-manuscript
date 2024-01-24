@@ -98,10 +98,10 @@ if(file.exists(figure_path)){
   # rename grid_row_id as grid_id
   if ("grid_row_id" %in% names(results)) {
     results <- results |>
-      rename(grid_id = grid_row_id) |>
+      dplyr::rename(grid_id = grid_row_id) |>
       # NOTE: grid_id is a factor of integers, but potentially in the wrong order.
       # To get the right order, convert to character before converting to integer.
-      mutate(grid_id = as.integer(as.character(grid_id)))
+      dplyr::mutate(grid_id = as.integer(as.character(grid_id)))
   }
   
   
@@ -216,8 +216,8 @@ if(file.exists(figure_path)){
     facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
     geom_point(size = 0.5) +
     geom_line() +
-    scale_linetype_manual(values = c("solid", "dashed", "solid", "dotted", "dashed", "solid")) +
-    scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2")) +
+    scale_linetype_manual(values = c("solid", "dashed", "dotted", "solid", "dashed", "solid")) +
+    scale_color_manual(values = c(rep("red", 2), "grey", "#90ee90", "#90ee90", "#129cf2")) +
     geom_hline(yintercept = level, linetype = "dashed") +
     theme_bw() +
     theme(
@@ -245,8 +245,8 @@ if(file.exists(figure_path)){
     facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
     geom_point(size = 0.5) +
     geom_line() +
-    scale_linetype_manual(values = c("solid", "dashed", "solid", "dotted", "dashed", "solid")) +
-    scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2")) +
+    scale_linetype_manual(values = c("solid", "dashed", "dotted", "solid", "dashed", "solid")) +
+    scale_color_manual(values = c(rep("red", 2), "grey", "#90ee90", "#90ee90", "#129cf2")) +
     geom_hline(yintercept = level, linetype = "dashed") +
     theme_bw() +
     theme(
@@ -275,8 +275,8 @@ if(file.exists(figure_path)){
     facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
     geom_point(size = 0.5) +
     geom_line() +
-    scale_linetype_manual(values = c("solid", "dashed", "solid", "dotted", "dashed", "solid")) +
-    scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2")) +
+    scale_linetype_manual(values = c("solid", "dashed", "dotted", "solid", "dashed", "solid")) +
+    scale_color_manual(values = c(rep("red", 2), "grey", "#90ee90", "#90ee90", "#129cf2")) +
     geom_hline(yintercept = level, linetype = "dashed") +
     theme_bw() +
     theme(
@@ -305,8 +305,8 @@ if(file.exists(figure_path)){
     facet_wrap(variable_setting ~ ., scales = "free_y", ncol = 1) +
     geom_point(size = 0.5) +
     geom_line() +
-    scale_linetype_manual(values = c("solid", "dashed", "solid", "dotted", "dashed", "solid")) +
-    scale_color_manual(values = c(rep("red", 2), "#90ee90", "grey", "#90ee90", "#129cf2")) +
+    scale_linetype_manual(values = c("solid", "dashed","dotted", "solid", "dashed", "solid")) +
+    scale_color_manual(values = c(rep("red", 2), "grey", "#90ee90", "#90ee90", "#129cf2")) +
     geom_hline(yintercept = level, linetype = "dashed") +
     theme_bw() +
     theme(
