@@ -2395,74 +2395,61 @@ Finally, we state a conditional version of the truncated weak law of large numbe
     Figure \ref{fig:dCRT_GCM_binomial_poisson} shows the results of the simulation. The top-left panel compares the $p$-values from the two methods across 1000 realizations of the data, showing that the $\ndCRThat$ produces well-calibrated $p$-values while the GCM test produces inflated $p$-values. Thresholding these $p$-values as nominal level $\alpha = 0.05$, we find that the $\ndCRThat$ method controls the Type-I error at the nominal level, while the GCM test does not (top-right panel). The reason for the miscalibration of the GCM test in this setting is that the null distribution of the test statistic has not yet converged to normality (bottom-left panel). By contrast, the resampling distribution of the GCM statistic (employed by the $\ndCRThat$ to obtain the critical value) aligns well with its null distribution (bottom-right panel), explaining the improved calibration of the $\ndCRThat$ method. Finally, the bottom-right panel shows the empirical CDF of the test statistics, which illustrates the difference in the null distributions of the two methods.
 
 	\clearpage
-	
 	\new{\section{Effect evaluation of asymmetry nature in $\dCRThat$}}
-	It is intuitively true that with similar sample sizes, estimating a Gaussian linear model is easier than a Poisson linear model. 
-	With such intuition, we would expect that different resampling strategies will result in different Type-I error control when one 
-	considers Gaussian-Poisson model, i.e. $\bm Y|\bm Z$ is a Poisson model and $\bm X|\bm Z$ is a Gaussian model. This is because 
-	with fewer sample size it is more difficult to estimate the Poisson model due to the exponential link function. In this section, 
-	we provide a set of simulation study to verify such intuition. We consider the following model:
+	It is intuitively true that when estimating a Poisson model with larger magnitude of coefficient is harder than estimating the Poisson model with smaller magnitude of coefficient. This is because with usual GLM fit, estimate of the coefficients can induce higher variance when the estimand is large itself. With intuition, we would expect that different resampling strategies will result in different Type-I error control when two models have different magnitude of coefficients. The large variance of estimate on the coefficients can be further amplified through the exponential link function. In this section, we provide a set of simulation study to verify such intuition. We consider the following null model:
 	\begin{align*}
-		\bm X|\bm Z\sim N(\bm Z^\top\gamma,1),\ \bm Y|\bm Z\sim \textnormal{Poisson}(\exp(-4+\bm Z^\top\beta)),\ \bm Z\sim N(\bm 0,\bm I_p).
+		\bm X|\bm Z\sim \textnormal{Poisson}(\exp(-1+\bm Z^\top \gamma)),\ \bm Y|\bm Z\sim \textnormal{Poisson}(\exp(-1+\bm Z^\top\beta)),\ \bm Z\sim N(\bm 0,\bm I_p).
 	\end{align*}
-	Consider the simulation setting when $n=200$ and $p=10,12,\ldots,18$. The fitting methods applied are GLM for both $\bm X|\bm Z$ and 
-	$\bm Y|\bm Z$. Also the unnormalized statistic, $T_n^{\dCRThat}$,  and normalized statistic $T_n^{\ndCRThat}$ are both considered. The 
-	simulation is independently repeated $5000$ times. The Type-I error results are presented in Figure \ref{fig:dCRT_GCM_gaussian_poisson_type_I_err}. 
-	The most phenomenonal observations are as follows:
-	\begin{enumerate}
-		\item[(a)] P-values obtaining from resampling from Gaussian model, together with p-value based on $\GCM$, are mcuh more aligned with the significance level;
-		\item[(b)] When using normalized statistics, significantly more type-I error appears when resamples are drawn from Poisson model;
-		\item[(c)] When using unnormalized statistics, resampling from Poisson model will result in very conservative p-values.
-	\end{enumerate}
+	where 
+	\begin{align*}
+		\beta=6\times\gamma,\ \gamma=0.1\times (1,1,\ldots,1)^\top.
+	\end{align*}
+	Note that the model for $\bm Y|\bm Z$ has a larger magnitude of coefficient than the model for $\bm X|\bm Z$. Consider the simulation setting when $n=200$ and $p=10,12,\ldots,18$. The fitting methods applied are GLM for both $\bm X|\bm Z$ and $\bm Y|\bm Z$. The unnormalized statistic, $T_n^{\dCRThat}$ is considered. The simulation is independently repeated $5000$ times. The Type-I error results are presented in Figure \ref{fig:dCRT_GCM_double_poisson_type_I_err}. The most phenomenonal observation is when resampling from $\lawhat_n(\pry|\prz)$, the p-values are very conservative (blue curve) but the red curve shows that Type-I error is aligned with the significance level when resampling from $\lawhat_n(\prx|\prz)$ model.
+	% \begin{enumerate}
+	% 	\item[(a)] When using unnormalized test statistics $\dCRThat$ and resampling from $\lawhat_n(\pry|\prz)$, the p-values are very conservative (yellow curve) but the red curve shows that Type-I error is not affected much when switching to normalied test statistics if resampling from $\lawhat_n(\prx|\prz)$ model is considered;
+	% 	\item[(b)] Although type-I errors of the tests using $\ndCRThat$ are inflated regardless of which model is used for resampling (blue and green curves), the inflation is more severe when resampling from $\lawhat_n(\pry|\prz)$ model;
+	% \end{enumerate}
+	% \begin{enumerate}
+	% 	\item[(a)] P-values obtaining from resampling from $\lawhat_n(\prx|\prz)$ model, together with p-value based on $\GCM$, are more aligned with the significance level, though suffering from slight Type-I error inflation when using resampled normalized statistics $\ndCRThat$ and $\GCM$;
+	% 	\item[(b)] When using normalized statistics, significantly more type-I error appears when resamples are drawn from the learned $\lawhat_n(\pry|\prz)$ model;
+	% 	\item[(c)] When using unnormalized statistics, resampling from the learned $\lawhat_n(\pry|\prz)$ model will result in very conservative p-values.
+	% \end{enumerate}
 
-	It turns out that the performance of unnormalized test statistics observed in (a) and (c) can be explained by the second plot in Figure \ref{fig:dCRT_GCM_gaussian_poisson_histogram}. 
-	Notice the unnormalized resampling test statistics are well aligned with sampling test statistics when resmapling from $\lawhat_n(\prx|\prz)$. However, 
-	there is an extremely high variation in the resampled test statistics when resampling from $\lawhat_n(\pry|\prz)$. This makes the corresponding p-values very 
-	conservative given the comparison between test statistics and resmapling test statistics. 
+	It turns out that the performance of unnormalized test statistics can be explained by Figure \ref{fig:dCRT_GCM_double_poisson_histogram}. Notice the unnormalized resampling test statistics are more aligned with sampling test statistics when resmapling from $\lawhat_n(\prx|\prz)$. \textbf{However, there is much higher variation in the resampled test statistics when resampling from $\lawhat_n(\pry|\prz)$. This makes the corresponding p-values very conservative given the comparison between test statistics and resmapling test statistics. The high variation is due to the larger magnitude of coefficient in $\law_n(\pry|\prz)$ model, which induces a higher variance in the estimation of the coefficient. Further, the exponential link function amplifies the variance of the estimate which makes the estimate for the conditional mean $\mu_{n,y}(\cdot)$ extremely unstable.} On the other hand, the coefficient magnitude in $\law_n(\prx|\prz)$ is much smaller than that in $\law_n(\pry|\prz)$.
 	
-	As for normalized statistics, the resampling variance can make huge impact on the Type-I error control. Specifically, the third plot compares the empirical variance for $\dCRThat$ statistic when resampling from $\lawhat_n(\prx|\prz),\lawhat_n(\pry|\prz)$, which are defined respectively as,
-	\begin{align*}
-		\frac{1}{n-1}\sum_{i=1}^n \left((\widetilde X_i-\hat\mu_{n,x}(Z_i))(Y_i-\hat\mu_{n,y}(Z_i))-\frac{1}{n}\sum_{i=1}^n(\widetilde X_i-\hat\mu_{n,x}(Z_i))(Y_i-\hat\mu_{n,y}(Z_i)) \right)^2
-	\end{align*}
-	and 
-	\begin{align*}
-		\frac{1}{n-1}\sum_{i=1}^n \left((X_i-\hat\mu_{n,x}(Z_i))(\widetilde Y_i-\hat\mu_{n,y}(Z_i))-\frac{1}{n}\sum_{i=1}^n(X_i-\hat\mu_{n,x}(Z_i))(\widetilde Y_i-\hat\mu_{n,y}(Z_i)) \right)^2.
-	\end{align*}
-	Similarly, we compute the empirical variance for the unnormalized test statistic (so-called sampling empirical variance in the third plot in Figure \ref{fig:dCRT_GCM_gaussian_poisson_histogram})
-	\begin{align*}
-		\frac{1}{n-1}\sum_{i=1}^n \left((X_i-\hat\mu_{n,x}(Z_i))(Y_i-\hat\mu_{n,y}(Z_i))-\frac{1}{n}\sum_{i=1}^n (X_i-\hat\mu_{n,x}(Z_i))(Y_i-\hat\mu_{n,y}(Z_i))\right)^2,
-	\end{align*}
-	which serves as the normalization in normalized statistic (up to factor $(n-1)/n$). Clearly, the resampling variance when resampling from $Y|Z$ is drastically large than resampling variance when resampling 
-	from $X|Z$. Even though the resampling distribution for unnormalized test statistics in second plot in Figure \ref{fig:dCRT_GCM_gaussian_poisson_histogram} also displays very large variation, this variation 
-	has been compensated by the normalization. This causes the observation (b) the absurd multi-modality phenomenon in the frist plot of Figure \ref{fig:dCRT_GCM_gaussian_poisson_histogram}. Moreover, the first plot 
-	shows that the range in both histograms of the resampled test statistics from $\lawhat_n(\pry|\prz)$ and $\lawhat_n(\prx|\prz)$ are narrower than the normalied test statistic while the former is more severe. This 
-	explains the wild Type-I error behvaior of $\ndCRThat$ when resampling from $\lawhat_n(\pry|\prz)$ (see blue and yellow lines in Figure \ref{fig:dCRT_GCM_gaussian_poisson_type_I_err}). 
-
-	\begin{figure*}
+	% As for normalized statistics, the resampling variance can make huge impact on the Type-I error control. Specifically, the third plot in Figure \ref{fig:dCRT_GCM_double_poisson_histogram} compares the empirical variance for $\dCRThat$ statistic when resampling from $\lawhat_n(\prx|\prz),\lawhat_n(\pry|\prz)$, which are defined respectively as,
+	% \begin{align*}
+	% 	\frac{1}{n-1}\sum_{i=1}^n \left((\widetilde X_i-\hat\mu_{n,x}(Z_i))(Y_i-\hat\mu_{n,y}(Z_i))-\frac{1}{n}\sum_{i=1}^n(\widetilde X_i-\hat\mu_{n,x}(Z_i))(Y_i-\hat\mu_{n,y}(Z_i)) \right)^2
+	% \end{align*}
+	% and 
+	% \begin{align*}
+	% 	\frac{1}{n-1}\sum_{i=1}^n \left((X_i-\hat\mu_{n,x}(Z_i))(\widetilde Y_i-\hat\mu_{n,y}(Z_i))-\frac{1}{n}\sum_{i=1}^n(X_i-\hat\mu_{n,x}(Z_i))(\widetilde Y_i-\hat\mu_{n,y}(Z_i)) \right)^2.
+	% \end{align*}
+	% Similarly, we compute the empirical variance for the unnormalized test statistic (so-called sampling empirical variance in the third plot in Figure \ref{fig:dCRT_GCM_double_poisson_histogram})
+	% \begin{align*}
+	% 	\frac{1}{n-1}\sum_{i=1}^n \left((X_i-\hat\mu_{n,x}(Z_i))(Y_i-\hat\mu_{n,y}(Z_i))-\frac{1}{n}\sum_{i=1}^n (X_i-\hat\mu_{n,x}(Z_i))(Y_i-\hat\mu_{n,y}(Z_i))\right)^2,
+	% \end{align*}
+	% which serves as the normalization in normalized statistic (up to factor $(n-1)/n$). Clearly, the resampling variance when resampling from $\lawhat_n(\pry|\prz)$ is drastically large than resampling variance when resampling from $\lawhat_n(\prx|\prz)$. Even though the resampling distribution for unnormalized test statistics in second plot in Figure \ref{fig:dCRT_GCM_double_poisson_histogram} also displays very large variation, this variation has been compensated by the normalization. Moreover, the large variations in both plots are due to absurdly large resample and thus this causes the observation (b) as well as the multi-modality phenomenon in the frist plot of Figure \ref{fig:dCRT_GCM_double_poisson_histogram}, where modalities are concentrated around $-1$ and $1$. Moreover, the first plot shows that the range in both histograms of the resampled test statistics from $\lawhat_n(\pry|\prz)$ and $\lawhat_n(\prx|\prz)$ are narrower than the normalied test statistic while the former is a bit more severe. This explains the wild Type-I error behvaior of $\ndCRThat$ when resampling from $\lawhat_n(\pry|\prz)$.
+	\begin{figure*}[ht]
 		\centering
-		\includegraphics[width=\linewidth]{Figures/varying-dimension-gaussian-poisson-200-10-18.pdf}
+		\includegraphics[width=\linewidth]{Figures/varying-dimension-gaussian-poisson-200-10-18-double-poisson.pdf}
 		\caption{Type-I error comparison when $\bm Y|\bm Z$ is a $\mathrm{Poisson}$ model.}
-		\label{fig:dCRT_GCM_gaussian_poisson_type_I_err} 
+		\label{fig:dCRT_GCM_double_poisson_type_I_err} 
 	\end{figure*}
 
-	\begin{figure*}
-		\begin{subfigure}[b]{0.95\textwidth}
-			\centering
-			\includegraphics[width=\linewidth]{Figures/histograms_normalized.pdf} \\
-		\end{subfigure}
-		\begin{subfigure}[b]{0.95\textwidth}
-			\centering
-			\includegraphics[width=\linewidth]{Figures/histograms_unnormalized.pdf} \\ 
-		\end{subfigure}
-		\begin{subfigure}[b]{0.95\textwidth}
-			\centering
-			\includegraphics[width=\linewidth]{Figures/histograms_var.pdf} \\
-		\end{subfigure}
+	\begin{figure*}[ht]
+		% \begin{subfigure}[b]{0.95\textwidth}
+		% 	\centering
+		% 	\includegraphics[width=\linewidth]{Figures/histograms_normalized.pdf} \\
+		% \end{subfigure}
+		\centering
+			\includegraphics[width=\linewidth]{Figures/histograms_unnormalized.pdf}
+		% \begin{subfigure}[b]{0.95\textwidth}
+		% 	\centering
+		% 	\includegraphics[width=\linewidth]{Figures/histograms_var.pdf} \\
+		% \end{subfigure}
 		\caption{Histograms for resampled test statistics, sampling test statistics and empirical variances.}
-		\label{fig:dCRT_GCM_gaussian_poisson_histogram} 
+		\label{fig:dCRT_GCM_double_poisson_histogram} 
 	\end{figure*}
-	We believe that the Type-I error inflation/deflation when resampling from $\lawhat_n(\pry|\prz)$ is due to the amplifying effect of the exponential funciton 
-	in the conditional mean $\mu_{y}(\cdot)$. In particular, the exponential function will produce extremely large resamples when the conditional 
-	mean happens to be large at some given covariate value. The large variation will make the unnormalized test very conservative and the normalized statistic 
-	anti-consevative. Therefore, the asymmetry nature in $\dCRThat$ can be a double-edged sword depending on the underlying data generating mechanism.
+	We have shown a scenario where resampling from $\lawhat_n(\pry|\prz)$ and $\lawhat_n(\prx|\prz)$ can result in different the Type-I error behavior. In particular, such difference is due to the different level of variation in the estimate of conditional means in the above example. In summary, the asymmetry nature in $\dCRThat$ procedure can be a double-edged sword depending on the underlying data generating mechanism. 
 \end{document}
