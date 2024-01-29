@@ -37,6 +37,13 @@ export R_LIBS_USER=$OLD_R_LIBS_USER
 ### REPRODUCE THE CONFOUNDING SIMULATION ###
 Rscript simulation-code/assess-confounding-level.R
 
+### REPRODUCE THE GCM VS DCRT SIMULATION ###
+Rscript simulation-code/GCM_vs_dCRT.R
+
+### REPRODUCE THE ASYMMETRIC POISSON SIMULATION ###
+Rscript simulation-code/Poisson_asymmetry.R
+Rscript simulation-code/dCRT_unnormalized_asymmetry.R
+
 #############################################################
 # PRODUCE THE PLOTS
 #############################################################
@@ -57,3 +64,12 @@ Rscript plotting-code/figure_5_MSE.R
 # Create Figures 6-13
 Rscript plotting-code/figures_6_8_10_12_full_type_I_error.R
 Rscript plotting-code/figures_7_9_11_13_power.R
+
+# Create Figure 14
+Rscript plotting-code/figure_14_GCM_vs_dCRT.R
+
+# Create Figure 15
+Rscript plotting-code/figure_15_double_poisson_type_I_error.R
+
+# Create Figure 16
+Rscript plotting-code/figure_16_histogram_asymmetry_investigation.R
