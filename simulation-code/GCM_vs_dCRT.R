@@ -75,7 +75,7 @@ if (!dir.exists(result_dir)) {
   dir.create(result_dir)
   cat("Directory created:", result_dir, "\n")
 } else {
-  cat("Directory already exists:", directory_path, "\n")
+  cat("Directory already exists:", result_dir, "\n")
 }
 
 # save the p-values

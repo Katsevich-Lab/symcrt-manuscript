@@ -82,8 +82,8 @@ if (!dir.exists(result_dir)) {
   dir.create(result_dir)
   cat("Directory created:", result_dir, "\n")
 } else {
-  cat("Directory already exists:", directory_path, "\n")
+  cat("Directory already exists:", result_dir, "\n")
 }
 
 saveRDS(result_teststat, 
-        sprintf("%s/result_teststat.rds"))
+        sprintf("%s/result_teststat.rds", result_dir))

@@ -1,5 +1,6 @@
-library(ggplot)
+library(ggplot2)
 library(dplyr)
+library(tidyr)
 
 # check if the filepath is there or not
 figure_path <- "figures/histogram_asymmetry_investigation.pdf"
@@ -8,7 +9,22 @@ if(file.exists(figure_path)){
   cat("Figure 16 already exists!\n")
 } else{
   # load the result
-  result_teststat <- readRDS("simulation-results/asymmetry_investigation/result_teststat")
+  result_teststat <- readRDS("simulation-results/asymmetry_investigation/result_teststat.rds")
+  
+  # plot the density of sample sd versus resample sd
+  my_theme <-   theme_bw() + 
+    theme(
+      legend.position = "bottom",
+      axis.line = element_line(color = "black"),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.border = element_blank(),
+      panel.background = element_rect(
+        color = "black"
+      ),
+      plot.title = element_blank(),
+      legend.title = element_blank()
+    )
   
   # histogram for resampling test stat versus sampling test stat
   histograms_unnormalized <- tibble(result_teststat) |>

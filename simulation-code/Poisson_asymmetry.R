@@ -11,8 +11,6 @@ parameter_grid <- data.frame(
   n = 200                       # sample size
 )
 
-parameter_grid
-
 get_ground_truth <- function(d){
   gamma <- rep(0.1, d)
   beta <- rep(0.2, d)*3
@@ -21,9 +19,6 @@ get_ground_truth <- function(d){
 }
 
 parameter_grid <- parameter_grid |> add_ground_truth(get_ground_truth)
-
-parameter_grid
-
 
 fixed_parameters <- list(
   B = 1e4,                      # number of data realizations
@@ -121,7 +116,7 @@ simulatr_spec <- simulatr_specifier(
 )
 
 
-check_results <- check_simulatr_specifier_object(simulatr_spec, B_in = 5e3)
+check_results <- simulatr::check_simulatr_specifier_object(simulatr_spec, B_in = 5e3)
 
 # create the result directory and save the results as RDS file
 result_dir <- "simulation-results/asymmetry_investigation"
@@ -129,7 +124,7 @@ if (!dir.exists(result_dir)) {
   dir.create(result_dir)
   cat("Directory created:", result_dir, "\n")
 } else {
-  cat("Directory already exists:", directory_path, "\n")
+  cat("Directory already exists:", result_dir, "\n")
 }
 saveRDS(check_results, sprintf("%s/check_results_double_poisson.rds", 
                                result_dir))

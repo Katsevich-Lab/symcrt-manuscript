@@ -1,4 +1,4 @@
-library(ggplot)
+library(ggplot2)
 library(dplyr)
 
 # check if the filepath is there or not
@@ -9,7 +9,7 @@ if(file.exists(figure_path)){
   cat("Figure 15 already exists!\n")
 } else{
   # plot type-I error
-  check_results <- readRDS("simulation-results/check_results_double_poisson.rds")
+  check_results <- readRDS("simulation-results/asymmetry_investigation/check_results_double_poisson.rds")
   type_I_err <- check_results$metrics |>
     mutate(method = factor(method, 
                            levels = c("dCRT_X", "dCRT_Y", "dCRT_X_normalize", "dCRT_Y_normalize", "gcm_test"),

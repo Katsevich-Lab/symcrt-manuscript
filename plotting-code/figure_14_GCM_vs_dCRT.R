@@ -72,6 +72,7 @@ if(all(files_exist)){
   
   
   # Type-I-error comparison across different methods with sig. level = 5e-2
+  reps_calibration <- nrow(pvals)
   Type_I_error <- data.frame(mean = rep(0, 2),
                              se = rep(0, 2),
                              method = c("GCM", "dCRT"))
