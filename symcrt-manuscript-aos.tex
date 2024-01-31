@@ -230,7 +230,7 @@ We split related works into three categories: those investigating the robustness
 
 \paragraph*{Robustness of original MX methods}
 
-One line of work investigates the Type-I error of knockoffs \citep{Barber2018} and the CRT \citep{Berrett2019} when $\law_n(\prx \mid \prz)$ is misspecified, in the worst-case over all possible test statistics and all possible distributions $\law_n(\pry \mid \prz)$. In the context of the CRT, \citet{Berrett2019} proved that the excess Type-I error is upper-bounded by the total variation error in approximating $\prod_{i = 1}^n \law_n(\srx_i \mid \srz_i)$, alongside a matching lower bound. A similar style of result holds for knockoffs \citep{Barber2018}. These works do not allow for $\law_n(\prx \mid \prz)$ to be fit in sample, however. Even if they applied in this case, one could at most hope for the aforementioned TV distance to be $O(1)$. For these worst-case bounds to guarantee asymptotic Type-I error control, one would need to learn the conditional distribution $\law_n(\prx \mid \prz)$ on an additional unlabeled sample of size $N \gg n$. For specific test statistics, however, MX methods may be more robust. For example, \citet{Katsevich2020a} proved that the distilled CRT (an instance of the CRT with a product-of-residuals test statistic) has asymptotic Type-I error control when only the first two moments of $\law_n(\prx \mid \prz)$ are correct but higher-order moments may be misspecified. Even this weaker assumption cannot be expected to hold when $\law_n(\prx \mid \prz)$ is fit in sample, however. \new{Another line of work \citep{Fan2018a,Fan2020,Fan2023} probes the robustness of MX knockoffs with imperfect covariate distribution for a variety of specific test statistics and covariate distributions, with \citet{Fan2018a, Fan2023} allowing for the covariate distribution to be learned in sample while guaranteeing asymptotic FDR control. The robustness aspects of the present work can be viewed as complementing the latter two existing works; we focus on the CRT rather than on knockoffs.}
+One line of work investigates the Type-I error of knockoffs \citep{Barber2018} and the CRT \citep{Berrett2019} when $\law_n(\prx \mid \prz)$ is misspecified, in the worst case over all possible test statistics and all possible distributions $\law_n(\pry \mid \prz)$. In the context of the CRT, \citet{Berrett2019} proved that the excess Type-I error is upper-bounded by the total variation error in approximating $\prod_{i = 1}^n \law_n(\srx_i \mid \srz_i)$, alongside a matching lower bound. A similar style of result holds for knockoffs \citep{Barber2018}. These works do not allow for $\law_n(\prx \mid \prz)$ to be fit in sample, however. Even if they applied in this case, one could at most hope for the aforementioned TV distance to be $O(1)$. For these worst-case bounds to guarantee asymptotic Type-I error control, one would need to learn the conditional distribution $\law_n(\prx \mid \prz)$ on an additional unlabeled sample of size $N \gg n$. For specific test statistics, however, MX methods may be more robust. For example, \citet{Katsevich2020a} proved that the distilled CRT (an instance of the CRT with a product-of-residuals test statistic) has asymptotic Type-I error control when only the first two moments of $\law_n(\prx \mid \prz)$ are correct but higher-order moments may be misspecified. Even this weaker assumption cannot be expected to hold when $\law_n(\prx \mid \prz)$ is fit in sample, however. \new{Another line of work \citep{Fan2018a,Fan2020,Fan2023} probes the robustness of MX knockoffs with imperfect covariate distribution for a variety of specific test statistics and covariate distributions, with \citet{Fan2018a, Fan2023} allowing for the covariate distribution to be learned in sample while guaranteeing asymptotic FDR control. The robustness aspects of the present work can be viewed as complementing the latter two existing works; we focus on the CRT rather than on knockoffs.}
 
 \paragraph*{New variants of MX methods designed for robustness}
 
@@ -879,7 +879,7 @@ Our results about the equivalence between the GCM test and the dCRT, and the dou
     %% funding section.                         %%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{funding}
-        ZN was partially supported by the grant ``Statistical Software for Single Cell CRISPR Screens'' awarded to EK by Analytics at Wharton. OD was partially supported by FWO grant 1222522N and NIH grant AG065276. EK was partially supported by NSF DMS-2113072.  
+        ZN was partially supported by the grant ``Statistical Software for Single Cell CRISPR Screens'' awarded to EK by Analytics at Wharton. OD was partially supported by FWO grant 1222522N and NIH grant AG065276. EK was partially supported by NSF DMS-2113072 and NSF DMS-2310654.  
     \end{funding}
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2399,7 +2399,7 @@ Finally, we state a conditional version of the truncated weak law of large numbe
 
 	As pointed out by a referee, the $\dCRThat$ is asymmetric in $\srx$ and $\sry$ while the conditional independence null hypothesis is symmetric in $\prx$ and $\pry$. One may obtain two different variants of the $\dCRThat$ by swapping the roles of $\srx$ and $\sry$. In this section, we investigate the impact of this asymmetry on the performance of the $\dCRThat$ test. 
 	
-	Intuition suggests that the $\dCRThat$ will have better performance if resampling is done based on the conditional distribution $\law_n(\prx \mid \prz)$ or $\law_n(\pry \mid \prz)$ that is estimated more accurately. To verify this intuition, we consider a simulation setting where the error in estimating $\law_n(\prx \mid \prz)$ is less than that in estimating $\law_n(\pry \mid \prz)$. In particular, we a null setting where $\law_n(\prx \mid \prz)$ and $\law_n(\pry \mid \prz)$ careonsider Poisson regression models, where the coefficients in $\law_n(\prx \mid \prz)$ are smaller than those in $\law_n(\pry \mid \prz)$:
+	Intuition suggests that the $\dCRThat$ will have better performance if resampling is done based on the conditional distribution $\law_n(\prx \mid \prz)$ or $\law_n(\pry \mid \prz)$ that is estimated more accurately. To verify this intuition, we consider a simulation setting where the error in estimating $\law_n(\prx \mid \prz)$ is less than that in estimating $\law_n(\pry \mid \prz)$. In particular, we a null setting where $\law_n(\prx \mid \prz)$ and $\law_n(\pry \mid \prz)$ are Poisson regression models, where the coefficients in $\law_n(\prx \mid \prz)$ are smaller than those in $\law_n(\pry \mid \prz)$:
 	\begin{align*}
 		\bm X|\bm Z\sim \textnormal{Poisson}(\exp(-1+\bm Z^\top \beta)),\ \bm Y|\bm Z\sim \textnormal{Poisson}(\exp(-1+\bm Z^\top\gamma)),\ \bm Z\sim N(\bm 0,\bm I_p),
 	\end{align*}
@@ -2411,12 +2411,12 @@ Finally, we state a conditional version of the truncated weak law of large numbe
 
 	Given this data-generating distribution, we apply the $\dCRThat$ using maximum likelihood estimation for $\law_n(\prx \mid \prz)$ and $\law_n(\pry \mid \prz)$, considering resampling based on $\lawhat_n(\prx \mid \prz)$ or $\lawhat_n(\pry \mid \prz)$. We estimate the Type-I errors of each method based on $5000$ simulation replicates (Figure \ref{fig:dCRT_GCM_double_poisson_type_I_err}). We see that resampling from $\lawhat_n(\pry|\prz)$ leads to a very conservative test (blue curve), while resampling from $\lawhat_n(\prx|\prz)$ gives a test controlling Type-I error at roughly the nominal level (red curve). This is consistent with our intuition that the $\dCRThat$ will have better performance if resampling is done based on the conditional distribution $\law_n(\prx \mid \prz)$ or $\law_n(\pry \mid \prz)$ that is estimated more accurately. 
 
-	To further build intuition, we compare the resampling distributions for the $\dCRThat$ based on sampling from $\lawhat_n(\prx|\prz)$ and $\lawhat_n(\pry|\prz)$ to the sampling distribution of the $\dCRThat$ test statistic (Figure \ref{fig:dCRT_GCM_double_poisson_histogram}). We find that the resampling distribution of the test statistic is more aligned with the sampling distribution when resampling from $\lawhat_n(\prx|\prz)$. On the other hand, the resampling distribution based on $\lawhat_n(\pry|\prz)$ leads has much greater variation than the sampling distribution, explaining the conservativeness of the corresponding test. 
+	To further build intuition, we compare the resampling distributions for the $\dCRThat$ based on resampling from $\lawhat_n(\prx|\prz)$ and $\lawhat_n(\pry|\prz)$ to the sampling distribution of the $\dCRThat$ test statistic (Figure \ref{fig:dCRT_GCM_double_poisson_histogram}). We find that the resampling distribution of the test statistic is more aligned with the sampling distribution when resampling from $\lawhat_n(\prx|\prz)$. On the other hand, the resampling distribution based on $\lawhat_n(\pry|\prz)$ has much greater variation than the sampling distribution, explaining the conservativeness of the corresponding test. 
 	
 	\begin{figure*}[ht]
 		\centering
 		\includegraphics[width=\linewidth]{Figures/asymmetry_Poisson_type_I_error.pdf}
-		\caption{Type-I error comparison when $\bm Y|\bm Z$ is a $\mathrm{Poisson}$ model.}
+		\caption{Comparing the Type-I errors of the $\dCRThat$ when resampling is done based on $\lawhat_n(\prx|\prz)$ or $\lawhat_n(\pry|\prz)$.}
 		\label{fig:dCRT_GCM_double_poisson_type_I_err} 
 	\end{figure*}
 
@@ -2431,7 +2431,7 @@ Finally, we state a conditional version of the truncated weak law of large numbe
 		% 	\centering
 		% 	\includegraphics[width=\linewidth]{Figures/histograms_var.pdf} \\
 		% \end{subfigure}
-		\caption{Histograms for resampled test statistics, sampling test statistics and empirical variances.}
+		\caption{Histograms of the resampling distributions based on resampling from $\lawhat_n(\prx|\prz)$ and $\lawhat_n(\pry|\prz)$, as well as the sampling distribution of the same statistics, in the simulation underlying Figure~\ref{fig:dCRT_GCM_double_poisson_type_I_err}.}
 		\label{fig:dCRT_GCM_double_poisson_histogram} 
 	\end{figure*}
 
