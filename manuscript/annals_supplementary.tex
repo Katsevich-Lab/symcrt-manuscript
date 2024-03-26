@@ -1061,13 +1061,13 @@ Since we are using the normal exponential family, we have $\ddot \psi = 1$. Furt
 \begin{equation}
 \E_{\law_{x,z}}[\prx^2] = \E_{\law_{x,z}}[\E_{\law_{x,z}}[\prx^2|\prz]] = \E_{\law_{x,z}}[\mu_{0x}(\prz)^2 + 1] < \infty,
 \end{equation}
-since $\mu_{0x} \in W^{(1,2)}([0,1]) \subseteq L^2([0,1])$.
+since $\mu_{0x} \in W^{1,2}([0,1]) \subseteq L^2([0,1])$.
 
 \paragraph*{Verification of assumption~\eqref{eq:conditional-expectation}}
 
 By construction, $\E_{\law_{x,z}}[\prx |\ \cdot\ ] = \mu_{0x} \in W^{1,2}([0,1])$.
 
-\paragraph*{Verification of assumption~\eqref{eq:interior-point}} This assumption is a consequence of the openness of the ball $B_{W^{1,2}}(0, C)$ in $W^2([0,1])$.
+\paragraph*{Verification of assumption~\eqref{eq:interior-point}} This assumption is a consequence of the openness of the ball $B_{W^{1,2}}(0, C)$ in $W^{1,2}([0,1])$.
 
 \subsection{Proof of Lemma~\ref{lem:semiparametric-results}} \label{sec:proof-of-lemma-9}
 
@@ -1138,7 +1138,7 @@ For $(h_\beta, h_g) \in \R \times \H_g$, define the score operator
 	\begin{split}
 	A(h) &\equiv \big(\prx h_\beta+h_g(\prz)\big)(\pry-\E_{\law_{\theta_0}}[\pry \mid \prz]) \\
 	&=  \prx (\pry-\E_{\law_{\theta_0}}[\pry \mid \prz]) h_\beta + (\pry-\E_{\law_{\theta_0}}[\pry \mid \prz])h_g(\prz) \\
-	&\equiv A_{\beta} (h_\beta) + A_{g} (h_g).
+	&\equiv A_{\beta} h_\beta + A_{g} (h_g).
 	\end{split}
 \end{equation}
 The tangent space $\dot \law_{\theta_0}$~\eqref{eq:GCM-tangent-space} can then be expressed as the range of $A$: 
