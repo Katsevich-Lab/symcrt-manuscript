@@ -267,7 +267,7 @@ and $T_n^{\dCRT}(\srxk, \srx, \sry, \srz)$ is as defined in equation~\eqref{eq:r
 
 \begin{corollary}
 \label{cor:double-robustness-ndcrt}
-Let $\regclass_n$ be a sequence of regularity conditions such that for any sequence $\law_n \in \regclass_n$, we have the the nondegeneracy conditions~\eqref{eq:var-bounded-below} and~\eqref{eq:variance-bounds}, the conditional Lyapunov condition~\eqref{eq:lyapunov-condition}, and the assumptions~\eqref{eq:sp1} and~\eqref{eq:sp2}. Then, the $\ndCRThat$ has asymptotic Type-I error control over $\nulllaws_n \cap \regclass_n$ in the sense of the definition~\eqref{eq:asymptotic-control}.
+Let $\regclass_n$ be a sequence of regularity conditions such that for any sequence $\law_n \in \regclass_n$, we have the conditions~\eqref{eq:var-bounded-below} and~\eqref{eq:variance-bounds}, the conditional Lyapunov condition~\eqref{eq:lyapunov-condition}, and the assumptions~\eqref{eq:sp1} and~\eqref{eq:sp2}. Then, the $\ndCRThat$ has asymptotic Type-I error control over $\nulllaws_n \cap \regclass_n$ in the sense of the definition~\eqref{eq:asymptotic-control}.
 \end{corollary}
 Comparing Corollary~\ref{cor:double-robustness-ndcrt} to Corollary~\ref{cor:dcrt-double-robustness}, we see that the $\ndCRThat$ controls Type-I error under weaker assumptions than required for the $\dCRThat$; in particular the variance of $\law_n(\prx|\prz)$ need not be estimated with any degree of accuracy.
 
@@ -350,7 +350,7 @@ As a corollary of Theorem~\ref{thm:wlln_cond}, if we choose $\mathcal{F}_n=\{\va
 	\begin{equation}
 		S_n^2 \equiv \sum_{i = 1}^n \V[W_{in} \mid \mathcal F_n],
 	\end{equation} 
-	and assume $0 < \mathrm{Var}[W_{in}|\mathcal{F}_n]<\infty $ almost surely for all $i=1,\ldots,n$ and for all $n\in\mathbb{N}$. If for some $\delta > 0$ we have
+	and assume $\mathrm{Var}[W_{in}|\mathcal{F}_n]<\infty $ almost surely for all $i=1,\ldots,n$ and for all $n\in\mathbb{N}$. If for some $\delta > 0$ we have
 	\begin{equation}
 		\frac{1}{S_n^{2+\delta}} \sum_{i = 1}^n \E[|W_{in}-\E[W_{in}|\mathcal{F}_n]|^{2+\delta} \mid \mathcal{F}_n] \convp 0,
 		\label{eq:conditional-lyapunov}
@@ -474,7 +474,7 @@ We proceed by applying the conditional CLT (Theorem~\ref{thm:conditional-clt}) w
 \begin{equation}
 W_{in} \equiv \frac{1}{\sqrt{n}}(\srxk_i - \widehat \mu_{n,x}(\srz_i))(\sry_i - \widehat \mu_{n,y}(\srz_i))
 \end{equation}
-and $\mathcal F_n \equiv \sigma(\srx, \sry, \srz)$. To verify the assumptions of the conditional CLT, note first that $W_{in}$ are independent conditionally on $\mathcal F_n$ by construction and satisfy $0 < \V[W_{in} \mid \mathcal F_n] < \infty$ by the nondegeneracy assumption~\eqref{eq:variance-bounds}. Next, recalling definition~\eqref{eq:conditional-variance-def}, we have
+and $\mathcal F_n \equiv \sigma(\srx, \sry, \srz)$. To verify the assumptions of the conditional CLT, note first that $W_{in}$ are independent conditionally on $\mathcal F_n$ by construction and satisfy $\V[W_{in} \mid \mathcal F_n] < \infty$ by the assumption~\eqref{eq:variance-bounds}. Next, recalling definition~\eqref{eq:conditional-variance-def}, we have
 \begin{equation*}
 S^2_n \equiv \sum_{i = 1}^n \V_{\lawhat_n}[W_{in}\mid \srx,\sry,\srz] \equiv (\widehat S_n^{\dCRThat})^2,
 \end{equation*}
@@ -501,7 +501,7 @@ Hence by Lemma \ref{lem:conditional-expectation-to-unconditional} we have $J_n^2
  \begin{equation}
  	W_{in} \equiv \frac{1}{\sqrt{n}}(\srxk_i - \widehat \mu_{n,x}(\srz_i))(\sry_i - \mu_{n,y}(\srz_i))
  \end{equation}
- and $\mathcal{F}_n \equiv \sigma(\srx,\sry,\srz)$. To verify the assumptions of the conditional CLT, note first that $W_{in}$ are independent conditionally on $\mathcal F_n$ by construction and satisfy $0 < \V[W_{in} \mid \mathcal F_n] < \infty$ by the nondegeneracy assumption~\eqref{eq:variance-bounds}. Next, observe that
+ and $\mathcal{F}_n \equiv \sigma(\srx,\sry,\srz)$. To verify the assumptions of the conditional CLT, note first that $W_{in}$ are independent conditionally on $\mathcal F_n$ by construction and satisfy $\V[W_{in} \mid \mathcal F_n] < \infty$ by the assumption~\eqref{eq:variance-bounds}. Next, observe that
  \begin{equation*}
 	S^2_n \equiv \sum_{i = 1}^n \V[W_{in}\mid \srx,\sry,\srz] =  \frac{1}{n}\sum_{i = 1}^n \V_{\lawhat_n}[\srx_i|\srz_i](\sry_i - \mu_{n,y}(\srz_i))^2 \equiv(S_n^{\dCRThat})^2,
  \end{equation*}
